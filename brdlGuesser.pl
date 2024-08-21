@@ -11,6 +11,7 @@ sub main() {
   my $pattern = '\w{4}';
   my $speciesFilename = 'ABA_Checklist-8.15.csv';  # The full data file.
   # my $speciesFilename = 'short.csv';  # A small data file for testing.
+  # my $speciesFilename = 'less-short.csv';  # A larger data file for testing.
   my $usage = <<END;
 usage: $0 [pattern]
 
@@ -40,9 +41,14 @@ END
     chomp();
 
     # Search for a match with our pattern.
-    if (m#,($pattern),\d+$#) {
+    if (m#^,(".+"+?|[^,]+?),.+,(\w{4}),\d+$#) {
+      my ($speciesName, $speciesCode) = ($1, $2);
+
+      # Strip out the quotes because we do not want those in our output.
+      $speciesName =~ tr/"//d;
+
       # Our pattern matched, so output the result.
-      printf("%4d. %s\n", ++$matchCount, $1);
+      printf("%4d. %s: %s\n", ++$matchCount, $speciesCode, $speciesName);
     }
   }
   if ($!) {
