@@ -1,0 +1,4 @@
+# We need this setting so that our CSV files do not get their line endinds changed. That causes our Perl pattern matching to fail.
+*.csv -text
+
+# End of file
