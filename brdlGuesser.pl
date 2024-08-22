@@ -41,7 +41,7 @@ END
     chomp();
 
     # Search for a match with our pattern.
-    if (m#^,(".+"+?|[^,]+?),.+,(\w{4}),\d+$#) {
+    if (m#^,(".+"+?|[^,]+?),.+,($pattern),\d+$#) {
       my ($speciesName, $speciesCode) = ($1, $2);
 
       # Strip out the quotes because we do not want those in our output.
