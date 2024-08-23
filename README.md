@@ -11,7 +11,7 @@ shell> brdlGuesser.pl BBMA
 
 ### Display BRDL solutions that match a pattern
 ```
-shell> brdlGuesser.pl 'R**L'
+shell> brdlGuesser.pl R**L
    1. RFBL: Red-flanked Bluetail
    2. RWBL: Red-winged Blackbird
    3. RUBL: Rusty Blackbird
