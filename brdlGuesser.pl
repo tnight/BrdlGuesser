@@ -18,15 +18,19 @@ usage: $0 [pattern]
 Search for a four-letter Alpha code using a regular expression search pattern.
 If no pattern is supplied, all four-letter Alpha codes will match.
 
-Example: $0 'R\\wBU'
+Example: $0 R*BU
 END
 
-  if ($argCount != 0 && $argCount != 1) {
+  if (
+      ($argCount != 0 && $argCount != 1) ||
+      ($argCount == 1 && $ARGV[0] =~ m/-h/)
+     ) {
     print STDERR "$usage\n";
     exit 1;
   }
   elsif ($argCount == 1) {
     $pattern = $ARGV[0];
+    $pattern =~ s#\*#[A-Z]#g;
   }
 
   open(
