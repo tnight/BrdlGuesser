@@ -17,14 +17,17 @@ If no pattern is supplied, all four-letter Alpha codes will match.
 
 EXAMPLES
 shell> $0 -p R*BU
-shell> $0 -p *AR*
-shell> $0 -p G*A* -x BMOS
+shell> $0 -p *ar*
+shell> $0 -p G*A* -x bmos
 
 OPTIONS
-
 -h | --help: Display this usage message.
 -p | --pattern: Search for the given pattern.
 -x | --exclude: Exclude guesses that contain any of the given letters.
+
+NOTE
+Both the search pattern and the letters to be excluded can be given
+as uppercase or lowercase, and will still match.
 END
 
 # Call the main subroutine, returning its return value to our caller.
@@ -45,7 +48,7 @@ sub main() {
 
   # Configure the search pattern based on our command-line options.
   if (exists $opts->{'pattern'}) {
-    $searchPattern = $opts->{'pattern'};
+    $searchPattern = uc($opts->{'pattern'});
     $searchPattern =~ s#\*#[A-Z]#g;
   }
   else {
@@ -54,7 +57,7 @@ sub main() {
 
   # Configure the exclusion pattern based on our command-line options.
   if (exists $opts->{'exclude'}) {
-    my $exclusionPattern = '[' . $opts->{'exclude'} . ']';
+    my $exclusionPattern = '[' . uc($opts->{'exclude'}) . ']';
     $exclusionRegex = qr/$exclusionPattern/;
   }
 
