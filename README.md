@@ -1,6 +1,8 @@
 # BrdlGuesser
 ## Description
-Guess the possible BRDL answers given an optional pattern as a starting point. Use one or more asterisks (`*`) as single-letter wildcards. Also, some letters can be excluded from the matching species Alpha codes. If no pattern is given, and no letters are excluded, then all of the possible BRDL answers will be displayed.
+Guess the possible BRDL answers given an optional pattern as a starting point. Use one or more asterisks (`*`) as single-letter wildcards. Also, some letters can be excluded from the matching species Alpha codes. Use the -d|--dump option to display all of the possible BRDL answers.
+
+One of the -d|--dump, -p|--pattern, or -x|--exclude options is required. If -p is given, it overrides any -d option.
 
 **NOTE:** Both the search pattern and the letters to be excluded can be given as uppercase or lowercase, and will still match.
 

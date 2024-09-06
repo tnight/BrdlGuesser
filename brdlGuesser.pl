@@ -10,10 +10,11 @@ sub validateOptions($);
 
 # Define constants we need.
 $::USAGE = <<END;
-usage: $0 [-h|--help] [-p|--pattern search-pattern] [-x|--exclude letters]
+usage: $0 [-d|--dump] [-h|--help] [-p|--pattern search-pattern] [-x|--exclude letters]
 
 Search for a four-letter Alpha code using a regular expression search pattern.
-If no pattern is supplied, all four-letter Alpha codes will match.
+One of the -d, -p, or -x options is required. If -p is given, it overrides any
+-d option.
 
 EXAMPLES
 shell> $0 -p R*BU
@@ -21,6 +22,7 @@ shell> $0 -p *ar*
 shell> $0 -p G*A* -x bmos
 
 OPTIONS
+-d | --dump: Display all of the possible BRDL answers.
 -h | --help: Display this usage message.
 -p | --pattern: Search for the given pattern.
 -x | --exclude: Exclude guesses that contain any of the given letters.
@@ -110,12 +112,21 @@ sub validateOptions($) {
 
   my $optsOk = GetOptions(
 			  $opts,
+			  'dump|d',
+			  'help|h',
 			  'exclude|x=s',
-			  'pattern|p=s',
-			  'help|h'
+			  'pattern|p=s'
 			 );
 
-  die($usage) if (! $optsOk || exists($opts->{'help'}));
+  die($usage) if (
+		  ! $optsOk ||
+		  exists($opts->{'help'}) ||
+		  (
+		   ! exists($opts->{'dump'}) &&
+                   ! exists($opts->{'exclude'}) &&
+		   ! exists($opts->{'pattern'})
+		  )
+		 );
 
   return $opts;
 }
