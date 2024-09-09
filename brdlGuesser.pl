@@ -41,7 +41,7 @@ sub main() {
   my $fileHandle = undef;
   my $matchCount = 0;
   my $searchPattern = undef;
-  my $speciesFilename = 'ABA_Checklist-8.15.csv';  # The full data file.
+  my $speciesFilename = 'ABA_Checklist-8.16.csv';  # The full data file.
   # my $speciesFilename = 'short.csv';  # A small data file for testing.
   # my $speciesFilename = 'less-short.csv';  # A larger data file for testing.
 
