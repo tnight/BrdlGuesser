@@ -2,6 +2,8 @@
 
 # Gain access to all the pragmas and modules we'll need.
 use strict;
+use File::Basename;
+use File::Spec;
 use Getopt::Long;
 
 # Forward-declare our subroutines.
@@ -48,6 +50,12 @@ sub main() {
   # Get and validate our command-line options.
   my $opts = validateOptions($::USAGE);
 
+  # Get the path to the input file including the path of the running script.
+  my $speciesPath = File::Spec->catfile(
+					dirname(__FILE__),
+					$speciesFilename
+				       );
+
   # Configure the search pattern based on our command-line options.
   if (exists $opts->{'pattern'}) {
     $searchPattern = uc($opts->{'pattern'});
@@ -66,9 +74,9 @@ sub main() {
   open(
        $fileHandle,
        "< $encoding",
-       $speciesFilename
+       $speciesPath
       )
-    || die("$0: can't open $speciesFilename for reading: $!");
+    || die("$0: can't open $speciesPath for reading: $!");
 
   while (<$fileHandle>) {
     # Remove the newline for more convenient processing and printing.
@@ -100,7 +108,7 @@ sub main() {
     }
   }
   if ($!) {
-    die("$0: unexpected error while reading from $speciesFilename: $!");
+    die("$0: unexpected error while reading from $speciesPath: $!");
   }
 
   return $matchCount > 0 ? 0 : 1;
