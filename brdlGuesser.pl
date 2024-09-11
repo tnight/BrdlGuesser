@@ -22,16 +22,19 @@ EXAMPLES
 shell> $0 -p R*BU
 shell> $0 -p *ar*
 shell> $0 -p G*A* -x bmos
+shell> $0 -p G*A* -i tw
 
 OPTIONS
 -d | --dump: Display all of the possible BRDL answers.
 -h | --help: Display this usage message.
+-i | --include: Only include guesses that contain all of the given letters.
 -p | --pattern: Search for the given pattern.
 -x | --exclude: Exclude guesses that contain any of the given letters.
 
-NOTE
-Both the search pattern and the letters to be excluded can be given
-as uppercase or lowercase, and will still match.
+NOTES
+* Both the search pattern and the letters to be included and excluded can
+be given as uppercase or lowercase, and will still match.
+* The same letter cannot appear in both the exclusion and inclusion lists.
 END
 
 # Call the main subroutine, returning its return value to our caller.
