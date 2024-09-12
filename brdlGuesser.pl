@@ -13,7 +13,7 @@ sub validateOptions($);
 
 # Define constants we need.
 $::USAGE = <<END;
-usage: $0 [-d|--dump] [-h|--help] [-p|--pattern search-pattern] [-x|--exclude letters]
+usage: $0 [-d|--dump] [-h|--help] [-i|--include letters] [-p|--pattern search-pattern] [-x|--exclude letters]
 
 Search for a four-letter Alpha code using a regular expression search pattern.
 One of the -d, -p, or -x options is required. If -p is given, it overrides any
