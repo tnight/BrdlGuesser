@@ -5,6 +5,7 @@ use strict;
 use File::Basename;
 use File::Spec;
 use Getopt::Long;
+use List::Util qw( all );
 
 # Forward-declare our subroutines.
 sub main();
@@ -44,6 +45,7 @@ sub main() {
   my $encoding = ":encoding(UTF-8)";
   my $exclusionRegex = undef;
   my $fileHandle = undef;
+  my @inclusionRegexen = ();
   my $matchCount = 0;
   my $searchPattern = undef;
   my $speciesFilename = 'ABA_Checklist-8.16.csv';  # The full data file.
@@ -74,6 +76,14 @@ sub main() {
     $exclusionRegex = qr/$exclusionPattern/;
   }
 
+  # Configure the inclusion patterns based on our command-line options.
+  if (exists $opts->{'include'}) {
+    foreach my $inclusionLetter (getStringAsArray($opts->{'include'})) {
+      push(@inclusionRegexen, qr/$inclusionLetter/);
+    }
+  }
+
+  # Open the species input file so we can do our processing.
   open(
        $fileHandle,
        "< $encoding",
@@ -81,7 +91,7 @@ sub main() {
       )
     || die("$0: can't open $speciesPath for reading: $!");
 
-  while (<$fileHandle>) {
+  SPECIES: while (<$fileHandle>) {
     # Remove the newline for more convenient processing and printing.
     chomp();
 
@@ -95,7 +105,17 @@ sub main() {
 	  $speciesCode =~ $exclusionRegex
 	 ) {
 
-	next;
+	next SPECIES;
+      }
+
+      # Only include species codes containing all the letters we were
+      # told to include.
+      if (scalar(@inclusionRegexen)) {
+	foreach my $inclusionRegex (@inclusionRegexen) {
+	  if ($speciesCode !~ $inclusionRegex) {
+	    next SPECIES;
+	  }
+	}
       }
 
       # Strip out the quotes because we do not want those in our output.
@@ -117,6 +137,15 @@ sub main() {
   return $matchCount > 0 ? 0 : 1;
 }
 
+sub getStringAsArray($) {
+  my $inclusionString = shift();
+
+  return split(
+	       //,
+	       uc($inclusionString)
+	      );
+}
+
 sub validateOptions($) {
   my $usage = shift();
   my $opts = {};
@@ -126,18 +155,42 @@ sub validateOptions($) {
 			  'dump|d',
 			  'help|h',
 			  'exclude|x=s',
+			  'include|i=s',
 			  'pattern|p=s'
 			 );
 
+  # Make sure at least one required option was specified.
   die($usage) if (
 		  ! $optsOk ||
 		  exists($opts->{'help'}) ||
 		  (
 		   ! exists($opts->{'dump'}) &&
                    ! exists($opts->{'exclude'}) &&
+                   ! exists($opts->{'include'}) &&
 		   ! exists($opts->{'pattern'})
 		  )
 		 );
+
+  # Validate that no letter appears in both the exclusion and inclusion
+  # lists.
+  if (
+      exists($opts->{'exclude'}) &&
+      exists($opts->{'include'})
+     ) {
+    my $excludeListUppercase = uc($opts->{'exclude'});
+
+    foreach my $inclusionLetter (getStringAsArray($opts->{'include'})) {
+
+      if ($excludeListUppercase =~ m/$inclusionLetter/) {
+	die(
+	    "Letter appears both in exclusion and inclusion lists: " .
+	    $inclusionLetter .
+	    "\n" .
+	    $usage
+	   );
+      }
+    }
+  }
 
   return $opts;
 }
