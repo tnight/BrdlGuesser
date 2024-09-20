@@ -9,7 +9,9 @@ use List::Util qw( all );
 
 # Forward-declare our subroutines.
 sub main();
-sub validateOptions($);
+sub getStringAsArray($);
+sub validateOptions();
+sub validateListsAsMutuallyExclusive($$$);
 
 # Define constants we need.
 $::USAGE = <<END;
@@ -53,7 +55,7 @@ sub main() {
   # my $speciesFilename = 'less-short.csv';  # A larger data file for testing.
 
   # Get and validate our command-line options.
-  my $opts = validateOptions($::USAGE);
+  my $opts = validateOptions();
 
   # Get the path to the input file including the path of the running script.
   my $speciesPath = File::Spec->catfile(
@@ -146,8 +148,7 @@ sub getStringAsArray($) {
 	      );
 }
 
-sub validateOptions($) {
-  my $usage = shift();
+sub validateOptions() {
   my $opts = {};
 
   my $optsOk = GetOptions(
@@ -160,7 +161,7 @@ sub validateOptions($) {
 			 );
 
   # Make sure at least one required option was specified.
-  die($usage) if (
+  die($::USAGE) if (
 		  ! $optsOk ||
 		  exists($opts->{'help'}) ||
 		  (
@@ -177,22 +178,50 @@ sub validateOptions($) {
       exists($opts->{'exclude'}) &&
       exists($opts->{'include'})
      ) {
-    my $excludeListUppercase = uc($opts->{'exclude'});
+    validateListsAsMutuallyExclusive(
+				     $opts->{'exclude'},
+				     $opts->{'include'},
+				     'inclusion list'
+				    );
+  }
 
-    foreach my $inclusionLetter (getStringAsArray($opts->{'include'})) {
-
-      if ($excludeListUppercase =~ m/$inclusionLetter/) {
-	die(
-	    "Letter appears both in exclusion and inclusion lists: " .
-	    $inclusionLetter .
-	    "\n" .
-	    $usage
-	   );
-      }
-    }
+  # Validate that no letter appears in both the exclusion list and the
+  # search pattern.
+  if (
+      exists($opts->{'exclude'}) &&
+      exists($opts->{'pattern'})
+     ) {
+    validateListsAsMutuallyExclusive(
+				     $opts->{'exclude'},
+				     $opts->{'pattern'},
+				     'search pattern'
+				    );
   }
 
   return $opts;
+}
+
+sub validateListsAsMutuallyExclusive($$$) {
+  my $exclusionString = shift;
+  my $inclusionString = shift;
+  my $inclusionFieldDisplayName = shift;
+
+  my $exclusionStringUppercase = uc($exclusionString);
+  my $inclusionStringNoStars = uc($inclusionString);
+  $inclusionStringNoStars =~ s/\Q*\E//g;
+
+  foreach my $inclusionLetter (getStringAsArray($inclusionStringNoStars)) {
+
+    if ($exclusionStringUppercase =~ m/$inclusionLetter/) {
+      die(
+	  "Letter appears both in exclusion list and " .
+	  "$inclusionFieldDisplayName: " .
+	  $inclusionLetter .
+	  "\n" .
+	  $::USAGE
+	 );
+    }
+  }
 }
 
 # End of script.
