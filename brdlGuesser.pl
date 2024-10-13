@@ -7,7 +7,7 @@ use File::Spec;
 use Getopt::Long;
 use List::Util qw( all );
 
-# Forward-declare our subroutines.
+# Make a forward declaration of our subroutines.
 sub main();
 sub getStringAsArray($);
 sub validateOptions();
@@ -172,12 +172,22 @@ sub validateOptions() {
 		  )
 		 );
 
+  # Validate that the search pattern has exactly four characters.
+  if (
+      exists($opts->{'pattern'}) &&
+      length($opts->{'pattern'}) != 4
+     )
+    {
+      die("Search pattern [$opts->{'pattern'}] does not have exactly four characters.\n$::USAGE");
+    }
+
   # Validate that no letter appears in both the exclusion and inclusion
   # lists.
   if (
       exists($opts->{'exclude'}) &&
       exists($opts->{'include'})
-     ) {
+     )
+  {
     validateListsAsMutuallyExclusive(
 				     $opts->{'exclude'},
 				     $opts->{'include'},
@@ -190,7 +200,8 @@ sub validateOptions() {
   if (
       exists($opts->{'exclude'}) &&
       exists($opts->{'pattern'})
-     ) {
+     )
+  {
     validateListsAsMutuallyExclusive(
 				     $opts->{'exclude'},
 				     $opts->{'pattern'},
