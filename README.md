@@ -7,6 +7,7 @@ One of the -d|--dump, -i|--include, -p|--pattern, or -x|--exclude options is req
 **NOTES:**
 * Both the search pattern and the letters to be included and excluded can be given as uppercase or lowercase, and will still match.
 * The same letter cannot appear in both the exclusion and inclusion lists.
+* To prevent the shell from interpreting any asterisks in your pattern, enclose the pattern with single quotes.
 
 ## Examples
 ### Display a single, matching BRDL solution
@@ -17,7 +18,7 @@ shell> brdlGuesser.pl -p BBMA
 
 ### Display BRDL solutions that match a pattern
 ```
-shell> brdlGuesser.pl -p R**L
+shell> brdlGuesser.pl -p 'R**L'
    1. RFBL: Red-flanked Bluetail
    2. RWBL: Red-winged Blackbird
    3. RUBL: Rusty Blackbird
@@ -25,7 +26,7 @@ shell> brdlGuesser.pl -p R**L
 
 ### Display BRDL solutions that match a pattern but do not contain some letters
 ```
-shell> brdlGuesser.pl -p G*A* -x MOS
+shell> brdlGuesser.pl -p 'G*A*' -x MOS
    1. GRAP: Gray Partridge
    2. GRAF: Gray Francolin
    3. GBAN: Groove-billed Ani
@@ -39,14 +40,14 @@ shell> brdlGuesser.pl -p G*A* -x MOS
 
 ### Display BRDL solutions that match a pattern and contain certain letters
 ```
-shell> brdlGuesser.pl -p G*A* -i TW
+shell> brdlGuesser.pl -p 'G*A*' -i TW
    1. GBAT: Gray-backed Tern
    2. GRAW: Gray Wagtail
 ```
 
 ### Display all possible BRDL solutions
 ```
-shell> brdlGuesser.pl
+shell> brdlGuesser.pl -d
    1. BBWD: Black-bellied Whistling-Duck
    2. FUWD: Fulvous Whistling-Duck
    3. EMGO: Emperor Goose

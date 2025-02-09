@@ -22,10 +22,10 @@ One of the -d, -p, or -x options is required. If -p is given, it overrides any
 -d option.
 
 EXAMPLES
-shell> $0 -p R*BU
-shell> $0 -p *ar*
-shell> $0 -p G*A* -x bmos
-shell> $0 -p G*A* -i tw
+shell> $0 -p 'R*BU'
+shell> $0 -p '*ar*'
+shell> $0 -p 'G*A*' -x bmos
+shell> $0 -p 'G*A*' -i tw
 
 OPTIONS
 -d | --dump: Display all of the possible BRDL answers.
@@ -38,6 +38,7 @@ NOTES
 * Both the search pattern and the letters to be included and excluded can
 be given as uppercase or lowercase, and will still match.
 * The same letter cannot appear in both the exclusion and inclusion lists.
+* To prevent the shell from interpreting any asterisks in your pattern, enclose the pattern with single quotes.
 END
 
 # Call the main subroutine, returning its return value to our caller.
@@ -50,9 +51,11 @@ sub main() {
   my @inclusionRegexen = ();
   my $matchCount = 0;
   my $searchPattern = undef;
-  my $speciesFilename = 'ABA_Checklist-8.16.csv';  # The full data file.
+  my $speciesFilename = 'ABA_Checklist-8.17.csv';  # The full data file.
   # my $speciesFilename = 'short.csv';  # A small data file for testing.
   # my $speciesFilename = 'less-short.csv';  # A larger data file for testing.
+
+  # NOTE: the data file must have Unix-style line endings, not DOS or Mac.
 
   # Get and validate our command-line options.
   my $opts = validateOptions();

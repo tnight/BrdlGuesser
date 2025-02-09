@@ -1,4 +1,4 @@
-,"Version 8.16 - 07/10/2024 - 1152 species - The ABA Checklist is a copyrighted work owned by American Birding Association, Inc. and cannot be reproduced without the express written permission of American Birding Association, Inc. - American Birding Association 204 S 25th St #3070 Colorado Springs, CO 80934, USA - (800) 850-2473 / (719) 578-9703 - www.aba.org
+,"Version 8.17 - 11/25/2024 - 1153 species - The ABA Checklist is a copyrighted work owned by American Birding Association, Inc. and cannot be reproduced without the express written permission of American Birding Association, Inc. - American Birding Association 204 S 25th St #3070 Colorado Springs, CO 80934, USA - (800) 850-2473 / (719) 578-9703 - www.aba.org
 Note that where discrepancies in names occur between Clements/eBird and the AOS, both are listed, that of AOS in parentheses. Note four-letter Alpha codes follow the English Names of the AOS. These and the Provisional Lists were last revised in August 2024.",,,,
 ,,,,,
 ,,,,,
@@ -384,7 +384,8 @@ Skuas and Jaegers (Stercorariidae),,,,,
 ,Western Gull,Goéland d'Audubon,Larus occidentalis,WEGU,1
 ,Yellow-footed Gull,Goéland de Cortez,Larus livens,YFGU,2
 ,California Gull,Goéland de Californie,Larus californicus,CAGU,1
-,Herring Gull,Goéland argenté,Larus argentatus,HERG,1
+,American Herring Gull (Herring Gull),Goéland argenté,Larus smithsonianus (L. argentatus),AHGU,1
+,Vega Gull (Herring Gull),Goéland de la Véga,Larus vegae (L. argentatus),VEGU,3
 ,Yellow-legged Gull,Goéland leucophée,Larus michahellis,YLGU,4
 ,Iceland Gull,Goéland arctique,Larus glaucoides,ICGU,1
 ,Lesser Black-backed Gull,Goéland brun,Larus fuscus,LBBG,2
@@ -548,6 +549,7 @@ Pelicans (Pelecanidae),,,,,
 ,Great Egret,Grande Aigrette,Ardea alba,GREG,1
 ,Medium Egret,Héron intermédiaire,Ardea intermedia,MEEG,5
 ,Western Cattle Egret,Héron garde-boeufs,Bubulcus ibis,WECE,1
+,Eastern Cattle-Egret,Héron de Coromandel,Ardea coromanda,EACE,5
 ,Gray Heron,Héron cendré,Ardea cinerea,GRAH,4
 ,Great Blue Heron,Grand Héron,Ardea herodias,GBHE,1
 Ibises and Spoonbills (Threskiornithidae),,,,,
@@ -570,11 +572,11 @@ Ospreys (Pandionidae),,,,,
 ,Double-toothed Kite,Harpage bidenté,Harpagus bidentatus,DTKI,5
 ,Northern Harrier,Busard des marais,Circus hudsonius,NOHA,1
 ,Western Marsh Harrier,Busard des roseaux,Circus aeruginosus,WMHA,5
-,Chinese Sparrowhawk,Épervier de Horsfield,Accipiter soloensis,CHIS,5
+,Chinese Sparrowhawk,Épervier de Horsfield,Tachyspiza (Accipiter) soloensis,CHIS,5
 ,Eurasian Sparrowhawk,Épervier d'Europe,Accipiter nisus,ESPA,5
 ,Sharp-shinned Hawk,Épervier brun,Accipiter striatus,SSHA,1
-,Cooper's Hawk,Épervier de Cooper,Accipiter cooperii,COHA,1
-,American Goshawk,Autour d’Amérique,Accipiter atricapillus,AGOS,1
+,Cooper's Hawk,Épervier de Cooper,Astur (Accipiter) cooperii,COHA,1
+,American Goshawk,Autour d’Amérique,Astur (Accipiter) atricapillus,AGOS,1
 ,Black Kite,Milan noir,Milvus migrans,BLAK,5
 ,Bald Eagle,Pygargue à tête blanche,Haliaeetus leucocephalus,BAEA,1
 ,White-tailed Eagle,Pygargue à queue blanche,Haliaeetus albicilla,WTEA,4
@@ -673,7 +675,7 @@ Caracaras and Falcons (Falconidae),,,,,
 ,Gyrfalcon,Faucon gerfaut,Falco rusticolus,GYRF,2
 ,Peregrine Falcon,Faucon pèlerin,Falco peregrinus,PEFA,1
 ,Prairie Falcon,Faucon des prairies,Falco mexicanus,PRFA,1
-"Parakeets, Macaws, and Parrots (Psittacidae)",,,,,
+"Parakeets, Macaws, Amazons, and Parrots (Psittacidae)",,,,,
 ,Budgerigar (1975-2015),Perruche ondulée,Melopsittacus undulatus,BUDG,6
 ,Monk Parakeet,Conure veuve,Myiopsitta monachus,MOPA,2
 ,"Carolina Parakeet (extinct, 1939)",Conure de Caroline,Conuropsis carolinensis,CAPA,6
@@ -684,9 +686,9 @@ Caracaras and Falcons (Falconidae),,,,,
 ,Thick-billed Parrot,Conure à gros bec,Rhynchopsitta pachyrhyncha,TBPA,5
 ,White-winged Parakeet,Toui à ailes variées,Brotogeris versicolurus,WWPA,2
 ,Yellow-chevroned Parakeet,Toui à ailes jaunes,Brotogeris chiriri,YCPA,2
-,Red-crowned Parrot,Amazone à joues vertes,Amazona viridigenalis,RCPA,2
-,Lilac-crowned Parrot,Amazone à couronne lilas,Amazona finschi,LCPA,2
-,Yellow-headed Parrot (1975-1982),Amazone à tête jaune,Amazona oratrix,YHPA,6
+,Red-crowned Amazon (Parrot),Amazone à joues vertes,Amazona viridigenalis,RCPA,2
+,Lilac-crowned Amazon (Parrot),Amazone à couronne lilas,Amazona finschi,LCPA,2
+,Yellow-headed Amazon (Parrot) (1975-1982),Amazone à tête jaune,Amazona oratrix,YHPA,6
 "Lories, Lovebirds, and Australasian Parrots (Psittaculidae)",,,,,
 ,Rose-ringed Parakeet,Perruche à collier,Psittacula krameri,RRPA,2
 ,Rosy-faced Lovebird,Inséparable rosegorge,Agapornis roseicollis,RFLO,2
@@ -771,7 +773,7 @@ Shrikes (Laniidae),,,,,
 ,Northern Shrike,Pie-grièche boréale,Lanius borealis,NSHR,1
 Jays and Crows (Corvidae),,,,,
 ,Canada Jay,Mésangeai du Canada,Perisoreus canadensis,CAJA,1
-,Brown Jay,Geai enfumé,Psilorhinus (Cyanocorax) morio,BRJA,4
+,Brown Jay,Geai enfumé,Cyanocorax morio,BRJA,4
 ,Green Jay,Geai vert,Cyanocorax yncas,GRJA,2
 ,Pinyon Jay,Geai des pinèdes,Gymnorhinus cyanocephalus,PIJA,1
 ,Steller's Jay,Geai de Steller,Cyanocitta stelleri,STJA,1
@@ -784,7 +786,7 @@ Jays and Crows (Corvidae),,,,,
 ,Clark's Nutcracker,Cassenoix d'Amérique,Nucifraga columbiana,CLNU,1
 ,Black-billed Magpie,Pie d'Amérique,Pica hudsonia,BBMA,1
 ,Yellow-billed Magpie,Pie à bec jaune,Pica nuttalli,YBMA,2
-,Eurasian Jackdaw,Choucas des tours,Corvus monedula,EUJA,4
+,Eurasian Jackdaw,Choucas des tours,Coloeus (Corvus) monedula,EUJA,4
 ,American Crow,Corneille d'Amérique,Corvus brachyrhynchos,AMCR,1
 ,Tamaulipas Crow,Corneille du Mexique,Corvus imparatus,TACR,4
 ,Fish Crow,Corneille de rivage,Corvus ossifragus,FICR,1
@@ -1258,8 +1260,6 @@ Provisional List A. Exotic Species with Populations that may be Becoming Establi
 ,Golden Pheasant,,Chrysolophus pictus,,
 ,Silver Pheasant,,Lophura nycthemera,,
 ,Tanimbar Corella,,Cacatua goffiniana,,
-,White Cockatoo,,Cacatua alba,,
-,Salmon-crested Cockatoo,,Cacatua moluccensis,,
 ,Red-lored Parrot,,Amazona autumnalis,,
 ,Yellow-headed Parrot,,Amazona oratrix,,
 ,White-fronted Parrot,,Amazona albifrons,,
