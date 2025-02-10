@@ -6,6 +6,7 @@ use File::Basename;
 use File::Spec;
 use Getopt::Long;
 use List::Util qw( all );
+use Text::CSV;
 
 # Make a forward declaration of our subroutines.
 sub main();
@@ -96,14 +97,15 @@ sub main() {
       )
     || die("$0: can't open $speciesPath for reading: $!");
 
-  SPECIES: while (<$fileHandle>) {
-    # Remove the newline for more convenient processing and printing.
-    chomp();
+  # Get ready to parse the CSV file.
+  my $csv = Text::CSV_XS->new({ binary => 1, auto_diag => 1 });
+
+SPECIES:
+  while (my $row = $csv->getline($fileHandle)) {
+    my ($group, $speciesNameEnglish, $speciesNameFrench, $speciesLatinName, $speciesCode, $speciesAbundance) = @$row;
 
     # Search for a match with our search pattern.
-    if (m#^,(".+"+?|[^,]+?),.+,($searchPattern),\d+$#) {
-      my ($speciesName, $speciesCode) = ($1, $2);
-
+    if ($speciesCode =~ m/^$searchPattern$/) {
       # Exclude species codes containing the letters we were told to exclude.
       if (
 	  defined($exclusionRegex) &&
@@ -123,15 +125,12 @@ sub main() {
 	}
       }
 
-      # Strip out the quotes because we do not want those in our output.
-      $speciesName =~ tr/"//d;
-
       # Our pattern matched, so output the result.
       printf(
 	     "%4d. %s: %s\n",
 	     ++$matchCount,
 	     $speciesCode,
-	     $speciesName
+	     $speciesNameEnglish
 	    );
     }
   }
