@@ -17,14 +17,17 @@ sub parseAbaChecklist($);
 
 # Define constants we need.
 $::ABA_CHECKLIST_URL = 'https://www.aba.org/aba-checklist/';
-$::LOCAL_CHECKLIST_DIR = 'abaChecklists';
-$::OUTPUT_FILENAME = 'abaChecklistLatest.csv';
+$::LOCAL_CHECKLIST_DIR = 'checkLists';
+$::LOCAL_CHECKLIST_SUBDIR_PARSED = 'parsed';
+$::LOCAL_CHECKLIST_SUBDIR_RAW = 'raw';
 
 # Call the main subroutine, returning its return value to our caller.
 exit main();
 
 sub main() {
-  my $checklistFilename = downloadAbaChecklist();
+  # TODOTODO: Put back after testing.
+  # my $checklistFilename = downloadAbaChecklist();
+  my $checklistFilename = 'checklists\\raw\\ABA_Checklist-8.17.csv';
   parseAbaChecklist($checklistFilename);
 }
 
@@ -68,7 +71,8 @@ sub downloadAbaChecklist() {
   # running script.
   my $checklistDirFullPath = File::Spec->catfile(
 						 dirname(__FILE__),
-						 $::LOCAL_CHECKLIST_DIR
+						 $::LOCAL_CHECKLIST_DIR,
+						 $::LOCAL_CHECKLIST_SUBDIR_RAW
 						);
 
   # Download the PDF file.
@@ -160,15 +164,21 @@ sub saveAbaChecklistFile($$$) {
 }
 
 sub parseAbaChecklist($) {
+  my $inputFileFullPath = shift();
+
+  my $inputFileBaseName = basename($inputFileFullPath);
+  my $outputFileBaseName = $inputFileBaseName;
+  $outputFileBaseName =~ s/\.csv$/.parsed.csv/;
+  my $outputFileFullPath = File::Spec->catfile(
+					       $::LOCAL_CHECKLIST_DIR,
+					       $::LOCAL_CHECKLIST_SUBDIR_PARSED,
+					       $outputFileBaseName
+					      );
+
+  print "Input filename =  [$inputFileFullPath]\n";
+  print "Output filename = [$outputFileFullPath]\n";
+
   die("parseAbaChecklist() subroutine not yet implemented!");
-
-  # Build the full path to the parsed output file.
-  # TODOTODO: Flesh out.
-  # my $outputFileFullPath = File::Spec->catfile(
-  # 					       dirname(__FILE__),
-  # 					       $::OUTPUT_FILENAME
-  # 					      );
-
 }
 
 # End of script.
