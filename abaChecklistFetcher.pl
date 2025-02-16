@@ -17,6 +17,15 @@ sub parseAbaChecklist($);
 
 # Define constants we need.
 $::ABA_CHECKLIST_URL = 'https://www.aba.org/aba-checklist/';
+$::CSV_HEADER_ROW =
+  [
+   'Group Name',
+   'Species Name English',
+   'Species Name French',
+   'Species Latin Name',
+   'Species Code',
+   'Species Abundance'
+  ];
 $::LOCAL_CHECKLIST_DIR = 'checkLists';
 $::LOCAL_CHECKLIST_SUBDIR_PARSED = 'parsed';
 $::LOCAL_CHECKLIST_SUBDIR_RAW = 'raw';
@@ -27,7 +36,11 @@ exit main();
 sub main() {
   # TODOTODO: Put back after testing.
   # my $checklistFilename = downloadAbaChecklist();
-  my $checklistFilename = 'checklists\\raw\\ABA_Checklist-8.17.csv';
+  my $checklistFilename = File::Spec->catfile(
+                                              $::LOCAL_CHECKLIST_DIR,
+                                              $::LOCAL_CHECKLIST_SUBDIR_RAW,
+                                              'ABA_Checklist-8.17.csv'
+                                             );
   parseAbaChecklist($checklistFilename);
 }
 
@@ -175,10 +188,52 @@ sub parseAbaChecklist($) {
 					       $outputFileBaseName
 					      );
 
-  print "Input filename =  [$inputFileFullPath]\n";
+  # TODOTODO: Remove after debugging, or mark up to make it more obvious that these are FYI messages.
+  print "Input filename  = [$inputFileFullPath]\n";
   print "Output filename = [$outputFileFullPath]\n";
 
-  die("parseAbaChecklist() subroutine not yet implemented!");
+  my $encoding = ":encoding(UTF-8)";
+  my $inputFileHandle = undef;
+  my $outputFileHandle = undef;
+  my @rows = ();
+
+  # Open the species input file so we can do our processing.
+  open(
+       $inputFileHandle,
+       "< $encoding",
+       $inputFileFullPath
+      )
+    || die("$0: can't open $inputFileFullPath for reading: $!");
+
+  # Open the species input file so we can do our processing.
+  open(
+       $outputFileHandle,
+       "> $encoding",
+       $outputFileFullPath
+      )
+    || die("$0: can't open $outputFileFullPath for writing: $!");
+
+  # Get ready to operate on the CSV files.
+  my $csv = Text::CSV_XS->new({ binary => 1, auto_diag => 1 });
+
+SPECIES:
+  while (my $row = $csv->getline($inputFileHandle)) {
+    my ($group, $speciesNameEnglish, $speciesNameFrench, $speciesLatinName, $speciesCode, $speciesAbundance) = @$row;
+
+    if ($speciesCode) {
+      push(@rows, $row);
+      print "Found species code [$speciesCode] with English species name [$speciesNameEnglish].\n";
+    }
+  }
+
+  close($inputFileHandle) or die "Failed to close $inputFileFullPath: $!";
+
+  if (scalar(@rows) > 0) {
+    unshift(@rows, $::CSV_HEADER_ROW);
+    $csv->say($outputFileHandle, $_) for @rows;
+  }
+
+  close($outputFileHandle) or die "Failed to close $outputFileFullPath: $!";
 }
 
 # End of script.
