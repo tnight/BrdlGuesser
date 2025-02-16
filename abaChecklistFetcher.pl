@@ -18,6 +18,7 @@ sub parseAbaChecklist($);
 # Define constants we need.
 $::ABA_CHECKLIST_URL = 'https://www.aba.org/aba-checklist/';
 $::LOCAL_CHECKLIST_DIR = 'abaChecklists';
+$::OUTPUT_FILENAME = 'abaChecklistLatest.csv';
 
 # Call the main subroutine, returning its return value to our caller.
 exit main();
@@ -114,6 +115,12 @@ sub downloadAbaChecklist() {
 					       $csvMemberFilename
 					      );
 
+  # Update the modified date and time of the CSV file to be the current
+  # date and time. This matches the modified date and time of the
+  # downloaded PDF file and reduces confusion about which file is the
+  # latest one downloaded.
+  $csvMember->setLastModFileDateTimeFromUnix(time());
+
   # Extract the CSV file from the ZIP archive.
   unless($csvMember->extractToFileNamed($outputFileFullPath) == AZ_OK) {
     die("Unable to extract CSV file [$csvMemberFilename] from ZIP archive [$csvZipFileFullPath]: $!");
@@ -159,7 +166,7 @@ sub parseAbaChecklist($) {
   # TODOTODO: Flesh out.
   # my $outputFileFullPath = File::Spec->catfile(
   # 					       dirname(__FILE__),
-  # 					       $csvMember->fileName()
+  # 					       $::OUTPUT_FILENAME
   # 					      );
 
 }
