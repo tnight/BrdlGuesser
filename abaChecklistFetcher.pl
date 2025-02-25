@@ -34,7 +34,7 @@ $::LOCAL_CHECKLIST_SUBDIR_RAW = 'raw';
 exit main();
 
 sub main() {
-  # TODOTODO: Put back after testing.
+  # TODOTODO: Put back and/or clean up after testing.
   # my $checklistFilename = downloadAbaChecklist();
   my $checklistFilename = File::Spec->catfile(
                                               $::LOCAL_CHECKLIST_DIR,

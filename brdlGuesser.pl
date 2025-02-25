@@ -55,9 +55,9 @@ sub main() {
   my $matchCount = 0;
   my $searchPattern = undef;
   # TODOTODO: Make this script smart enough to find the real file.
-  my $speciesFilename = 'ABA_Checklist-8.17.parsed.csv';  # The full data file.
-  # my $speciesFilename = 'short.csv';  # A small data file for testing.
-  # my $speciesFilename = 'less-short.csv';  # A larger data file for testing.
+  my $speciesFilename = 'ABA_Checklist-8.17.parsed.csv';  # Full data file.
+  # my $speciesFilename = 'short.csv';  # Small data file for testing.
+  # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
 
   # NOTE: the data file must have Unix-style line endings, not DOS or Mac.
 
