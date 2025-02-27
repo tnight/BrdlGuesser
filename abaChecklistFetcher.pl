@@ -34,13 +34,24 @@ $::LOCAL_CHECKLIST_SUBDIR_RAW = 'raw';
 exit main();
 
 sub main() {
-  # TODOTODO: Put back and/or clean up after testing.
-  # my $checklistFilename = downloadAbaChecklist();
-  my $checklistFilename = File::Spec->catfile(
-                                              $::LOCAL_CHECKLIST_DIR,
-                                              $::LOCAL_CHECKLIST_SUBDIR_RAW,
-                                              'ABA_Checklist-8.17.csv'
-                                             );
+  my $checklistFilename;
+
+  # TODO: Make a config switch to enable or disable the download.
+
+  if (1) {
+    # Download the checklist file from the official source.
+    $checklistFilename = downloadAbaChecklist();
+  }
+  else {
+    # In lieu of downloading, just point to a local file already in place.
+    $checklistFilename = File::Spec->catfile(
+                                             $::LOCAL_CHECKLIST_DIR,
+                                             $::LOCAL_CHECKLIST_SUBDIR_RAW,
+                                             'ABA_Checklist-8.17.csv'
+                                            );
+  }
+
+  # Do the local parsing to get the checklist file ready for searching.
   parseAbaChecklist($checklistFilename);
 }
 
@@ -188,9 +199,11 @@ sub parseAbaChecklist($) {
 					       $outputFileBaseName
 					      );
 
-  # TODOTODO: Remove after debugging, or mark up to make it more obvious that these are FYI messages.
-  print "Input filename  = [$inputFileFullPath]\n";
-  print "Output filename = [$outputFileFullPath]\n";
+  # TODO: Put these messages behind a config switch or log level setting.
+  if (1) {
+    print "Input filename  = [$inputFileFullPath]\n";
+    print "Output filename = [$outputFileFullPath]\n";
+  }
 
   my $encoding = ":encoding(UTF-8)";
   my $inputFileHandle = undef;
@@ -222,7 +235,11 @@ SPECIES:
 
     if ($speciesCode) {
       push(@rows, $row);
-      print "Found species code [$speciesCode] with English species name [$speciesNameEnglish].\n";
+
+      # TODO: Put this message behind a config switch or log level setting.
+      if ("") {
+        print "Found species code [$speciesCode] with English species name [$speciesNameEnglish].\n";
+      }
     }
   }
 

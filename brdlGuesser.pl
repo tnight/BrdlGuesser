@@ -54,7 +54,8 @@ sub main() {
   my @inclusionRegexen = ();
   my $matchCount = 0;
   my $searchPattern = undef;
-  # TODOTODO: Make this script smart enough to find the real file.
+
+  # TODO: Make this script smart enough to find the latest checklist file.
   my $speciesFilename = 'ABA_Checklist-8.17.parsed.csv';  # Full data file.
   # my $speciesFilename = 'short.csv';  # Small data file for testing.
   # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
