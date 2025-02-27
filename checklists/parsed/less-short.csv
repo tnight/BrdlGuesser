@@ -1,0 +1,100 @@
+"Group Name","Species Name English","Species Name French","Species Latin Name","Species Code","Species Abundance"
+,"Black-bellied Whistling-Duck","Dendrocygne à ventre noir","Dendrocygna autumnalis",BBWD,1
+,"Fulvous Whistling-Duck","Dendrocygne fauve","Dendrocygna bicolor",FUWD,1
+,"Emperor Goose","Oie empereur","Anser canagicus",EMGO,2
+,"Snow Goose","Oie des neiges","Anser caerulescens",SNGO,1
+,"Ross's Goose","Oie de Ross","Anser rossii",ROGO,1
+,"Graylag Goose","Oie cendrée","Anser anser",GRGO,5
+,"Greater White-fronted Goose","Oie rieuse","Anser albifrons",GWFG,1
+,"Lesser White-fronted Goose","Oie naine","Anser erythropus",LWFG,5
+,"Taiga Bean-Goose","Oie des moissons","Anser fabalis",TABG,3
+,"Tundra Bean-Goose","Oie de la toundra","Anser serrirostris",TUBG,3
+,"Pink-footed Goose","Oie à bec court","Anser brachyrhynchus",PFGO,3
+,Brant,"Bernache cravant","Branta bernicla",BRAN,1
+,"Barnacle Goose","Bernache nonnette","Branta leucopsis",BARG,3
+,"Cackling Goose","Bernache de Hutchins","Branta hutchinsii",CACG,1
+,"Canada Goose","Bernache du Canada","Branta canadensis",CANG,1
+,"Hawaiian Goose","Bernache néné","Branta sandvicensis",HAGO,2
+,"Mute Swan","Cygne tuberculé","Cygnus olor",MUSW,1
+,"Trumpeter Swan","Cygne trompette","Cygnus buccinator",TRUS,1
+,"Tundra Swan","Cygne siffleur","Cygnus columbianus",TUSW,1
+,"Whooper Swan","Cygne chanteur","Cygnus cygnus",WHOS,3
+,"Egyptian Goose","Ouette d'Égypte","Alopochen aegyptiaca",EGGO,2
+,"Common Shelduck","Tadorne de Belon","Tadorna tadorna",COMS,4
+,"Muscovy Duck","Canard musqué","Cairina moschata",MUDU,2
+,"Wood Duck","Canard branchu","Aix sponsa",WODU,1
+,"Baikal Teal","Sarcelle élégante","Sibirionetta formosa",BATE,4
+,Garganey,"Sarcelle d'été","Spatula querquedula",GARG,4
+,"Blue-winged Teal","Sarcelle à ailes bleues","Spatula discors",BWTE,1
+,"Cinnamon Teal","Sarcelle cannelle","Spatula cyanoptera",CITE,1
+,"Northern Shoveler","Canard souchet","Spatula clypeata",NSHO,1
+,Gadwall,"Canard chipeau","Mareca strepera",GADW,1
+,"Falcated Duck","Canard à faucilles","Mareca falcata",FADU,4
+,"Eurasian Wigeon","Canard siffleur","Mareca penelope",EUWI,2
+,"American Wigeon","Canard d'Amérique","Mareca americana",AMWI,1
+,"Laysan Duck","Canard de Laysan","Anas laysanensis",LAYD,3
+,"Hawaiian Duck","Canard des Hawaï","Anas wyvilliana",HAWD,2
+,"Eastern Spot-billed Duck","Canard de Chine","Anas zonorhyncha",ESBD,4
+,Mallard,"Canard colvert","Anas platyrhynchos",MALL,1
+,"Mexican Duck","Canard du Mexique","Anas diazi",MEDU,2
+,"American Black Duck","Canard noir","Anas rubripes",ABDU,1
+,"Mottled Duck","Canard brun","Anas fulvigula",MODU,1
+,"White-cheeked Pintail","Canard des Bahamas","Anas bahamensis",WCHP,4
+,"Northern Pintail","Canard pilet","Anas acuta",NOPI,1
+,"Green-winged Teal","Sarcelle d'hiver","Anas crecca",GWTE,1
+,Canvasback,"Fuligule à dos blanc","Aythya valisineria",CANV,1
+,Redhead,"Fuligule à tête rouge","Aythya americana",REDH,1
+,"Common Pochard","Fuligule milouin","Aythya ferina",COMP,3
+,"Ring-necked Duck","Fuligule à collier","Aythya collaris",RNDU,1
+,"Tufted Duck","Fuligule morillon","Aythya fuligula",TUDU,3
+,"Greater Scaup","Fuligule milouinan","Aythya marila",GRSC,1
+,"Lesser Scaup","Petit Fuligule","Aythya affinis",LESC,1
+,"Steller's Eider","Eider de Steller","Polysticta stelleri",STEI,2
+,"Labrador Duck (extinct, 1858)","Eider du Labrador","Camptorhynchus labradorius",LABD,6
+,"Spectacled Eider","Eider à lunettes","Somateria fischeri",SPEI,2
+,"King Eider","Eider à tête grise","Somateria spectabilis",KIEI,2
+,"Common Eider","Eider à duvet","Somateria mollissima",COEI,1
+,"Harlequin Duck","Arlequin plongeur","Histrionicus histrionicus",HADU,1
+,"Surf Scoter","Macreuse à front blanc","Melanitta perspicillata",SUSC,1
+,"White-winged Scoter","Macreuse à ailes blanches","Melanitta deglandi",WWSC,1
+,"Stejneger's Scoter","Macreuse de Sibérie","Melanitta stejnegeri",STSC,3
+,"Common Scoter","Macreuse noire","Melanitta nigra",COSC,5
+,"Black Scoter","Macreuse à bec jaune","Melanitta americana",BLSC,1
+,"Long-tailed Duck","Harelde kakawi","Clangula hyemalis",LTDU,1
+,Bufflehead,"Petit Garrot","Bucephala albeola",BUFF,1
+,"Common Goldeneye","Garrot à oeil d'or","Bucephala clangula",COGO,1
+,"Barrow's Goldeneye","Garrot d'Islande","Bucephala islandica",BAGO,1
+,Smew,"Harle piette","Mergellus albellus",SMEW,3
+,"Hooded Merganser","Harle couronné","Lophodytes cucullatus",HOME,1
+,"Common Merganser","Grand Harle","Mergus merganser",COME,1
+,"Red-breasted Merganser","Harle huppé","Mergus serrator",RBME,1
+,"Masked Duck","Érismature routoutou","Nomonyx dominicus",MADU,3
+,"Ruddy Duck","Érismature rousse","Oxyura jamaicensis",RUDU,1
+,"Plain Chachalaca","Ortalide chacamel","Ortalis vetula",PLCH,2
+,"Mountain Quail","Colin des montagnes","Oreortyx pictus",MOUQ,1
+,"Northern Bobwhite","Colin de Virginie","Colinus virginianus",NOBO,1
+,"Scaled Quail","Colin écaillé","Callipepla squamata",SCQU,1
+,"California Quail","Colin de Californie","Callipepla californica",CAQU,1
+,"Gambel's Quail","Colin de Gambel","Callipepla gambelii",GAQU,1
+,"Montezuma Quail","Colin arlequin","Cyrtonyx montezumae",MONQ,2
+,"Wild Turkey","Dindon sauvage","Meleagris gallopavo",WITU,1
+,"Ruffed Grouse","Gélinotte huppée","Bonasa umbellus",RUGR,1
+,"Spruce Grouse","Tétras du Canada","Canachites canadensis",SPGR,2
+,"Willow Ptarmigan","Lagopède des saules","Lagopus lagopus",WIPT,2
+,"Rock Ptarmigan","Lagopède alpin","Lagopus muta",ROPT,2
+,"White-tailed Ptarmigan","Lagopède à queue blanche","Lagopus leucura",WTPT,2
+,"Greater Sage-Grouse","Tétras des armoises","Centrocercus urophasianus",GRSG,1
+,"Gunnison Sage-Grouse","Tétras du Gunnison","Centrocercus minimus",GUSG,2
+,"Dusky Grouse","Tétras sombre","Dendragapus obscurus",DUGR,2
+,"Sooty Grouse","Tétras fuligineux","Dendragapus fuliginosus",SOGR,2
+,"Sharp-tailed Grouse","Tétras à queue fine","Tympanuchus phasianellus",STGR,2
+,"Greater Prairie-Chicken","Tétras des prairies","Tympanuchus cupido",GRPC,2
+,"Lesser Prairie-Chicken","Tétras pâle","Tympanuchus pallidicinctus",LEPC,2
+,"Gray Partridge","Perdrix grise","Perdix perdix",GRAP,2
+,"Ring-necked Pheasant","Faisan de Colchide","Phasianus colchicus",RNEP,1
+,"Kalij Pheasant","Faisan leucomèle","Lophura leucomelanos",KAPH,2
+,"Indian Peafowl","Paon bleu","Pavo cristatus",INPE,2
+,"Gray Francolin","Francolin gris","Ortygornis pondicerianus",GRAF,2
+,"Black Francolin","Francolin noir","Francolinus francolinus",BLFR,2
+,"Red Junglefowl","Coq bankiva","Gallus gallus",REJU,2
+,"Himalayan Snowcock","Tétraogalle de l'Himalaya","Tetraogallus himalayensis",HISN,2

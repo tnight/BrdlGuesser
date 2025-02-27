@@ -15,6 +15,8 @@ sub validateOptions();
 sub validateListsAsMutuallyExclusive($$$);
 
 # Define constants we need.
+$::LOCAL_CHECKLIST_DIR = 'checkLists';
+$::LOCAL_CHECKLIST_SUBDIR_PARSED = 'parsed';
 $::USAGE = <<END;
 usage: $0 [-d|--dump] [-h|--help] [-i|--include letters] [-p|--pattern search-pattern] [-x|--exclude letters]
 
@@ -52,9 +54,11 @@ sub main() {
   my @inclusionRegexen = ();
   my $matchCount = 0;
   my $searchPattern = undef;
-  my $speciesFilename = 'ABA_Checklist-8.17.csv';  # The full data file.
-  # my $speciesFilename = 'short.csv';  # A small data file for testing.
-  # my $speciesFilename = 'less-short.csv';  # A larger data file for testing.
+
+  # TODO: Make this script smart enough to find the latest checklist file.
+  my $speciesFilename = 'ABA_Checklist-8.17.parsed.csv';  # Full data file.
+  # my $speciesFilename = 'short.csv';  # Small data file for testing.
+  # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
 
   # NOTE: the data file must have Unix-style line endings, not DOS or Mac.
 
@@ -63,7 +67,8 @@ sub main() {
 
   # Get the path to the input file including the path of the running script.
   my $speciesPath = File::Spec->catfile(
-					dirname(__FILE__),
+					$::LOCAL_CHECKLIST_DIR,
+                                        $::LOCAL_CHECKLIST_SUBDIR_PARSED,
 					$speciesFilename
 				       );
 
@@ -137,6 +142,8 @@ SPECIES:
   if ($!) {
     die("$0: unexpected error while reading from $speciesPath: $!");
   }
+
+  close($fileHandle) or die "Failed to close $speciesPath: $!";
 
   return $matchCount > 0 ? 0 : 1;
 }
