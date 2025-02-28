@@ -4,7 +4,9 @@
 use strict;
 use Archive::Zip qw( :ERROR_CODES :CONSTANTS );
 use File::Basename;
+use File::Path qw( make_path );
 use File::Spec;
+use File::chdir;
 use Text::CSV;
 use URI;
 use WWW::Mechanize;
@@ -12,10 +14,14 @@ use WWW::Mechanize;
 # Make a forward declaration of our subroutines.
 sub main();
 sub downloadAbaChecklist();
+sub makeChecklistDirFullPath($);
 sub saveAbaChecklistFile($$$);
 sub parseAbaChecklist($);
+sub makeSymbolicLink($$);
 
 # Define constants we need.
+#
+# TODO: Specify this URL via a configuration file.
 $::ABA_CHECKLIST_URL = 'https://www.aba.org/aba-checklist/';
 $::CSV_HEADER_ROW =
   [
@@ -34,25 +40,50 @@ $::LOCAL_CHECKLIST_SUBDIR_RAW = 'raw';
 exit main();
 
 sub main() {
-  my $checklistFilename;
+  my $rawChecklistFilename;
 
   # TODO: Make a config switch to enable or disable the download.
-
   if (1) {
     # Download the checklist file from the official source.
-    $checklistFilename = downloadAbaChecklist();
+    $rawChecklistFilename = downloadAbaChecklist();
   }
   else {
     # In lieu of downloading, just point to a local file already in place.
-    $checklistFilename = File::Spec->catfile(
-                                             $::LOCAL_CHECKLIST_DIR,
-                                             $::LOCAL_CHECKLIST_SUBDIR_RAW,
-                                             'ABA_Checklist-8.17.csv'
-                                            );
+    $rawChecklistFilename = File::Spec->catfile(
+                                                makeChecklistDirFullPath($::LOCAL_CHECKLIST_SUBDIR_RAW),
+                                                # TODO: Get name from config.
+                                                'ABA_Checklist-8.17.csv'
+                                               );
   }
 
   # Do the local parsing to get the checklist file ready for searching.
-  parseAbaChecklist($checklistFilename);
+  my $parsedChecklistFilename = parseAbaChecklist($rawChecklistFilename);
+
+  # TODO: Specify this name via a configuration file.
+  my $linkFilename = File::Spec->catfile(
+                                         makeChecklistDirFullPath($::LOCAL_CHECKLIST_SUBDIR_PARSED),
+                                         # TODO: Get name from config.
+                                         'latest.checklist.parsed.csv'
+                                        );
+
+  # TODO: Put these messages behind a config switch or log level setting.
+  if (1) {
+    print "Parsed filename = [$parsedChecklistFilename]\n";
+    print "Linked filename = [$linkFilename]\n";
+  }
+
+  # TODO: Put this message behind a config switch or log level setting.
+  if (1) {
+    print "Before making symbolic link, \$CWD = [$CWD]\n";
+  }
+
+  # Create a symbolic link to the parsed checklist file for searching.
+  makeSymbolicLink($parsedChecklistFilename, $linkFilename);
+
+  # TODO: Put this message behind a config switch or log level setting.
+  if (1) {
+    print "After making symbolic link, \$CWD = [$CWD]\n";
+  }
 }
 
 sub downloadAbaChecklist() {
@@ -93,11 +124,7 @@ sub downloadAbaChecklist() {
 
   # Get the path to the checklist directory including the path of the
   # running script.
-  my $checklistDirFullPath = File::Spec->catfile(
-						 dirname(__FILE__),
-						 $::LOCAL_CHECKLIST_DIR,
-						 $::LOCAL_CHECKLIST_SUBDIR_RAW
-						);
+  my $checklistDirFullPath = makeChecklistDirFullPath($::LOCAL_CHECKLIST_SUBDIR_RAW);
 
   # Download the PDF file.
   my $pdfFileFullPath = saveAbaChecklistFile(
@@ -162,6 +189,16 @@ sub downloadAbaChecklist() {
   return $outputFileFullPath;
 }
 
+sub makeChecklistDirFullPath ($) {
+  my $checklistSubdir = shift();
+
+  return File::Spec->catfile(
+                             dirname(__FILE__),
+                             $::LOCAL_CHECKLIST_DIR,
+                             $checklistSubdir
+                            );
+}
+
 sub saveAbaChecklistFile($$$) {
   my $mechAgent = shift();
   my $sourceUrl = shift();
@@ -193,9 +230,10 @@ sub parseAbaChecklist($) {
   my $inputFileBaseName = basename($inputFileFullPath);
   my $outputFileBaseName = $inputFileBaseName;
   $outputFileBaseName =~ s/\.csv$/.parsed.csv/;
+
+  my $outputDirFullPath = makeChecklistDirFullPath($::LOCAL_CHECKLIST_SUBDIR_PARSED);
   my $outputFileFullPath = File::Spec->catfile(
-					       $::LOCAL_CHECKLIST_DIR,
-					       $::LOCAL_CHECKLIST_SUBDIR_PARSED,
+                                               $outputDirFullPath,
 					       $outputFileBaseName
 					      );
 
@@ -218,7 +256,34 @@ sub parseAbaChecklist($) {
       )
     || die("$0: can't open $inputFileFullPath for reading: $!");
 
-  # Open the species input file so we can do our processing.
+  # TODO: Put this message behind a config switch or log level setting.
+  if (1) {
+    print "About to check for output directory [$outputDirFullPath]...\n";
+  }
+
+  # Create the output directory if it does not already exist.
+  if (! -d $outputDirFullPath) {
+
+    # TODO: Put this message behind a config switch or log level setting.
+    if (1) {
+      print "Did not find output directory [$outputDirFullPath], attempting to create...\n";
+    }
+
+    make_path($outputDirFullPath) or die "Failed to create output directory [$outputDirFullPath]: $!";
+
+    # TODO: Put this message behind a config switch or log level setting.
+    if (1) {
+      print "Created output directory [$outputDirFullPath].\n";
+    }
+  }
+  else {
+    # TODO: Put this message behind a config switch or log level setting.
+    if (1) {
+      print "Found output directory [$outputDirFullPath].\n";
+    }
+  }
+
+  # Open the species output file so we can do our processing.
   open(
        $outputFileHandle,
        "> $encoding",
@@ -251,6 +316,32 @@ SPECIES:
   }
 
   close($outputFileHandle) or die "Failed to close $outputFileFullPath: $!";
+
+  return $outputFileFullPath;
+}
+
+sub makeSymbolicLink($$) {
+  my $oldFileFullPath = shift();
+  my $newFileFullPath = shift();
+
+  my $dirname = dirname($oldFileFullPath);
+  my $oldFileBasename = basename($oldFileFullPath);
+  my $newFileBasename = basename($newFileFullPath);
+
+  # TODO: Put these messages behind a config switch or log level setting.
+  if (1) {
+    print "Directory name = [$dirname]\n";
+    print "Old file basename = [$oldFileBasename]\n";
+    print "New file basename = [$newFileBasename]\n";
+  }
+
+  local $CWD = $dirname;
+
+  if (-l $newFileBasename) {
+    unlink($newFileBasename) or die "Failed to remove link file [$newFileBasename]: $!";
+  }
+
+  symlink($oldFileBasename, $newFileBasename) or die "Failed to link old file [$oldFileBasename] to new file [$newFileBasename]: $!";
 }
 
 # End of script.

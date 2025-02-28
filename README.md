@@ -72,3 +72,6 @@ shell> brdlGuesser.pl -d
 1142. BFGR: Black-faced Grassquit
 1143. MOSE: Morelet's Seedeater
 ```
+
+## Running on Windows
+If you are running the script on Windows, you will need to run it on Windows 10 or greater. You will also need to run your command window or Git Bash window as Administrator. This is needed so that symbolic links will work correctly.
