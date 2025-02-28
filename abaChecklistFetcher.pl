@@ -71,8 +71,18 @@ sub main() {
     print "Linked filename = [$linkFilename]\n";
   }
 
+  # TODO: Put this message behind a config switch or log level setting.
+  if (1) {
+    print "Before making symbolic link, \$CWD = [$CWD]\n";
+  }
+
   # Create a symbolic link to the parsed checklist file for searching.
   makeSymbolicLink($parsedChecklistFilename, $linkFilename);
+
+  # TODO: Put this message behind a config switch or log level setting.
+  if (1) {
+    print "After making symbolic link, \$CWD = [$CWD]\n";
+  }
 }
 
 sub downloadAbaChecklist() {
