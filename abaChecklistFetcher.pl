@@ -4,6 +4,7 @@
 use strict;
 use Archive::Zip qw( :ERROR_CODES :CONSTANTS );
 use File::Basename;
+use File::Path qw( make_path );
 use File::Spec;
 use File::chdir;
 use Text::CSV;
@@ -229,9 +230,10 @@ sub parseAbaChecklist($) {
   my $inputFileBaseName = basename($inputFileFullPath);
   my $outputFileBaseName = $inputFileBaseName;
   $outputFileBaseName =~ s/\.csv$/.parsed.csv/;
+
+  my $outputDirFullPath = makeChecklistDirFullPath($::LOCAL_CHECKLIST_SUBDIR_PARSED);
   my $outputFileFullPath = File::Spec->catfile(
-					       $::LOCAL_CHECKLIST_DIR,
-					       $::LOCAL_CHECKLIST_SUBDIR_PARSED,
+                                               $outputDirFullPath,
 					       $outputFileBaseName
 					      );
 
@@ -254,7 +256,34 @@ sub parseAbaChecklist($) {
       )
     || die("$0: can't open $inputFileFullPath for reading: $!");
 
-  # Open the species input file so we can do our processing.
+  # TODO: Put this message behind a config switch or log level setting.
+  if (1) {
+    print "About to check for output directory [$outputDirFullPath]...\n";
+  }
+
+  # Create the output directory if it does not already exist.
+  if (! -d $outputDirFullPath) {
+
+    # TODO: Put this message behind a config switch or log level setting.
+    if (1) {
+      print "Did not find output directory [$outputDirFullPath], attempting to create...\n";
+    }
+
+    make_path($outputDirFullPath) or die "Failed to create output directory [$outputDirFullPath]: $!";
+
+    # TODO: Put this message behind a config switch or log level setting.
+    if (1) {
+      print "Created output directory [$outputDirFullPath].\n";
+    }
+  }
+  else {
+    # TODO: Put this message behind a config switch or log level setting.
+    if (1) {
+      print "Found output directory [$outputDirFullPath].\n";
+    }
+  }
+
+  # Open the species output file so we can do our processing.
   open(
        $outputFileHandle,
        "> $encoding",
@@ -308,9 +337,11 @@ sub makeSymbolicLink($$) {
 
   local $CWD = $dirname;
 
-  unlink($newFileBasename);
+  if (-l $newFileBasename) {
+    unlink($newFileBasename) or die "Failed to remove link file [$newFileBasename]: $!";
+  }
 
-  symlink($oldFileBasename, $newFileBasename);
+  symlink($oldFileBasename, $newFileBasename) or die "Failed to link old file [$oldFileBasename] to new file [$newFileBasename]: $!";
 }
 
 # End of script.
