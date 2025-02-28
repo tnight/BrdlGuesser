@@ -55,12 +55,16 @@ sub main() {
   my $matchCount = 0;
   my $searchPattern = undef;
 
-  # TODO: Make this script smart enough to find the latest checklist file.
-  my $speciesFilename = 'ABA_Checklist-8.17.parsed.csv';  # Full data file.
+  #
+  # Choose from among the available species files.
+  #
+  # NOTE: The data file must have Unix-style line endings, not DOS or Mac.
+  #
+  # TODO: Specify this name via a configuration file.
+  #
+  my $speciesFilename = 'latest.checklist.parsed.csv'; # Latest full data file.
   # my $speciesFilename = 'short.csv';  # Small data file for testing.
   # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
-
-  # NOTE: the data file must have Unix-style line endings, not DOS or Mac.
 
   # Get and validate our command-line options.
   my $opts = validateOptions();
