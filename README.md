@@ -72,5 +72,12 @@ shell> brdlGuesser.pl -d
 1143. MOSE: Morelet's Seedeater
 ```
 
+## Installation
+Before running the BrdlGuesser script for the first time, you will need to fetch the bird checklist from the American Birding Association (ABA) website. To do this, you can run the [ABA Checklist Fetcher](#abaChecklistFetcherHeading) script included in this software package. It is also a good idea to run the ABA Checklist Fetcher script periodically to retrieve the updated checklist file. Typically, the ABA updates the checklist once or twice per year.
+
+# <a name="abaChecklistFetcherHeading"></a> ABA Checklist Fetcher
+## Description
+Fetch the latest version of the American Birding Association (ABA) bird checklist. This checklist contains the four-letter alphabetic codes that can be possible solutions to the BRDL puzzle.
+
 ## Running on Windows
-If you are running the script on Windows, you will need to run it on Windows 10 or greater. You will also need to run your command window or Git Bash window as Administrator. This is needed so that symbolic links will work correctly.
+If you are running the ABA Checklist Fetcher script on Windows, you will need to run it on Windows 10 or greater. You will also need to run your command window or Git Bash window as Administrator. This is needed so that symbolic links will work correctly.
