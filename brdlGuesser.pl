@@ -20,15 +20,16 @@ $::LOCAL_CHECKLIST_SUBDIR_PARSED = 'parsed';
 $::USAGE = <<END;
 usage: $0 [-d|--dump] [-h|--help] [-i|--include letters] [-p|--pattern search-pattern] [-x|--exclude letters]
 
-Search for a four-letter Alpha code using a regular expression search pattern.
-One of the -d, -p, or -x options is required. If -p is given, it overrides any
--d option.
+Search for a four-letter Alpha code using a search pattern. To represent
+an unknown letter, use the underscore ('_').
+One of the -d, -p, or -x options is required. If -p is given, it
+overrides any -d option.
 
 EXAMPLES
-shell> $0 -p 'R*BU'
-shell> $0 -p '*ar*'
-shell> $0 -p 'G*A*' -x bmos
-shell> $0 -p 'G*A*' -i tw
+shell> $0 -p R_BU
+shell> $0 -p _ar_
+shell> $0 -p G_A_ -x bmos
+shell> $0 -p G_A_ -i tw
 
 OPTIONS
 -d | --dump: Display all of the possible BRDL answers.
@@ -41,7 +42,6 @@ NOTES
 * Both the search pattern and the letters to be included and excluded can
 be given as uppercase or lowercase, and will still match.
 * The same letter cannot appear in both the exclusion and inclusion lists.
-* To prevent the shell from interpreting any asterisks in your pattern, enclose the pattern with single quotes.
 END
 
 # Call the main subroutine, returning its return value to our caller.
@@ -79,7 +79,7 @@ sub main() {
   # Configure the search pattern based on our command-line options.
   if (exists $opts->{'pattern'}) {
     $searchPattern = uc($opts->{'pattern'});
-    $searchPattern =~ s#\*#[A-Z]#g;
+    $searchPattern =~ s#_#[A-Z]#g;
   }
   else {
     $searchPattern = '[A-Z]{4}';
@@ -194,6 +194,15 @@ sub validateOptions() {
       die("Search pattern [$opts->{'pattern'}] does not have exactly four characters.\n$::USAGE");
     }
 
+  # Validate that the search pattern contains no invalid characters.
+  if (
+      exists($opts->{'pattern'}) &&
+      $opts->{'pattern'} =~ m/[^_[:alpha:]]/
+     )
+    {
+      die("Search pattern [$opts->{'pattern'}] contains one or more invalid characters. Only letters and underscores are allowed.\n$::USAGE");
+    }
+
   # Validate that no letter appears in both the exclusion and inclusion
   # lists.
   if (
@@ -231,10 +240,10 @@ sub validateListsAsMutuallyExclusive($$$) {
   my $inclusionFieldDisplayName = shift;
 
   my $exclusionStringUppercase = uc($exclusionString);
-  my $inclusionStringNoStars = uc($inclusionString);
-  $inclusionStringNoStars =~ s/\Q*\E//g;
+  my $inclusionStringNoUnderscores = uc($inclusionString);
+  $inclusionStringNoUnderscores =~ s/\Q_\E//g;
 
-  foreach my $inclusionLetter (getStringAsArray($inclusionStringNoStars)) {
+  foreach my $inclusionLetter (getStringAsArray($inclusionStringNoUnderscores)) {
 
     if ($exclusionStringUppercase =~ m/$inclusionLetter/) {
       die(
