@@ -2,7 +2,7 @@
 
 # Gain access to all the pragmas and modules we'll need.
 use strict;
-use Archive::Zip qw( :ERROR_CODES :CONSTANTS );
+use Archive::Zip qw( :CONSTANTS :ERROR_CODES );
 use File::Basename;
 use File::Path qw( make_path );
 use File::Spec;
