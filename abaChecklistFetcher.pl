@@ -95,7 +95,7 @@ sub initializeConfig() {
   $config->file($configFileFullPath);
 
   # Log the contents of our configuration.
-  if ($config->get('logLevelDebug')) {
+  if ($config->get('logLevelTrace')) {
     print("Full dump of our configuration:\n", Data::Dumper->Dump([$config], [qw(config)]));
   }
 

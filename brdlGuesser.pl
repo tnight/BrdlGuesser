@@ -3,15 +3,14 @@
 # Gain access to all the pragmas and modules we'll need.
 use strict;
 use AppConfig qw( :argcount );
+use Data::Dumper;
 use File::Basename;
 use File::Spec;
 use Getopt::Long;
 use List::Util qw( all );
 use Text::CSV;
 
-# Define constants we need.
-use constant LOCAL_CHECKLIST_DIR => 'checkLists';
-use constant LOCAL_CHECKLIST_SUBDIR_PARSED => 'parsed';
+# Define our usage message as a constant.
 use constant USAGE => <<END;
 usage: $0 [-d|--dump] [-h|--help] [-i|--include letters] [-p|--pattern search-pattern] [-x|--exclude letters]
 
@@ -39,8 +38,16 @@ be given as uppercase or lowercase, and will still match.
 * The same letter cannot appear in both the exclusion and inclusion lists.
 END
 
+# Define the constant we will use to open our config file.
+use constant CONFIG_FILENAME => 'config.cfg';
+
+# Declare our configuration, which will be visible to all of our
+# subroutines.
+our $config = undef;
+
 # Make a forward declaration of our subroutines.
 sub main();
+sub initializeConfig();
 sub getStringAsArray($);
 sub validateOptions();
 sub validateListsAsMutuallyExclusive($$$);
@@ -56,14 +63,13 @@ sub main() {
   my $matchCount = 0;
   my $searchPattern = undef;
 
-  #
+  # Initialize our configuration so we can do our work.
+  $config = initializeConfig();
+
   # Choose from among the available species files.
   #
   # NOTE: The data file must have Unix-style line endings, not DOS or Mac.
-  #
-  # TODO: Specify this name via a configuration file.
-  #
-  my $speciesFilename = 'latest.checklist.parsed.csv'; # Latest full data file.
+  my $speciesFilename = $config->get('latestChecklistFilename'); # Latest full data file.
   # my $speciesFilename = 'short.csv';  # Small data file for testing.
   # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
 
@@ -72,8 +78,8 @@ sub main() {
 
   # Get the path to the input file including the path of the running script.
   my $speciesPath = File::Spec->catfile(
-                                        LOCAL_CHECKLIST_DIR,
-                                        LOCAL_CHECKLIST_SUBDIR_PARSED,
+                                        $config->get('localChecklistDir'),
+                                        $config->get('localChecklistSubdirParsed'),
                                         $speciesFilename
                                        );
 
@@ -151,6 +157,35 @@ SPECIES:
   close($fileHandle) or die "Failed to close $speciesPath: $!";
 
   return $matchCount > 0 ? 0 : 1;
+}
+
+sub initializeConfig() {
+  # Define the configuration and the variables we will store there.
+  my $config = AppConfig->new({ CASE => 1, ERROR => \&handleConfigError, PEDANTIC => 1 });
+  $config->define('abaChecklistUrl', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('abaChecklistDownloadEnabled', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
+  $config->define('csvHeaderRow', { ARGCOUNT => ARGCOUNT_LIST } );
+  $config->define('downloadedRawTestFilename', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('latestChecklistFilename', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('localChecklistDir', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('localChecklistSubdirParsed', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('localChecklistSubdirRaw', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('logLevelDebug', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
+  $config->define('logLevelTrace', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
+
+  # Read the configuration values from our configuration file.
+  my $configFileFullPath = File::Spec->catfile(
+                                               dirname(__FILE__),
+                                               CONFIG_FILENAME
+                                              );
+  $config->file($configFileFullPath);
+
+  # Log the contents of our configuration.
+  if ($config->get('logLevelTrace')) {
+    print("Full dump of our configuration:\n", Data::Dumper->Dump([$config], [qw(config)]));
+  }
+
+  return $config;
 }
 
 sub getStringAsArray($) {
