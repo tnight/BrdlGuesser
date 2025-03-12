@@ -1,13 +1,18 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl
 
-# Gain access to all the pragmas and modules we'll need.
+# Do our best to find errors as early as possible.
 use strict;
-use AppConfig qw( :argcount );
-use Data::Dumper;
+use warnings;
+
+# Make sure we can find our local module(s).
 use File::Basename;
+use lib dirname (__FILE__);
+
+# Gain access to all the other modules we'll need.
 use File::Spec;
 use Getopt::Long;
 use List::Util qw( all );
+use MyConfig;
 use Text::CSV;
 
 # Define our usage message as a constant.
@@ -38,16 +43,12 @@ be given as uppercase or lowercase, and will still match.
 * The same letter cannot appear in both the exclusion and inclusion lists.
 END
 
-# Define the constant we will use to open our config file.
-use constant CONFIG_FILENAME => 'config.cfg';
-
 # Declare our configuration, which will be visible to all of our
 # subroutines.
 our $config = undef;
 
 # Make a forward declaration of our subroutines.
 sub main();
-sub initializeConfig();
 sub getStringAsArray($);
 sub validateOptions();
 sub validateListsAsMutuallyExclusive($$$);
@@ -64,7 +65,7 @@ sub main() {
   my $searchPattern = undef;
 
   # Initialize our configuration so we can do our work.
-  $config = initializeConfig();
+  $config = MyConfig->new();
 
   # Choose from among the available species files.
   #
@@ -157,35 +158,6 @@ SPECIES:
   close($fileHandle) or die "Failed to close $speciesPath: $!";
 
   return $matchCount > 0 ? 0 : 1;
-}
-
-sub initializeConfig() {
-  # Define the configuration and the variables we will store there.
-  my $config = AppConfig->new({ CASE => 1, ERROR => \&handleConfigError, PEDANTIC => 1 });
-  $config->define('abaChecklistUrl', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('abaChecklistDownloadEnabled', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
-  $config->define('csvHeaderRow', { ARGCOUNT => ARGCOUNT_LIST } );
-  $config->define('downloadedRawTestFilename', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('latestChecklistFilename', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('localChecklistDir', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('localChecklistSubdirParsed', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('localChecklistSubdirRaw', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('logLevelDebug', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
-  $config->define('logLevelTrace', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
-
-  # Read the configuration values from our configuration file.
-  my $configFileFullPath = File::Spec->catfile(
-                                               dirname(__FILE__),
-                                               CONFIG_FILENAME
-                                              );
-  $config->file($configFileFullPath);
-
-  # Log the contents of our configuration.
-  if ($config->get('logLevelTrace')) {
-    print("Full dump of our configuration:\n", Data::Dumper->Dump([$config], [qw(config)]));
-  }
-
-  return $config;
 }
 
 sub getStringAsArray($) {
