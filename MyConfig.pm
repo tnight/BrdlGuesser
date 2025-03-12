@@ -9,11 +9,6 @@ use File::Basename;
 # Define the constant we will use to open our config file.
 use constant CONFIG_FILENAME => 'myConfig.cfg';
 
-# Make a forward declaration of our subroutines.
-sub new();
-sub _initializeConfig();
-sub _handleConfigError();
-
 #
 # Constructors
 #
