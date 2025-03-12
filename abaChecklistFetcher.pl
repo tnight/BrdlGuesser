@@ -13,25 +13,11 @@ use Text::CSV;
 use URI;
 use WWW::Mechanize;
 
-# Define constants we need.
-#
-# TODO: Specify this URL via a configuration file.
+# Define the constant we will use to open our config file.
 use constant CONFIG_FILENAME => 'config.cfg';
-use constant CSV_HEADER_ROW =>
-  [
-   'Group Name',
-   'Species Name English',
-   'Species Name French',
-   'Species Latin Name',
-   'Species Code',
-   'Species Abundance'
-  ];
-# TODO: Consider moving these directory names to config so they can be shared by both scripts.
-use constant LOCAL_CHECKLIST_DIR => 'checkLists';
-use constant LOCAL_CHECKLIST_SUBDIR_PARSED => 'parsed';
-use constant LOCAL_CHECKLIST_SUBDIR_RAW => 'raw';
 
-# Declare our configuration, which will be used by all of our subroutines.
+# Declare our configuration, which will be visible to all of our
+# subroutines.
 our $config = undef;
 
 # Make a forward declaration of our subroutines.
@@ -42,6 +28,7 @@ sub makeChecklistDirFullPath($);
 sub saveAbaChecklistFile($$$);
 sub parseAbaChecklist($);
 sub makeSymbolicLink($$);
+sub handleConfigError();
 
 # Call the main subroutine, returning its return value to our caller.
 exit main();
@@ -52,17 +39,15 @@ sub main() {
   # Initialize our configuration so we can do our work.
   $config = initializeConfig();
 
-  # TODO: Make a config switch to enable or disable the download.
-  if (1) {
+  if ($config->get('abaChecklistDownloadEnabled')) {
     # Download the checklist file from the official source.
     $rawChecklistFilename = downloadAbaChecklist();
   }
   else {
     # In lieu of downloading, just point to a local file already in place.
     $rawChecklistFilename = File::Spec->catfile(
-                                                makeChecklistDirFullPath(LOCAL_CHECKLIST_SUBDIR_RAW),
-                                                # TODO: Get name from config.
-                                                'ABA_Checklist-8.17.csv'
+                                                makeChecklistDirFullPath($config->get('localChecklistSubdirRaw')),
+                                                $config->get('downloadedRawTestFilename')
                                                );
   }
 
@@ -70,35 +55,37 @@ sub main() {
   my $parsedChecklistFilename = parseAbaChecklist($rawChecklistFilename);
 
   my $linkFilename = File::Spec->catfile(
-                                         makeChecklistDirFullPath(LOCAL_CHECKLIST_SUBDIR_PARSED),
-                                         # TODO: Get name from config.
-                                         'latest.checklist.parsed.csv'
+                                         makeChecklistDirFullPath($config->get('localChecklistSubdirParsed')),
+                                         $config->get('latestChecklistFilename')
                                         );
 
-  # TODO: Put these messages behind a config switch or log level setting.
-  if (1) {
+  if ($config->get('logLevelDebug')) {
     print("Parsed filename = [$parsedChecklistFilename]\n");
     print("Linked filename = [$linkFilename]\n");
-  }
-
-  # TODO: Put this message behind a config switch or log level setting.
-  if (1) {
     print("Before making symbolic link, \$CWD = [$CWD]\n");
   }
 
   # Create a symbolic link to the parsed checklist file for searching.
   makeSymbolicLink($parsedChecklistFilename, $linkFilename);
 
-  # TODO: Put this message behind a config switch or log level setting.
-  if (1) {
+  if ($config->get('logLevelDebug')) {
     print("After making symbolic link, \$CWD = [$CWD]\n");
   }
 }
 
 sub initializeConfig() {
   # Define the configuration and the variables we will store there.
-  my $config = AppConfig->new({ CASE => 1 });
+  my $config = AppConfig->new({ CASE => 1, ERROR => \&handleConfigError, PEDANTIC => 1 });
   $config->define('abaChecklistUrl', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('abaChecklistDownloadEnabled', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
+  $config->define('csvHeaderRow', { ARGCOUNT => ARGCOUNT_LIST } );
+  $config->define('downloadedRawTestFilename', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('latestChecklistFilename', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('localChecklistDir', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('localChecklistSubdirParsed', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('localChecklistSubdirRaw', { ARGCOUNT => ARGCOUNT_ONE });
+  $config->define('logLevelDebug', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
+  $config->define('logLevelTrace', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
 
   # Read the configuration values from our configuration file.
   my $configFileFullPath = File::Spec->catfile(
@@ -107,8 +94,8 @@ sub initializeConfig() {
                                               );
   $config->file($configFileFullPath);
 
-  # TODO: Configure this as well.
-  if (1) {
+  # Log the contents of our configuration.
+  if ($config->get('logLevelDebug')) {
     print("Full dump of our configuration:\n", Data::Dumper->Dump([$config], [qw(config)]));
   }
 
@@ -122,12 +109,12 @@ sub downloadAbaChecklist() {
     my $content = $response->decoded_content;
   }
   else {
-    die $response->status_line;
+    die($response->status_line);
   }
 
   my @links = $mechAgent->links();
   if (scalar(@links) == 0) {
-    die "Found no links in downloaded web page!";
+    die("Found no links in downloaded web page!");
   }
 
   my ($csvUrl, $pdfUrl);
@@ -146,14 +133,14 @@ sub downloadAbaChecklist() {
   }
 
   if (!defined($csvUrl) || !defined($pdfUrl)) {
-    die "Unable to determine CSV link and/or PDF link.";
+    die("Unable to determine CSV link and/or PDF link.");
   }
 
   print("\$csvUrl = [$csvUrl]\n\$pdfUrl = [$pdfUrl]\n");
 
   # Get the path to the checklist directory including the path of the
   # running script.
-  my $checklistDirFullPath = makeChecklistDirFullPath(LOCAL_CHECKLIST_SUBDIR_RAW);
+  my $checklistDirFullPath = makeChecklistDirFullPath($config->get('localChecklistSubdirRaw'));
 
   # Download the PDF file.
   my $pdfFileFullPath = saveAbaChecklistFile(
@@ -172,7 +159,7 @@ sub downloadAbaChecklist() {
   # Open the ZIP archive.
   my $zip = Archive::Zip->new();
   unless($zip->read($csvZipFileFullPath) == AZ_OK) {
-    die "Unable to read ZIP file [$csvZipFileFullPath]: $!";
+    die("Unable to read ZIP file [$csvZipFileFullPath]: $!");
   }
 
   # Find the correct entry within the ZIP archive. We need to exclude any
@@ -223,7 +210,7 @@ sub makeChecklistDirFullPath ($) {
 
   return File::Spec->catfile(
                              dirname(__FILE__),
-                             LOCAL_CHECKLIST_DIR,
+                             $config->get('localChecklistDir'),
                              $checklistSubdir
                             );
 }
@@ -235,7 +222,7 @@ sub saveAbaChecklistFile($$$) {
 
   my $response = $mechAgent->get($sourceUrl);
   if (! $response->is_success) {
-    die $response->status_line;
+    die($response->status_line);
   }
 
   # Save the PDF file locally.
@@ -260,14 +247,13 @@ sub parseAbaChecklist($) {
   my $outputFileBaseName = $inputFileBaseName;
   $outputFileBaseName =~ s/\.csv$/.parsed.csv/;
 
-  my $outputDirFullPath = makeChecklistDirFullPath(LOCAL_CHECKLIST_SUBDIR_PARSED);
+  my $outputDirFullPath = makeChecklistDirFullPath($config->get('localChecklistSubdirParsed'));
   my $outputFileFullPath = File::Spec->catfile(
                                                $outputDirFullPath,
                                                $outputFileBaseName
                                               );
 
-  # TODO: Put these messages behind a config switch or log level setting.
-  if (1) {
+  if ($config->get('logLevelDebug')) {
     print("Input filename  = [$inputFileFullPath]\n");
     print("Output filename = [$outputFileFullPath]\n");
   }
@@ -285,29 +271,25 @@ sub parseAbaChecklist($) {
       )
     || die("$0: can't open $inputFileFullPath for reading: $!");
 
-  # TODO: Put this message behind a config switch or log level setting.
-  if (1) {
+  if ($config->get('logLevelDebug')) {
     print("About to check for output directory [$outputDirFullPath]...\n");
   }
 
   # Create the output directory if it does not already exist.
   if (! -d $outputDirFullPath) {
 
-    # TODO: Put this message behind a config switch or log level setting.
-    if (1) {
+    if ($config->get('logLevelDebug')) {
       print("Did not find output directory [$outputDirFullPath], attempting to create...\n");
     }
 
-    make_path($outputDirFullPath) or die "Failed to create output directory [$outputDirFullPath]: $!";
+    make_path($outputDirFullPath) or die("Failed to create output directory [$outputDirFullPath]: $!");
 
-    # TODO: Put this message behind a config switch or log level setting.
-    if (1) {
+    if ($config->get('logLevelDebug')) {
       print("Created output directory [$outputDirFullPath].\n");
     }
   }
   else {
-    # TODO: Put this message behind a config switch or log level setting.
-    if (1) {
+    if ($config->get('logLevelDebug')) {
       print("Found output directory [$outputDirFullPath].\n");
     }
   }
@@ -330,21 +312,20 @@ SPECIES:
     if ($speciesCode) {
       push(@rows, $row);
 
-      # TODO: Put this message behind a config switch or log level setting.
-      if ("") {
+      if ($config->get('logLevelTrace')) {
         print("Found species code [$speciesCode] with English species name [$speciesNameEnglish].\n");
       }
     }
   }
 
-  close($inputFileHandle) or die "Failed to close $inputFileFullPath: $!";
+  close($inputFileHandle) or die("Failed to close $inputFileFullPath: $!");
 
   if (scalar(@rows) > 0) {
-    unshift(@rows, CSV_HEADER_ROW);
+    unshift(@rows, $config->get('csvHeaderRow'));
     $csv->say($outputFileHandle, $_) for @rows;
   }
 
-  close($outputFileHandle) or die "Failed to close $outputFileFullPath: $!";
+  close($outputFileHandle) or die("Failed to close $outputFileFullPath: $!");
 
   return $outputFileFullPath;
 }
@@ -357,8 +338,7 @@ sub makeSymbolicLink($$) {
   my $oldFileBasename = basename($oldFileFullPath);
   my $newFileBasename = basename($newFileFullPath);
 
-  # TODO: Put these messages behind a config switch or log level setting.
-  if (1) {
+  if ($config->get('logLevelDebug')) {
     print("Directory name = [$dirname]\n");
     print("Old file basename = [$oldFileBasename]\n");
     print("New file basename = [$newFileBasename]\n");
@@ -367,10 +347,14 @@ sub makeSymbolicLink($$) {
   local $CWD = $dirname;
 
   if (-l $newFileBasename) {
-    unlink($newFileBasename) or die "Failed to remove link file [$newFileBasename]: $!";
+    unlink($newFileBasename) or die("Failed to remove link file [$newFileBasename]: $!");
   }
 
-  symlink($oldFileBasename, $newFileBasename) or die "Failed to link old file [$oldFileBasename] to new file [$newFileBasename]: $!";
+  symlink($oldFileBasename, $newFileBasename) or die("Failed to link old file [$oldFileBasename] to new file [$newFileBasename]: $!");
+}
+
+sub handleConfigError() {
+  die(@_);
 }
 
 # End of script.
