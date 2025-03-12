@@ -38,7 +38,7 @@ sub get() {
 #
 sub _initializeConfig() {
   # Define the configuration and the variables we will store there.
-  my $config = AppConfig->new({ CASE => 1, ERROR => \&handleConfigError, PEDANTIC => 1 });
+  my $config = AppConfig->new({ CASE => 1, ERROR => \&_handleConfigError, PEDANTIC => 1 });
   $config->define('abaChecklistUrl', { ARGCOUNT => ARGCOUNT_ONE });
   $config->define('abaChecklistDownloadEnabled', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
   $config->define('csvHeaderRow', { ARGCOUNT => ARGCOUNT_LIST } );
@@ -65,7 +65,7 @@ sub _initializeConfig() {
   return $config;
 }
 
-sub handleConfigError() {
+sub _handleConfigError() {
   die(@_);
 }
 
