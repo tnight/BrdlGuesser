@@ -1,72 +1,77 @@
-package MyConfig;
-
 # Gain access to all the pragmas and modules we'll need.
+use v5.38;
+use feature 'class';
 use strict;
 use warnings;
-use AppConfig qw( :argcount );
+use AppConfig;
 use File::Basename;
 
-# Define the constant we will use to open our config file.
-use constant CONFIG_FILENAME => 'myConfig.cfg';
+class MyConfig 1.0 {
+  # Define the constant we will use to open our config file.
+  use constant CONFIG_FILENAME => 'myConfig.cfg';
 
-#
-# Constructors
-#
+  #
+  # Field attributes
+  #
 
-sub new() {
-  my $class = shift();
-  my $self = bless(
-                   { _appConfig => _initializeConfig() },
-                   $class
-                  );
-  return $self;
-}
+  field $appConfig;
 
-#
-# Public instance methods
-#
+  #
+  # Phasers
+  #
 
-sub get() {
-  my $self = shift();
-  my $attribute = shift();
-
-  return $self->{_appConfig}->get($attribute);
-}
-
-#
-# Private instance methods
-#
-sub _initializeConfig() {
-  # Define the configuration and the variables we will store there.
-  my $config = AppConfig->new({ CASE => 1, ERROR => \&_handleConfigError, PEDANTIC => 1 });
-  $config->define('abaChecklistUrl', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('abaChecklistDownloadEnabled', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
-  $config->define('csvHeaderRow', { ARGCOUNT => ARGCOUNT_LIST } );
-  $config->define('downloadedRawTestFilename', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('latestChecklistFilename', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('localChecklistDir', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('localChecklistSubdirParsed', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('localChecklistSubdirRaw', { ARGCOUNT => ARGCOUNT_ONE });
-  $config->define('logLevelDebug', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
-  $config->define('logLevelTrace', { ARGCOUNT => ARGCOUNT_NONE, DEFAULT => '<undef>' });
-
-  # Read the configuration values from our configuration file.
-  my $configFileFullPath = File::Spec->catfile(
-                                               dirname(__FILE__),
-                                               CONFIG_FILENAME
-                                              );
-  $config->file($configFileFullPath);
-
-  # Log the contents of our configuration.
-  if ($config->get('logLevelTrace')) {
-    print("Full dump of our configuration:\n", Data::Dumper->Dump([$config], [qw(config)]));
+  ADJUST {
+    $appConfig = $self->_initializeConfig();
   }
 
-  return $config;
-}
+  #
+  # Public instance methods
+  #
 
-sub _handleConfigError() {
-  die(@_);
+  method get($attribute) {
+    return $appConfig->get($attribute);
+  }
+
+  #
+  # Private instance methods
+  #
+
+  method _initializeConfig() {
+    # Define the configuration and the variables we will store there.
+    my $config = AppConfig->new({ CASE => 1, ERROR => \&_handleConfigError, PEDANTIC => 1 });
+    $config->define('abaChecklistUrl', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
+    $config->define('abaChecklistDownloadEnabled', { ARGCOUNT => AppConfig::ARGCOUNT_NONE, DEFAULT => '<undef>' });
+    $config->define('csvHeaderRow', { ARGCOUNT => AppConfig::ARGCOUNT_LIST } );
+    $config->define('downloadedRawTestFilename', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
+    $config->define('latestChecklistFilename', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
+    $config->define('localChecklistDir', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
+    $config->define('localChecklistSubdirParsed', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
+    $config->define('localChecklistSubdirRaw', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
+    $config->define('logLevelDebug', { ARGCOUNT => AppConfig::ARGCOUNT_NONE, DEFAULT => '<undef>' });
+    $config->define('logLevelTrace', { ARGCOUNT => AppConfig::ARGCOUNT_NONE, DEFAULT => '<undef>' });
+
+    # Read the configuration values from our configuration file.
+    my $configFileFullPath = File::Spec->catfile(
+                                                 File::Basename::dirname(__FILE__),
+                                                 CONFIG_FILENAME
+                                                );
+    $config->file($configFileFullPath);
+
+    # Log the contents of our configuration.
+    if ($config->get('logLevelTrace')) {
+      print("Full dump of our configuration:\n", Data::Dumper->Dump([$config], [qw(config)]));
+    }
+
+    return $config;
+  }
+
+  #
+  # As an error handler, this subroutine needs to be declared in the old Perl style.
+  #
+
+  sub _handleConfigError ($) {
+    die(@_);
+  }
 }
 
 # Return a true value so Perl will know that everything is OK.
