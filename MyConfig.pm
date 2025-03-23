@@ -1,10 +1,13 @@
 # Gain access to all the pragmas and modules we'll need.
 use v5.38;
-use feature 'class';
 use strict;
 use warnings;
 use AppConfig;
 use File::Basename;
+
+# These must come last to prevent spurious warning messages.
+use feature qw(class);
+no warnings qw(experimental);
 
 class MyConfig 1.0 {
   # Define the constant we will use to open our config file.
