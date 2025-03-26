@@ -13,7 +13,7 @@ use Archive::Zip qw( :CONSTANTS :ERROR_CODES );
 use File::Path qw( make_path );
 use File::Spec;
 use File::chdir;
-use MyConfig;
+use My::Config;
 use Text::CSV;
 use URI;
 use WWW::Mechanize;
@@ -37,7 +37,7 @@ sub main() {
   my $rawChecklistFilename;
 
   # Initialize our configuration so we can do our work.
-  $config = MyConfig->new();
+  $config = My::Config->new( runningScriptFullPath => __FILE__ );
 
   if ($config->get('abaChecklistDownloadEnabled')) {
     # Download the checklist file from the official source.

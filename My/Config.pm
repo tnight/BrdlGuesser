@@ -3,14 +3,17 @@ use v5.38;
 use strict;
 use warnings;
 use AppConfig;
+use Data::Dumper;
 use File::Basename;
+use File::Spec;
 
 # These must come last to prevent spurious warning messages.
 use feature qw(class);
 no warnings qw(experimental);
 
-class MyConfig 1.0 {
-  # Define the constant we will use to open our config file.
+class My::Config 1.0 {
+  # Define the constants we will use to open our config file.
+  use constant CONFIG_DIRECTORY => 'config';
   use constant CONFIG_FILENAME => 'myConfig.cfg';
 
   #
@@ -18,12 +21,15 @@ class MyConfig 1.0 {
   #
 
   field $appConfig;
+  field $configFileFullPath;
+  field $runningScriptFullPath :param;
 
   #
   # Phasers
   #
 
   ADJUST {
+    $configFileFullPath = $self->_calcConfigFileFullPath($runningScriptFullPath);
     $appConfig = $self->_initializeConfig();
   }
 
@@ -38,6 +44,14 @@ class MyConfig 1.0 {
   #
   # Private instance methods
   #
+
+  method _calcConfigFileFullPath($runningScriptFullPath) {
+    $configFileFullPath = File::Spec->catfile(
+                                              File::Basename::dirname($runningScriptFullPath),
+                                              CONFIG_DIRECTORY,
+                                              CONFIG_FILENAME
+                                             );
+  }
 
   method _initializeConfig() {
     # Define the configuration and the variables we will store there.
@@ -54,10 +68,6 @@ class MyConfig 1.0 {
     $config->define('logLevelTrace', { ARGCOUNT => AppConfig::ARGCOUNT_NONE, DEFAULT => '<undef>' });
 
     # Read the configuration values from our configuration file.
-    my $configFileFullPath = File::Spec->catfile(
-                                                 File::Basename::dirname(__FILE__),
-                                                 CONFIG_FILENAME
-                                                );
     $config->file($configFileFullPath);
 
     # Log the contents of our configuration.
