@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 # Do our best to find errors as early as possible.
 use strict;
@@ -11,8 +11,7 @@ use lib dirname (__FILE__);
 # Gain access to all the other modules we'll need.
 use File::Spec;
 use Getopt::Long;
-use List::Util qw( all );
-use MyConfig;
+use My::Config;
 use Text::CSV;
 
 # Define our usage message as a constant.
@@ -64,8 +63,9 @@ sub main() {
   my $matchCount = 0;
   my $searchPattern = undef;
 
+
   # Initialize our configuration so we can do our work.
-  $config = MyConfig->new();
+  $config = My::Config->new( runningScriptFullPath => __FILE__ );
 
   # Choose from among the available species files.
   #
