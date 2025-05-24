@@ -10,6 +10,11 @@ use lib dirname (__FILE__);
 
 use BrdlGuesser;
 
-BrdlGuesser->run();
+# Set the option that causes the version command to be shown as part of
+# the help message.
+my $brdlGuesser = BrdlGuesser->new({ 'show_version_cmd' => 1 });
+
+# Run the application.
+$brdlGuesser->run();
 
 # End of script

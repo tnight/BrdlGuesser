@@ -5,6 +5,14 @@ use strict;
 use warnings;
 use BrdlGuesser -command;
 
+sub abstract {
+  return "display all of the possible BRDL answers.";
+}
+
+sub description {
+  return "display every possible BRDL answer, which is a long list of over a thousand species.";
+}
+
 sub execute {
   my ($self, $opt, $args) = @_;
 
@@ -13,6 +21,12 @@ sub execute {
   $self->_helloWorld();
 
   print "Would have executed the dump command here...\n";
+}
+
+sub validate_args {
+  my ($self, $opt, $args) = @_;
+
+  $self->usage_error("No args allowed") if @$args;
 }
 
 1;
