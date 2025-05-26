@@ -1,3 +1,11 @@
+# I tried using the "new" (as of 2025) Corinna framework for this class,
+# but the App::Cmd framework complained that the class hierarchy was not
+# as it expects. Maybe someday the different frameworks will work
+# together? Until then, we have to use the old school Perl OO syntax.
+#
+# More information about Corinna can be found here:
+# https://dev.to/ovid/bringing-modern-oo-to-perl-51ak
+
 package BrdlGuesser::Command;
 
 # Gain access to all the pragmas and modules we'll need.

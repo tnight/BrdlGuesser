@@ -1,3 +1,7 @@
+# This class uses the "new" (as of 2025) Corinna framework, which
+# defines the "class" keyword. More information can be found here:
+# https://dev.to/ovid/bringing-modern-oo-to-perl-51ak
+
 # Gain access to all the pragmas and modules we'll need.
 use v5.38;
 use strict;
