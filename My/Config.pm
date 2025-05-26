@@ -11,7 +11,7 @@ use File::Spec;
 use feature qw(class);
 no warnings qw(experimental);
 
-class My::Config 1.0 {
+class My::Config 2.0 {
   # Define the constants we will use to open our config file.
   use constant CONFIG_DIRECTORY => 'config';
   use constant CONFIG_FILENAME => 'myConfig.cfg';
@@ -22,14 +22,14 @@ class My::Config 1.0 {
 
   field $appConfig;
   field $configFileFullPath;
-  field $runningScriptFullPath :param;
+  field $runningScriptDirName :param;
 
   #
   # Phasers
   #
 
   ADJUST {
-    $configFileFullPath = $self->_calcConfigFileFullPath($runningScriptFullPath);
+    $configFileFullPath = $self->_calcConfigFileFullPath($runningScriptDirName);
     $appConfig = $self->_initializeConfig();
   }
 
@@ -45,9 +45,9 @@ class My::Config 1.0 {
   # Private instance methods
   #
 
-  method _calcConfigFileFullPath($runningScriptFullPath) {
+  method _calcConfigFileFullPath($runningScriptDirName) {
     $configFileFullPath = File::Spec->catfile(
-                                              File::Basename::dirname($runningScriptFullPath),
+                                              $runningScriptDirName,
                                               CONFIG_DIRECTORY,
                                               CONFIG_FILENAME
                                              );

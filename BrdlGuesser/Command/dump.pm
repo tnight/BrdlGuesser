@@ -16,10 +16,11 @@ sub description {
 sub execute {
   my ($self, $opt, $args) = @_;
 
-  # Trying out a superclass method.
-  # TODOTODO: Remove after testing.
-  $self->_helloWorld();
+  # Get ready to do the work.
+  $self->_initialize();
 
+  # Do the work.
+  # TODOTODO: Actually do the work instead of just saying we would have done it.
   print "Would have executed the dump command here...\n";
 }
 

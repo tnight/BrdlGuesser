@@ -6,7 +6,7 @@ use warnings;
 
 # Make sure we can find our local module(s).
 use File::Basename;
-use lib dirname (__FILE__);
+use lib dirname(__FILE__);
 
 # Gain access to all the other modules we'll need.
 use Archive::Zip qw( :CONSTANTS :ERROR_CODES );
@@ -37,7 +37,7 @@ sub main() {
   my $rawChecklistFilename;
 
   # Initialize our configuration so we can do our work.
-  $config = My::Config->new( runningScriptFullPath => __FILE__ );
+  $config = My::Config->new(runningScriptDirName => dirname(__FILE__));
 
   if ($config->get('abaChecklistDownloadEnabled')) {
     # Download the checklist file from the official source.
