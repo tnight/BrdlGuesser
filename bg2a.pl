@@ -14,7 +14,7 @@ use BrdlGuesser;
 # the help message.
 my $brdlGuesser = BrdlGuesser->new({ 'show_version_cmd' => 1 });
 
-# Run the application.
-$brdlGuesser->run();
+# Run the application and return the result to our caller.
+exit($brdlGuesser->run());
 
 # End of script

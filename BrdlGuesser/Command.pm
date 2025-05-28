@@ -31,9 +31,13 @@ sub new {
   $self->{'config'} = undef;
   $self->{'csv'} = undef;
   $self->{'encoding'} = ":encoding(UTF-8)";
+  $self->{'exclusionRegex'} = undef;
   $self->{'fileHandle'} = undef;
+  $self->{'inclusionRegexen'} = [];
+  $self->{'searchPattern'} = undef;
+  $self->{'speciesPath'} = undef;
 
-  # Finally, re-bless to our class.
+  # Finally, re-bless to our subclass.
   return bless($self, $class);
 }
 
@@ -55,24 +59,86 @@ sub _initialize() {
   # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
 
   # Get the path to the input file including the path of the running script.
-  my $speciesPath = File::Spec->catfile(
-                                        $FindBin::Bin,
-                                        $self->{'config'}->get('localChecklistDir'),
-                                        $self->{'config'}->get('localChecklistSubdirParsed'),
-                                        $speciesFilename
-                                       );
+  $self->{'speciesPath'} = File::Spec->catfile(
+                                               $FindBin::Bin,
+                                               $self->{'config'}->get('localChecklistDir'),
+                                               $self->{'config'}->get('localChecklistSubdirParsed'),
+                                               $speciesFilename
+                                              );
 
   # Open the species input file so we can do our processing.
   open(
        $self->{'fileHandle'},
        '< ' . $self->{'encoding'},
-       $speciesPath
+       $self->{'speciesPath'}
       )
-    || die("$0: can't open $speciesPath for reading: $!");
+    || die("$0: can't open " . $self->{'speciesPath'} . " for reading: $!");
 
   # Get ready to parse the CSV file.
   $self->{'csv'} = Text::CSV_XS->new({ binary => 1, auto_diag => 1 });
 }
+
+sub _searchFile() {
+  my $self = shift();
+
+  # Declare some local variables for convenience.
+  my $matchCount = 0;
+  my $searchPattern = $self->{'searchPattern'};
+
+SPECIES:
+  while (my $row = $self->{'csv'}->getline($self->{'fileHandle'})) {
+    my (
+        $group,
+        $speciesNameEnglish,
+        $speciesNameFrench,
+        $speciesLatinName,
+        $speciesCode,
+        $speciesAbundance
+       ) = @$row;
+
+    # Search for a match with our search pattern.
+    if ($speciesCode =~ m/^$searchPattern$/) {
+      # Exclude species codes containing the letters we were told to exclude.
+      if (
+          defined($self->{'exclusionRegex'}) &&
+          $speciesCode =~ $self->{'exclusionRegex'}
+         ) {
+
+        next SPECIES;
+      }
+
+      # Only include species codes containing all the letters we were
+      # told to include.
+      if (scalar(@{$self->{'inclusionRegexen'}})) {
+        foreach my $inclusionRegex (@{$self->{'inclusionRegexen'}}) {
+          if ($speciesCode !~ $inclusionRegex) {
+            next SPECIES;
+          }
+        }
+      }
+
+      # Our pattern matched, so output the result.
+      printf(
+             "%4d. %s: %s\n",
+             ++$matchCount,
+             $speciesCode,
+             $speciesNameEnglish
+            );
+    }
+  }
+  if ($!) {
+    die("$0: unexpected error while reading from " . $self->{'speciesPath'} . ": $!");
+  }
+
+  return $matchCount;
+}
+
+# TODOTODO: Figure out how we can clean things up once the work is done.
+# In the case of the brdlGuesser.pl stand-alone script, the clean-up is
+# done at the end of the main() method.
+#
+# Maybe I just have to roll it myself with a custom _cleanup() method
+# like I did with the _initialize() method?
 
 # Return a true value so Perl will know that everything is OK.
 1;

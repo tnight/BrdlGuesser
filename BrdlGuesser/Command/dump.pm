@@ -5,6 +5,10 @@ use strict;
 use warnings;
 use BrdlGuesser -command;
 
+#
+# Public instance methods
+#
+
 sub abstract {
   return "display all of the possible BRDL answers.";
 }
@@ -20,14 +24,30 @@ sub execute {
   $self->_initialize();
 
   # Do the work.
-  # TODOTODO: Actually do the work instead of just saying we would have done it.
-  print "Would have executed the dump command here...\n";
+  my $matchCount = $self->_searchFile();
+
+  # Return the result code for our search.
+  return $matchCount > 0 ? 0 : 1;
 }
 
 sub validate_args {
   my ($self, $opt, $args) = @_;
 
   $self->usage_error("No args allowed") if @$args;
+}
+
+#
+# Private instance methods
+#
+
+sub _initialize() {
+  my $self = shift();
+
+  # Call our superclass method so it can do the necessary initialization.
+  $self->SUPER::_initialize();
+
+  # Do the further initialization that our subclass needs.
+  $self->{'searchPattern'} = '[A-Z]{4}';
 }
 
 1;
