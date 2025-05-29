@@ -42,8 +42,42 @@ sub new {
 }
 
 #
+# Public instance methods
+#
+
+sub execute {
+  my ($self, $opt, $args) = @_;
+
+  # Get ready to do the work.
+  $self->_initialize();
+
+  # Do the work.
+  my $matchCount = $self->_searchFile();
+
+  # Now that the work is done, clean up after ourselves.
+  $self->_cleanUp();
+
+  # Return the result code for our search.
+  return $matchCount > 0 ? 0 : 1;
+}
+
+sub validate_args {
+  my ($self, $opt, $args) = @_;
+
+  $self->usage_error("No args allowed") if @$args;
+}
+
+#
 # Private instance methods
 #
+
+sub _cleanUp() {
+  my $self = shift();
+
+  if (defined($self->{'fileHandle'})) {
+    close($self->{'fileHandle'}) or die("Failed to close " . $self->{'speciesPath'} . ": $!");
+  }
+}
 
 sub _initialize() {
   my $self = shift();
@@ -132,13 +166,6 @@ SPECIES:
 
   return $matchCount;
 }
-
-# TODOTODO: Figure out how we can clean things up once the work is done.
-# In the case of the brdlGuesser.pl stand-alone script, the clean-up is
-# done at the end of the main() method.
-#
-# Maybe I just have to roll it myself with a custom _cleanup() method
-# like I did with the _initialize() method?
 
 # Return a true value so Perl will know that everything is OK.
 1;

@@ -10,30 +10,11 @@ use BrdlGuesser -command;
 #
 
 sub abstract {
-  return "display all of the possible BRDL answers.";
+  return "display all of the possible BRDL answers";
 }
 
 sub description {
   return "display every possible BRDL answer, which is a long list of over a thousand species.";
-}
-
-sub execute {
-  my ($self, $opt, $args) = @_;
-
-  # Get ready to do the work.
-  $self->_initialize();
-
-  # Do the work.
-  my $matchCount = $self->_searchFile();
-
-  # Return the result code for our search.
-  return $matchCount > 0 ? 0 : 1;
-}
-
-sub validate_args {
-  my ($self, $opt, $args) = @_;
-
-  $self->usage_error("No args allowed") if @$args;
 }
 
 #

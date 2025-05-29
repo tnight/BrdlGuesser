@@ -154,7 +154,7 @@ SPECIES:
     die("$0: unexpected error while reading from $speciesPath: $!");
   }
 
-  close($fileHandle) or die "Failed to close $speciesPath: $!";
+  close($fileHandle) or die("Failed to close $speciesPath: $!");
 
   return $matchCount > 0 ? 0 : 1;
 }
