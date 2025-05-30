@@ -27,7 +27,7 @@ sub new {
   # First, call the constructor of our superclass.
   my $self = $class->SUPER::new($arg);
 
-  # Then, initialize the parts of the object that are unique to this class.
+  # Then, initialize the additional items we need for this subclass.
   $self->{'config'} = undef;
   $self->{'csv'} = undef;
   $self->{'encoding'} = ":encoding(UTF-8)";
@@ -37,7 +37,7 @@ sub new {
   $self->{'searchPattern'} = undef;
   $self->{'speciesPath'} = undef;
 
-  # Finally, re-bless to our subclass.
+  # Finally, re-bless the reference to be of this subclass.
   return bless($self, $class);
 }
 
@@ -49,7 +49,7 @@ sub execute {
   my ($self, $opt, $args) = @_;
 
   # Get ready to do the work.
-  $self->_initialize();
+  $self->_initialize($opt, $args);
 
   # Do the work.
   my $matchCount = $self->_searchFile();
@@ -75,12 +75,12 @@ sub _cleanUp() {
   my $self = shift();
 
   if (defined($self->{'fileHandle'})) {
-    close($self->{'fileHandle'}) or die("Failed to close " . $self->{'speciesPath'} . ": $!");
+    close($self->{'fileHandle'}) or die("$0: failed to close " . $self->{'speciesPath'} . ": $!");
   }
 }
 
 sub _initialize() {
-  my $self = shift();
+  my ($self, $opt, $args) = @_;
 
   # Initialize our configuration so we can do our work.
   $self->{'config'} = My::Config->new(runningScriptDirName => $FindBin::Bin);
@@ -119,6 +119,11 @@ sub _searchFile() {
   my $matchCount = 0;
   my $searchPattern = $self->{'searchPattern'};
 
+  # Make sure we have a search pattern, without which we cannot search.
+  if (! defined($searchPattern)) {
+    die("$0: no search pattern defined so we cannot search");
+  }
+
 SPECIES:
   while (my $row = $self->{'csv'}->getline($self->{'fileHandle'})) {
     my (
@@ -130,36 +135,39 @@ SPECIES:
         $speciesAbundance
        ) = @$row;
 
-    # Search for a match with our search pattern.
-    if ($speciesCode =~ m/^$searchPattern$/) {
-      # Exclude species codes containing the letters we were told to exclude.
-      if (
-          defined($self->{'exclusionRegex'}) &&
-          $speciesCode =~ $self->{'exclusionRegex'}
-         ) {
+    # Search for a match with our search pattern. If not found, skip this species.
+    if ($speciesCode !~ m/^$searchPattern$/) {
+      next SPECIES;
+    }
 
-        next SPECIES;
-      }
+    # Exclude species codes containing the letters we were told to exclude.
+    if (
+        defined($self->{'exclusionRegex'}) &&
+        $speciesCode =~ $self->{'exclusionRegex'}
+       ) {
 
-      # Only include species codes containing all the letters we were
-      # told to include.
-      if (scalar(@{$self->{'inclusionRegexen'}})) {
-        foreach my $inclusionRegex (@{$self->{'inclusionRegexen'}}) {
-          if ($speciesCode !~ $inclusionRegex) {
-            next SPECIES;
-          }
+      next SPECIES;
+    }
+
+    # Only include species codes containing all the letters we were
+    # told to include.
+    if (scalar(@{$self->{'inclusionRegexen'}})) {
+      foreach my $inclusionRegex (@{$self->{'inclusionRegexen'}}) {
+        if ($speciesCode !~ $inclusionRegex) {
+          next SPECIES;
         }
       }
-
-      # Our pattern matched, so output the result.
-      printf(
-             "%4d. %s: %s\n",
-             ++$matchCount,
-             $speciesCode,
-             $speciesNameEnglish
-            );
     }
+
+    # Our pattern matched, so output the result.
+    printf(
+           "%4d. %s: %s\n",
+           ++$matchCount,
+           $speciesCode,
+           $speciesNameEnglish
+          );
   }
+
   if ($!) {
     die("$0: unexpected error while reading from " . $self->{'speciesPath'} . ": $!");
   }
