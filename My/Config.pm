@@ -1,3 +1,7 @@
+# This class uses the "new" (as of 2025) Corinna framework, which
+# defines the "class" keyword. More information can be found here:
+# https://dev.to/ovid/bringing-modern-oo-to-perl-51ak
+
 # Gain access to all the pragmas and modules we'll need.
 use v5.38;
 use strict;
@@ -11,7 +15,7 @@ use File::Spec;
 use feature qw(class);
 no warnings qw(experimental);
 
-class My::Config 1.0 {
+class My::Config 2.0 {
   # Define the constants we will use to open our config file.
   use constant CONFIG_DIRECTORY => 'config';
   use constant CONFIG_FILENAME => 'myConfig.cfg';
@@ -22,14 +26,14 @@ class My::Config 1.0 {
 
   field $appConfig;
   field $configFileFullPath;
-  field $runningScriptFullPath :param;
+  field $runningScriptDirName :param;
 
   #
   # Phasers
   #
 
   ADJUST {
-    $configFileFullPath = $self->_calcConfigFileFullPath($runningScriptFullPath);
+    $configFileFullPath = $self->_calcConfigFileFullPath($runningScriptDirName);
     $appConfig = $self->_initializeConfig();
   }
 
@@ -45,9 +49,9 @@ class My::Config 1.0 {
   # Private instance methods
   #
 
-  method _calcConfigFileFullPath($runningScriptFullPath) {
+  method _calcConfigFileFullPath($runningScriptDirName) {
     $configFileFullPath = File::Spec->catfile(
-                                              File::Basename::dirname($runningScriptFullPath),
+                                              $runningScriptDirName,
                                               CONFIG_DIRECTORY,
                                               CONFIG_FILENAME
                                              );

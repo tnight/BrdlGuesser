@@ -6,7 +6,7 @@ use warnings;
 
 # Make sure we can find our local module(s).
 use File::Basename;
-use lib dirname (__FILE__);
+use lib dirname(__FILE__);
 
 # Gain access to all the other modules we'll need.
 use File::Spec;
@@ -63,9 +63,8 @@ sub main() {
   my $matchCount = 0;
   my $searchPattern = undef;
 
-
   # Initialize our configuration so we can do our work.
-  $config = My::Config->new( runningScriptFullPath => __FILE__ );
+  $config = My::Config->new(runningScriptDirName => dirname(__FILE__));
 
   # Choose from among the available species files.
   #
@@ -155,7 +154,7 @@ SPECIES:
     die("$0: unexpected error while reading from $speciesPath: $!");
   }
 
-  close($fileHandle) or die "Failed to close $speciesPath: $!";
+  close($fileHandle) or die("Failed to close $speciesPath: $!");
 
   return $matchCount > 0 ? 0 : 1;
 }
