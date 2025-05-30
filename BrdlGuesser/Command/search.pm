@@ -10,9 +10,11 @@ use constant USAGE_DESCRIPTION => <<END;
 %c search %o
 
 This command will search for a four-letter Alpha code using a search
-pattern. To represent an unknown letter, use the underscore ('_').
-One of the -d, -p, or -x options is required. If -p is given, it
-overrides any -d option.
+pattern. The pattern is case-insensitive. That is, both uppercase and
+lowercase letters will successfully match the four-letter Alpha code.
+To represent an unknown letter, use the underscore ('_').
+
+NOTE: At least one of the -i, -p, or -x options is required.
 
 EXAMPLES
 shell> %c search -p R_BU
@@ -31,7 +33,7 @@ sub abstract {
 
 sub opt_spec {
   return(
-         [ "pattern|p=s", "Search for the given pattern (REQUIRED)" ],
+         [ "pattern|p=s", "Search for the given pattern" ],
          [ "include|i=s", "Only include guesses that contain all of the given letters" ],
          [ "exclude|x=s", "Exclude guesses that contain any of the given letters" ]
         );
@@ -47,30 +49,37 @@ sub validate_args {
   # Do the further validation that our subclass needs.
   #
 
-  # TODOTODO: Update the code below, because it contains a bug. The
-  # pattern parameter is actually *NOT* mandatory. In some cases, we
-  # might know that one or more letters need to be included, and that
-  # other letters need to be excluded, but we might not know the exact
-  # positions yet.
-
-  # The reason we look for the mandatory parameter here rather than
-  # using the "required" feature of GetOpts::Long::Descriptive is
-  # because doing it that way throws a strange error that will
-  # confuse our users. This way, we can control the message that is
-  # displayed when the paramewter is missing.
-  $self->usage_error("Mandatory parameter 'pattern' missing")
-    if (! defined($opt->pattern));
+  # The reason we look for the mandatory parameters here, rather than
+  # using GetOpts::Long::Descriptive (GLD) to do the validation, is
+  # because I was not able to find a feature of GLD that can enforce
+  # the rule that at least one of the parameters must appear, but that
+  # it is also valid for any and all of them to appear. GLD has a
+  # feature called "one of" but that enforces that only one of the
+  # required parameters may appear, which is not how we want it to work
+  # in this case.
+  $self->usage_error("Must include at least one of the 'exclude', 'include', or 'pattern' parameters")
+    if (
+        ! defined($opt->exclude) &&
+        ! defined($opt->include) &&
+        ! defined($opt->pattern)
+       );
 
   # Declare a local variable for convenience.
   my $pattern = $opt->pattern;
 
   # Validate that the search pattern has exactly four characters.
   $self->usage_error("Search pattern [$pattern] does not have exactly four characters")
-    if (length($opt->pattern) != 4);
+    if (
+        defined($opt->pattern) &&
+        length($opt->pattern) != 4
+       );
 
   # Validate that the search pattern contains no invalid characters.
   $self->usage_error("Search pattern [$pattern] contains one or more invalid characters, but only letters and underscores are allowed")
-    if ($opt->pattern =~ m/[^_[:alpha:]]/);
+    if (
+        defined($opt->pattern) &&
+        $opt->pattern =~ m/[^_[:alpha:]]/
+       );
 
   # Validate that no letter appears in both the exclusion and inclusion
   # lists.
@@ -130,8 +139,10 @@ sub _initialize() {
   #
 
   # Configure the search pattern based on our command-line options.
-  $self->{'searchPattern'} = uc($opt->pattern);
-  $self->{'searchPattern'} =~ s#_#[A-Z]#g;
+  if (defined($opt->pattern)) {
+    $self->{'searchPattern'} = uc($opt->pattern);
+    $self->{'searchPattern'} =~ s#_#[A-Z]#g;
+  }
 
   # Configure the exclusion pattern based on our command-line options.
   if (defined($opt->exclude)) {

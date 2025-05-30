@@ -25,20 +25,6 @@ sub usage_desc {
   return USAGE_DESCRIPTION;
 }
 
-#
-# Private instance methods
-#
-
-sub _initialize() {
-  my ($self, $opt, $args) = @_;
-
-  # Call our superclass method so it can do the necessary initialization.
-  $self->SUPER::_initialize($opt, $args);
-
-  # Do the further initialization that our subclass needs.
-  $self->{'searchPattern'} = '[A-Z]{4}';
-}
-
 1;
 
 # end of module

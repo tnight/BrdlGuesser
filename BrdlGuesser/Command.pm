@@ -34,7 +34,7 @@ sub new {
   $self->{'exclusionRegex'} = undef;
   $self->{'fileHandle'} = undef;
   $self->{'inclusionRegexen'} = [];
-  $self->{'searchPattern'} = undef;
+  $self->{'searchPattern'} = '[A-Z]{4}'; # a generic search pattern that can be overridden by subclasses
   $self->{'speciesPath'} = undef;
 
   # Finally, re-bless the reference to be of this subclass.
