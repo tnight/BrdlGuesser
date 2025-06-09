@@ -69,7 +69,7 @@ sub execute($$$) {
   $self->_process();
 }
 
-sub usage_desc($) {
+sub usage_desc() {
   return USAGE_DESCRIPTION;
 }
 
@@ -80,8 +80,22 @@ sub usage_desc($) {
 sub _downloadAbaChecklist($) {
   my $self = shift();
 
-  # TODOTODO: Refactor this method to break out individual tasks. Right
-  # now, it is doing way too much for a single method.
+  # Get the path to the checklist directory including the path of the
+  # running script. We do this here because we need the path now for
+  # downloading the raw files and later for handling the ZIP archive.
+  my $checklistDirFullPath = $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirRaw'));
+
+  # Download the raw files and get the full path to the ZIP archive so
+  # we can process the contents of the ZIP archive as needed.
+  my $csvZipFileFullPath = $self->_downloadAbaChecklistRawFiles($checklistDirFullPath);
+
+  # Extract the CSV file from the ZIP archive and return the name of the
+  # local, extracted CSV file.
+  return $self->_extractCsvFromZipArchive($checklistDirFullPath, $csvZipFileFullPath);
+}
+
+sub _downloadAbaChecklistRawFiles($$) {
+  my ($self, $checklistDirFullPath) = @_;
 
   my $mechAgent = WWW::Mechanize->new();
   my $response = $mechAgent->get($self->{'config'}->get('abaChecklistUrl'));
@@ -120,10 +134,6 @@ sub _downloadAbaChecklist($) {
     print("\$csvUrl = [$csvUrl]\n\$pdfUrl = [$pdfUrl]\n");
   }
 
-  # Get the path to the checklist directory including the path of the
-  # running script.
-  my $checklistDirFullPath = $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirRaw'));
-
   # Download the PDF file.
   my $pdfFileFullPath = $self->_saveAbaChecklistFile(
                                              $mechAgent,
@@ -137,6 +147,16 @@ sub _downloadAbaChecklist($) {
                                                 $csvUrl,
                                                 $checklistDirFullPath
                                                );
+
+  return $csvZipFileFullPath;
+}
+
+sub _extractCsvFromZipArchive($$$) {
+  my (
+      $self,
+      $checklistDirFullPath,
+      $csvZipFileFullPath,
+     ) = @_;
 
   # Open the ZIP archive.
   my $zip = Archive::Zip->new();
@@ -205,14 +225,25 @@ sub _makeChecklistDirFullPath($$) {
                             );
 }
 
-sub _makeSymbolicLink($$$) {
+sub _makeSymbolicLinkForAbaChecklist($$) {
   my $self = shift();
-  my $oldFileFullPath = shift();
-  my $newFileFullPath = shift();
+  my $parsedChecklistFilename = shift();
 
-  my $dirname = dirname($oldFileFullPath);
-  my $oldFileBasename = basename($oldFileFullPath);
-  my $newFileBasename = basename($newFileFullPath);
+  # Make a symbolic link to the checklist file for easy access later.
+  my $linkFilename = File::Spec->catfile(
+                                         $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirParsed')),
+                                         $self->{'config'}->get('latestChecklistFilename')
+                                        );
+
+  if ($self->{'config'}->get('logLevelDebug')) {
+    print("Parsed filename = [$parsedChecklistFilename]\n");
+    print("Linked filename = [$linkFilename]\n");
+    print("Before making symbolic link, \$CWD = [$CWD]\n");
+  }
+
+  my $dirname = dirname($parsedChecklistFilename);
+  my $oldFileBasename = basename($parsedChecklistFilename);
+  my $newFileBasename = basename($linkFilename);
 
   if ($self->{'config'}->get('logLevelDebug')) {
     print("Directory name = [$dirname]\n");
@@ -227,6 +258,10 @@ sub _makeSymbolicLink($$$) {
   }
 
   symlink($oldFileBasename, $newFileBasename) or die("Failed to link old file [$oldFileBasename] to new file [$newFileBasename]: $!");
+
+  if ($self->{'config'}->get('logLevelDebug')) {
+    print("After making symbolic link, \$CWD = [$CWD]\n");
+  }
 }
 
 sub _parseAbaChecklist($$) {
@@ -343,23 +378,9 @@ sub _process {
   # Do the local parsing to get the checklist file ready for searching.
   my $parsedChecklistFilename = $self->_parseAbaChecklist($rawChecklistFilename);
 
-  my $linkFilename = File::Spec->catfile(
-                                         $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirParsed')),
-                                         $self->{'config'}->get('latestChecklistFilename')
-                                        );
-
-  if ($self->{'config'}->get('logLevelDebug')) {
-    print("Parsed filename = [$parsedChecklistFilename]\n");
-    print("Linked filename = [$linkFilename]\n");
-    print("Before making symbolic link, \$CWD = [$CWD]\n");
-  }
-
-  # Create a symbolic link to the parsed checklist file for searching.
-  $self->_makeSymbolicLink($parsedChecklistFilename, $linkFilename);
-
-  if ($self->{'config'}->get('logLevelDebug')) {
-    print("After making symbolic link, \$CWD = [$CWD]\n");
-  }
+  # Create a symbolic link to the parsed checklist file for later
+  # searching.
+  $self->_makeSymbolicLinkForAbaChecklist($parsedChecklistFilename);
 }
 
 sub _saveAbaChecklistFile($$$$) {
@@ -370,7 +391,7 @@ sub _saveAbaChecklistFile($$$$) {
     die($response->status_line);
   }
 
-  # Save the PDF file locally.
+  # Save the file locally.
   my $localFileFullPath = File::Spec->catfile(
                                               $checklistDirFullPath,
                                               (URI->new($sourceUrl)->path_segments)[-1]
