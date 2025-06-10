@@ -293,9 +293,9 @@ sub _openCsvFilesForParsing($) {
   $self->{'checklistDirFullPathParsed'} = $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirParsed'));
 
   $self->{'csvFileFullPathParsed'} = File::Spec->catfile(
-                                                      $self->{'checklistDirFullPathParsed'},
-                                                      $outputFileBaseName
-                                                     );
+                                                         $self->{'checklistDirFullPathParsed'},
+                                                         $outputFileBaseName
+                                                        );
 
   if ($self->{'config'}->get('logLevelDebug')) {
     print("Input filename  = [" . $self->{'csvFileFullPathRaw'} . "]\n");
@@ -385,9 +385,9 @@ sub _process($) {
   else {
     # In lieu of downloading, just point to a local file already in place.
     $self->{'csvFileFullPathRaw'} = File::Spec->catfile(
-                                                makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirRaw')),
-                                                $self->{'config'}->get('downloadedRawTestFilename')
-                                               );
+                                                        makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirRaw')),
+                                                        $self->{'config'}->get('downloadedRawTestFilename')
+                                                       );
   }
 
   # Do the local parsing to get the checklist file ready for searching.
