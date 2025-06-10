@@ -27,11 +27,11 @@ END
 # Public instance methods
 #
 
-sub abstract {
+sub abstract() {
   return "search for the four-letter Alpha code of a bird species using a search pattern";
 }
 
-sub opt_spec {
+sub opt_spec() {
   return(
          [ "pattern|p=s", "Search for the given pattern" ],
          [ "include|i=s", "Only include guesses that contain all of the given letters" ],
@@ -39,7 +39,7 @@ sub opt_spec {
         );
 }
 
-sub validate_args {
+sub validate_args($$$) {
   my ($self, $opt, $args) = @_;
 
   # Call our superclass method so it can do the necessary validation.
@@ -110,7 +110,7 @@ sub validate_args {
   }
 }
 
-sub usage_desc {
+sub usage_desc() {
   return USAGE_DESCRIPTION;
 }
 
@@ -128,7 +128,7 @@ sub _getStringAsArray($$) {
               );
 }
 
-sub _initialize() {
+sub _initialize($$$) {
   my ($self, $opt, $args) = @_;
 
   # Call our superclass method so it can do the necessary initialization.

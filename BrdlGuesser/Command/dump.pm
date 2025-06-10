@@ -17,11 +17,11 @@ END
 # Public instance methods
 #
 
-sub abstract {
+sub abstract() {
   return "display all of the possible BRDL answers";
 }
 
-sub usage_desc {
+sub usage_desc() {
   return USAGE_DESCRIPTION;
 }
 

@@ -8,9 +8,11 @@
 
 package BrdlGuesser::Command;
 
-# Gain access to all the pragmas and modules we'll need.
+# Do our best to find errors as early as possible.
 use strict;
 use warnings;
+
+# Gain access to all the other modules we'll need.
 use App::Cmd::Setup -command;
 use File::Basename;
 use FindBin;
@@ -21,7 +23,7 @@ use Text::CSV;
 # Constructor
 #
 
-sub new {
+sub new($$) {
   my ($class, $arg) = @_;
 
   # First, call the constructor of our superclass.
@@ -45,7 +47,7 @@ sub new {
 # Public instance methods
 #
 
-sub execute {
+sub execute($$$) {
   my ($self, $opt, $args) = @_;
 
   # Get ready to do the work.
@@ -61,7 +63,7 @@ sub execute {
   return $matchCount > 0 ? 0 : 1;
 }
 
-sub validate_args {
+sub validate_args($$$) {
   my ($self, $opt, $args) = @_;
 
   $self->usage_error("No args allowed") if @$args;
@@ -71,7 +73,7 @@ sub validate_args {
 # Private instance methods
 #
 
-sub _cleanUp() {
+sub _cleanUp($) {
   my $self = shift();
 
   if (defined($self->{'fileHandle'})) {
@@ -79,7 +81,7 @@ sub _cleanUp() {
   }
 }
 
-sub _initialize() {
+sub _initialize($$$) {
   my ($self, $opt, $args) = @_;
 
   # Initialize our configuration so we can do our work.
@@ -112,7 +114,7 @@ sub _initialize() {
   $self->{'csv'} = Text::CSV_XS->new({ binary => 1, auto_diag => 1 });
 }
 
-sub _searchFile() {
+sub _searchFile($) {
   my $self = shift();
 
   # Declare some local variables for convenience.
