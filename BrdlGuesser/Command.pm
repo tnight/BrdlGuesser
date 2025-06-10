@@ -108,7 +108,8 @@ sub _initialize($$$) {
        '< ' . $self->{'encoding'},
        $self->{'speciesPath'}
       )
-    || die("$0: can't open " . $self->{'speciesPath'} . " for reading: $!");
+    || die("$0: can't open " . $self->{'speciesPath'} . " for reading: $!\n\n" .
+           "Did you run the ABA Checklist Fetcher script?\n\n");
 
   # Get ready to parse the CSV file.
   $self->{'csv'} = Text::CSV_XS->new({ binary => 1, auto_diag => 1 });
