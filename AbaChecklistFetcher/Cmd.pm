@@ -26,6 +26,13 @@ use Text::CSV;
 use URI;
 use WWW::Mechanize;
 
+#
+# Constants
+#
+
+# The file encoding we use for parsing CSV files.
+use constant ENCODING => ":encoding(UTF-8)";
+
 # Define our usage message as a constant.
 use constant USAGE_DESCRIPTION => <<END;
 %c
@@ -49,7 +56,13 @@ sub new($$) {
   my $self = $class->SUPER::new($arg);
 
   # Then, initialize the additional items we need for this subclass.
+  $self->{'checklistDirFullPathParsed'} = undef;
+  $self->{'checklistDirFullPathRaw'} = undef;
   $self->{'config'} = undef;
+  $self->{'csvFileFullPathParsed'} = undef;
+  $self->{'csvFileFullPathRaw'} = undef;
+  $self->{'csvFileHandleParsed'} = undef;
+  $self->{'csvFileHandleRaw'} = undef;
 
   # Finally, re-bless the reference to be of this subclass.
   return bless($self, $class);
@@ -67,6 +80,9 @@ sub execute($$$) {
 
   # Do the work.
   $self->_process();
+
+  # Now that the work is done, clean up after ourselves.
+  $self->_cleanUp();
 }
 
 sub usage_desc() {
@@ -77,25 +93,32 @@ sub usage_desc() {
 # Private instance methods
 #
 
+sub _cleanUp($) {
+  my $self = shift();
+
+  close($self->{'csvFileHandleRaw'}) or die("Failed to close " . $self->{'csvFileFullPathRaw'} . ": $!");
+  close($self->{'csvFileHandleParsed'}) or die("Failed to close " . $self->{'csvFileFullPathParsed'} . ": $!");
+}
+
 sub _downloadAbaChecklist($) {
   my $self = shift();
 
   # Get the path to the checklist directory including the path of the
   # running script. We do this here because we need the path now for
   # downloading the raw files and later for handling the ZIP archive.
-  my $checklistDirFullPath = $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirRaw'));
+  $self->{'checklistDirFullPathRaw'} = $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirRaw'));
 
   # Download the raw files and get the full path to the ZIP archive so
   # we can process the contents of the ZIP archive as needed.
-  my $csvZipFileFullPath = $self->_downloadAbaChecklistRawFiles($checklistDirFullPath);
+  my $csvZipFileFullPath = $self->_downloadAbaChecklistRawFiles($self->{'checklistDirFullPathRaw'});
 
   # Extract the CSV file from the ZIP archive and return the name of the
   # local, extracted CSV file.
-  return $self->_extractCsvFromZipArchive($checklistDirFullPath, $csvZipFileFullPath);
+  return $self->_extractCsvFromZipArchive($csvZipFileFullPath);
 }
 
-sub _downloadAbaChecklistRawFiles($$) {
-  my ($self, $checklistDirFullPath) = @_;
+sub _downloadAbaChecklistRawFiles($) {
+  my $self = shift();
 
   my $mechAgent = WWW::Mechanize->new();
   my $response = $mechAgent->get($self->{'config'}->get('abaChecklistUrl'));
@@ -136,25 +159,24 @@ sub _downloadAbaChecklistRawFiles($$) {
 
   # Download the PDF file.
   my $pdfFileFullPath = $self->_saveAbaChecklistFile(
-                                             $mechAgent,
-                                             $pdfUrl,
-                                             $checklistDirFullPath
-                                            );
+                                                     $mechAgent,
+                                                     $pdfUrl,
+                                                     $self->{'checklistDirFullPathRaw'}
+                                                    );
 
   # Download the CSV ZIP file.
   my $csvZipFileFullPath = $self->_saveAbaChecklistFile(
-                                                $mechAgent,
-                                                $csvUrl,
-                                                $checklistDirFullPath
-                                               );
+                                                        $mechAgent,
+                                                        $csvUrl,
+                                                        $self->{'checklistDirFullPathRaw'}
+                                                       );
 
   return $csvZipFileFullPath;
 }
 
-sub _extractCsvFromZipArchive($$$) {
+sub _extractCsvFromZipArchive($$) {
   my (
       $self,
-      $checklistDirFullPath,
       $csvZipFileFullPath,
      ) = @_;
 
@@ -184,7 +206,7 @@ sub _extractCsvFromZipArchive($$$) {
   my $csvMember = $csvFileMembers[0];
   my $csvMemberFilename = $csvMember->fileName();
   my $outputFileFullPath = File::Spec->catfile(
-                                               $checklistDirFullPath,
+                                               $self->{'checklistDirFullPathRaw'},
                                                $csvMemberFilename
                                               );
 
@@ -225,9 +247,8 @@ sub _makeChecklistDirFullPath($$) {
                             );
 }
 
-sub _makeSymbolicLinkForAbaChecklist($$) {
+sub _makeSymbolicLinkForAbaChecklist($) {
   my $self = shift();
-  my $parsedChecklistFilename = shift();
 
   # Make a symbolic link to the checklist file for easy access later.
   my $linkFilename = File::Spec->catfile(
@@ -236,13 +257,13 @@ sub _makeSymbolicLinkForAbaChecklist($$) {
                                         );
 
   if ($self->{'config'}->get('logLevelDebug')) {
-    print("Parsed filename = [$parsedChecklistFilename]\n");
+    print("Parsed filename = [" . $self->{'csvFileFullPathParsed'} . "]\n");
     print("Linked filename = [$linkFilename]\n");
     print("Before making symbolic link, \$CWD = [$CWD]\n");
   }
 
-  my $dirname = dirname($parsedChecklistFilename);
-  my $oldFileBasename = basename($parsedChecklistFilename);
+  my $dirname = dirname($self->{'csvFileFullPathParsed'});
+  my $oldFileBasename = basename($self->{'csvFileFullPathParsed'});
   my $newFileBasename = basename($linkFilename);
 
   if ($self->{'config'}->get('logLevelDebug')) {
@@ -264,77 +285,76 @@ sub _makeSymbolicLinkForAbaChecklist($$) {
   }
 }
 
-sub _parseAbaChecklist($$) {
+sub _openCsvFilesForParsing($) {
   my $self = shift();
-  my $inputFileFullPath = shift();
 
-  # TODOTODO: Refactor this method to break out individual tasks. Right
-  # now, it is doing way too much for a single method.
-
-  my $inputFileBaseName = basename($inputFileFullPath);
-  my $outputFileBaseName = $inputFileBaseName;
+  my $outputFileBaseName = basename($self->{'csvFileFullPathRaw'});
   $outputFileBaseName =~ s/\.csv$/.parsed.csv/;
+  $self->{'checklistDirFullPathParsed'} = $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirParsed'));
 
-  my $outputDirFullPath = $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirParsed'));
-  my $outputFileFullPath = File::Spec->catfile(
-                                               $outputDirFullPath,
-                                               $outputFileBaseName
-                                              );
+  $self->{'csvFileFullPathParsed'} = File::Spec->catfile(
+                                                      $self->{'checklistDirFullPathParsed'},
+                                                      $outputFileBaseName
+                                                     );
 
   if ($self->{'config'}->get('logLevelDebug')) {
-    print("Input filename  = [$inputFileFullPath]\n");
-    print("Output filename = [$outputFileFullPath]\n");
+    print("Input filename  = [" . $self->{'csvFileFullPathRaw'} . "]\n");
+    print("Output filename = [" . $self->{'csvFileFullPathParsed'} . "]\n");
   }
-
-  my $encoding = ":encoding(UTF-8)";
-  my $inputFileHandle = undef;
-  my $outputFileHandle = undef;
-  my @rows = ();
 
   # Open the species input file so we can do our processing.
   open(
-       $inputFileHandle,
-       "< $encoding",
-       $inputFileFullPath
+       $self->{'csvFileHandleRaw'},
+       "< " . ENCODING,
+       $self->{'csvFileFullPathRaw'}
       )
-    || die("$0: can't open $inputFileFullPath for reading: $!");
+    || die("$0: can't open " . $self->{'csvFileFullPathRaw'} . " for reading: $!");
 
   if ($self->{'config'}->get('logLevelDebug')) {
-    print("About to check for output directory [$outputDirFullPath]...\n");
+    print("About to check for output directory [" . $self->{'checklistDirFullPathParsed'} . "]...\n");
   }
 
   # Create the output directory if it does not already exist.
-  if (! -d $outputDirFullPath) {
+  if (! -d $self->{'checklistDirFullPathParsed'}) {
 
     if ($self->{'config'}->get('logLevelDebug')) {
-      print("Did not find output directory [$outputDirFullPath], attempting to create...\n");
+      print("Did not find output directory [" . $self->{'checklistDirFullPathParsed'} . "], attempting to create...\n");
     }
 
-    make_path($outputDirFullPath) or die("Failed to create output directory [$outputDirFullPath]: $!");
+    make_path($self->{'checklistDirFullPathParsed'}) or die("Failed to create output directory [" . $self->{'checklistDirFullPathParsed'} . "]: $!");
 
     if ($self->{'config'}->get('logLevelDebug')) {
-      print("Created output directory [$outputDirFullPath].\n");
+      print("Created output directory [" . $self->{'checklistDirFullPathParsed'} . "].\n");
     }
   }
   else {
     if ($self->{'config'}->get('logLevelDebug')) {
-      print("Found output directory [$outputDirFullPath].\n");
+      print("Found output directory [$self->{'checklistDirFullPathParsed'}].\n");
     }
   }
 
   # Open the species output file so we can do our processing.
   open(
-       $outputFileHandle,
-       "> $encoding",
-       $outputFileFullPath
+       $self->{'csvFileHandleParsed'},
+       "> " . ENCODING,
+       $self->{'csvFileFullPathParsed'}
       )
-    || die("$0: can't open $outputFileFullPath for writing: $!");
+    || die("$0: can't open " . $self->{'csvFileFullPathParsed'} . " for writing: $!");
+}
+
+sub _parseAbaChecklist($) {
+  my $self = shift();
+
+  my @rows = ();
+
+  # Open the files we will need for the parsing operation.
+  $self->_openCsvFilesForParsing();
 
   # Get ready to operate on the CSV files.
   my $csv = Text::CSV_XS->new({ binary => 1, auto_diag => 1 });
 
-SPECIES:
-  while (my $row = $csv->getline($inputFileHandle)) {
+  # Process the CSV input file line by line.
+  while (my $row = $csv->getline($self->{'csvFileHandleRaw'})) {
     my ($group, $speciesNameEnglish, $speciesNameFrench, $speciesLatinName, $speciesCode, $speciesAbundance) = @$row;
 
     if ($speciesCode) {
@@ -346,45 +366,40 @@ SPECIES:
     }
   }
 
-  close($inputFileHandle) or die("Failed to close $inputFileFullPath: $!");
-
   if (scalar(@rows) > 0) {
+    # We found at least one row of data, so insert the stock header row
+    # into the array as the new first row and write the CSV data to our
+    # output file.
     unshift(@rows, $self->{'config'}->get('csvHeaderRow'));
-    $csv->say($outputFileHandle, $_) for @rows;
+    $csv->say($self->{'csvFileHandleParsed'}, $_) for @rows;
   }
-
-  close($outputFileHandle) or die("Failed to close $outputFileFullPath: $!");
-
-  return $outputFileFullPath;
 }
 
-sub _process {
+sub _process($) {
   my $self = shift();
-
-  my $rawChecklistFilename = undef;
 
   if ($self->{'config'}->get('abaChecklistDownloadEnabled')) {
     # Download the checklist file from the official source.
-    $rawChecklistFilename = $self->_downloadAbaChecklist();
+    $self->{'csvFileFullPathRaw'} = $self->_downloadAbaChecklist();
   }
   else {
     # In lieu of downloading, just point to a local file already in place.
-    $rawChecklistFilename = File::Spec->catfile(
+    $self->{'csvFileFullPathRaw'} = File::Spec->catfile(
                                                 makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirRaw')),
                                                 $self->{'config'}->get('downloadedRawTestFilename')
                                                );
   }
 
   # Do the local parsing to get the checklist file ready for searching.
-  my $parsedChecklistFilename = $self->_parseAbaChecklist($rawChecklistFilename);
+  $self->_parseAbaChecklist();
 
   # Create a symbolic link to the parsed checklist file for later
   # searching.
-  $self->_makeSymbolicLinkForAbaChecklist($parsedChecklistFilename);
+  $self->_makeSymbolicLinkForAbaChecklist();
 }
 
-sub _saveAbaChecklistFile($$$$) {
-  my ($self, $mechAgent, $sourceUrl, $checklistDirFullPath) = @_;
+sub _saveAbaChecklistFile($$$) {
+  my ($self, $mechAgent, $sourceUrl) = @_;
 
   my $response = $mechAgent->get($sourceUrl);
   if (! $response->is_success) {
@@ -393,7 +408,7 @@ sub _saveAbaChecklistFile($$$$) {
 
   # Save the file locally.
   my $localFileFullPath = File::Spec->catfile(
-                                              $checklistDirFullPath,
+                                              $self->{'checklistDirFullPathRaw'},
                                               (URI->new($sourceUrl)->path_segments)[-1]
                                              );
   if (! open(FOUT, ">$localFileFullPath")) {
