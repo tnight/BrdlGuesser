@@ -100,6 +100,31 @@ sub _cleanUp($) {
   close($self->{'csvFileHandleParsed'}) or die("Failed to close " . $self->{'csvFileFullPathParsed'} . ": $!");
 }
 
+sub _confirmOrCreateDirectory($$) {
+  my ($self, $dirFullPath) = @_;
+
+  if ($self->{'config'}->get('logLevelDebug')) {
+    print("About to check for directory [$dirFullPath]...\n");
+  }
+
+  if (! -d $dirFullPath) {
+    if ($self->{'config'}->get('logLevelDebug')) {
+      print("Did not find directory [$dirFullPath], attempting to create...\n");
+    }
+
+    make_path($dirFullPath) or die("Failed to create directory [$dirFullPath]: $!");
+
+    if ($self->{'config'}->get('logLevelDebug')) {
+      print("Created directory [$dirFullPath].\n");
+    }
+  }
+  else {
+    if ($self->{'config'}->get('logLevelDebug')) {
+      print("Found directory [$dirFullPath].\n");
+    }
+  }
+}
+
 sub _downloadAbaChecklist($) {
   my $self = shift();
 
@@ -156,6 +181,12 @@ sub _downloadAbaChecklistRawFiles($) {
   if ($self->{'config'}->get('logLevelDebug')) {
     print("\$csvUrl = [$csvUrl]\n\$pdfUrl = [$pdfUrl]\n");
   }
+
+  # Create the checklist directory if it does not already exist.
+  $self->_confirmOrCreateDirectory($self->_makeChecklistDirFullPath());
+
+  # Create the input directory if it does not already exist.
+  $self->_confirmOrCreateDirectory($self->{'checklistDirFullPathRaw'});
 
   # Download the PDF file.
   my $pdfFileFullPath = $self->_saveAbaChecklistFile(
@@ -240,11 +271,16 @@ sub _makeChecklistDirFullPath($$) {
   my $self = shift();
   my $checklistSubdir = shift();
 
-  return File::Spec->catfile(
-                             $FindBin::Bin,
-                             $self->{'config'}->get('localChecklistDir'),
-                             $checklistSubdir
-                            );
+  my @pathParts = (
+                   $FindBin::Bin,
+                   $self->{'config'}->get('localChecklistDir'),
+                  );
+
+  if (defined($checklistSubdir)) {
+    push(@pathParts, $checklistSubdir);
+  }
+
+  return File::Spec->catfile(@pathParts);
 }
 
 sub _makeSymbolicLinkForAbaChecklist($) {
@@ -310,28 +346,8 @@ sub _openCsvFilesForParsing($) {
       )
     || die("$0: can't open " . $self->{'csvFileFullPathRaw'} . " for reading: $!");
 
-  if ($self->{'config'}->get('logLevelDebug')) {
-    print("About to check for output directory [" . $self->{'checklistDirFullPathParsed'} . "]...\n");
-  }
-
   # Create the output directory if it does not already exist.
-  if (! -d $self->{'checklistDirFullPathParsed'}) {
-
-    if ($self->{'config'}->get('logLevelDebug')) {
-      print("Did not find output directory [" . $self->{'checklistDirFullPathParsed'} . "], attempting to create...\n");
-    }
-
-    make_path($self->{'checklistDirFullPathParsed'}) or die("Failed to create output directory [" . $self->{'checklistDirFullPathParsed'} . "]: $!");
-
-    if ($self->{'config'}->get('logLevelDebug')) {
-      print("Created output directory [" . $self->{'checklistDirFullPathParsed'} . "].\n");
-    }
-  }
-  else {
-    if ($self->{'config'}->get('logLevelDebug')) {
-      print("Found output directory [$self->{'checklistDirFullPathParsed'}].\n");
-    }
-  }
+  $self->_confirmOrCreateDirectory($self->{'checklistDirFullPathParsed'});
 
   # Open the species output file so we can do our processing.
   open(
@@ -385,7 +401,7 @@ sub _process($) {
   else {
     # In lieu of downloading, just point to a local file already in place.
     $self->{'csvFileFullPathRaw'} = File::Spec->catfile(
-                                                        makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirRaw')),
+                                                        $self->_makeChecklistDirFullPath($self->{'config'}->get('localChecklistSubdirRaw')),
                                                         $self->{'config'}->get('downloadedRawTestFilename')
                                                        );
   }
