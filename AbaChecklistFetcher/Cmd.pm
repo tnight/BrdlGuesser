@@ -110,7 +110,7 @@ sub _downloadAbaChecklist($) {
 
   # Download the raw files and get the full path to the ZIP archive so
   # we can process the contents of the ZIP archive as needed.
-  my $csvZipFileFullPath = $self->_downloadAbaChecklistRawFiles($self->{'checklistDirFullPathRaw'});
+  my $csvZipFileFullPath = $self->_downloadAbaChecklistRawFiles();
 
   # Extract the CSV file from the ZIP archive and return the name of the
   # local, extracted CSV file.
