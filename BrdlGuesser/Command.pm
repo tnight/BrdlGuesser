@@ -16,6 +16,7 @@ use warnings;
 use App::Cmd::Setup -command;
 use File::Basename;
 use FindBin;
+use Log::Any qw($log);
 use My::Config;
 use Text::CSV;
 
@@ -77,7 +78,7 @@ sub _cleanUp($) {
   my $self = shift();
 
   if (defined($self->{'fileHandle'})) {
-    close($self->{'fileHandle'}) or die("$0: failed to close " . $self->{'speciesPath'} . ": $!");
+    close($self->{'fileHandle'}) or die($log->fatal("$0: failed to close " . $self->{'speciesPath'} . ": $!"));
   }
 }
 
@@ -108,8 +109,8 @@ sub _initialize($$$) {
        '< ' . $self->{'encoding'},
        $self->{'speciesPath'}
       )
-    || die("$0: can't open " . $self->{'speciesPath'} . " for reading: $!\n\n" .
-           "Did you run the ABA Checklist Fetcher script?\n\n");
+    || die($log->fatal("$0: can't open " . $self->{'speciesPath'} . " for reading: $!\n\n" .
+           "Did you run the ABA Checklist Fetcher script?\n\n"));
 
   # Get ready to parse the CSV file.
   $self->{'csv'} = Text::CSV_XS->new({ binary => 1, auto_diag => 1 });
@@ -124,7 +125,7 @@ sub _searchFile($) {
 
   # Make sure we have a search pattern, without which we cannot search.
   if (! defined($searchPattern)) {
-    die("$0: no search pattern defined so we cannot search");
+    die($log->fatal("$0: no search pattern defined so we cannot search"));
   }
 
 SPECIES:
@@ -172,7 +173,7 @@ SPECIES:
   }
 
   if ($!) {
-    die("$0: unexpected error while reading from " . $self->{'speciesPath'} . ": $!");
+    die($log->fatal("$0: unexpected error while reading from " . $self->{'speciesPath'} . ": $!"));
   }
 
   return $matchCount;
