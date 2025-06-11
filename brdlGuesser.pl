@@ -8,7 +8,11 @@ use warnings;
 use File::Basename;
 use lib dirname (__FILE__);
 
+# Gain access to our application module.
 use BrdlGuesser;
+
+# Gain access to our logging module. The default level is WARN.
+use Log::Any::App '$log';
 
 # Set the option that causes the version command to be shown as part of
 # the help message.

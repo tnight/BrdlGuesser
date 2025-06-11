@@ -20,6 +20,9 @@ class My::Config 2.0 {
   use constant CONFIG_DIRECTORY => 'config';
   use constant CONFIG_FILENAME => 'myConfig.cfg';
 
+  # This is inside the class to prevent spurious warning messages.
+  use Log::Any qw($log);
+
   #
   # Field attributes
   #
@@ -68,15 +71,14 @@ class My::Config 2.0 {
     $config->define('localChecklistDir', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
     $config->define('localChecklistSubdirParsed', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
     $config->define('localChecklistSubdirRaw', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
-    $config->define('logLevelDebug', { ARGCOUNT => AppConfig::ARGCOUNT_NONE, DEFAULT => '<undef>' });
-    $config->define('logLevelTrace', { ARGCOUNT => AppConfig::ARGCOUNT_NONE, DEFAULT => '<undef>' });
 
     # Read the configuration values from our configuration file.
     $config->file($configFileFullPath);
 
-    # Log the contents of our configuration.
-    if ($config->get('logLevelTrace')) {
-      print("Full dump of our configuration:\n", Data::Dumper->Dump([$config], [qw(config)]));
+    # Log the contents of our configuration, but only bother serializing
+    # them if our log level requires it.
+    if ($log->is_trace) {
+      $log->trace("Full dump of our configuration:\n", Data::Dumper->Dump([$config], [qw(config)]));
     }
 
     return $config;
@@ -87,7 +89,7 @@ class My::Config 2.0 {
   #
 
   sub _handleConfigError ($) {
-    die(@_);
+    die($log->fatal(@_));
   }
 }
 

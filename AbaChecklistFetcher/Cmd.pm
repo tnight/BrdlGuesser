@@ -21,6 +21,7 @@ use File::Path qw( make_path );
 use File::Spec;
 use File::chdir;
 use FindBin;
+use Log::Any qw($log);
 use My::Config;
 use Text::CSV;
 use URI;
@@ -83,6 +84,10 @@ sub execute($$$) {
 
   # Now that the work is done, clean up after ourselves.
   $self->_cleanUp();
+
+  # Everything went smoothly, so return the counterintuitive success
+  # result code of zero.
+  return 0;
 }
 
 sub usage_desc() {
@@ -96,32 +101,24 @@ sub usage_desc() {
 sub _cleanUp($) {
   my $self = shift();
 
-  close($self->{'csvFileHandleRaw'}) or die("Failed to close " . $self->{'csvFileFullPathRaw'} . ": $!");
-  close($self->{'csvFileHandleParsed'}) or die("Failed to close " . $self->{'csvFileFullPathParsed'} . ": $!");
+  close($self->{'csvFileHandleRaw'}) or die($log->fatal("Failed to close " . $self->{'csvFileFullPathRaw'} . ": $!"));
+  close($self->{'csvFileHandleParsed'}) or die($log->fatal("Failed to close " . $self->{'csvFileFullPathParsed'} . ": $!"));
 }
 
 sub _confirmOrCreateDirectory($$) {
   my ($self, $dirFullPath) = @_;
 
-  if ($self->{'config'}->get('logLevelDebug')) {
-    print("About to check for directory [$dirFullPath]...\n");
-  }
+  $log->debug("About to check for directory [$dirFullPath]...");
 
   if (! -d $dirFullPath) {
-    if ($self->{'config'}->get('logLevelDebug')) {
-      print("Did not find directory [$dirFullPath], attempting to create...\n");
-    }
+    $log->info("Did not find directory [$dirFullPath], attempting to create...");
 
-    make_path($dirFullPath) or die("Failed to create directory [$dirFullPath]: $!");
+    make_path($dirFullPath) or die($log->fatal("Failed to create directory [$dirFullPath]: $!"));
 
-    if ($self->{'config'}->get('logLevelDebug')) {
-      print("Created directory [$dirFullPath].\n");
-    }
+    $log->info("Created directory [$dirFullPath].");
   }
   else {
-    if ($self->{'config'}->get('logLevelDebug')) {
-      print("Found directory [$dirFullPath].\n");
-    }
+    $log->info("Found directory [$dirFullPath].");
   }
 }
 
@@ -151,12 +148,12 @@ sub _downloadAbaChecklistRawFiles($) {
     my $content = $response->decoded_content;
   }
   else {
-    die($response->status_line);
+    die($log->fatal($response->status_line));
   }
 
   my @links = $mechAgent->links();
   if (scalar(@links) == 0) {
-    die("Found no links in downloaded web page!");
+    die($log->fatal("Found no links in downloaded web page!"));
   }
 
   my ($csvUrl, $pdfUrl);
@@ -175,12 +172,10 @@ sub _downloadAbaChecklistRawFiles($) {
   }
 
   if (!defined($csvUrl) || !defined($pdfUrl)) {
-    die("Unable to determine CSV link and/or PDF link.");
+    die($log->fatal("Unable to determine CSV link and/or PDF link."));
   }
 
-  if ($self->{'config'}->get('logLevelDebug')) {
-    print("\$csvUrl = [$csvUrl]\n\$pdfUrl = [$pdfUrl]\n");
-  }
+  $log->debug("\$csvUrl = [$csvUrl]\n\$pdfUrl = [$pdfUrl]");
 
   # Create the checklist directory if it does not already exist.
   $self->_confirmOrCreateDirectory($self->_makeChecklistDirFullPath());
@@ -214,7 +209,7 @@ sub _extractCsvFromZipArchive($$) {
   # Open the ZIP archive.
   my $zip = Archive::Zip->new();
   unless($zip->read($csvZipFileFullPath) == AZ_OK) {
-    die("Unable to read ZIP file [$csvZipFileFullPath]: $!");
+    die($log->fatal("Unable to read ZIP file [$csvZipFileFullPath]: $!"));
   }
 
   # Find the correct entry within the ZIP archive. We need to exclude any
@@ -222,7 +217,7 @@ sub _extractCsvFromZipArchive($$) {
   my @csvFileMembers = $zip->membersMatching( '^[^\W_].*\.csv' );
 
   if (scalar(@csvFileMembers) == 0) {
-    die("Did not find any CSV file in the ZIP archive [$csvZipFileFullPath]");
+    die($log->fatal("Did not find any CSV file in the ZIP archive [$csvZipFileFullPath]"));
   }
   elsif (scalar(@csvFileMembers) > 1) {
     my $errorMessage = "Found more than one CSV file in the ZIP archive [$csvZipFileFullPath]; found these CSV files: ";
@@ -230,7 +225,7 @@ sub _extractCsvFromZipArchive($$) {
       $errorMessage .= "[" . $member->fileName() . "], ";
     }
     $errorMessage .= "exiting";
-    die($errorMessage);
+    die($log->fatal($errorMessage));
   }
 
   # Build the full path to the output file including our output path.
@@ -249,7 +244,7 @@ sub _extractCsvFromZipArchive($$) {
 
   # Extract the CSV file from the ZIP archive.
   unless($csvMember->extractToFileNamed($outputFileFullPath) == AZ_OK) {
-    die("Unable to extract CSV file [$csvMemberFilename] from ZIP archive [$csvZipFileFullPath]: $!");
+    die($log->fatal("Unable to extract CSV file [$csvMemberFilename] from ZIP archive [$csvZipFileFullPath]: $!"));
   }
 
   # Remove the ZIP archive now that we have extracted the CSV file.
@@ -292,33 +287,27 @@ sub _makeSymbolicLinkForAbaChecklist($) {
                                          $self->{'config'}->get('latestChecklistFilename')
                                         );
 
-  if ($self->{'config'}->get('logLevelDebug')) {
-    print("Parsed filename = [" . $self->{'csvFileFullPathParsed'} . "]\n");
-    print("Linked filename = [$linkFilename]\n");
-    print("Before making symbolic link, \$CWD = [$CWD]\n");
-  }
+  $log->debug("Parsed filename = [" . $self->{'csvFileFullPathParsed'} . "]");
+  $log->debug("Linked filename = [$linkFilename]");
+  $log->debug("Before making symbolic link, \$CWD = [$CWD]");
 
   my $dirname = dirname($self->{'csvFileFullPathParsed'});
   my $oldFileBasename = basename($self->{'csvFileFullPathParsed'});
   my $newFileBasename = basename($linkFilename);
 
-  if ($self->{'config'}->get('logLevelDebug')) {
-    print("Directory name = [$dirname]\n");
-    print("Old file basename = [$oldFileBasename]\n");
-    print("New file basename = [$newFileBasename]\n");
-  }
+  $log->debug("Directory name = [$dirname]");
+  $log->debug("Old file basename = [$oldFileBasename]");
+  $log->debug("New file basename = [$newFileBasename]");
 
   local $CWD = $dirname;
 
   if (-l $newFileBasename) {
-    unlink($newFileBasename) or die("Failed to remove link file [$newFileBasename]: $!");
+    unlink($newFileBasename) or die($log->fatal("Failed to remove link file [$newFileBasename]: $!"));
   }
 
-  symlink($oldFileBasename, $newFileBasename) or die("Failed to link old file [$oldFileBasename] to new file [$newFileBasename]: $!");
+  symlink($oldFileBasename, $newFileBasename) or die($log->fatal("Failed to link old file [$oldFileBasename] to new file [$newFileBasename]: $!"));
 
-  if ($self->{'config'}->get('logLevelDebug')) {
-    print("After making symbolic link, \$CWD = [$CWD]\n");
-  }
+  $log->debug("After making symbolic link, \$CWD = [$CWD]");
 }
 
 sub _openCsvFilesForParsing($) {
@@ -333,10 +322,8 @@ sub _openCsvFilesForParsing($) {
                                                          $outputFileBaseName
                                                         );
 
-  if ($self->{'config'}->get('logLevelDebug')) {
-    print("Input filename  = [" . $self->{'csvFileFullPathRaw'} . "]\n");
-    print("Output filename = [" . $self->{'csvFileFullPathParsed'} . "]\n");
-  }
+  $log->debug("Input filename  = [" . $self->{'csvFileFullPathRaw'} . "]");
+  $log->debug("Output filename = [" . $self->{'csvFileFullPathParsed'} . "]");
 
   # Open the species input file so we can do our processing.
   open(
@@ -344,7 +331,7 @@ sub _openCsvFilesForParsing($) {
        "< " . ENCODING,
        $self->{'csvFileFullPathRaw'}
       )
-    || die("$0: can't open " . $self->{'csvFileFullPathRaw'} . " for reading: $!");
+    || die($log->fatal("$0: can't open " . $self->{'csvFileFullPathRaw'} . " for reading: $!"));
 
   # Create the output directory if it does not already exist.
   $self->_confirmOrCreateDirectory($self->{'checklistDirFullPathParsed'});
@@ -355,7 +342,7 @@ sub _openCsvFilesForParsing($) {
        "> " . ENCODING,
        $self->{'csvFileFullPathParsed'}
       )
-    || die("$0: can't open " . $self->{'csvFileFullPathParsed'} . " for writing: $!");
+    || die($log->fatal("$0: can't open " . $self->{'csvFileFullPathParsed'} . " for writing: $!"));
 }
 
 sub _parseAbaChecklist($) {
@@ -376,9 +363,7 @@ sub _parseAbaChecklist($) {
     if ($speciesCode) {
       push(@rows, $row);
 
-      if ($self->{'config'}->get('logLevelTrace')) {
-        print("Found species code [$speciesCode] with English species name [$speciesNameEnglish].\n");
-      }
+      $log->trace("Found species code [$speciesCode] with English species name [$speciesNameEnglish].");
     }
   }
 
@@ -419,7 +404,7 @@ sub _saveAbaChecklistFile($$$) {
 
   my $response = $mechAgent->get($sourceUrl);
   if (! $response->is_success) {
-    die($response->status_line);
+    die($log->fatal($response->status_line));
   }
 
   # Save the file locally.
@@ -428,7 +413,7 @@ sub _saveAbaChecklistFile($$$) {
                                               (URI->new($sourceUrl)->path_segments)[-1]
                                              );
   if (! open(FOUT, ">$localFileFullPath")) {
-    die("Could not create local file [$localFileFullPath]: $!");
+    die($log->fatal("Could not create local file [$localFileFullPath]: $!"));
   }
   binmode(FOUT); # required for Windows
   print(FOUT $response->content());
