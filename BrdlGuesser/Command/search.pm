@@ -20,7 +20,7 @@ EXAMPLES
 shell> %c search -p R_BU
 shell> %c search -p _ar_
 shell> %c search -p G_A_ -x bmos
-shell> %c search -p G_A_ -i tw
+shell> %c search -p _E_A -i tw
 END
 
 #
