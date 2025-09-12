@@ -156,26 +156,20 @@ sub _downloadAbaChecklistRawFiles($) {
     die($log->fatal("Found no links in downloaded web page!"));
   }
 
-  my ($csvUrl, $pdfUrl);
+  my $csvUrl;
 
   foreach my $link (@links) {
-    if (! defined($link->text)) {
-      next;
-    }
-
-    if ($link->text eq 'CSV') {
+    if (defined($link->text) && $link->text eq 'CSV') {
       $csvUrl = $link->url;
-    }
-    elsif ($link->text eq 'PDF') {
-      $pdfUrl = $link->url;
+      last;
     }
   }
 
-  if (!defined($csvUrl) || !defined($pdfUrl)) {
-    die($log->fatal("Unable to determine CSV link and/or PDF link."));
+  if (!defined($csvUrl)) {
+    die($log->fatal("Unable to determine CSV link."));
   }
 
-  $log->debug("\$csvUrl = [$csvUrl]\n\$pdfUrl = [$pdfUrl]");
+  $log->debug("\$csvUrl = [$csvUrl]");
 
   # Create the checklist directory if it does not already exist.
   $self->_confirmOrCreateDirectory($self->_makeChecklistDirFullPath());
@@ -183,18 +177,10 @@ sub _downloadAbaChecklistRawFiles($) {
   # Create the input directory if it does not already exist.
   $self->_confirmOrCreateDirectory($self->{'checklistDirFullPathRaw'});
 
-  # Download the PDF file.
-  my $pdfFileFullPath = $self->_saveAbaChecklistFile(
-                                                     $mechAgent,
-                                                     $pdfUrl,
-                                                     $self->{'checklistDirFullPathRaw'}
-                                                    );
-
   # Download the CSV ZIP file.
   my $csvZipFileFullPath = $self->_saveAbaChecklistFile(
                                                         $mechAgent,
-                                                        $csvUrl,
-                                                        $self->{'checklistDirFullPathRaw'}
+                                                        $csvUrl
                                                        );
 
   return $csvZipFileFullPath;
@@ -237,8 +223,7 @@ sub _extractCsvFromZipArchive($$) {
                                               );
 
   # Update the modified date and time of the CSV file to be the current
-  # date and time. This matches the modified date and time of the
-  # downloaded PDF file and reduces confusion about which file is the
+  # date and time. This reduces confusion about which file is the
   # latest one downloaded.
   $csvMember->setLastModFileDateTimeFromUnix(time());
 
@@ -407,10 +392,18 @@ sub _saveAbaChecklistFile($$$) {
     die($log->fatal($response->status_line));
   }
 
+  # Output some debugging information regarding the checklist file.
+  $log->trace("Source URL string is [$sourceUrl].");
+  $log->trace("Source URL path segments are [" . join("][", URI->new($sourceUrl)->path_segments) . "].");
+
   # Save the file locally.
+  my $localFileName = (URI->new($sourceUrl)->path_segments)[-1];
+  if (! defined($localFileName)) {
+    die($log->fatal("File name not found in URL path segments!"));
+  }
   my $localFileFullPath = File::Spec->catfile(
                                               $self->{'checklistDirFullPathRaw'},
-                                              (URI->new($sourceUrl)->path_segments)[-1]
+                                              $localFileName
                                              );
   if (! open(FOUT, ">$localFileFullPath")) {
     die($log->fatal("Could not create local file [$localFileFullPath]: $!"));

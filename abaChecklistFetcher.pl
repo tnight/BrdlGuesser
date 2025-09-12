@@ -11,7 +11,11 @@ use lib dirname (__FILE__);
 # Gain access to our application module.
 use AbaChecklistFetcher::Cmd;
 
-# Gain access to our logging module. The default level is WARN.
+# Gain access to our logging module. The default level is WARN. To
+# choose another log level, use a command line syntax like this:
+#
+# LOG_LEVEL=trace ./abaChecklistFetcher.pl
+#
 use Log::Any::App '$log';
 
 # Set the option that causes the version command to be shown as part of
