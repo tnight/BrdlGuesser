@@ -89,10 +89,10 @@ sub validate_args($$$) {
      )
   {
     $self->_validateListsAsMutuallyExclusive(
-                                     $opt->exclude,
-                                     $opt->include,
-                                     'inclusion list'
-                                    );
+                                             $opt->exclude,
+                                             $opt->include,
+                                             'inclusion list'
+                                            );
   }
 
   # Validate that no letter appears in both the exclusion list and the
@@ -103,10 +103,17 @@ sub validate_args($$$) {
      )
   {
     $self->_validateListsAsMutuallyExclusive(
-                                     $opt->exclude,
-                                     $opt->pattern,
-                                     'search pattern'
-                                    );
+                                             $opt->exclude,
+                                             $opt->pattern,
+                                             'search pattern'
+                                            );
+  }
+
+  # Validate that no letter appears more than once in the exclusion list.
+  if (defined($opt->exclude)) {
+    $self->_validateNoDuplicatesExist($opt->exclude,
+                                      'exclusion list'
+                                     );
   }
 }
 
@@ -179,6 +186,16 @@ sub _validateListsAsMutuallyExclusive($$$$) {
          );
     }
   }
+}
+
+sub _validateNoDuplicatesExist($$$) {
+  my $self = shift();
+  my $exclusionString = shift();
+  my $exclusionFieldDisplayName = shift();
+
+  my $exclusionStringUppercase = uc($exclusionString);
+
+  die('Method not implemented!');
 }
 
 1;
