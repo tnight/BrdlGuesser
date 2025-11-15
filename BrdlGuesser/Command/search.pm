@@ -4,6 +4,7 @@ package BrdlGuesser::Command::search;
 use strict;
 use warnings;
 use BrdlGuesser -command;
+use Try::Tiny;
 
 # Define our usage message as a constant.
 use constant USAGE_DESCRIPTION => <<END;
@@ -89,10 +90,10 @@ sub validate_args($$$) {
      )
   {
     $self->_validateListsAsMutuallyExclusive(
-                                     $opt->exclude,
-                                     $opt->include,
-                                     'inclusion list'
-                                    );
+                                             $opt->exclude,
+                                             $opt->include,
+                                             'inclusion list'
+                                            );
   }
 
   # Validate that no letter appears in both the exclusion list and the
@@ -103,10 +104,27 @@ sub validate_args($$$) {
      )
   {
     $self->_validateListsAsMutuallyExclusive(
-                                     $opt->exclude,
-                                     $opt->pattern,
-                                     'search pattern'
-                                    );
+                                             $opt->exclude,
+                                             $opt->pattern,
+                                             'search pattern'
+                                            );
+  }
+
+  # Validate that no letter appears more than once in the exclusion list.
+  if (defined($opt->exclude)) {
+    $self->_validateExclusionList(
+                                  $opt->exclude,
+                                  'exclusion list'
+                                 );
+  }
+
+  # Validate that no letter appears more than four times in the
+  # inclusion list.
+  if (defined($opt->include)) {
+    $self->_validateInclusionList(
+                                  $opt->include,
+                                  'inclusion list'
+                                 );
   }
 }
 
@@ -120,11 +138,11 @@ sub usage_desc() {
 
 sub _getStringAsArray($$) {
   my $self = shift();
-  my $inclusionString = shift();
+  my $string = shift();
 
   return split(
                //,
-               uc($inclusionString)
+               uc($string)
               );
 }
 
@@ -179,6 +197,79 @@ sub _validateListsAsMutuallyExclusive($$$$) {
          );
     }
   }
+}
+
+sub _validateExclusionList($$$) {
+  my $self = shift();
+  my $exclusionString = shift();
+  my $exclusionFieldDisplayName = shift();
+
+  my $exclusionStringUppercase = uc($exclusionString);
+
+  try {
+    $self->_getStringAsHash($exclusionStringUppercase);
+  }
+  catch {
+    $self->usage_error(
+                       "Letter appears more than once in " .
+                       "$exclusionFieldDisplayName: " .
+                       $_->{'errorContext'}->{'letter'}
+                      );
+  };
+}
+
+sub _validateInclusionList($$$) {
+  my $self = shift();
+  my $inclusionString = shift();
+  my $inclusionFieldDisplayName = shift();
+
+  my $inclusionStringUppercase = uc($inclusionString);
+
+  try {
+    # Ensure that no letter appears more than four times in the
+    # inclusion list because the puzzle only has four letters.
+    $self->_getStringAsHash(
+                            $inclusionStringUppercase,
+                            4
+                           );
+  }
+  catch {
+    $self->usage_error(
+                       "Letter appears more than four times in " .
+                       "$inclusionFieldDisplayName: " .
+                       $_->{'errorContext'}->{'letter'}
+                      );
+  };
+}
+
+sub _getStringAsHash($$$) {
+  my $self = shift();
+  my $string = shift();
+  my $maxInstancesAllowed = shift() || 1;
+
+  my %letterHash = ();
+  my @letterArray = $self->_getStringAsArray($string);
+
+  foreach my $letter (@letterArray) {
+    if (! exists($letterHash{$letter})) {
+      $letterHash{$letter} = 1;
+    }
+    else {
+      $letterHash{$letter}++;
+    }
+
+    if ($letterHash{$letter} > $maxInstancesAllowed) {
+      die(
+          {
+           errorCode    => 'MAX001',
+           errorContext => { letter => $letter },
+           errorMessage => 'Found too many instances of a letter'
+          }
+         );
+    }
+  }
+
+  %letterHash;
 }
 
 1;
