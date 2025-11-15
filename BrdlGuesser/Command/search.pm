@@ -4,6 +4,7 @@ package BrdlGuesser::Command::search;
 use strict;
 use warnings;
 use BrdlGuesser -command;
+use Try::Tiny;
 
 # Define our usage message as a constant.
 use constant USAGE_DESCRIPTION => <<END;
@@ -127,11 +128,11 @@ sub usage_desc() {
 
 sub _getStringAsArray($$) {
   my $self = shift();
-  my $inclusionString = shift();
+  my $string = shift();
 
   return split(
                //,
-               uc($inclusionString)
+               uc($string)
               );
 }
 
@@ -195,7 +196,47 @@ sub _validateNoDuplicatesExist($$$) {
 
   my $exclusionStringUppercase = uc($exclusionString);
 
-  die('Method not implemented!');
+  try {
+    $self->_getStringAsHash($exclusionStringUppercase);
+  }
+  catch {
+    $self->usage_error(
+                       "Letter appears more than once in " .
+                       "$exclusionFieldDisplayName: " .
+                       $_->{'errorContext'}->{'letter'}
+                      );
+  };
+}
+
+sub _getStringAsHash($$$) {
+  my $self = shift();
+  my $string = shift();
+  my $areDuplicatesAllowed = shift();
+
+  my %letterHash = ();
+  my @letterArray = $self->_getStringAsArray($string);
+
+  foreach my $letter (@letterArray) {
+    if (exists($letterHash{$letter})) {
+      if ($areDuplicatesAllowed) {
+        $letterHash{$letter}++;
+      }
+      else {
+        die(
+            {
+             errorCode    => 'DUP001',
+             errorMessage => 'Found duplicate letter',
+             errorContext => { letter => $letter }
+             }
+           );
+      }
+    }
+    else {
+      $letterHash{$letter} = 1;
+    }
+  }
+
+  %letterHash;
 }
 
 1;
