@@ -121,10 +121,11 @@ sub validate_args($$$) {
   # Validate that no letter appears more than four times in the
   # inclusion list.
   if (defined($opt->include)) {
-    $self->_validateInclusionList(
-                                  $opt->include,
-                                  'inclusion list'
-                                 );
+    my %inclusionLetterHash = $self->_validateInclusionList(
+                                                            $opt->include,
+                                                            'inclusion list'
+                                                           );
+    $self->{'inclusionLetterHash'} = \%inclusionLetterHash;
   }
 }
 
@@ -170,11 +171,9 @@ sub _initialize($$$) {
 
   # Configure the inclusion patterns based on our command-line options.
   if (defined($opt->include)) {
-    my @inclusionRegexen = ();
     foreach my $inclusionLetter ($self->_getStringAsArray($opt->include)) {
-      push(@inclusionRegexen, qr/$inclusionLetter/);
+      $self->{'inclusionLetterHash'}{$inclusionLetter}{'regex'} = qr/$inclusionLetter/;
     }
-    $self->{'inclusionRegexen'} = \@inclusionRegexen;
   }
 }
 
@@ -224,14 +223,15 @@ sub _validateInclusionList($$$) {
   my $inclusionFieldDisplayName = shift();
 
   my $inclusionStringUppercase = uc($inclusionString);
+  my %inclusionLetterHash = ();
 
   try {
     # Ensure that no letter appears more than four times in the
     # inclusion list because the puzzle only has four letters.
-    $self->_getStringAsHash(
-                            $inclusionStringUppercase,
-                            4
-                           );
+    %inclusionLetterHash = $self->_getStringAsHash(
+                                                   $inclusionStringUppercase,
+                                                   4
+                                                  );
   }
   catch {
     $self->usage_error(
@@ -240,6 +240,8 @@ sub _validateInclusionList($$$) {
                        $_->{'errorContext'}->{'letter'}
                       );
   };
+
+  return %inclusionLetterHash;
 }
 
 sub _getStringAsHash($$$) {
@@ -252,13 +254,17 @@ sub _getStringAsHash($$$) {
 
   foreach my $letter (@letterArray) {
     if (! exists($letterHash{$letter})) {
-      $letterHash{$letter} = 1;
+      $letterHash{$letter} =
+        {
+         count => 1,
+         regex => undef
+        };
     }
     else {
-      $letterHash{$letter}++;
+      $letterHash{$letter}{'count'}++;
     }
 
-    if ($letterHash{$letter} > $maxInstancesAllowed) {
+    if ($letterHash{$letter}{'count'} > $maxInstancesAllowed) {
       die(
           {
            errorCode    => 'MAX001',
