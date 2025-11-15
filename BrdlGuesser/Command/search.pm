@@ -211,28 +211,27 @@ sub _validateNoDuplicatesExist($$$) {
 sub _getStringAsHash($$$) {
   my $self = shift();
   my $string = shift();
-  my $areDuplicatesAllowed = shift();
+  my $maxInstancesAllowed = shift() || 1;
 
   my %letterHash = ();
   my @letterArray = $self->_getStringAsArray($string);
 
   foreach my $letter (@letterArray) {
-    if (exists($letterHash{$letter})) {
-      if ($areDuplicatesAllowed) {
-        $letterHash{$letter}++;
-      }
-      else {
-        die(
-            {
-             errorCode    => 'DUP001',
-             errorMessage => 'Found duplicate letter',
-             errorContext => { letter => $letter }
-             }
-           );
-      }
+    if (! exists($letterHash{$letter})) {
+      $letterHash{$letter} = 1;
     }
     else {
-      $letterHash{$letter} = 1;
+      $letterHash{$letter}++;
+    }
+
+    if ($letterHash{$letter} > $maxInstancesAllowed) {
+      die(
+          {
+           errorCode    => 'MAX001',
+           errorContext => { letter => $letter },
+           errorMessage => 'Found too many instances of a letter'
+          }
+         );
     }
   }
 
