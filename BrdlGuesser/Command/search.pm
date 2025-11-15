@@ -112,9 +112,19 @@ sub validate_args($$$) {
 
   # Validate that no letter appears more than once in the exclusion list.
   if (defined($opt->exclude)) {
-    $self->_validateNoDuplicatesExist($opt->exclude,
-                                      'exclusion list'
-                                     );
+    $self->_validateExclusionList(
+                                  $opt->exclude,
+                                  'exclusion list'
+                                 );
+  }
+
+  # Validate that no letter appears more than four times in the
+  # inclusion list.
+  if (defined($opt->include)) {
+    $self->_validateInclusionList(
+                                  $opt->include,
+                                  'inclusion list'
+                                 );
   }
 }
 
@@ -189,7 +199,7 @@ sub _validateListsAsMutuallyExclusive($$$$) {
   }
 }
 
-sub _validateNoDuplicatesExist($$$) {
+sub _validateExclusionList($$$) {
   my $self = shift();
   my $exclusionString = shift();
   my $exclusionFieldDisplayName = shift();
@@ -203,6 +213,30 @@ sub _validateNoDuplicatesExist($$$) {
     $self->usage_error(
                        "Letter appears more than once in " .
                        "$exclusionFieldDisplayName: " .
+                       $_->{'errorContext'}->{'letter'}
+                      );
+  };
+}
+
+sub _validateInclusionList($$$) {
+  my $self = shift();
+  my $inclusionString = shift();
+  my $inclusionFieldDisplayName = shift();
+
+  my $inclusionStringUppercase = uc($inclusionString);
+
+  try {
+    # Ensure that no letter appears more than four times in the
+    # inclusion list because the puzzle only has four letters.
+    $self->_getStringAsHash(
+                            $inclusionStringUppercase,
+                            4
+                           );
+  }
+  catch {
+    $self->usage_error(
+                       "Letter appears more than four times in " .
+                       "$inclusionFieldDisplayName: " .
                        $_->{'errorContext'}->{'letter'}
                       );
   };
