@@ -36,7 +36,7 @@ sub new($$) {
   $self->{'encoding'} = ":encoding(UTF-8)";
   $self->{'exclusionRegex'} = undef;
   $self->{'fileHandle'} = undef;
-  $self->{'inclusionRegexen'} = [];
+  $self->{'inclusionLetterHash'} = {};
   $self->{'searchPattern'} = '[A-Z]{4}'; # a generic search pattern that can be overridden by subclasses
   $self->{'speciesPath'} = undef;
 
@@ -154,10 +154,13 @@ SPECIES:
     }
 
     # Only include species codes containing all the letters we were
-    # told to include.
-    if (scalar(@{$self->{'inclusionRegexen'}})) {
-      foreach my $inclusionRegex (@{$self->{'inclusionRegexen'}}) {
-        if ($speciesCode !~ $inclusionRegex) {
+    # told to include, and the number of instances of those letters
+    # that we were told to expect.
+    if (keys(%{$self->{'inclusionLetterHash'}})) {
+      foreach my $letterEntry (values(%{$self->{'inclusionLetterHash'}})) {
+        my @matches = $speciesCode =~ m/$letterEntry->{'regex'}/g;
+        my $count = @matches;
+        if ($count < $letterEntry->{'count'}) {
           next SPECIES;
         }
       }
