@@ -8,6 +8,8 @@ These two modes of operation can be selected based on the command given:
 * When searching, one of the `-i|--include`, `-p|--pattern`, or `-x|--exclude` options is required.
 * Both the search pattern and the letters to be included and excluded can be given as uppercase or lowercase, and will still match.
 * The same letter cannot appear in both the exclusion and inclusion lists.
+* The same letter cannot appear more than once in the exclusion list.
+* The same letter *CAN* appear up to four times in the inclusion list. This means the letter must appear at least that many times in the matching solutions.
 
 ## Examples
 ### Display a single, matching BRDL solution
@@ -43,6 +45,13 @@ shell> brdlGuesser.pl search -p G_A_ -x MOS
 shell> brdlGuesser.pl search -p _E_A -i TW
    1. GBAT: Gray-backed Tern
    2. GRAW: Gray Wagtail
+```
+
+### Display BRDL solutions that match a pattern and contain two instances of a letter
+```
+shell> brdlGuesser.pl search -p L___ -i EE
+   1. LEYE: Lesser Yellowlegs
+   2. LETE: Least Tern
 ```
 
 ### Display all possible BRDL solutions

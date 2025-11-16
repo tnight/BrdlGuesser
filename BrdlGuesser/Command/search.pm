@@ -16,12 +16,16 @@ lowercase letters will successfully match the four-letter Alpha code.
 To represent an unknown letter, use the underscore ('_').
 
 NOTE: At least one of the -i, -p, or -x options is required.
+NOTE: If the same letter appears more than once in the inclusion list,
+that means the letter must appear at least that many times in the
+matching solutions.
 
 EXAMPLES
 shell> %c search -p R_BU
 shell> %c search -p _ar_
 shell> %c search -p G_A_ -x bmos
 shell> %c search -p _E_A -i tw
+shell> %c search -p L___ -i ee
 END
 
 #
