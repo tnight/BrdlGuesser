@@ -15,17 +15,22 @@ pattern. The pattern is case-insensitive. That is, both uppercase and
 lowercase letters will successfully match the four-letter Alpha code.
 To represent an unknown letter, use the underscore ('_').
 
+NOTE: Both the search pattern and the letters to be included and
+      excluded can be given as uppercase or lowercase, and will still match.
 NOTE: At least one of the -i, -p, or -x options is required.
-NOTE: If the same letter appears more than once in the inclusion list,
-that means the letter must appear at least that many times in the
-matching solutions.
+NOTE: The same letter cannot appear in both the exclusion and inclusion lists.
+NOTE: The same letter cannot appear more than once in the exclusion list.
+NOTE: The same letter cannot appear more than once in the inclusion list.
 
 EXAMPLES
 shell> %c search -p R_BU
 shell> %c search -p _ar_
-shell> %c search -p G_A_ -x bmos
-shell> %c search -p _E_A -i tw
-shell> %c search -p L___ -i ee
+shell> %c search -p G_A_ -x mos
+shell> %c search -p _E_A -i h:^s1
+shell> %c search -p L___ -i e:^s3:2
+
+For more detailed usage information, see the README file.
+
 END
 
 #
@@ -39,7 +44,7 @@ sub abstract() {
 sub opt_spec() {
   return(
          [ "pattern|p=s", "Search for the given pattern" ],
-         [ "include|i=s", "Only include guesses that contain all of the given letters" ],
+         [ "include|i=s", "Only include guesses that contain all of the given letters in the correct slots and with the correct count" ],
          [ "exclude|x=s", "Exclude guesses that contain any of the given letters" ]
         );
 }
@@ -49,6 +54,10 @@ sub validate_args($$$) {
 
   # Call our superclass method so it can do the necessary validation.
   $self->SUPER::validate_args($opt, $args);
+
+  # TODOTODO: Remove after testing.
+  use Data::Dumper;
+  print Data::Dumper->Dump([$opt], [qw(opt)]);
 
   #
   # Do the further validation that our subclass needs.
