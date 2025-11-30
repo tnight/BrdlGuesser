@@ -370,7 +370,7 @@ sub _convertInclusionListOptionToHash($$) {
     $letterHash{$letter} =
       {
        regex => qr/$letter/,
-       slots => \@slots
+       slots => [ @slots ]
       };
   }
 

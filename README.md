@@ -53,11 +53,12 @@ shell> brdlGuesser.pl search -p _E_A -i H:1
    2. FEHA: Ferruginous Hawk
 ```
 
-### Display BRDL solutions that match a pattern and contain two instances of a letter but not in slots 1 or 3
+### Display BRDL solutions that match a pattern and contain certain letters but not in certain slots
 ```
-shell> brdlGuesser.pl search -i E:13
-   1. LEYE: Lesser Yellowlegs
-   2. LETE: Least Tern
+shell> brdlGuesser.pl search -p L___ -i e:3,o:2
+   1. LEOW: Long-eared Owl
+   2. LEWO: Lewis's Woodpecker
+   3. LEGO: Lesser Goldfinch
 ```
 
 ### Display all possible BRDL solutions
