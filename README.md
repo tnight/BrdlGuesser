@@ -17,7 +17,6 @@ These two modes of operation can be selected based on the command given:
 * `-i|--include <inclusion-field-list>` When searching, only include solutions that match the inclusion criteria specified in the inclusion field list. The list is comma-separated. The fields within each entry in the list are separated by colons. The fields in each entry of the list are as follows:
   * A letter (required)
   * A list of slots where we know the letter is not present (required)
-  * A minimum count of instances (optional)
 
 ## Examples
 ### Display a single, matching BRDL solution
@@ -50,13 +49,13 @@ shell> brdlGuesser.pl search -p G_A_ -x MOS
 
 ### Display BRDL solutions that match a pattern and contain a certain letter but not in slot 1
 ```
-shell> brdlGuesser.pl search -p _E_A -i H:^s1
+shell> brdlGuesser.pl search -p _E_A -i H:1
    2. FEHA: Ferruginous Hawk
 ```
 
-### Display BRDL solutions that match a pattern and contain two instances of a letter but neither in slot 3
+### Display BRDL solutions that match a pattern and contain two instances of a letter but not in slots 1 or 3
 ```
-shell> brdlGuesser.pl search -p L___ -i E:^s3:2
+shell> brdlGuesser.pl search -i E:13
    1. LEYE: Lesser Yellowlegs
    2. LETE: Least Tern
 ```
