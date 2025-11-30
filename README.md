@@ -4,12 +4,19 @@ These two modes of operation can be selected based on the command given:
 * **dump:** display every possible BRDL answer, which is a long list of over a thousand species.
 * **search:** Guess the possible BRDL answers given an optional pattern as a starting point. Use one or more underscores (`_`) as single-letter wildcards. Some letters can be excluded from the matching species Alpha codes using the `-x|--exclude` option. Conversely, some letters can be included in all the matching species Alpha codes using the `-i|--include` option.
 
-**NOTES:**
+## Notes
 * When searching, one of the `-i|--include`, `-p|--pattern`, or `-x|--exclude` options is required.
 * Both the search pattern and the letters to be included and excluded can be given as uppercase or lowercase, and will still match.
 * The same letter cannot appear in both the exclusion and inclusion lists.
 * The same letter cannot appear more than once in the exclusion list.
-* The same letter *CAN* appear up to four times in the inclusion list. This means the letter must appear at least that many times in the matching solutions.
+* The same letter cannot appear more than once in the inclusion list.
+
+## Command line options
+* `-p|--pattern <pattern>` Search for solutions using the specified pattern. Use an underscore (`_`) as a single-letter wildcard to denote an unknown letter.
+* `-x|--exclude <letter-list>` When searching, exclude solutions that contain any of the listed letters. The format of the list is a simple string of letters.
+* `-i|--include <inclusion-field-list>` When searching, only include solutions that match the inclusion criteria specified in the inclusion field list. The list is comma-separated. The fields within each entry in the list are separated by colons. The fields in each entry of the list are as follows:
+  * A letter (required)
+  * A list of slots where we know the letter is not present (required)
 
 ## Examples
 ### Display a single, matching BRDL solution
@@ -40,18 +47,18 @@ shell> brdlGuesser.pl search -p G_A_ -x MOS
    9. GRAM: Greater Amakihi
 ```
 
-### Display BRDL solutions that match a pattern and contain certain letters
+### Display BRDL solutions that match a pattern and contain a certain letter but not in slot 1
 ```
-shell> brdlGuesser.pl search -p _E_A -i TW
-   1. GBAT: Gray-backed Tern
-   2. GRAW: Gray Wagtail
+shell> brdlGuesser.pl search -p _E_A -i H:1
+   2. FEHA: Ferruginous Hawk
 ```
 
-### Display BRDL solutions that match a pattern and contain two instances of a letter
+### Display BRDL solutions that match a pattern and contain certain letters but not in certain slots
 ```
-shell> brdlGuesser.pl search -p L___ -i EE
-   1. LEYE: Lesser Yellowlegs
-   2. LETE: Least Tern
+shell> brdlGuesser.pl search -p L___ -i e:3,o:2
+   1. LEOW: Long-eared Owl
+   2. LEWO: Lewis's Woodpecker
+   3. LEGO: Lesser Goldfinch
 ```
 
 ### Display all possible BRDL solutions

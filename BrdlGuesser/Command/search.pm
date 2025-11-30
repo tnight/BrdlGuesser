@@ -15,17 +15,22 @@ pattern. The pattern is case-insensitive. That is, both uppercase and
 lowercase letters will successfully match the four-letter Alpha code.
 To represent an unknown letter, use the underscore ('_').
 
+NOTE: Both the search pattern and the letters to be included and
+      excluded can be given as uppercase or lowercase, and will still match.
 NOTE: At least one of the -i, -p, or -x options is required.
-NOTE: If the same letter appears more than once in the inclusion list,
-that means the letter must appear at least that many times in the
-matching solutions.
+NOTE: The same letter cannot appear in both the exclusion and inclusion lists.
+NOTE: The same letter cannot appear more than once in the exclusion list.
+NOTE: The same letter cannot appear more than once in the inclusion list.
 
 EXAMPLES
 shell> %c search -p R_BU
 shell> %c search -p _ar_
-shell> %c search -p G_A_ -x bmos
-shell> %c search -p _E_A -i tw
-shell> %c search -p L___ -i ee
+shell> %c search -p G_A_ -x mos
+shell> %c search -p _E_A -i h:1
+shell> %c search -p L___ -i e:3
+
+For more detailed usage information, see the README file.
+
 END
 
 #
@@ -39,7 +44,7 @@ sub abstract() {
 sub opt_spec() {
   return(
          [ "pattern|p=s", "Search for the given pattern" ],
-         [ "include|i=s", "Only include guesses that contain all of the given letters" ],
+         [ "include|i=s", "Only include guesses that contain all of the given letters in the correct slots" ],
          [ "exclude|x=s", "Exclude guesses that contain any of the given letters" ]
         );
 }
@@ -114,7 +119,7 @@ sub validate_args($$$) {
                                             );
   }
 
-  # Validate that no letter appears more than once in the exclusion list.
+  # Validate the exclusion list.
   if (defined($opt->exclude)) {
     $self->_validateExclusionList(
                                   $opt->exclude,
@@ -122,8 +127,7 @@ sub validate_args($$$) {
                                  );
   }
 
-  # Validate that no letter appears more than four times in the
-  # inclusion list.
+  # Validate the inclusion list.
   if (defined($opt->include)) {
     my %inclusionLetterHash = $self->_validateInclusionList(
                                                             $opt->include,
@@ -172,13 +176,6 @@ sub _initialize($$$) {
     my $exclusionPattern = '[' . uc($opt->{'exclude'}) . ']';
     $self->{'exclusionRegex'} = qr/$exclusionPattern/;
   }
-
-  # Configure the inclusion patterns based on our command-line options.
-  if (defined($opt->include)) {
-    foreach my $inclusionLetter ($self->_getStringAsArray($opt->include)) {
-      $self->{'inclusionLetterHash'}{$inclusionLetter}{'regex'} = qr/$inclusionLetter/;
-    }
-  }
 }
 
 sub _validateListsAsMutuallyExclusive($$$$) {
@@ -192,7 +189,7 @@ sub _validateListsAsMutuallyExclusive($$$$) {
   $inclusionStringNoUnderscores =~ s/\Q_\E//g;
 
   foreach my $inclusionLetter ($self->_getStringAsArray($inclusionStringNoUnderscores)) {
-    if ($exclusionStringUppercase =~ m/$inclusionLetter/) {
+    if ($exclusionStringUppercase =~ m/\Q$inclusionLetter\E/) {
       $self->usage_error(
           "Letter appears both in exclusion list and " .
           "$inclusionFieldDisplayName: " .
@@ -210,15 +207,72 @@ sub _validateExclusionList($$$) {
   my $exclusionStringUppercase = uc($exclusionString);
 
   try {
-    $self->_getStringAsHash($exclusionStringUppercase);
+    $self->_validateStringNoNonAlphaChars($exclusionStringUppercase);
+  }
+  catch {
+    $self->usage_error(
+                       "Found non-alphabetic character in " .
+                       "$exclusionFieldDisplayName: " .
+                       $_->{'errorContext'}->{'element'}
+                      );
+  };
+
+  try {
+    $self->_validateStringNoDuplicateChars($exclusionStringUppercase);
   }
   catch {
     $self->usage_error(
                        "Letter appears more than once in " .
                        "$exclusionFieldDisplayName: " .
-                       $_->{'errorContext'}->{'letter'}
+                       $_->{'errorContext'}->{'element'}
                       );
   };
+}
+
+sub _validateListNoDuplicateElements($$) {
+  my $self = shift();
+  my $list = shift();
+
+  my %elementHash = ();
+
+  foreach my $element (@$list) {
+    if (exists($elementHash{$element})) {
+      die(
+          {
+           errorCode    => 'MAX001',
+           errorContext => { element => $element },
+           errorMessage => 'Found too many instances of an element'
+          }
+         );
+    }
+
+    $elementHash{$element} = 1;
+  }
+}
+
+sub _validateStringNoDuplicateChars($$) {
+  my $self = shift();
+  my $string = shift();
+
+  my @letterArray = $self->_getStringAsArray($string);
+  $self->_validateListNoDuplicateElements(\@letterArray);
+}
+
+sub _validateStringNoNonAlphaChars($$) {
+  my $self = shift();
+  my $string = shift();
+
+  # Use a POSIX character class to look for non-alphabetic characters.
+  if ($string =~ m/([^[:alpha:]])/) {
+    my $char = $1;
+    die(
+        {
+         errorCode    => 'ALPHA001',
+         errorContext => { element => $char },
+         errorMessage => 'Found non-alpha element'
+        }
+       );
+  }
 }
 
 sub _validateInclusionList($$$) {
@@ -226,57 +280,98 @@ sub _validateInclusionList($$$) {
   my $inclusionString = shift();
   my $inclusionFieldDisplayName = shift();
 
-  my $inclusionStringUppercase = uc($inclusionString);
-  my %inclusionLetterHash = ();
-
   try {
-    # Ensure that no letter appears more than four times in the
-    # inclusion list because the puzzle only has four letters.
-    %inclusionLetterHash = $self->_getStringAsHash(
-                                                   $inclusionStringUppercase,
-                                                   4
-                                                  );
+    return $self->_convertInclusionListOptionToHash(uc($inclusionString));
   }
   catch {
     $self->usage_error(
-                       "Letter appears more than four times in " .
+                       $_->{'errorMessage'} .
                        "$inclusionFieldDisplayName: " .
-                       $_->{'errorContext'}->{'letter'}
+                       $_->{'errorContext'}->{'element'}
                       );
   };
-
-  return %inclusionLetterHash;
 }
 
-sub _getStringAsHash($$$) {
+sub _convertInclusionListOptionToHash($$) {
   my $self = shift();
   my $string = shift();
-  my $maxInstancesAllowed = shift() || 1;
 
   my %letterHash = ();
-  my @letterArray = $self->_getStringAsArray($string);
+  my @slots = ();
 
-  foreach my $letter (@letterArray) {
-    if (! exists($letterHash{$letter})) {
-      $letterHash{$letter} =
+  # At this point, we know that the string is not empty because our
+  # prior argument validation logic has already run.
+  my @fields = split(/,/, $string);
+
+  foreach my $field (@fields) {
+    my ($letter, $slots) = split(/:/, $field, 2);
+
+    # Validate that the letter is alphabetic and has only one character.
+    die(
         {
-         count => 1,
-         regex => undef
-        };
-    }
-    else {
-      $letterHash{$letter}{'count'}++;
-    }
+         errorCode    => 'InvalidLtr001',
+         errorContext => { element => $string },
+         errorMessage => 'Letter is shorter or longer than one character in '
+        }
+       )
+      if (length($letter) != 1);
 
-    if ($letterHash{$letter}{'count'} > $maxInstancesAllowed) {
-      die(
-          {
-           errorCode    => 'MAX001',
-           errorContext => { letter => $letter },
-           errorMessage => 'Found too many instances of a letter'
-          }
-         );
-    }
+    # Validate that the letter is alphabetic.
+    die(
+        {
+         errorCode    => 'InvalidLtr001',
+         errorContext => { element => $string },
+         errorMessage => 'Letter contains invalid character(s) in '
+        }
+       )
+      if ($letter =~ m/[^[:alpha:]]/);
+
+    # Validate that the slots for the letter are not missing.
+    die(
+        {
+         errorCode    => 'MissingSlots001',
+         errorContext => { element => $letter },
+         errorMessage => 'Slots for letter are missing from '
+        }
+       )
+      if (! $slots);
+
+    # Validate that the slots are numeric and in the correct numeric range.
+    die(
+        {
+         errorCode    => 'InvalidSlots001',
+         errorContext => { element => $string },
+         errorMessage => 'One or more invalid slots were found for letter. Only numbers from 1-4 are allowed in '
+        }
+       )
+      if ($slots =~ m/[^1-4]/);
+
+    @slots = $self->_getStringAsArray($slots);
+
+    # Validate that we have either one or two slots, not more.
+    die(
+        {
+         errorCode    => 'TooManySlots001',
+         errorContext => { element => $string },
+         errorMessage => 'Too many slots found for letter. Only one or two slots are allowed in '
+        }
+       )
+      if (@slots != 1 && @slots != 2);
+
+    die(
+        {
+         errorCode    => 'MAX001',
+         errorContext => { element => $letter },
+         errorMessage => 'Found too many instances of a letter in '
+        }
+       )
+      if (exists($letterHash{$letter}));
+
+    $letterHash{$letter} =
+      {
+       regex => qr/$letter/,
+       slots => [ @slots ]
+      };
   }
 
   %letterHash;
