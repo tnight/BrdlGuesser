@@ -154,12 +154,13 @@ SPECIES:
     }
 
     # Only include species codes containing all the letters we were
-    # told to include, and in the slots we were told to use.
+    # told to include, in the slots we were told to use, and with at
+    # least the minimum number of instances we were told to find.
     if (keys(%{$self->{'inclusionLetterHash'}})) {
       while (my ($letterKey, $letterValue) = each(%{$self->{'inclusionLetterHash'}})) {
         my @matches = $speciesCode =~ m/$letterValue->{'regex'}/g;
         my $count = @matches;
-        if ($count < 1) {
+        if ($count < $letterValue->{'count'}) {
           next SPECIES;
         }
         foreach my $slotEntry (@{$letterValue->{'slots'}}) {
