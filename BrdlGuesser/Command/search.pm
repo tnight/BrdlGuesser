@@ -28,6 +28,7 @@ shell> %c search -p _ar_
 shell> %c search -p G_A_ -x mos
 shell> %c search -p _E_A -i h:1
 shell> %c search -p L___ -i e:3
+shell> %c search -i e:14:2
 
 For more detailed usage information, see the README file.
 
@@ -304,7 +305,7 @@ sub _convertInclusionListOptionToHash($$) {
   my @fields = split(/,/, $string);
 
   foreach my $field (@fields) {
-    my ($letter, $slots) = split(/:/, $field, 2);
+    my ($letter, $slots, $count) = split(/:/, $field);
 
     # Validate that the letter is alphabetic and has only one character.
     die(
@@ -358,6 +359,21 @@ sub _convertInclusionListOptionToHash($$) {
        )
       if (@slots != 1 && @slots != 2);
 
+    if (! $count) {
+      # No count was specified, so set the count to the default value.
+      $count = 1;
+    }
+
+    # Validate that count is either 1 or 2. No other values are allowed.
+    die(
+        {
+         errorCode    => 'InvalidCount001',
+         errorContext => { element => $string },
+         errorMessage => 'Invalid count found for letter. Only the values "1" and "2" are allowed in '
+        }
+       )
+      if ($count != 1 && $count != 2);
+
     die(
         {
          errorCode    => 'MAX001',
@@ -369,6 +385,7 @@ sub _convertInclusionListOptionToHash($$) {
 
     $letterHash{$letter} =
       {
+       count => $count,
        regex => qr/$letter/,
        slots => [ @slots ]
       };
