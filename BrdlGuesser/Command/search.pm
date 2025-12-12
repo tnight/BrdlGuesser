@@ -29,6 +29,7 @@ shell> %c search -p G_A_ -x mos
 shell> %c search -p _E_A -i h:1
 shell> %c search -p L___ -i e:3
 shell> %c search -i e:14:2
+shell> %c search -i I:24,L:34:1:1
 
 For more detailed usage information, see the README file.
 
@@ -82,7 +83,7 @@ sub validate_args($$$) {
   $self->usage_error("Search pattern [$pattern] does not have exactly four characters")
     if (
         defined($opt->pattern) &&
-        length($opt->pattern) != 4
+        length($opt->pattern) != BrdlGuesser::Command::PUZZLE_WIDTH
        );
 
   # Validate that the search pattern contains no invalid characters.
@@ -240,7 +241,7 @@ sub _validateListNoDuplicateElements($$) {
     if (exists($elementHash{$element})) {
       die(
           {
-           errorCode    => 'MAX001',
+           errorCode    => 'DUPE001',
            errorContext => { element => $element },
            errorMessage => 'Found too many instances of an element'
           }
@@ -305,9 +306,9 @@ sub _convertInclusionListOptionToHash($$) {
   my @fields = split(/,/, $string);
 
   foreach my $field (@fields) {
-    my ($letter, $slots, $count) = split(/:/, $field);
+    my ($letter, $slots, $minCount, $maxCount) = split(/:/, $field);
 
-    # Validate that the letter is alphabetic and has only one character.
+    # Validate that the letter has only one character.
     die(
         {
          errorCode    => 'InvalidLtr001',
@@ -338,14 +339,18 @@ sub _convertInclusionListOptionToHash($$) {
       if (! $slots);
 
     # Validate that the slots are numeric and in the correct numeric range.
+    my $slotsRegexString = '[^1-' . BrdlGuesser::Command::PUZZLE_WIDTH . ']';
+    my $slotsRegex = qr/$slotsRegexString/;
     die(
         {
          errorCode    => 'InvalidSlots001',
          errorContext => { element => $string },
-         errorMessage => 'One or more invalid slots were found for letter. Only numbers from 1-4 are allowed in '
+         errorMessage => 'One or more invalid slots were found for letter. Only numbers from 1-'
+         . BrdlGuesser::Command::PUZZLE_WIDTH
+         . ' are allowed in '
         }
        )
-      if ($slots =~ m/[^1-4]/);
+      if ($slots =~ m/$slotsRegex/);
 
     @slots = $self->_getStringAsArray($slots);
 
@@ -359,24 +364,53 @@ sub _convertInclusionListOptionToHash($$) {
        )
       if (@slots != 1 && @slots != 2);
 
-    if (! $count) {
-      # No count was specified, so set the count to the default value.
-      $count = 1;
+    if (! defined($maxCount)) {
+      # No maximum count was specified, so set the maximum count to the default value.
+      $maxCount = BrdlGuesser::Command::PUZZLE_WIDTH;
     }
-
-    # Validate that count is either 1 or 2. No other values are allowed.
+    
+    # Validate that maximum count is within the range 1 through the
+    # puzzle width. No other values are allowed.
     die(
         {
          errorCode    => 'InvalidCount001',
          errorContext => { element => $string },
-         errorMessage => 'Invalid count found for letter. Only the values "1" and "2" are allowed in '
+         errorMessage => 'Invalid maximum count found for letter. Only values in the range 1-'
+         . BrdlGuesser::Command::PUZZLE_WIDTH
+         . ' are allowed in '
         }
        )
-      if ($count != 1 && $count != 2);
+      if ($maxCount != int($maxCount) || $maxCount < 1 || $maxCount > BrdlGuesser::Command::PUZZLE_WIDTH);
 
+    if (! defined($minCount)) {
+      # No minimum count was specified, so set the minimum count to the default value.
+      $minCount = 1;
+    }
+
+    # Validate that minimum count is either 1 or 2. No other values are allowed.
     die(
         {
-         errorCode    => 'MAX001',
+         errorCode    => 'InvalidCount002',
+         errorContext => { element => $string },
+         errorMessage => 'Invalid minimum count found for letter. Only the values "1" and "2" are allowed in '
+        }
+       )
+      if ($minCount != 1 && $minCount != 2);
+
+    # Validate that minimum count is less than or equal to maximum count.
+    die(
+        {
+         errorCode    => 'InvalidCount003',
+         errorContext => { element => $string },
+         errorMessage => 'Minimum count for letter must be less than or equal to maximum count for letter in '
+        }
+       )
+      if ($minCount > $maxCount);
+
+    # Validate that the letter does not already exist in the letter hash.
+    die(
+        {
+         errorCode    => 'DUPE001',
          errorContext => { element => $letter },
          errorMessage => 'Found too many instances of a letter in '
         }
@@ -385,7 +419,8 @@ sub _convertInclusionListOptionToHash($$) {
 
     $letterHash{$letter} =
       {
-       count => $count,
+       maxCount => $maxCount,
+       minCount => $minCount,
        regex => qr/$letter/,
        slots => [ @slots ]
       };

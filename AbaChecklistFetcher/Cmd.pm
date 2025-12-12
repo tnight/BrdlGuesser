@@ -43,9 +43,6 @@ the website of the American Birding Association (ABA) and format the
 list for processing by the BRDL guesser script.
 END
 
-# Expose our application version for use by the "version" command.
-use constant VERSION => 1.01;
-
 #
 # Constructor
 #
