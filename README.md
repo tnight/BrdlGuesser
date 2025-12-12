@@ -20,6 +20,9 @@ These two modes of operation can be selected based on the command given:
   * The minimum count of matches required for the letter (optional)
     * If a minimum count is specified, it must be either 1 or 2
     * If no minimum count is specified, the default minimum count of 1 will be used
+  * The maximum count of matches required for the letter (optional)
+    * If a maximum count is specified, it must be either 1 or 2
+    * If no maximum count is specified, the default minimum count of 4 will be used
 
 ## Examples
 ### Display a single, matching BRDL solution
@@ -70,6 +73,12 @@ shell> brdlGuesser.pl search -i e:14:2
    1. REEG: Reddish Egret
    2. MEEG: Medium Egret
    3. VEER: Veery
+```
+
+### Display BRDL solutions that contain at least one instance of a certain letter, and exactly one instance of another letter, but not in certain slots
+```
+shell> brdlGuesser.pl search -i I:24,L:34:1:1
+   1. GLIB: Glossy Ibis
 ```
 
 ### Display all possible BRDL solutions

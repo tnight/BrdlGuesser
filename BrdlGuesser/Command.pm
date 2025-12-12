@@ -20,6 +20,9 @@ use Log::Any qw($log);
 use My::Config;
 use Text::CSV;
 
+# Expose the puzzle width for use by the application commands.
+use constant PUZZLE_WIDTH => 4;
+
 #
 # Constructor
 #
@@ -37,7 +40,7 @@ sub new($$) {
   $self->{'exclusionRegex'} = undef;
   $self->{'fileHandle'} = undef;
   $self->{'inclusionLetterHash'} = {};
-  $self->{'searchPattern'} = '[A-Z]{4}'; # a generic search pattern that can be overridden by subclasses
+  $self->{'searchPattern'} = '[A-Z]{' . PUZZLE_WIDTH . '}'; # This search pattern can be overridden by subclasses.
   $self->{'speciesPath'} = undef;
 
   # Finally, re-bless the reference to be of this subclass.
@@ -160,9 +163,14 @@ SPECIES:
       while (my ($letterKey, $letterValue) = each(%{$self->{'inclusionLetterHash'}})) {
         my @matches = $speciesCode =~ m/$letterValue->{'regex'}/g;
         my $count = @matches;
-        if ($count < $letterValue->{'count'}) {
+        if ($count < $letterValue->{'minCount'}) {
           next SPECIES;
         }
+
+        if ($count > $letterValue->{'maxCount'}) {
+          next SPECIES;
+        }
+
         foreach my $slotEntry (@{$letterValue->{'slots'}}) {
           next SPECIES
             if (substr($speciesCode, $slotEntry - 1, 1) eq $letterKey);
@@ -172,7 +180,7 @@ SPECIES:
 
     # Our pattern matched, so output the result.
     printf(
-           "%4d. %s: %s\n",
+           '%' . PUZZLE_WIDTH . "d. %s: %s\n",
            ++$matchCount,
            $speciesCode,
            $speciesNameEnglish
