@@ -23,7 +23,7 @@ These two modes of operation can be selected based on the command given:
     * If no minimum count is specified, the default minimum count of 1 will be used
   * The maximum count of matches required for the letter (optional)
     * If a maximum count is specified, it must be either 1 or 2
-    * If no maximum count is specified, the default minimum count of 4 will be used
+    * If no maximum count is specified, the default maximum count of 4 will be used
 
 ## Examples
 ### Display a single, matching BRDL solution
