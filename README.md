@@ -1,6 +1,7 @@
 # BrdlGuesser
 ## Description
 These two modes of operation can be selected based on the command given:
+
 * **dump:** display every possible BRDL answer, which is a long list of over a thousand species.
 * **search:** Guess the possible BRDL answers given an optional pattern as a starting point. Use one or more underscores (`_`) as single-letter wildcards. Some letters can be excluded from the matching species Alpha codes using the `-x|--exclude` option. Conversely, some letters can be included in all the matching species Alpha codes using the `-i|--include` option.
 
@@ -22,91 +23,95 @@ These two modes of operation can be selected based on the command given:
     * If no minimum count is specified, the default minimum count of 1 will be used
   * The maximum count of matches required for the letter (optional)
     * If a maximum count is specified, it must be either 1 or 2
-    * If no maximum count is specified, the default minimum count of 4 will be used
+    * If no maximum count is specified, the default maximum count of 4 will be used
 
 ## Examples
 ### Display a single, matching BRDL solution
 ```
-shell> brdlGuesser.pl search -p BBMA
-   1. BBMA: Black-billed Magpie
+shell> brdlGuesser.pl search -p BBMA  
+   1. BBMA: Black-billed Magpie  
 ```
 
 ### Display BRDL solutions that match a pattern
 ```
-shell> brdlGuesser.pl search -p R__L
-   1. RFBL: Red-flanked Bluetail
-   2. RWBL: Red-winged Blackbird
-   3. RUBL: Rusty Blackbird
+shell> brdlGuesser.pl search -p R__L  
+   1. RFBL: Red-flanked Bluetail  
+   2. RWBL: Red-winged Blackbird  
+   3. RUBL: Rusty Blackbird  
 ```
 
 ### Display BRDL solutions that match a pattern but do not contain some letters
 ```
-shell> brdlGuesser.pl search -p G_A_ -x MOS
-   1. GRAP: Gray Partridge
-   2. GRAF: Gray Francolin
-   3. GBAN: Groove-billed Ani
-   4. GRAU: Great Auk (extinct, 1844)
-   5. GBAT: Gray-backed Tern
-   6. GRAH: Gray Heron
-   7. GRAK: Gray Kingbird
-   8. GRAW: Gray Wagtail
-   9. GRAM: Greater Amakihi
+shell> brdlGuesser.pl search -p G_A_ -x MOS  
+   1. GRAP: Gray Partridge  
+   2. GRAF: Gray Francolin  
+   3. GBAN: Groove-billed Ani  
+   4. GRAU: Great Auk (extinct, 1844)  
+   5. GBAT: Gray-backed Tern  
+   6. GRAH: Gray Heron  
+   7. GRAK: Gray Kingbird  
+   8. GRAW: Gray Wagtail  
+   9. GRAM: Greater Amakihi  
 ```
 
 ### Display BRDL solutions that match a pattern and contain a certain letter but not in slot 1
 ```
-shell> brdlGuesser.pl search -p _E_A -i H:1
-   2. FEHA: Ferruginous Hawk
+shell> brdlGuesser.pl search -p _E_A -i H:1  
+   2. FEHA: Ferruginous Hawk  
 ```
 
 ### Display BRDL solutions that match a pattern and contain certain letters but not in certain slots
 ```
-shell> brdlGuesser.pl search -p L___ -i e:3,o:2
-   1. LEOW: Long-eared Owl
-   2. LEWO: Lewis's Woodpecker
-   3. LEGO: Lesser Goldfinch
+shell> brdlGuesser.pl search -p L___ -i e:3,o:2  
+   1. LEOW: Long-eared Owl  
+   2. LEWO: Lewis's Woodpecker  
+   3. LEGO: Lesser Goldfinch  
 ```
 
 ### Display BRDL solutions that contain at least a certain number of a certain letter but not in certain slots
 ```
-shell> brdlGuesser.pl search -i e:14:2
-   1. REEG: Reddish Egret
-   2. MEEG: Medium Egret
-   3. VEER: Veery
+shell> brdlGuesser.pl search -i e:14:2  
+   1. REEG: Reddish Egret  
+   2. MEEG: Medium Egret  
+   3. VEER: Veery  
 ```
 
 ### Display BRDL solutions that contain at least one instance of a certain letter, and exactly one instance of another letter, but not in certain slots
 ```
-shell> brdlGuesser.pl search -i I:24,L:34:1:1
-   1. GLIB: Glossy Ibis
+shell> brdlGuesser.pl search -i I:24,L:34:1:1  
+   1. GLIB: Glossy Ibis  
 ```
 
 ### Display all possible BRDL solutions
 ```
-shell> brdlGuesser.pl dump
-   1. BBWD: Black-bellied Whistling-Duck
-   2. FUWD: Fulvous Whistling-Duck
-   3. EMGO: Emperor Goose
-   4. SNGO: Snow Goose
-   5. ROGO: Ross's Goose
-   6. GRGO: Graylag Goose
-   7. GWFG: Greater White-fronted Goose
-   8. LWFG: Lesser White-fronted Goose
-   9. TABG: Taiga Bean-Goose
-  10. TUBG: Tundra Bean-Goose
+shell> brdlGuesser.pl dump  
+   1. BBWD: Black-bellied Whistling-Duck  
+   2. FUWD: Fulvous Whistling-Duck  
+   3. EMGO: Emperor Goose  
+   4. SNGO: Snow Goose  
+   5. ROGO: Ross's Goose  
+   6. GRGO: Graylag Goose  
+   7. GWFG: Greater White-fronted Goose  
+   8. LWFG: Lesser White-fronted Goose  
+   9. TABG: Taiga Bean-Goose  
+  10. TUBG: Tundra Bean-Goose  
+```
 
-[...]
+```
+[...]  
+```
 
-1134. RCCA: Red-crested Cardinal
-1135. YBCA: Yellow-billed Cardinal
-1136. BGTA: Blue-gray Tanager (1969-1982)
-1137. SAFI: Saffron Finch
-1138. BGRA: Blue-black Grassquit
-1139. RLHO: Red-legged Honeycreeper
-1140. BANA: Bananaquit
-1141. YFGR: Yellow-faced Grassquit
-1142. BFGR: Black-faced Grassquit
-1143. MOSE: Morelet's Seedeater
+```
+1134. RCCA: Red-crested Cardinal  
+1135. YBCA: Yellow-billed Cardinal  
+1136. BGTA: Blue-gray Tanager (1969-1982)  
+1137. SAFI: Saffron Finch  
+1138. BGRA: Blue-black Grassquit  
+1139. RLHO: Red-legged Honeycreeper  
+1140. BANA: Bananaquit  
+1141. YFGR: Yellow-faced Grassquit  
+1142. BFGR: Black-faced Grassquit  
+1143. MOSE: Morelet's Seedeater  
 ```
 
 ## Installation
