@@ -117,6 +117,9 @@ sub _initialize($$$) {
 
   # Get ready to parse the CSV file.
   $self->{'csv'} = Text::CSV_XS->new({ binary => 1, auto_diag => 1 });
+
+  # Make sure STDOUT knows how to handle UTF-8 characters in our output.
+  binmode(STDOUT, ":utf8");
 }
 
 sub _searchFile($) {
