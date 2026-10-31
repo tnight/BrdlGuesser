@@ -1,6 +1,3 @@
-# Ignore checklist files because they are an output.
-checklists/
-
 # Ignore Emacs backup files.
 *~
 

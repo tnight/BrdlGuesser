@@ -94,7 +94,7 @@ sub _initialize($$$) {
   # Choose from among the available species files.
   #
   # NOTE: The data file must have Unix-style line endings, not DOS or Mac.
-  my $speciesFilename = $self->{'config'}->get('latestChecklistFilename'); # Latest full data file.
+  my $speciesFilename = $self->{'config'}->get('localChecklistFilename'); # BRDL master full data file.
   # my $speciesFilename = 'short.csv';  # Small data file for testing.
   # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
 
@@ -102,7 +102,6 @@ sub _initialize($$$) {
   $self->{'speciesPath'} = File::Spec->catfile(
                                                $FindBin::Bin,
                                                $self->{'config'}->get('localChecklistDir'),
-                                               $self->{'config'}->get('localChecklistSubdirParsed'),
                                                $speciesFilename
                                               );
 
