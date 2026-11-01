@@ -6,7 +6,7 @@ do
     grep -i $birdCode "$@" > /dev/null
     if [ $? != 0 ]
     then
-        echo "Bird code $birdCode not found."
+        echo "Bird code [$birdCode] not found."
     fi
 done
 
