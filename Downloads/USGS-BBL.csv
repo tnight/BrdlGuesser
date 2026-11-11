@@ -1,0 +1,1386 @@
+﻿"Species
+Number","Alpha
+Code","Common
+Name",Band Size,French Name,Scientific Name,T & E,Comments,"Taxonomic
+Order"
+10,WEGR,Western Grebe,"7B, 7, 7A",Grèbe élégant,Aechmophorus occidentalis,,,100
+11,CLGR,Clark's Grebe,"7A, 7, 7B",Grèbe à face blanche,Aechmophorus clarkii,,,102
+12,WCGR,Western/Clark's Grebe,"7A, 7B",Grèbe à face blanche/Grèbe élégant non identifiée,,,Unspecified Aechmophorus occidentalis or A. clarkii. | Aechmophorus occidentalis ou A. clarkii non spécifié,101
+20,RNGR,Red-necked Grebe,"7A, 7, 7B",Grèbe jougris,Podiceps grisegena,,,98
+30,HOGR,Horned Grebe,"6, 5, 5A",Grèbe esclavon,Podiceps auritus,Québec,Magdalen Islands population is endangered. | La population des Îles de la Madeleine est en voie de disparition.,97
+40,EAGR,Eared Grebe,"5, 5A",Grèbe à cou noir,Podiceps nigricollis,,,99
+50,LEGR,Least Grebe,4,Grèbe minime,Tachybaptus dominicus,,,95
+60,PBGR,Pied-billed Grebe,"5, 6, 5A",Grèbe à bec bigarré,Podilymbus podiceps,,,96
+70,COLO,Common Loon,"8, 8A, 9",Plongeon huard,Gavia immer,,,93
+80,YBLO,Yellow-billed Loon,"9, 8A",Plongeon à bec blanc,Gavia adamsii,,,94
+90,ARLO,Arctic Loon,7B,Plongeon arctique,Gavia arctica,,,91
+100,PALO,Pacific Loon,7B,Plongeon du Pacifique,Gavia pacifica,,,92
+110,RTLO,Red-throated Loon,7B,Plongeon catmarin,Gavia stellata,,,90
+120,TUPU,Tufted Puffin,"6, 5, 5A",Macareux huppé,Fratercula cirrhata,,,406
+130,ATPU,Atlantic Puffin,5,Macareux moine,Fratercula arctica,,,404
+140,HOPU,Horned Puffin,"5, 5A",Macareux cornu,Fratercula corniculata,,,405
+150,RHAU,Rhinoceros Auklet,"5, 6, 5A",Macareux rhinocéros,Cerorhinca monocerata,,,403
+160,CAAU,Cassin's Auklet,"3, 3B, 3A",Starique de Cassin,Ptychoramphus aleuticus,,,398
+170,PAAU,Parakeet Auklet,4,Starique perroquet,Aethia psittacula,,,399
+180,CRAU,Crested Auklet,4,Starique cristatelle,Aethia cristatella,,,402
+190,WHAU,Whiskered Auklet,3,Starique pygmée,Aethia pygmaea,,,401
+200,LEAU,Least Auklet,"2, 3, 2A",Starique minuscule,Aethia pusilla,,,400
+210,ANMU,Ancient Murrelet,"3, 3B",Guillemot à cou blanc,Synthliboramphus antiquus,,,397
+230,MAMU,Marbled Murrelet,"3, 3B",Guillemot marbré,Brachyramphus marmoratus,Y,,391
+231,LBMU,Long-billed Murrelet,"3B, 3",Guillemot à long bec,Brachyramphus perdix,,,389
+232,AMMU,Alaska Marbled Murrelet,"3, 3B",Guillemot marbré de l'Alaska,Brachyramphus marmoratus,,Alaskan populations of Marbled Murrelet (not endangered). | Les populations de Guillemot marbré de l'Alaska (non menacées).,390
+240,KIMU,Kittlitz's Murrelet,3,Guillemot de Kittlitz,Brachyramphus brevirostris,,,392
+250,XAMU,Xantus's Murrelet,"2, 2A",Guillemot de Xantus,,,Unspecified Synthliboramphus scrippsi / S. hypoleucus. | Synthliboramphus scrippsi / S. hypoleucus non spécifié,393
+251,SCMU,Scripps's Murrelet,"2, 2A",Guillemot de Scripps,Synthliboramphus scrippsi,,Split from XAMU (0250) in August 2012. | Séparé de XAMU (0250) en août 2012.,394
+252,GUMU,Guadalupe Murrelet,"2, 2A",Guillemot de Xantus,Synthliboramphus hypoleucus,,Split from XAMU (0250) in August 2012. | Séparé de XAMU (0250) en août 2012.,395
+260,CRMU,Craveri's Murrelet,2,Guillemot de Craveri,Synthliboramphus craveri,,,396
+270,BLGU,Black Guillemot,"4, 4A",Guillemot à miroir,Cepphus grylle,,,387
+290,PIGU,Pigeon Guillemot,"4, 4A",Guillemot colombin,Cepphus columba,,,388
+300,COMU,Common Murre,"6M, 6",Guillemot marmette,Uria aalge,,,384
+310,TBMU,Thick-billed Murre,"6M, 5R, 6, 5",Guillemot de Brünnich,Uria lomvia,,,385
+320,RAZO,Razorbill,"5R, 6M",Petit Pingouin,Alca torda,,,386
+340,DOVE,Dovekie,"3, 2A",Mergule nain,Alle alle,,,383
+350,GRSK,Great Skua,"7A, 7B",Grand Labbe,Stercorarius skua,,,376
+352,SPSK,South Polar Skua,"7A, 7B",Labbe de McCormick,Stercorarius maccormicki,,,377
+360,POJA,Pomarine Jaeger,5,Labbe pomarin,Stercorarius pomarinus,,,380
+370,PAJA,Parasitic Jaeger,"3A, 4, 4A",Labbe parasite,Stercorarius parasiticus,,,381
+380,LTJA,Long-tailed Jaeger,"4, 4A",Labbe à longue queue,Stercorarius longicaudus,,,382
+390,IVGU,Ivory Gull,4,Mouette blanche,Pagophila eburnea,Newfoundland and Labrador,,409
+,,,,,,Northwest Territories,,
+,,,,,,Nunavut,,
+391,DOGU,Dolphin Gull,5,Goéland de Scoresby,Leucophaeus scoresbii,,,415
+400,BLKI,Black-legged Kittiwake,"4A, 5, 4",Mouette tridactyle,Rissa tridactyla,,,407
+410,RLKI,Red-legged Kittiwake,"4A, 4, 3A",Mouette des brumes,Rissa brevirostris,,,408
+420,GLGU,Glaucous Gull,7A,Goéland bourgmestre,Larus hyperboreus,,"Size 6 for northern subspecies, barrovanius. | Taille 6 pour la sous-espèce nordique, barrovanius.",434
+430,ICGU,Iceland Gull,6,Goéland arctique,Larus glaucoides,,,430
+431,THGU,Thayer's Gull,6,Goéland de Thayer,Larus glaucoides thayeri,,,429
+440,GWGU,Glaucous-winged Gull,"7A, 7, 7B, 6",Goéland à ailes grises,Larus glaucescens,,,433
+446,HYGU,Hybrid Gull,"6, 7A, 7",Hybride de Goéland,,,,437
+470,GBBG,Great Black-backed Gull,"7B, 7, 7A",Goéland marin,Larus marinus,,,435
+480,SBGU,Slaty-backed Gull,7A,Goéland à manteau ardoisé,Larus schistisagus,,,432
+490,WEGU,Western Gull,"6, 7A",Goéland d'Audubon,Larus occidentalis,,,425
+491,YFGU,Yellow-footed Gull,6,Goéland de Cortez,Larus livens,,,426
+500,LBBG,Lesser Black-backed Gull,6,Goéland brun,Larus fuscus,,,431
+510,AHGU,American Herring Gull,"6, 7A",Goéland hudsonien,Larus smithsonianus,,,428
+530,CAGU,California Gull,"5, 5A",Goéland de Californie,Larus californicus,,,427
+534,UNGU,Unidentified Gull,"5, 5A",Goéland non identifié,,,Explain in Remarks why the unidentified code was chosen. | Expliquez dans les Remarques pourquoi le code non identifié a été choisi.,438
+540,RBGU,Ring-billed Gull,"5, 4A, 5A",Goéland à bec cerclé,Larus delawarensis,,,424
+542,BEGU,Belcher's Gull,5,Goéland siméon,Larus belcheri,,,419
+550,UMGU,Unidentified Mew Gull,"4A, 4, 5",Goéland cendré,,,"Mew Gull Split, AOS 62nd Supplement (2021)",421
+551,BHGU,Black-headed Gull,5,Mouette rieuse,Chroicocephalus ridibundus,,,412
+552,COGU,Common Gull,"4A, 4, 5",Goéland cendré,Larus canus,,"from Mew Gull Split, AOS 62nd Supplement (2021)",422
+553,SHOG,Short-billed Gull,"4A, 4, 5",Goéland à bec court,Larus brachyrhynchus,,"from Mew Gull Split, AOS 62nd Supplement (2021)",423
+570,HEGU,Heermann's Gull,4A,Goéland de Heermann,Larus heermanni,,,420
+580,LAGU,Laughing Gull,"5, 4A, 4",Mouette atricille,Leucophaeus atricilla,,,416
+590,FRGU,Franklin's Gull,4,Mouette de Franklin,Leucophaeus pipixcan,,,417
+591,AUGU,Audouin's Gull,6,Goéland d'Audouin,Ichthyaetus audouinii,,,418
+600,BOGU,Bonaparte's Gull,"3, 3B",Mouette de Bonaparte,Chroicocephalus philadelphia,,,411
+601,LIGU,Little Gull,3,Mouette pygmée,Hydrocoloeus minutus,,,413
+610,ROGU,Ross's Gull,3,Mouette rosée,Rhodostethia rosea,Manitoba,,414
+,,,,,,Nunavut,,
+620,SAGU,Sabine's Gull,"3, 3B",Mouette de Sabine,Xema sabini,,,410
+630,GBTE,Gull-billed Tern,"3B, 3A",Sterne hansel,Gelochelidon nilotica,,,451
+640,CATE,Caspian Tern,"5, 4A",Sterne caspienne,Hydroprogne caspia,,,452
+650,ROYT,Royal Tern,"4, 4A",Sterne royale,Thalasseus maximus,,,464
+652,GCTE,Great Crested Tern,"3, 3B",Sterne huppée,Thalasseus bergii,,,465
+660,ELTE,Elegant Tern,3,Sterne élégante,Thalasseus elegans,,,468
+670,SATE,Sandwich Tern,3B,Sterne caugek,Thalasseus sandvicensis,,,466
+671,CAYT,Cayenne Tern,3B,Sterne de Cayenne,Thalasseus acuflavidus eurygnathus,,,467
+690,FOTE,Forster's Tern,3,Sterne de Forster,Sterna forsteri,,,463
+700,COTE,Common Tern,"2A, 2",Sterne pierregarin,Sterna hirundo,,Hard metal bands recommended. | Bagues en métal dur recommandés.,459
+706,HYTE,Hybrid Tern,"2, 2A",Hybride de sternes,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",469
+710,ARTE,Arctic Tern,"2, 2A",Sterne arctique,Sterna paradisaea,,,460
+720,ROST,Roseate Tern,"2, 2A",Sterne de Dougall,Sterna dougallii,Y,Hard metal bands recommended. | Bagues en métal dur recommandés.,456
+725,HCRT,Common Tern X Roseate Tern Hybrid,2,Hybride de Sterne pierregarin et de Sterne de Dougall,,,Sterna hirundo X S. dougallii. | Sterna hirundo X S. dougallii,458
+730,ALTE,Aleutian Tern,"2, 2A, 1D",Sterne des Aléoutiennes,Onychoprion aleuticus,,,446
+731,BNTE,Black-naped Tern,2,Sterne diamant,Sterna sumatrana,,,457
+740,LETE,Least Tern,"1A, 1B",Petite Sterne,Sternula antillarum,,,448
+741,LITE,Little Tern,1A,Sterne naine,Sternula albifrons,,,447
+742,ILTE,Interior Least Tern,"1A, 1B",Petite Sterne (intérieure),Sternula antillarum athalassos,,,449
+743,CLTE,California Least Tern,"1A, 1B",Petite Sterne (Californie),Sternula antillarum browni,Y,,450
+750,SOTE,Sooty Tern,3,Sterne fuligineuse,Onychoprion fuscatus,,,443
+760,BRTE,Bridled Tern,"2A, 3, 2",Sterne bridée,Onychoprion anaethetus,,,445
+761,GRAT,Gray-backed Tern,"2, 2A",Sterne à dos gris,Onychoprion lunatus,,,444
+770,BLTE,Black Tern,"1D, 1A, 2",Guifette noire,Chlidonias niger,,,453
+780,WWTE,White-winged Tern,2,Guifette leucoptère,Chlidonias leucopterus,,,454
+781,WHIT,Whiskered Tern,2,Guifette moustac,Chlidonias hybrida,,,455
+790,BRNO,Brown Noddy,3,Noddi brun,Anous stolidus,,,439
+791,BLNO,Black Noddy,"2, 3, 2A",Noddi noir,Anous minutus,,,440
+792,BGNO,Blue-gray Noddy,"2, 1D, 2A",Noddi bleu,Anous ceruleus,,,441
+793,BBWT,Blue-billed White-Tern,"2, 2A",Gygis du Pacifique,Gygis alba,,,442
+800,BLSK,Black Skimmer,"4, 4A, 3A, 4V",Bec-en-ciseaux noir,Rynchops niger,,,470
+810,BFAL,Black-footed Albatross,7B,Albatros à pieds noirs,Phoebastria nigripes,,,129
+811,WAAL,Wandering Albatross,8,Albatros hurleur,Diomedea exulans,,,127
+816,HYAL,Hybrid Albatross,"7B, 8, 7D",Hybride d'albatros,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",124
+820,STAL,Short-tailed Albatross,8,Albatros à queue courte,Phoebastria albatrus,Y,,131
+821,LAAL,Laysan Albatross,7B,Albatros de Laysan,Phoebastria immutabilis,,,128
+822,BBAL,Black-browed Albatross,8,Albatros à sourcils noirs,Thalassarche melanophris,,,120
+823,WCAL,White-capped Albatross,8,Albatros à cape blanche,Thalassarche cauta,,,119
+824,WAVA,Waved Albatross,8,Albatros des Galapagos,Phoebastria irrorata,,,130
+830,YNAL,Yellow-nosed Albatross,8,Albatros à nez jaune,Thalassarche chlororhynchos,,,118
+860,NOFU,Northern Fulmar,"6, 5A",Fulmar boréal,Fulmarus glacialis,,,134
+880,UCSH,Unidentified Cory’s Shearwater (Scopoli’s/Cory’s),4,Puffin cendré non identifié,,,"From Cory's Shearwater split, AOS 65th Supplement (2024)",162
+881,STRS,Streaked Shearwater,3B,Puffin leucomèle,Calonectris leucomelas,,,159
+882,COSH,Cory's Shearwater,4,Puffin cendré,Calonectris borealis,,"From Cory's Shearwater split, AOS 65th Supplement (2024)",161
+883,SCSH,Scopoli's Shearwater,4,Puffin de Scopoli,Calonectris diomedea,,"From Cory's Shearwater split, AOS 65th Supplement (2024)",160
+890,GRSH,Great Shearwater,"6, 5, 5R",Puffin majeur,Ardenna gravis,,,165
+900,MASH,Manx Shearwater,"4A, 4",Puffin des Anglais,Puffinus puffinus,,,171
+910,PFSH,Pink-footed Shearwater,"5, 4A",Puffin à pieds roses,Ardenna creatopus,British Columbia,,163
+920,SASH,Sargasso Shearwater,"3B, 3A",Puffin d'Audubon,Puffinus lherminieri,,"From Audubon's Shearwater split, AOS 65th Supplement (2024)",175
+921,LISH,Little Shearwater,4,Puffin de Macaronésie,Puffinus assimilis,,,177
+922,TRSH,Tropical Shearwater,"3, 3B, 3A",Puffin de Baillon,Puffinus bailloni,,,176
+930,BVSH,Black-vented Shearwater,4,Puffin cul-noir,Puffinus opisthomelas,,,174
+931,TOSH,Townsend's Shearwater,4,Puffin de Townsend,Puffinus auricularis,,,173
+932,NESH,Newell's Shearwater,"4, 4A",Puffin de Newell,Puffinus newelli,Y,,172
+950,SOSH,Sooty Shearwater,"5, 5A, 4A",Puffin fuligineux,Ardenna grisea,,,168
+951,FFSH,Flesh-footed Shearwater,4,Puffin à pieds pâles,Ardenna carneipes,,,164
+960,SHOS,Short-tailed Shearwater,"5, 4A",Puffin à bec grêle,Ardenna tenuirostris,,,169
+961,WTSH,Wedge-tailed Shearwater,"5, 4A, 4",Puffin fouquet,Ardenna pacifica,,,166
+962,BULS,Buller's Shearwater,4,Puffin de Buller,Ardenna bulleri,,,167
+963,CHSH,Christmas Shearwater,"4, 4A",Puffin de la Nativité,Puffinus nativitatis,,,170
+980,BCPE,Black-capped Petrel,3A,Pétrel diablotin,Pterodroma hasitata,Y,,147
+983,COPE,Cook's Petrel,3,Pétrel de Cook,Pterodroma cookii,,,154
+985,HAPE,Hawaiian Petrel,"4, 3A",Pétrel des Hawaï,Pterodroma sandwichensis,Y,,151
+986,TRPE,Trindade Petrel,4,Pétrel de Trindade,Pterodroma arminjoniana,,,149
+987,JFPE,Juan Fernandez Petrel,3,Pétrel de Juan Fernandez,Pterodroma externa,,,148
+988,PHPE,Phoenix Petrel,"4, 3A, 3B",Pétrel à poitrine blanche,Pterodroma alba,,,150
+990,MOPE,Mottled Petrel,3,Pétrel maculé,Pterodroma inexpectata,,,146
+991,BOPE,Bonin Petrel,"3, 3B, 2A",Pétrel des Bonin,Pterodroma hypoleuca,,,152
+992,BWPE,Black-winged Petrel,2,Pétrel à ailes noires,Pterodroma nigripennis,,,153
+1001,MUPE,Murphy's Petrel,"3, 3B, 3A",Pétrel de Murphy,Pterodroma ultima,,,145
+1003,STPE,Stejneger's Petrel,3,Pétrel de Stejneger,Pterodroma longirostris,,,155
+1004,TAPE,Tahiti Petrel,4,Pétrel de Tahiti,Pseudobulweria rostrata,,,156
+1010,BUPE,Bulwer's Petrel,"2, 2A, 3",Pétrel de Bulwer,Bulweria bulwerii,,,157
+1020,PIPE,Pintado Petrel,"4, 4A",Damier du Cap,Daption capense,,,137
+1030,LTSP,Least Storm-Petrel,1B,Océanite minute,Hydrobates microsoma,,,189
+1050,FTSP,Fork-tailed Storm-Petrel,"1B, 1A",Océanite à queue fourchue,Hydrobates furcatus,,,182
+1060,LHSP,Leach's Storm-Petrel,"1B, 1A",Océanite cul-blanc,Hydrobates leucorhous,,,183
+1062,BANP,Band-rumped Storm-Petrel,"1B, 1A, 1",Océanite de Castro,Hydrobates castro,Y,,185
+1063,WRSP,Wedge-rumped Storm-Petrel,1B,Océanite téthys,Hydrobates tethys,,,186
+1070,BLSP,Black Storm-Petrel,"1A, 1B",Océanite noir,Hydrobates melania,,,187
+1071,TRSP,Tristram's Storm-Petrel,"2, 2A",Océanite de Tristram,Hydrobates tristrami,,,188
+1080,ASSP,Ashy Storm-Petrel,1B,Océanite cendré,Hydrobates homochroa,,,184
+1090,WISP,Wilson's Storm-Petrel,"1B, 1A",Océanite de Wilson,Oceanites oceanicus,,,178
+1101,WHSP,White-throated Storm-Petrel,"3, 2A, 2",Océanite à gorge blanche,Nesofregetta fuliginosa,,,181
+1110,WFSP,White-faced Storm-Petrel,3,Océanite frégate,Pelagodroma marina,,,180
+1120,WTTR,White-tailed Tropicbird,"4, 4A, 3A",Phaéton à bec jaune,Phaethon lepturus,,,190
+1130,RBTR,Red-billed Tropicbird,4A,Phaéton à bec rouge,Phaethon aethereus,,,191
+1131,RTTR,Red-tailed Tropicbird,"5, 4A, 5A",Phaéton à brins rouges,Phaethon rubricauda,,,192
+1140,MABO,Masked Booby,"7B, 8",Fou masqué,Sula dactylatra,,,197
+1141,BFBO,Blue-footed Booby,"7B, 7, 7A",Fou à pieds bleus,Sula nebouxii,,,199
+1142,NABO,Nazca Booby,"7B, 8",Fou de Grant,Sula granti,,Band size unknown; may be same as Masked Booby. | La taille de la bague est inconnue; elle peut être identique à celle du Fou masqué.,198
+1150,UBBO,Unidentified Brown Booby (Cocos/Brown),"7B, 7",Fou brun,,,"From Brown Booby split, AOS 65th Supplement (2024)",200
+1151,BRBO,Brown Booby,"7B, 7",Fou brun,Sula ​​leucogaster,,"From Brown Booby split, AOS 65th Supplement (2024)",201
+1152,COBO,Cocos Booby,"7B, 7",,Sula ​​brewsteri,,"From Brown Booby split, AOS 65th Supplement (2024)",202
+1160,RFBO,Red-footed Booby,"7A, 7, 7B",Fou à pieds rouges,Sula sula,,,203
+1170,NOGA,Northern Gannet,8,Fou de Bassan,Morus bassanus,,,204
+1180,ANHI,Anhinga,"7B, 8",Anhinga d'Amérique,Anhinga anhinga,,,213
+1190,GRCO,Great Cormorant,8,Grand Cormoran,Phalacrocorax carbo,,,208
+1200,DCCO,Double-crested Cormorant,"8, 7B, 7D",Cormoran à aigrettes,Nannopterum auritum,,,207
+1201,GUCO,Guanay Cormorant,8,Cormoran de Bougainville,Leucocarbo bougainvillii,,,211
+1210,NECO,Neotropic Cormorant,"7B, 7, 7A",Cormoran vigua,Nannopterum brasilianum,,,206
+1220,BRAC,Brandt's Cormorant,8,Cormoran de Brandt,Urile penicillatus,,,205
+1230,PECO,Pelagic Cormorant,"7B, 7, 7D",Cormoran pélagique,Urile pelagicus,,,210
+1240,RFCO,Red-faced Cormorant,"8, 7B, 7D",Cormoran à face rouge,Urile urile,,,209
+1250,AWPE,American White Pelican,"9, 9C, 8A",Pélican d'Amérique,Pelecanus erythrorhynchos,,,214
+1260,BRPE,Brown Pelican,"8A, 9, 8",Pélican brun,Pelecanus occidentalis,,,215
+1280,MAFR,Magnificent Frigatebird,"7B, 7, 7A",Frégate superbe,Fregata magnificens,,Require 7B or 7A short. | Nécessite 7B ou 7A courte.,194
+1281,GRFR,Great Frigatebird,"7B, 7, 7A",Frégate du Pacifique,Fregata minor,,Require 7B or 7A short. | Nécessite 7B ou 7A courte.,195
+1282,LEFR,Lesser Frigatebird,"7A, 7",Frégate ariel,Fregata ariel,,Require 7A short. | Nécessite 7A courte.,196
+1290,COME,Common Merganser,"7A, 7",Grand Harle,Mergus merganser,,,84
+1300,RBME,Red-breasted Merganser,"6, 7A",Harle huppé,Mergus serrator,,,85
+1310,HOME,Hooded Merganser,"5, 5A, 6",Harle couronné,Lophodytes cucullatus,,,83
+1320,MALL,Mallard,"7A, 7",Canard colvert,Anas platyrhynchos,,,48
+1321,HAWD,Hawaiian Duck,"6, 7A",Canard des Hawaï,Anas wyvilliana,Y,,51
+1322,LADU,Laysan Duck,"5, 5A, 6",Canard de Laysan,Anas laysanensis,Y,,52
+1323,MHDH,Mallard X Hawaiian Duck Hybrid,"7A, 6",Hybride de Canard colvert et de Canard de Hawaï,,,Anas platyrhynchos X A. wyvilliana | Anas platyrhynchos X A. wyvilliana,53
+1325,MBDX,Mallard X American Black Duck Intermediate,7A,Canard colvert et Canard noir intermédiaire,,,Anas platyrhynchos X A. rubripes | Anas platyrhynchos X A. rubripes,45
+1326,MBDH,Mallard X American Black Duck Hybrid,7A,Hybride de Canard colvert et de Canard noir,,,Anas platyrhynchos X A. rubripes | Anas platyrhynchos X A. rubripes,46
+1327,MALX,Mallard Dominant X American Black Duck Hybrid,7A,Hybride Canard colvert dominant et de Canard noir,,,Anas platyrhynchos X A. rubripes | Anas platyrhynchos X A. rubripes,47
+1330,ABDU,American Black Duck,7A,Canard noir,Anas rubripes,,,43
+1331,MEDU,Mexican Duck,7A,Canard du Mexique,Anas diazi,,,50
+1332,PBDU,Pacific Black Duck,"7A, 7, 6",Canard à sourcils,Anas superciliosa,,,42
+1337,ABDX,American Black Duck Dominant X Mallard Hybrid,7A,Hybride de Canard colvert et de Canard noir dominant,,,Anas rubripes X A. platyrhynchos | Anas rubripes X A. platyrhynchos,44
+1340,MODU,Mottled Duck,7A,Canard brun,Anas fulvigula,,,49
+1350,GADW,Gadwall,6,Canard chipeau,Mareca strepera,,,38
+1360,EUWI,Eurasian Wigeon,6,Canard siffleur,Mareca penelope,,,40
+1370,AMWI,American Wigeon,6,Canard d'Amérique,Mareca americana,,,41
+1371,FADU,Falcated Duck,4A,Canard à faucilles,Mareca falcata,,,39
+1380,EGWT,European Green-winged Teal,"4, 4A",Sarcelle d'hiver (nominal),Anas crecca crecca,,,61
+1390,AGWT,Green-winged Teal,"4, 4A",Sarcelle d'hiver,Anas crecca,,,62
+1391,BATE,Baikal Teal,4A,Sarcelle élégante,Sibirionetta formosa,,,60
+1392,GARG,Garganey,"4A, 4",Sarcelle d'été,Spatula querquedula,,,59
+1400,BWTE,Blue-winged Teal,"5, 4A",Sarcelle à ailes bleues,Spatula discors,,,54
+1401,UNTE,Unidentified Teal,"5, 4A",Sarcelle non identifiée,,,Explain in Remarks why the unidentified code was chosen. | Expliquez dans les Remarques pourquoi le code non identifié a été choisi.,63
+1410,CITE,Cinnamon Teal,"5, 4A",Sarcelle cannelle,Spatula cyanoptera,,,55
+1420,NSHO,Northern Shoveler,"5, 6, 5A",Canard souchet,Spatula clypeata,,,56
+1430,NOPI,Northern Pintail,6,Canard pilet,Anas acuta,,,58
+1431,WHIP,White-cheeked Pintail,"5, 5A",Canard des Bahamas,Anas bahamensis,,,57
+1436,OHDU,Other Hybrid Duck,"7A, 6, 5A, 5",Autre canard hybride,,,"Bander must determine appropriate size for each bird. Report suspected parentage as a remark (e.g. Species1 x Species2). | Le bagueur doit déterminer la taille appropriée pour chaque oiseau. Signalez les filiations suspectes en guise de remarque (p. ex., Espèce1 x Espèce2).",88
+1440,WODU,Wood Duck,"M: 5A, 6, 5",Canard branchu,Aix sponsa,,,37
+,,,"F: 5A, 5, 6",,,,,
+1441,MUDU,Muscovy Duck,"7B, 7A",Canard musqué,Cairina moschata,,,36
+1460,REDH,Redhead,"6, 7A",Fuligule à tête rouge,Aythya americana,,,65
+1461,CPOC,Common Pochard,"6, 7A",Fuligule milouin,Aythya ferina,,,66
+1470,CANV,Canvasback,7A,Fuligule à dos blanc,Aythya valisineria,,,64
+1480,GRSC,Greater Scaup,"6, 5A, 5",Fuligule milouinan,Aythya marila,,,69
+1490,LESC,Lesser Scaup,"6, 5A, 5",Petit Fuligule,Aythya affinis,,,70
+1491,TUDU,Tufted Duck,5,Fuligule morillon,Aythya fuligula,,,68
+1500,RNDU,Ring-necked Duck,"6, 5A",Fuligule à collier,Aythya collaris,,,67
+1510,COGO,Common Goldeneye,"6, 7A",Garrot à oeil d'or,Bucephala clangula,,,81
+1520,BAGO,Barrow's Goldeneye,"7A, 6",Garrot d'Islande,Bucephala islandica,,,82
+1530,BUFF,Bufflehead,"5, 5A",Petit Garrot,Bucephala albeola,,,80
+1540,LTDU,Long-tailed Duck,"6, 5A, 5",Harelde kakawi,Clangula hyemalis,,,79
+1550,HARD,Harlequin Duck,"5, 5A",Arlequin plongeur,Histrionicus histrionicus,,,75
+1570,STEI,Steller's Eider,"7A, 6",Eider de Steller,Polysticta stelleri,Y,,71
+1580,SPEI,Spectacled Eider,"7A, 6",Eider à lunettes,Somateria fischeri,Y,,72
+1590,COEI,Common Eider,"M: 7B, 7, 7A",Eider à duvet,Somateria mollissima,,,74
+,,,"F: 7A, 7, 7B",,,,,
+1620,KIEI,King Eider,"7A, 6, 7, 7B",Eider à tête grise,Somateria spectabilis,,,73
+1630,BLSC,Black Scoter,7A,Macreuse à bec jaune,Melanitta americana,,,78
+1650,WWSC,White-winged Scoter,"7A, 7",Macreuse à ailes blanches,Melanitta deglandi,,,77
+1660,SUSC,Surf Scoter,7A,Macreuse à front blanc,Melanitta perspicillata,,,76
+1670,RUDU,Ruddy Duck,"M: 7A, 6",Érismature rousse,Oxyura jamaicensis,,,87
+,,,"F: 6, 7A",,,,,
+1680,MADU,Masked Duck,5,Érismature routoutou,Nomonyx dominicus,,,86
+1690,LSGO,Lesser Snow Goose,7B,Oie des neiges (Petite),Anser caerulescens caerulescens,,,10
+1691,BLGO,Blue Goose,7B,Oie des neiges (Phase bleue),Anser caerulescens,,,11
+1695,SBGI,Snow X Blue Goose Intergrade,7B,Oie des neiges (Intermédiaire),,,,12
+1698,BGSG,Blue Greater Snow Goose,7B,Grande oie des neiges phase bleue,,,,13
+1699,GSGO,Greater Snow Goose,7B,Oie des neiges (Grande),Anser caerulescens atlantica,,,14
+1700,ROGO,Ross's Goose,7B,Oie de Ross,Anser rossii,,,16
+1703,SRGH,Snow X Ross's Goose Hybrid,7B,Hybride d'oie des neiges et de Ross,,,,15
+1710,GWFG,Greater White-fronted Goose,"7B, 8",Oie rieuse,Anser albifrons,,,6
+1711,TABG,Taiga Bean-Goose,"7B, 8",Oie des moissons,Anser fabalis,,,4
+1712,PFGO,Pink-footed Goose,7B,Oie à bec court,Anser brachyrhynchus,,,5
+1713,LWFG,Lesser White-fronted Goose,7A,Oie naine,Anser erythropus,,,7
+1716,OHGO,Other Hybrid Goose,"8, 7B",Autre oie hybride,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",30
+1719,TWFG,Tule White-fronted Goose,8,Oie rieuse (Tule),Anser albifrons elgasi,,,8
+1720,CAGO,Canada Goose,"8, 8A",Bernache du Canada,Branta canadensis,,,28
+1721,ACGO,Aleutian Cackling Goose,"7B, 7",Bernache de Hutchins des Aléoutiennes,Branta hutchinsii leucopareia,,,21
+1722,MCGO,Minima Cackling Goose,"7A, 7, 7B",Bernache de Hutchins,Branta hutchinsii minima,,,22
+1723,LCGO,Large Canada Goose,8,Grande bernache du Canada,Branta canadensis maxima,,,23
+1724,TCGO,Taverner's Cackling Goose,"7A, 7, 7B",Bernache de Taverner,Branta hutchinsii taverneri,,,24
+1725,RCGO,Richardson's Cackling Goose,"7A, 7, 7B",Bernache de Richardson,Branta hutchinsii hutchinsii,,,25
+1726,DCGO,Dusky Canada Goose,8,Bernache du Canada sombre,Branta canadensis occidentalis,,,26
+1729,SCGO,Small Canada/Cackling Goose,"7B, 7, 7A",Petite bernache du Canada/Bernache de Hutchins,,,"B. hutchinsii, nondistinguishable to subspecies, or B. c. parvipes",27
+1730,ATBR,Atlantic Brant,"7B, 7",Bernache cravant de l'Atlantique,Branta bernicla hrota,,,17
+1731,BABI,Black X Atlantic Brant Intergrade,"7A, 7, 7B",Integrade Bernache noire et Bernache cravant,,,,18
+1740,BLBR,Black Brant,"7A, 7, 7B",Bernache noire,Branta bernicla nigricans,,,19
+1750,BRNG,Barnacle Goose,7B,Bernache nonnette,Branta leucopsis,,,20
+1751,HAGO,Hawaiian Goose,"8, 7B",Bernache néné,Branta sandvicensis,Y,,29
+1760,EMGO,Emperor Goose,7B,Oie empereur,Anser canagicus,,,9
+1770,BBWD,Black-bellied Whistling-Duck,"7A, 7",Dendrocygne à ventre noir,Dendrocygna autumnalis,,,1
+1771,WIWD,West Indian Whistling-Duck,7B,Dendrocygne des Antilles,Dendrocygna arborea,,,2
+1780,FUWD,Fulvous Whistling-Duck,"7A, 7",Dendrocygne fauve,Dendrocygna bicolor,,,3
+1782,MUSW,Mute Swan,9C,Cygne tuberculé,Cygnus olor,,,31
+1790,WHOS,Whooper Swan,9,Cygne chanteur,Cygnus cygnus,,,35
+1800,WHSW,Whistling Swan,9,Cygne siffleur,Cygnus columbianus columbianus,,,33
+1801,BESW,Bewick's Swan,9,Cygne de Bewick,Cygnus columbianus bewickii,,,34
+1810,TRUS,Trumpeter Swan,"9C, 9",Cygne trompette,Cygnus buccinator,,,32
+1820,AMFL,American Flamingo,"8, 8A",Flamant des Caraïbes,Phoenicopterus ruber,,,103
+1830,ROSP,Roseate Spoonbill,7B,Spatule rosée,Platalea ajaja,,,237
+1840,WHIB,White Ibis,"6, 7A",Ibis blanc,Eudocimus albus,,,231
+1850,SCIB,Scarlet Ibis,6,Ibis rouge,Eudocimus ruber,,,232
+1860,GLIB,Glossy Ibis,6,Ibis falcinelle,Plegadis falcinellus,,,233
+1870,WFIB,White-faced Ibis,6,Ibis à face blanche,Plegadis chihi,,,234
+1871,HYIB,Hybrid Ibis,"6, 7A",Hybride d’Ibis,,,,235
+1872,UNIB,Unidentified Ibis,"6, 7A",Ibis non identifié,,,,236
+1880,WOST,Wood Stork,8,Tantale d'Amérique,Mycteria americana,Y,,193
+1900,AMBI,American Bittern,M: 7A,Butor d'Amérique,Botaurus lentiginosus,,,216
+,,,F: 6,,,,,
+1910,LEBI,Least Bittern,4,Petit Blongios,Botaurus exilis,Manitoba,"Genus name change, AOS 65th Supplement (2024)",218
+,,,,,,New Brunswick,,
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Québec,,
+1911,YEBI,Yellow Bittern,4,Blongios de Chine,Botaurus sinensis,,"Genus change, AOS 65th Supplement (2024)",217
+1920,GWHE,Great White Heron,8,Grand Héron blanc,Ardea herodias occidentalis,,,219
+1940,GBHE,Great Blue Heron,"7B, 8",Grand Héron,Ardea herodias,,,220
+1960,GREG,Great Egret,"7B, 7A, 7",Grande Aigrette,Ardea alba,,,221
+1969,PRHE,Pacific Reef Heron,7A,Aigrette à gorge blanche,Egretta sacra,,,222
+1970,SNEG,Snowy Egret,6,Aigrette neigeuse,Egretta thula,,,223
+1980,REEG,Reddish Egret,7A,Aigrette roussâtre,Egretta rufescens,,,226
+1990,TRHE,Tricolored Heron,6,Aigrette tricolore,Egretta tricolor,,,225
+2000,LBHE,Little Blue Heron,6,Aigrette bleue,Egretta caerulea,,,224
+2001,WECE,Western Cattle-Egret,6,Héron garde-boeufs,Ardea ibis,,"From Cattle Egret split, AOS 65th Supplement (2024)",227
+2010,GRHE,Green Heron,"5, 5A, 6",Héron vert,Butorides virescens,,,228
+2020,BCNH,Black-crowned Night Heron,"7A, 7",Bihoreau gris,Nycticorax nycticorax,,,229
+2030,YCNH,Yellow-crowned Night Heron,"7A, 7",Bihoreau violacé,Nyctanassa violacea,,,230
+2040,WHCR,Whooping Crane,"9, 9V",Grue blanche,Grus americana,Y,,297
+2060,SACR,Sandhill Crane,"8, 8A, 9",Grue du Canada,Antigone canadensis,,,294
+2061,MSCR,Mississippi Sandhill Crane,"8, 8A",Grue du Canada (Mississippi),Antigone canadensis pulla,Y,,295
+2070,LIMP,Limpkin,"7A, 6",Courlan brun,Aramus guarauna,,,293
+2080,KIRA,King Rail,5,Râle élégant,Rallus elegans,Ontario,,281
+2110,CLRA,Clapper Rail,"5, 4A",Râle tapageur,Rallus crepitans,,,280
+2111,CRRA,California Ridgway's Rail,5,Râle de Californie,Rallus obsoletus obsoletus,Y,,277
+2112,LFRR,Light-footed Ridgway's Rail,5,Râle de Californie,Rallus obsoletus levipes,Y,,278
+2113,YRRA,Yuma Ridgway's Rail,5,,Rallus obsoletus yumanensis,Y,,279
+2120,VIRA,Virginia Rail,"2, 3, 2A",Râle de Virginie,Rallus limicola,,Band above the intertarsal joint only. | Bague uniquement au-dessus de l'articulation intertarsienne.,282
+2131,YBCR,Yellow-breasted Crake,"3, 2",Marouette à sourcils blancs,Hapalocrex flaviventer,,,284
+2140,SORA,Sora,"2, 2A, 3",Marouette de Caroline,Porzana carolina,,Band above the intertarsal joint only (size 2). | Bague uniquement au-dessus de l'articulation intertarsienne (taille 2).,283
+2150,YERA,Yellow Rail,"2, 1D",Râle jaune,Coturnicops noveboracensis,,,271
+2160,BLRA,Black Rail,"1D, 1A, 2",Râle noir,Laterallus jamaicensis,,,272
+2161,BBRA,Buff-banded Rail,4,Râle tiklin,Gallirallus philippensis,,,275
+2162,GURA,Guam Rail,4,Râle de Guam,Gallirallus owstoni,Y,,276
+2163,EBRA,Eastern Black Rail,"1D, 1A, 2",Râle noir este,Laterallus jamaicensis jamaicensis,Y,see: https://www.fws.gov/southeast/pdf/guidelines/banding-conditions-for-eastern-black-rail.pdf | voir: https://www.fws.gov/southeast/pdf/guidelines/banding-conditions-for-eastern-black-rail.pdf,273
+2164,CBRA,California Black Rail,"1D, 1A, 2",Râle noir de Californie,Laterallus jamaicensis coturniculus,,,274
+2180,PUGA,Purple Gallinule,"4, 4A, 5",Talève violacée,Porphyrio martinicus,,,286
+2181,PUSW,Purple Swamphen,6,Talève sultane,Porphyrio porphyrio,,,285
+2190,COGA,Common Gallinule,"5A, 6, 5",Gallinule d'Amérique,Gallinula galeata,,,287
+2191,HAGA,Hawaiian Gallinule,"5, 6",Gallinule d’Amérique forme d'Hawaï,Gallinula galeata sandvicensis,Y,,288
+2192,MCMO,Mariana Common Moorhen,"5, 6",Gallinule poule-d'eau,Gallinula chloropus guami,Y,,289
+2201,HACO,Hawaiian Coot,"6, 5A, 5",Foulque des Hawaï,Fulica alai,Y,,290
+2210,AMCO,American Coot,"6, 5A, 5",Foulque d'Amérique,Fulica americana,,,291
+2211,CARC,Caribbean Coot,6,Foulque à cachet blanc,Fulica caribaea,,,292
+2220,REPH,Red Phalarope,1A,Phalarope à bec large,Phalaropus fulicarius,,,375
+2230,RNPH,Red-necked Phalarope,1B,Phalarope à bec étroit,Phalaropus lobatus,,,374
+2240,WIPH,Wilson's Phalarope,"1D, 1A, 2",Phalarope de Wilson,Phalaropus tricolor,,,373
+2250,AMAV,American Avocet,"4, 4A",Avocette d'Amérique,Recurvirostra americana,,Band above the intertarsal joint only. | Bague uniquement au-dessus de l'articulation intertarsienne.,300
+2260,BNST,Black-necked Stilt,"3A, 4, 4A",Échasse d'Amérique,Himantopus mexicanus,,Band above the intertarsal joint only. | Bague uniquement au-dessus de l'articulation intertarsienne.,298
+2261,HAST,Hawaiian Stilt,"4, 4A",Échasse des Hawaï,Himantopus mexicanus knudseni,Y,Band above the intertarsal joint only. | Bague uniquement au-dessus de l'articulation intertarsienne.,299
+2262,BWST,Black-winged Stilt,4,Échasse blanche,Himantopus himantopus,,,296
+2270,EUWO,Eurasian Woodcock,3,Bécasse des bois,Scolopax rusticola,,,371
+2280,AMWO,American Woodcock,3,Bécasse d'Amérique,Scolopax minor,,,372
+2290,COSN,Common Snipe,"3, 3B",Bécassine des marais,Gallinago gallinago,,"This is the Eurasian species, not Wilson's Snipe. | Il s'agit de l'espèce eurasienne, et non de la Bécassine de Wilson.",367
+2300,WISN,Wilson's Snipe,"3, 3B, 3A, 2",Bécassine de Wilson,Gallinago delicata,,,368
+2301,PTSN,Pin-tailed Snipe,3,Bécassine à queue pointue,Gallinago stenura,,,369
+2302,SWSN,Swinhoe's Snipe,3,Bécassine de Swinhoe,Gallinago megala,,,370
+2310,SBDO,Short-billed Dowitcher,"2, 2A",Bécassin roux,Limnodromus griseus,,,365
+2320,LBDO,Long-billed Dowitcher,"2, 2A",Bécassin à long bec,Limnodromus scolopaceus,,,366
+2330,STSA,Stilt Sandpiper,"1A, 1D",Bécasseau à échasses,Calidris himantopus,,,348
+2340,REKN,Red Knot,"2, 2A",Bécasseau maubèche,Calidris canutus,British Columbia,,343
+,,,,,,Yukon Territory,,
+,,,,,,Northwest Territories,,
+2341,RRKN,Rufa Red Knot,"2, 2A",Bécasseau maubèche de la sous-espèce rufa,Calidris canutus rufa,Y,,344
+2350,PUSA,Purple Sandpiper,"1A, 1D, 2",Bécasseau violet,Calidris maritima,,,356
+2360,ROSA,Rock Sandpiper,"2, 1D",Bécasseau des Aléoutiennes,Calidris ptilocnemis,,,355
+2380,SHAS,Sharp-tailed Sandpiper,"1A, 1D",Bécasseau à queue pointue,Calidris acuminata,,,347
+2390,PESA,Pectoral Sandpiper,"1A, 1D, 2",Bécasseau à poitrine cendrée,Calidris melanotos,,,362
+2400,WRSA,White-rumped Sandpiper,"1A, 1B",Bécasseau à croupion blanc,Calidris fuscicollis,,,360
+2410,BASA,Baird's Sandpiper,"1B, 1A",Bécasseau de Baird,Calidris bairdii,,,357
+2411,LIST,Little Stint,"1, 1B, 1C",Bécasseau minute,Calidris minuta,,,358
+2420,LESA,Least Sandpiper,"1, 1B, 1C",Bécasseau minuscule,Calidris minutilla,,,359
+2422,RNST,Red-necked Stint,"1, 1B, 1C",Bécasseau à col roux,Calidris ruficollis,,,352
+2423,LTST,Long-toed Stint,"1, 1B",Bécasseau à longs doigts,Calidris subminuta,,,350
+2430,DUNL,Dunlin,"1A, 1B, 1D",Bécasseau variable,Calidris alpina,,,354
+2440,CUSA,Curlew Sandpiper,1A,Bécasseau cocorli,Calidris ferruginea,,,349
+2450,SPOS,Spoon-billed Sandpiper,1A,Bécasseau spatule,Calidris pygmea,,,351
+2460,SESA,Semipalmated Sandpiper,"1B, 1",Bécasseau semipalmé,Calidris pusilla,,,363
+2470,WESA,Western Sandpiper,"1B, 1",Bécasseau d'Alaska,Calidris mauri,,,364
+2480,SAND,Sanderling,"1A, 1D",Bécasseau sanderling,Calidris alba,,,353
+2490,MAGO,Marbled Godwit,4,Barge marbrée,Limosa fedoa,,,340
+2500,BARG,Bar-tailed Godwit,M: 4,Barge rousse,Limosa lapponica,,,339
+,,,F: 4A,,,,,
+2510,HUGO,Hudsonian Godwit,3A,Barge hudsonienne,Limosa haemastica,,,338
+2520,BLAG,Black-tailed Godwit,4,Barge à queue noire,Limosa limosa,,,337
+2532,CGRE,Common Greenshank,"3, 3B, 3A",Chevalier aboyeur,Tringa nebularia,,,327
+2540,GRYE,Greater Yellowlegs,"3, 3B",Grand Chevalier,Tringa melanoleuca,,,328
+2550,LEYE,Lesser Yellowlegs,"2, 2A",Petit Chevalier,Tringa flavipes,,,330
+2560,SOSA,Solitary Sandpiper,"1A, 1D, 2",Chevalier solitaire,Tringa solitaria,,,324
+2561,WOSA,Wood Sandpiper,"3, 2, 1D, 1A",Chevalier sylvain,Tringa glareola,,,332
+2562,MASA,Marsh Sandpiper,"3, 2, 1D",Chevalier stagnatile,Tringa stagnatilis,,,331
+2580,WILL,Willet,"4, 4A, 3A",Chevalier semipalmé,Tringa semipalmata,,,329
+2590,WATA,Wandering Tattler,"3, 2, 2A",Chevalier errant,Tringa incana,,,326
+2591,GTTA,Gray-tailed Tattler,"3, 2, 2A",Chevalier de Sibérie,Tringa brevipes,,,325
+2600,RUFF,Ruff,"3, 2A",Combattant varié,Calidris pugnax,,,346
+2610,UPSA,Upland Sandpiper,"3, 2A",Maubèche des champs,Bartramia longicauda,,,333
+2620,BBSA,Buff-breasted Sandpiper,1A,Bécasseau roussâtre,Calidris subruficollis,,,361
+2630,SPSA,Spotted Sandpiper,"1B, 1A",Chevalier grivelé,Actitis macularius,,,323
+2631,COSA,Common Sandpiper,"1B, 1A",Chevalier guignette,Actitis hypoleucos,,,322
+2640,LBCU,Long-billed Curlew,"5, 4A, 5A",Courlis à long bec,Numenius americanus,,Use size 6 if banding on tibiotarsus | Utilisez taille 6 si bague est placée sur le tibiotarse.,336
+2650,WHIM,Whimbrel,"4, 4A",Courlis corlieu,Numenius phaeopus,,,334
+2680,BTCU,Bristle-thighed Curlew,"4A, 5",Courlis d'Alaska,Numenius tahitiensis,,,335
+2690,NOLA,Northern Lapwing,5,Vanneau huppé,Vanellus vanellus,,,303
+2691,EUDO,Eurasian Dotterel,"1B, 1A",Pluvier guignard,Eudromias morinellus,,"Genus name change, AOS 65th Supplement (2024)",318
+2700,BBPL,Black-bellied Plover,"3, 3B, 3A",Pluvier argenté,Pluvialis squatarola,,,304
+2710,EUGP,European Golden-Plover,"2, 3",Pluvier doré,Pluvialis apricaria,,,305
+2720,AMGP,American Golden-Plover,"3, 2A, 2",Pluvier bronzé,Pluvialis dominica,,AOU split from 2729-LEGP in 1993. | AOU l’a séparé de 2729-LEGP en 1993.,306
+2721,PAGP,Pacific Golden-Plover,"3, 2A, 2",Pluvier fauve,Pluvialis fulva,,AOU split from 2729-LEGP in 1993. | AOU l’a séparé de 2729-LEGP en 1993.,307
+2729,LEGP,Lesser Golden-Plover,"3, 2A, 2",Pluvier bronzé,,,"Includes Pluvialis dominica and P. fulva, prior to split in 1993. | Comprend Pluvialis dominica et P. fulva, avant leur séparation en 1993.",308
+2730,KILL,Killdeer,"2, 2A, 1D",Pluvier kildir,Charadrius vociferus,,,316
+2740,SEPL,Semipalmated Plover,"1A, 1B, 1D",Pluvier semipalmé,Charadrius semipalmatus,,,314
+2750,CRPL,Common Ringed Plover,"1A, 1B",Pluvier grand-gravelot,Charadrius hiaticula,,,313
+2770,PIPL,Piping Plover,"1A, 1B",Pluvier siffleur,Charadrius melodus,Y,,315
+2780,SNPL,Snowy Plover,1P,Pluvier neigeux,Anarhynchus nivosus,,"Genus name change, AOS 65th Supplement (2024)",310
+2781,WSPL,Western Snowy Plover,1P,,Anarhynchus nivosus nivosus,Y,"Endangered western populations (coastal CA, OR, WA). | Populations à l'ouest menacées (CA, OR, WA). Genus name change, AOS 65th Supplement (2024)",311
+2790,SISP,Siberian Sand-Plover,3,Pluvier de Mongolie,Anarhynchus mongolus,,,309
+2800,WIPL,Wilson's Plover,"1D, 1A, 2",Pluvier de Wilson,Anarhynchus wilsonia,,"Genus name change, AOS 65th Supplement (2024)",312
+2810,MOPL,Mountain Plover,"2, 3",Pluvier montagnard,Anarhynchus montanus,Alberta,"Genus name change, AOS 65th Supplement (2024)",317
+,,,,,,Saskatchewan,,
+2820,SURF,Surfbird,"2A, 3, 2",Bécasseau du ressac,Calidris virgata,,,345
+2830,RUTU,Ruddy Turnstone,"2A, 2, 3",Tournepierre à collier,Arenaria interpres,,,341
+2840,BLTU,Black Turnstone,"2A, 2",Tournepierre noir,Arenaria melanocephala,,,342
+2860,AMOY,American Oystercatcher,"5A, 5, 6",Huîtrier d'Amérique,Haematopus palliatus,,,301
+2870,BLOY,Black Oystercatcher,"5, 5A, 6",Huîtrier de Bachman,Haematopus bachmani,,,302
+2880,NOJA,Northern Jacana,3A,Jacana du Mexique,Jacana spinosa,,,321
+3120,BTPI,Band-tailed Pigeon,"5, 5A",Pigeon à queue barrée,Patagioenas fasciata,,,476
+3121,PLPI,Plain Pigeon,5,Pigeon simple,Patagioenas inornata,Y,,474
+3122,PRPP,Puerto Rican Plain Pigeon,5,,Patagioenas inornata wetmorei,Y,Endangered subspecies in Puerto Rico. | Sous-espèce menacée à Porto Rico.,475
+3130,RBPI,Red-billed Pigeon,5,Pigeon à bec rouge,Patagioenas flavirostris,,,473
+3140,WCPI,White-crowned Pigeon,"4, 4A",Pigeon à couronne blanche,Patagioenas leucocephala,,Require 4 or 4A short. | Nécessite 4 ou 4A courte.,472
+3141,SNPI,Scaly-naped Pigeon,5,Pigeon à cou rouge,Patagioenas squamosa,,,471
+3151,SPDO,Spotted Dove,"3A, 4",Tourterelle tigrine,Spilopelia chinensis,,Require 4 short. | Nécessite 4 courte.,480
+3152,AFCD,African Collared-Dove,"4, 4A",Tourterelle rieuse,Streptopelia roseogrisea,,,478
+3153,ZEBD,Zebra Dove,"3, 2",Géopélie zébrée,Geopelia striata,,,481
+3154,WTGD,White-throated Ground Dove,"4, 3A",Gallicolombe pampusane,Pampusana xanthonura,,,486
+3155,MAFD,Mariana Fruit Dove,"3A, 3B",Ptilope des Mariannes,Ptilinopus roseicapilla,,,490
+3158,PHTD,Philippine Turtle-Dove,"4, 3A",Tourterelle des Philippines,Streptopelia bitorquata,,,477
+3159,ECDO,Eurasian Collared-Dove,"4A, 4",Tourterelle turque,Streptopelia decaocto,,Require 4 or 4A short. | Nécessite 4 ou 4A courte.,479
+3160,MODO,Mourning Dove,"3A, 3B",Tourterelle triste,Zenaida macroura,,,499
+3161,EADO,Eared Dove,3A,Tourterelle oreillarde,Zenaida auriculata,,,498
+3170,ZEND,Zenaida Dove,"4, 3A",Tourterelle à queue carrée,Zenaida aurita,,,497
+3180,WTDO,White-tipped Dove,"3A, 4, 3B",Colombe de Verreaux,Leptotila verreauxi,,,494
+3181,CADO,Caribbean Dove,3A,Colombe de Jamaïque,Leptotila jamaicensis,,,495
+3190,WWDO,White-winged Dove,"4, 3A",Tourterelle à ailes blanches,Zenaida asiatica,,,496
+3200,COGD,Common Ground Dove,"2, 1D",Colombe à queue noire,Columbina passerina,,,483
+3201,RUGD,Ruddy Ground Dove,2,Colombe rousse,Columbina talpacoti,,,484
+3210,INDO,Inca Dove,"2, 3",Colombe inca,Columbina inca,,,482
+3220,KWQD,Key West Quail-Dove,"3A, 4",Colombe à joues blanches,Geotrygon chrysia,,,492
+3221,RUQD,Ruddy Quail-Dove,"3A, 4, 3B",Colombe rouviolette,Geotrygon montana,,,485
+3222,BRQD,Bridled Quail-Dove,"3A, 4",Colombe à croissants,Geotrygon mystacea,,,493
+3240,CALC,California Condor,8V,Condor de Californie,Gymnogyps californianus,Y,"Cannot band with metal bands--request “air” bands for reporting wing-tagged birds. | Interdit de baguer avec des bagues métalliques - demander des bagues ""numéros seulement"" pour signaler les oiseaux avec des étiquettes alaires.",240
+3250,TUVU,Turkey Vulture,8V,Urubu à tête rouge,Cathartes aura,,"Cannot band with metal bands--request “air” bands for reporting wing-tagged birds. | Interdit de baguer avec des bagues métalliques - demander des bagues ""numéros seulement"" pour signaler les oiseaux avec des étiquettes alaires.",239
+3260,BLVU,Black Vulture,8V,Urubu noir,Coragyps atratus,,"Cannot band with metal bands--request “air” bands for reporting wing-tagged birds. | Interdit de baguer avec des bagues métalliques - demander des bagues ""numéros seulement"" pour signaler les oiseaux avec des étiquettes alaires.",238
+3270,STKI,Swallow-tailed Kite,6,Naucler à queue fourchue,Elanoides forficatus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,243
+3271,HBKI,Hook-billed Kite,"6, 7A",Bec-en-croc de Temminck,Chondrohierax uncinatus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,242
+3280,WTKI,White-tailed Kite,"6, 5",Élanion à queue blanche,Elanus leucurus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,244
+3290,MIKI,Mississippi Kite,5,Milan du Mississippi,Ictinia mississippiensis,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,246
+3300,SNKI,Snail Kite,6,Milan des marais,Rostrhamus sociabilis,Y,Lock-on bands recommended. | Bagues enclenchantes recommandées.,245
+3310,NOHA,Northern Harrier,"M: 4, 4A",Busard des marais,Circus hudsonius,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,248
+,,,"F: 5, 5A, 6",,,,,
+3320,SSHA,Sharp-shinned Hawk,"M: 2, 3",Épervier brun,Accipiter striatus,,,249
+,,,"F: 3B, 3A, 3",,,,,
+3321,PSSH,Puerto Rican Sharp-shinned Hawk,"M: 2, 3",Épervier brun (venator),Accipiter striatus venator,Y,,250
+,,,"F: 3, 3B",,,,,
+3330,COHA,Cooper's Hawk,"M: 4, 4A, 5",Épervier de Cooper,Astur cooperii,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,251
+,,,"F: 5, 6, 4A, 5A",,,,,
+3340,AGOS,American Goshawk,"M: 6, 7A",Autour d’Amérique,Astur atricapillus,British Columbia,Lock-on bands recommended. | Bagues enclenchantes recommandées.,252
+,,,"F: 7A, 7B",,,,,
+3350,HRSH,Harris's Hawk,"7A, 7B, 6",Buse de Harris,Parabuteo unicinctus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,255
+3370,RTHA,Red-tailed Hawk,"7B, 7D, 7A",Buse à queue rousse,Buteo jamaicensis,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,266
+3380,HRLH,Harlan's Hawk,"7B, 7A, 7D",Buse de Harlan,Buteo jamaicensis harlani,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,267
+3390,RSHA,Red-shouldered Hawk,"6, 5, 7A",Buse à épaulettes,Buteo lineatus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,257
+3400,ZTHA,Zone-tailed Hawk,"7A, 6",Buse à queue barrée,Buteo albonotatus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,264
+3410,WTHA,White-tailed Hawk,"7A, 7B",Buse à queue blanche,Geranoaetus albicaudatus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,263
+3420,SWHA,Swainson's Hawk,"M: 7A, 6",Buse de Swainson,Buteo swainsoni,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,262
+,,,"F: 7A, 7B",,,,,
+3430,BWHA,Broad-winged Hawk,"M: 5, 5A, 6",Petite Buse,Buteo platypterus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,258
+,,,"F: 5A, 6",,,,,
+3431,ROHA,Roadside Hawk,5,Buse à gros bec,Rupornis magnirostris,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,256
+3432,PBWH,Puerto Rican Broad-winged Hawk,6,Petite Buse (Porto Rico),Buteo platypterus brunnescens,Y,Lock-on bands recommended. | Bagues enclenchantes recommandées.,259
+3440,STHA,Short-tailed Hawk,6,Buse à queue courte,Buteo brachyurus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,261
+3441,HWHA,Hawaiian Hawk,"6, 7A",Buse d'Hawaï,Buteo solitarius,Y,Lock-on bands recommended. | Bagues enclenchantes recommandées.,265
+3450,CBHA,Common Black Hawk,"7A, 6",Buse noire,Buteogallus anthracinus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,254
+3460,GRHA,Gray Hawk,"6, 7A",Buse grise,Buteo plagiatus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,260
+3470,RLHA,Rough-legged Hawk,"M: 7A, 7B, 6",Buse pattue,Buteo lagopus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,269
+,,,"F: 7B, 7A, 7D",,,,,
+3480,FEHA,Ferruginous Hawk,"7D, 8, 7B, 7A",Buse rouilleuse,Buteo regalis,Alberta,Lock-on bands recommended. | Bagues enclenchantes recommandées.,268
+,,,,,,Manitoba,,
+,,,,,,Saskatchewan,,
+3490,GOEA,Golden Eagle,"9, 9A, 9C",Aigle royal,Aquila chrysaetos,,Rivet bands only. | Bagues à rivet seulement.,270
+3520,BAEA,Bald Eagle,"9, 8A, 9A",Pygargue à tête blanche,Haliaeetus leucocephalus,,Rivet bands only. | Bagues à rivet seulement.,247
+3540,GYRF,Gyrfalcon,7B,Faucon gerfaut,Falco rusticolus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,632
+3550,PRFA,Prairie Falcon,"M: 6, 7A, 5",Faucon des prairies,Falco mexicanus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,634
+,,,"F: 7A, 7B, 6",,,,,
+3560,PEFA,Peregrine Falcon,"M: 6, 7A",Faucon pèlerin,Falco peregrinus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,633
+,,,"F: 7A, 7B",,,,,
+3570,MERL,Merlin,"M: 3, 3B, 3A",Faucon émerillon,Falco columbarius,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,630
+,,,"F: 4, 3A, 3B",,,,,
+3590,APFA,Aplomado Falcon,M: 4,Faucon aplomado,Falco femoralis,Y,Lock-on bands recommended. | Bagues enclenchantes recommandées.,631
+,,,F: 5,,,,,
+3591,EUKE,Eurasian Kestrel,"3B, 4",Faucon crécerelle,Falco tinnunculus,,,628
+3600,AMKE,American Kestrel,"3B, 3A, 3",Crécerelle d'Amérique,Falco sparverius,,,629
+3620,CRCA,Crested Caracara,"7A, 7B",Caracara huppé,Caracara plancus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,626
+3621,ACCA,Audubon's Crested Caracara,"7A, 7B",,Caracara plancus audubonii,Y,Endangered population in Florida. Lock-on bands recommended. | Population menacée en Floride. Bagues enclenchantes recommandées.,627
+3640,OSPR,Osprey,"8, 7D",Balbuzard pêcheur,Pandion haliaetus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,241
+3650,ABOW,American Barn Owl,"6, 7A",Effraie d'Amérique,Tyto furcata,British Columbia,"From Barn Owl split, AOS 65th Supplement (2024)",509
+,,,,,,Ontario,,
+,,,,,,Québec,,
+3651,AFOW,Ashy-faced Owl,"6, 7A",Effraie d'Hispaniola,Tyto glaucops,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,510
+3660,LEOW,Long-eared Owl,"6, 5",Hibou moyen-duc,Asio otus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,530
+3670,SEOW,Short-eared Owl,6,Hibou des marais,Asio flammeus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,531
+3680,BAOW,Barred Owl,"7B, 7D",Chouette rayée,Strix varia,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,528
+3686,SBOH,Spotted X Barred Owl Hybrid,7B,Hybride de Chouette tachetée et de Chouette rayée,,,Lock-on bands recommended. Strix occidentalis X S. varia. | Bagues enclenchantes recommandées. Strix occidentalis X S. varia. ,524
+3690,USOW,Unspecified Spotted Owl,7B,Chouette tachetée,Strix occidentalis,British Columbia,To be used for Spotted Owls when subspecies cannot be determined,523
+3691,CSOW,California Spotted Owl,"7B, 7A",Chouette tachetée (Californie),Strix occidentalis occidentalis,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,525
+3692,NSOW,Northern Spotted Owl,"7B, 7A",Chouette tachetée de la sous-espèce caurina,Strix occidentalis caurina,Y,Lock-on bands recommended. | Bagues enclenchantes recommandées.,526
+3693,MSOW,Mexican Spotted Owl,"7B, 7A",,Strix occidentalis lucida,Y,Lock-on bands recommended. | Bagues enclenchantes recommandées.,527
+3700,GGOW,Great Gray Owl,8,Chouette lapone,Strix nebulosa,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,529
+3710,BOOW,Boreal Owl,"5, 6, 5A",Nyctale de Tengmalm,Aegolius funereus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,532
+3720,NSWO,Northern Saw-whet Owl,"4, 3A, 4A",Petite Nyctale,Aegolius acadicus,British Columbia,Use 4 (or 4A if needed) short. | Utilisez 4 courte (ou 4A si nécessaire).,533
+3730,EASO,Eastern Screech-Owl,"5, 4A, 4",Petit-duc maculé,Megascops asio,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,513
+3731,WHSO,Whiskered Screech-Owl,"4, 3A",Petit-duc à moustaches,Megascops trichopsis,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,514
+3732,WESO,Western Screech-Owl,"5, 4A, 4",Petit-duc des montagnes,Megascops kennicottii,British Columbia,Lock-on bands recommended. | Bagues enclenchantes recommandées.,512
+3734,PURO,Puerto Rican Owl,"4, 4A",Petit-duc de Porto Rico,Gymnasio nudipes,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,515
+3740,FLOW,Flammulated Owl,"3, 3B, 2",Petit-duc nain,Psiloscops flammeolus,,,511
+3750,GHOW,Great Horned Owl,"8, 8A, 9, 7D",Grand-duc d'Amérique,Bubo virginianus,,Lock-on bands recommended. | Bagues enclenchantes recommandées.,516
+3760,SNOW,Snowy Owl,"8A, 8, 9",Harfang des neiges,Bubo scandiacus,,Rivet or Lock-on bands recommended. | Bagues à rivet ou enclenchantes recommandées.,517
+3770,NHOW,Northern Hawk Owl,"7A, 7B",Chouette épervière,Surnia ulula,,Require 7A or 7B short. | Nécessite 7A ou 7B courte.,518
+3780,BUOW,Burrowing Owl,4,Chevêche des terriers,Athene cunicularia,Alberta,Lock-on bands recommended. | Bagues enclenchantes recommandées.,522
+,,,,,,British Columbia,,
+,,,,,,Manitoba,,
+,,,,,,Saskatchewan,,
+3790,NOPO,Northern Pygmy-Owl,"3, 3B, 3A, 4",Chevêchette naine,Glaucidium gnoma,,,519
+3800,FEPO,Ferruginous Pygmy-Owl,"3B, 3A, 3",Chevêchette brune,Glaucidium brasilianum,Y,,520
+3810,ELOW,Elf Owl,"2, 2A",Chevêchette des saguaros,Micrathene whitneyi,,,521
+3811,NAPA,Nanday Parakeet,"4, 3A",Conure Nanday,Aratinga nenday,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",637
+3812,HPKT,Hispaniolan Parakeet,"3A, 3B",Conure maîtresse,Psittacara chloropterus,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",641
+3813,OFPA,Orange-fronted Parakeet,"3A, 3B",Conure à front rouge,Eupsittula canicularis,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",639
+3814,BTPA,Brown-throated Parakeet,"3, 2",Conure cuivrée,Eupsittula pertinax,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",640
+3815,BCLO,Blue-crowned Lorikeet,"2, 3",Lori fringillaire,Vini australis,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",635
+3816,GREP,Green Parakeet,"3B, 3, 3A",Conure verte,Psittacara holochlorus,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",638
+3817,MIPA,Mitred Parakeet,"3A, 3B",Conure mitrée,Psittacara mitratus,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",642
+3818,WWPA,White-winged Parakeet,"2, 3",Toui à ailes variées,Brotogeris versicolurus,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",645
+3819,YCPA,Yellow-chevroned Parakeet,"2, 3",Toui à ailes jaunes,Brotogeris chiriri,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",646
+3821,TBPA,Thick-billed Parrot,"4A, 4",Conure à gros bec,Rhynchopsitta pachyrhyncha,Y,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",643
+3822,RRPA,Rose-ringed Parakeet,"3, 2, 3A",Perruche à collier,Psittacula krameri,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",651
+3823,RFLO,Rosy-faced Lovebird,"1B, 1A",Inséparable rosegorge,Agapornis roseicollis,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",652
+3824,MOPA,Monk Parakeet,4,Conure veuve,Myiopsitta monachus,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",636
+3825,RMPA,Red-masked Parakeet,4A,Conure à tête rouge,Psittacara erythrogenys,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",644
+3826,RCAM,Red-crowned Amazon,"4A, 4",Amazone à joues vertes,Amazona viridigenalis,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",649
+3827,HIAM,Hispaniolan Amazon,6,Amazone d'Hispaniola,Amazona ventralis,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",647
+3828,PRAM,Puerto Rican Amazon,"4A, 4",Amazone de Porto Rico,Amazona vittata,Y,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",648
+3829,OWAM,Orange-winged Amazon,"4A, 4",Amazona amazonica,Amazona amazonica,,"No butt-end bands, special parrot bands only. | Pas de bagues à joint abouté, seulement des bagues spéciales pour perroquets.",650
+3830,SBAN,Smooth-billed Ani,"3A, 4",Ani à bec lisse,Crotophaga ani,,,507
+3840,GBAN,Groove-billed Ani,"3A, 3B, 3",Ani à bec cannelé,Crotophaga sulcirostris,,,508
+3850,GRRO,Greater Roadrunner,5,Grand Géocoucou,Geococcyx californianus,,,506
+3851,PRLC,Puerto Rican Lizard-Cuckoo,"3B, 3, 3A",Tacco de Porto Rico,Coccyzus vieilloti,,,504
+3860,MACU,Mangrove Cuckoo,"2, 3, 3B",Coulicou manioc,Coccyzus minor,,,502
+3870,YBCU,Yellow-billed Cuckoo,"2, 3",Coulicou à bec jaune,Coccyzus americanus,,,500
+3871,WYBC,Western Yellow-billed Cuckoo,"2, 3",,Coccyzus americanus,Y,"Endangered western US populations (AZ, CA, CO, ID, MT, NV, NM, OR, TX, UT, WA, WY). | Les populations de l'ouest des États-Unis sont menacées (AZ, CA, CO, ID, MT, NV, NM, OR, TX, UT, WA, WY).",501
+3880,BBCU,Black-billed Cuckoo,"2, 3",Coulicou à bec noir,Coccyzus erythropthalmus,,,503
+3890,ELTR,Elegant Trogon,"3, 2, 1D",Trogon élégant,Trogon elegans,,,584
+3891,EAQU,Eared Quetzal,2,Quetzal oreillard,Euptilotis neoxenus,,,585
+3900,BEKI,Belted Kingfisher,"3A, 3B, 3",Martin-pêcheur d'Amérique,Megaceryle alcyon,,,592
+3901,RIKI,Ringed Kingfisher,4,Martin-pêcheur à ventre roux,Megaceryle torquata,,,591
+3910,GKIN,Green Kingfisher,"1D, 1A, 2",Martin-pêcheur vert,Chloroceryle americana,,Size 2 needs to be filed to a shorter height; 1D may be best fit. | La taille 2 doit être limer à une hauteur plus courte; la taille 1D peut être la plus appropriée.,593
+3912,PRTO,Puerto Rican Tody,"X, 0A, 0",Todier de Porto Rico,Todus mexicanus,,,587
+3920,IBWO,Ivory-billed Woodpecker,4,Pic à bec ivoire,Campephilus principalis,Y,,623
+3930,HAWO,Hairy Woodpecker,"1D, 2, 1A",Pic chevelu,Dryobates villosus,,,611
+3940,DOWO,Downy Woodpecker,1B,Pic mineur,Dryobates pubescens,,,610
+3950,RCWO,Red-cockaded Woodpecker,1A,Pic à face blanche,Dryobates borealis,Y,,613
+3960,LBWO,Ladder-backed Woodpecker,"1A, 1B",Pic arlequin,Dryobates scalaris,,,608
+3970,NUWO,Nuttall's Woodpecker,"1A, 1B",Pic de Nuttall,Dryobates nuttallii,,,609
+3980,ARWO,Arizona Woodpecker,1A,Pic d'Arizona,Dryobates arizonae,,,612
+3990,WHWO,White-headed Woodpecker,"1D, 2, 1A",Pic à tête blanche,Picoides albolarvatus,British Columbia,,614
+4000,BBWO,Black-backed Woodpecker,2,Pic à dos noir,Picoides arcticus,,,616
+4010,ATTW,American Three-toed Woodpecker,2,Pic à dos rayé,Picoides dorsalis,,,615
+4020,YBSA,Yellow-bellied Sapsucker,"1B, 1A",Pic maculé,Sphyrapicus varius,,,603
+4021,RNSA,Red-naped Sapsucker,"1A, 1B",Pic à nuque rouge,Sphyrapicus nuchalis,,,604
+4023,HYSA,Hybrid Sapsucker,"1A, 1B",Pic buveur de sève hybride,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",606
+4024,UNSA,Unidentified Sapsucker,"1A, 1B, 1D",Pic buveur de sève non identifié,,,,607
+4030,RBSA,Red-breasted Sapsucker,"1A, 1B, 1D",Pic à poitrine rouge,Sphyrapicus ruber,,,605
+4040,WISA,Williamson's Sapsucker,1A,Pic de Williamson,Sphyrapicus thyroideus,British Columbia,,602
+4050,PIWO,Pileated Woodpecker,"4, 3A",Grand Pic,Dryocopus pileatus,,,622
+4060,RHWO,Red-headed Woodpecker,"2, 1D, 2A",Pic à tête rouge,Melanerpes erythrocephalus,Manitoba,,596
+,,,,,,Ontario,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+4070,ACWO,Acorn Woodpecker,"2, 1D, 2A",Pic glandivore,Melanerpes formicivorus,,,597
+4071,PRWO,Puerto Rican Woodpecker,"2, 1D, 2A",Pic de Porto Rico,Melanerpes portoricensis,,,595
+4080,LEWO,Lewis's Woodpecker,"3, 2",Pic de Lewis,Melanerpes lewis,British Columbia,,594
+4090,RBWO,Red-bellied Woodpecker,2,Pic à ventre roux,Melanerpes carolinus,,,600
+4092,WIWO,West Indian Woodpecker,"3, 2A, 2",Pic à sourcils noirs,Melanerpes superciliaris,,,601
+4100,GFWO,Golden-fronted Woodpecker,2,Pic à front doré,Melanerpes aurifrons,,,599
+4110,GIWO,Gila Woodpecker,"2, 3, 2A",Pic des saguaros,Melanerpes uropygialis,,,598
+4120,YSFL,Yellow-shafted Flicker,"3, 3B",Pic doré,Colaptes auratus auratus,,,617
+4123,FLIN,Flicker Intergrade,"3, 3B",Pic intermédiaire,Colaptes auratus,,To be used for Northern Flickers that appear to be intergrades between two subspecies. | À utiliser pour les pics flamboyants qui semblent être entre les deux sous-espèces.,618
+4124,UNFL,Unspecified Northern Flicker,"3, 3B",Pic flamboyant non spécifié,Colaptes auratus,,,620
+4130,RSFL,Red-shafted Flicker,"3, 3B",Pic rosé,Colaptes auratus cafer,,,619
+4140,GIFL,Gilded Flicker,"3, 3B",Pic chrysoïde,Colaptes chrysoides,,,621
+4160,CWWI,Chuck-will's-widow,3,Engoulevent de Caroline,Antrostomus carolinensis,,,539
+4161,BCNI,Buff-collared Nightjar,2,Engoulevent de Ridgway,Antrostomus ridgwayi,,,540
+4170,EWPW,Eastern Whip-poor-will,"1D, 2, 1A",Engoulevent bois-pourri,Antrostomus vociferus,Manitoba,,541
+,,,,,,New Brunswick,,
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+4171,PRNI,Puerto Rican Nightjar,"1D, 1A, 2",Engoulevent de Porto Rico,Antrostomus noctitherus,Y,,543
+4172,MWPW,Mexican Whip-poor-will,"1D, 1A, 2",Engoulevent d'Arizona,Antrostomus arizonae,,,542
+4180,COPO,Common Poorwill,"1A, 1D, 2",Engoulevent de Nuttall,Phalaenoptilus nuttallii,,,538
+4190,COPA,Common Pauraque,"2, 1D",Engoulevent pauraqué,Nyctidromus albicollis,,,537
+4200,CONI,Common Nighthawk,"1D, 2, 1A",Engoulevent d'Amérique,Chordeiles minor,Alberta,,535
+,,,,,,British Columbia,,
+,,,,,,Manitoba,,
+,,,,,,New Brunswick,,
+,,,,,,Newfoundland and Labrador,,
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Prince Edward Island,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+,,,,,,Yukon Territory,,
+,,,,,,Northwest Territories,,
+,,,,,,Nunavut,,
+4201,ANNI,Antillean Nighthawk,"2, 1A, 1D",Engoulevent piramidig,Chordeiles gundlachii,,,536
+4210,LENI,Lesser Nighthawk,"1D, 1A, 2",Engoulevent minime,Chordeiles acutipennis,,,534
+4220,BLSW,Black Swift,"1A, 1B",Martinet sombre,Cypseloides niger,Alberta,,544
+,,,,,,British Columbia,,
+4230,CHSW,Chimney Swift,"1B, 1",Martinet ramoneur,Chaetura pelagica,Manitoba,,545
+,,,,,,New Brunswick,,
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+4231,STSW,Short-tailed Swift,"1B, 1, 1C",Martinet polioure,Chaetura brachyura,,,547
+4240,VASW,Vaux's Swift,1,Martinet de Vaux,Chaetura vauxi,,,546
+4250,WTSW,White-throated Swift,2,Martinet à gorge blanche,Aeronautes saxatalis,,,551
+4260,RIHU,Rivoli's Hummingbird,X,Colibri de Rivoli,Eugenes fulgens,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",558
+4261,PCST,Plain-capped Starthroat,X,Colibri de Constant,Heliomaster constantii,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",559
+4270,BTMG,Blue-throated Mountain-gem,X,Colibri à gorge bleue,Lampornis clemenciae,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",560
+4271,MEVI,Mexican Violetear,X,Colibri thalassin,Colibri thalassinus,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",552
+4280,RTHU,Ruby-throated Hummingbird,X,Colibri à gorge rubis,Archilochus colubris,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",563
+4290,BCHU,Black-chinned Hummingbird,X,Colibri à gorge noire,Archilochus alexandri,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",564
+4300,COHU,Costa's Hummingbird,X,Colibri de Costa,Calypte costae,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",566
+4310,ANHU,Anna's Hummingbird,X,Colibri d'Anna,Calypte anna,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",565
+4320,BTHU,Broad-tailed Hummingbird,X,Colibri à queue large,Selasphorus platycercus,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",568
+4330,RUHU,Rufous Hummingbird,X,Colibri roux,Selasphorus rufus,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",569
+4331,UNSE,Unidentified Selasphorus Hummingbird,X,Colibri Selasphorus non identifié,,,,571
+4340,ALHU,Allen's Hummingbird,X,Colibri d'Allen,Selasphorus sasin,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",570
+4350,BUHU,Bumblebee Hummingbird,X,Colibri héloïse,Selasphorus heloisa,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",567
+4360,CAHU,Calliope Hummingbird,X,Colibri calliope,Selasphorus calliope,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",574
+4361,JAMA,Jamaican Mango,X,Mango de Jamaïque,Anthracothorax mango,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",556
+4362,GRMA,Green Mango,X,Mango vert,Anthracothorax viridis,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",555
+4363,GTCA,Green-throated Carib,X,Colibri falle-vert,Eulampis holosericeus,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",557
+4364,ACHU,Antillean Crested Hummingbird,X,Colibri huppé,Orthorhyncus cristatus,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",577
+4366,GREM,Green-breasted Mango,X,Mango de Prévost,Anthracothorax prevostii,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",553
+4370,LUHU,Lucifer Hummingbird,X,Colibri lucifer,Calothorax lucifer,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",562
+4371,BAWO,Bahama Woodstar,X,Colibri des Bahamas,Nesophlox evelynae,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",561
+4380,RUFH,Rufous-tailed Hummingbird,X,Ariane à ventre gris,Amazilia tzacatl,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",579
+4381,BEHU,Berylline Hummingbird,X,Ariane béryl,Saucerottia beryllina,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",578
+4390,BUFH,Buff-bellied Hummingbird,X,Ariane du Yucatan,Amazilia yucatanensis,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",580
+4391,VCHU,Violet-crowned Hummingbird,X,Ariane à couronne violette,Ramosomyia violiceps,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",581
+4401,WEHU,White-eared Hummingbird,X,Colibri à oreilles blanches,Basilinna leucotis,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",583
+4402,PREM,Puerto Rican Emerald,X,Émeraude de Porto Rico,Riccordia maugaeus,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",575
+4408,HYHU,Hybrid Hummingbird,X,Hybride de colibri,,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. Explain in remarks what the parent species were. | La taille appropriée de la bague est déterminée en fonction de l'espèce, du sexe et de considérations géographiques. Expliquer dans les remarques quelles étaient les espèces parentes.",572
+4409,UNHU,Unidentified Hummingbird,X,Colibri non identifié,,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",573
+4410,BBLH,Broad-billed Hummingbird,X,Colibri circé,Cynanthus latirostris,,"Appropriate diameter to be determined based on species, gender, and geographic considerations. | Le diamètre approprié de la bague est déterminé en fonction de l'espèce, du sexe et de considérations géographiques.",576
+4411,RTBE,Rose-throated Becard,"1B, 1A, 1",Bécarde à gorge rose,Pachyramphus aglaiae,,,710
+4420,FTFL,Fork-tailed Flycatcher,"1A, 1B, 1",Tyran des savanes,Tyrannus savana,,,709
+4430,STFL,Scissor-tailed Flycatcher,1A,Tyran à longue queue,Tyrannus forficatus,,,708
+4440,EAKI,Eastern Kingbird,1B,Tyran tritri,Tyrannus tyrannus,,,705
+4450,GRAK,Gray Kingbird,"1A, 1D, 1B",Tyran gris,Tyrannus dominicensis,,,706
+4451,TBKI,Thick-billed Kingbird,1A,Tyran à bec épais,Tyrannus crassirostris,,,703
+4452,LOKI,Loggerhead Kingbird,"1A, 1B",Tyran tête-police,Tyrannus caudifasciatus,,,707
+4460,TRKI,Tropical Kingbird,"1A, 1B, 1D",Tyran mélancolique,Tyrannus melancholicus,,,700
+4461,COKI,Couch's Kingbird,"1A, 1B",Tyran de Couch,Tyrannus couchii,,,701
+4470,WEKI,Western Kingbird,"1A, 1B",Tyran de l'Ouest,Tyrannus verticalis,,,704
+4480,CAKI,Cassin's Kingbird,1A,Tyran de Cassin,Tyrannus vociferans,,,702
+4490,GKIS,Great Kiskadee,"2, 1D",Tyran quiquivi,Pitangus sulphuratus,,,698
+4510,SBFL,Sulphur-bellied Flycatcher,"1B, 1A",Tyran tigré,Myiodynastes luteiventris,,,699
+4520,GCFL,Great Crested Flycatcher,"1A, 1B",Tyran huppé,Myiarchus crinitus,,,692
+4530,BCFL,Brown-crested Flycatcher,1A,Tyran de Wied,Myiarchus tyrannulus,,,693
+4531,NUFL,Nutting's Flycatcher,1B,Tyran de Nutting,Myiarchus nuttingi,,,691
+4540,ATFL,Ash-throated Flycatcher,"1B, 1A, 1",Tyran à gorge cendrée,Myiarchus cinerascens,,,690
+4550,DCFL,Dusky-capped Flycatcher,"1B, 1, 1C",Tyran olivâtre,Myiarchus tuberculifer,,,689
+4551,LSFL,La Sagra's Flycatcher,"1, 1B, 1C",Tyran de La Sagra,Myiarchus sagrae,,,694
+4552,PRFL,Puerto Rican Flycatcher,"1B, 1A, 1",Tyran de Porto Rico,Myiarchus antillarum,,,696
+4553,STOF,Stolid Flycatcher,1B,Tyran grosse-tête,Myiarchus stolidus,,,695
+4554,LESF,Lesser Antillean Flycatcher,1B,Tyran janeau,Myiarchus oberi,,,697
+4555,TUFL,Tufted Flycatcher,"0, 0A, 1C, 1",Moucherolle huppé,Mitrephanes phaeocercus,,,660
+4560,EAPH,Eastern Phoebe,"0, 1C, 1",Moucherolle phébi,Sayornis phoebe,,,685
+4570,SAPH,Say's Phoebe,"1, 1C",Moucherolle à ventre roux,Sayornis saya,,,686
+4580,BLPH,Black Phoebe,"1, 1C",Moucherolle noir,Sayornis nigricans,,,684
+4590,OSFL,Olive-sided Flycatcher,"1B, 1, 1C",Moucherolle à côtés olive,Contopus cooperi,Alberta,,661
+,,,,,,British Columbia,,
+,,,,,,Manitoba,,
+,,,,,,New Brunswick,,
+,,,,,,Newfoundland and Labrador,,
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Prince Edward Island,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+,,,,,,Yukon Territory,,
+,,,,,,Northwest Territories,,
+4600,GRPE,Greater Pewee,"1B, 1",Moucherolle de Coues,Contopus pertinax,,,662
+4610,EAWP,Eastern Wood-Pewee,"0A, 0, 1C, 1",Pioui de l'Est,Contopus virens,,,664
+4620,WEWP,Western Wood-Pewee,"0A, 0, 1C, 1",Pioui de l'Ouest,Contopus sordidulus,,,663
+4621,CUPE,Cuban Pewee,"0, 0A, 1",Moucherolle tête-fou,Contopus caribaeus,,,665
+4622,LAPE,Lesser Antillean Pewee,"0, 0A, 1C",Moucherolle gobemouche,Contopus latirostris,,,668
+4623,JAPE,Jamaican Pewee,"0, 1C, 1",Moucherolle de Jamaïque,Contopus pallidus,,,666
+4624,HIPE,Hispaniolan Pewee,"0, 1C, 1",Moucherolle d'Hispaniola,Contopus hispaniolensis,,,667
+4630,YBFL,Yellow-bellied Flycatcher,"0A, 0",Moucherolle à ventre jaune,Empidonax flaviventris,,,669
+4640,COFL,Cordilleran Flycatcher,"0A, 0",Moucherolle des ravins,,,"AOU split from 4649-WEFL in 1989. | AOU l’a séparé de 4649-WEFL en 1989. No longer species from From Western Flycatcher lump, AOS 64rd Supplement",681
+4641,PSFL,Pacific-slope Flycatcher,"0A, 0",Moucherolle obscur,,,"AOU split from 4649-WEFL in 1989. | AOU l’a séparé de 4649-WEFL en 1989. No longer species from From Western Flycatcher lump, AOS 64rd Supplement",679
+4649,WEFL,Western Flycatcher,"0A, 0",Moucherolle de l'Ouest,Empidonax difficilis,,"Elevated to species, AOS 64rd Supplement (2023)",680
+4650,ACFL,Acadian Flycatcher,"0A, 0",Moucherolle vert,Empidonax virescens,Ontario,,670
+4660,WIFL,Willow Flycatcher,"0A, 0",Moucherolle des saules,Empidonax traillii,,AOU split from 4669-TRFL in 1973. | AOU l’a séparé de 4669-TRFL en 1973.,673
+4661,ALFL,Alder Flycatcher,"0A, 0",Moucherolle des aulnes,Empidonax alnorum,,AOU split from 4669-TRFL in 1973. | AOU l’a séparé de 4669-TRFL en 1973.,671
+4664,SWFL,Southwestern Willow Flycatcher,"0, 0A",Moucherolle des saules forme du Sud-Ouest,Empidonax traillii extimus,Y,,674
+4669,TRFL,Traill's Flycatcher,"0A, 0",Moucherolle de Traill,,,"Empidonax alnorum and E. traillii, prior to split in 1973. | Empidonax alnorum et E. traillii, avant la séparation en 1973.",672
+4670,LEFL,Least Flycatcher,"0A, 0",Moucherolle tchébec,Empidonax minimus,,,675
+4679,UNEM,Unidentified Empidonax,"0A, 0",Moucherolle Empidonax non identifié,,,Explain in Remarks why the unidentified code was chosen | Expliquez dans les Remarques pourquoi le code non identifié a été choisi.,683
+4680,HAFL,Hammond's Flycatcher,"0A, 0",Moucherolle de Hammond,Empidonax hammondii,,,676
+4690,DUFL,Dusky Flycatcher,"0A, 0",Moucherolle sombre,Empidonax oberholseri,,,678
+4691,GRFL,Gray Flycatcher,"0A, 0",Moucherolle gris,Empidonax wrightii,,,677
+4700,BBFL,Buff-breasted Flycatcher,"0A, 0",Moucherolle beige,Empidonax fulvifrons,,,682
+4710,VEFL,Vermilion Flycatcher,"0, 0A, 1C, 1",Moucherolle vermillon,Pyrocephalus rubinus,,,687
+4711,GREL,Greenish Elaenia,"0A, 0",Élénie verdâtre,Myiopagis viridicata,,,655
+4720,NBTY,Northern Beardless-Tyrannulet,"0A, 0",Tyranneau imberbe,Camptostoma imberbe,,,653
+4721,CAEL,Caribbean Elaenia,"1, 1C, 0, 1B",Élénie siffleuse,Elaenia martinica,,,656
+4722,SBEL,Small-billed Elaenia,"1, 1C, 0, 1B",Élénie à bec court,Elaenia parvirostris,,,656
+4730,EUSK,Eurasian Skylark,1B,Alouette des champs,Alauda arvensis,,,771
+4740,HOLA,Horned Lark,1B,Alouette hausse-col,Eremophila alpestris,British Columbia,strigata subspecies endangered in BC. | La sous-espèce strigata est menacée en Colombie-Britannique.,772
+4741,SHLA,Streaked Horned Lark,1B,Alouette hausse-col de la sous-espèce strigata,Eremophila alpestris strigata,Y,"E. a. strigata only in OR, WA. BC | E. a. strigata uniquement en Oregon, Washington, Colombie-Britannique.",773
+4750,BBMA,Black-billed Magpie,"4, 3A, 3B",Pie d'Amérique,Pica hudsonia,,,756
+4760,YBMA,Yellow-billed Magpie,3A,Pie à bec jaune,Pica nuttalli,,,757
+4770,BLJA,Blue Jay,"2, 3, 2A",Geai bleu,Cyanocitta cristata,,,748
+4780,STJA,Steller's Jay,"3, 2, 3B",Geai de Steller,Cyanocitta stelleri,,,747
+4790,FLSJ,Florida Scrub-Jay,"3, 2, 2A",Geai à gorge blanche,Aphelocoma coerulescens,Y,,749
+4810,UWSJ,Unspecified Western Scrub-Jay,"3, 2, 2A",Geai buissonnier non spécifié,,,Includes Aphelocoma californica and A. woodhouseii prior to split in AOS 57th Supplement (2016),752
+4811,ISSJ,Island Scrub-Jay,"3, 3B",Geai de Santa Cruz,Aphelocoma insularis,,,751
+4812,WOSJ,Woodhouse's Scrub-Jay,"3, 2, 2A",Geai de Woodhouse,Aphelocoma woodhouseii,,,753
+4813,CASJ,California Scrub-Jay,"3, 2, 2A",Geai buissonnier,Aphelocoma californica,,,750
+4820,MEJA,Mexican Jay,"3A, 3B",Geai du Mexique,Aphelocoma wollweberi,,,754
+4830,GRJA,Green Jay,"2, 2A, 3",Geai vert,Cyanocorax yncas,,,745
+4832,BRJA,Brown Jay,"4A, 4, 3A",Geai enfumé,Cyanocorax morio,,,744
+4840,CAJA,Canada Jay,"3, 2, 2A",Mésangeai du Canada,Perisoreus canadensis,,,743
+4860,CORA,Common Raven,"7A, 6, 7",Grand Corbeau,Corvus corax,,,767
+4870,CHRA,Chihuahuan Raven,"5, 5A",Corbeau à cou blanc,Corvus cryptoleucus,,,766
+4871,WNCR,White-necked Crow,"5, 6",Corneille d'Hispaniola,Corvus leucognaphalus,Y,,761
+4880,AMCR,American Crow,"5, 5A",Corneille d'Amérique,Corvus brachyrhynchos,,,759
+4890,NOCR,Northwestern Crow,"4A, 4",Corneille d'Alaska,Corvus brachyrhynchos caurinus,,,760
+4891,TACR,Tamaulipas Crow,4,Corneille du Mexique,Corvus imparatus,,,763
+4892,HCRO,Hawaiian Crow,6,Corneille d'Hawaï,Corvus hawaiiensis,Y,,765
+4900,FICR,Fish Crow,"4A, 4",Corneille de rivage,Corvus ossifragus,,,764
+4910,CLNU,Clark's Nutcracker,"3, 3B, 3A",Cassenoix d'Amérique,Nucifraga columbiana,,,755
+4920,PIJA,Pinyon Jay,"3, 2, 2A",Geai des pinèdes,Gymnorhinus cyanocephalus,,,746
+4930,EUST,European Starling,"2, 3, 2A",Étourneau sansonnet,Sturnus vulgaris,,,906
+4931,CRMY,Crested Myna,"3, 2",Martin huppé,Acridotheres cristatellus,,,907
+4932,COMY,Common Myna,"3A, 3B, 3",Martin triste,Acridotheres tristis,,,910
+4933,JAMY,Javan Myna,"1A, 2, 1D",Martin à ventre blanc,Acridotheres javanicus,,,908
+4934,HIMY,Hill Myna,3,Mainate religieux,Gracula religiosa,,,911
+4935,JUMY,Jungle Myna,"3B, 3",Martin forestier,Acridotheres fuscus,,,909
+4940,BOBO,Bobolink,"M: 1A, 1B",Goglu des prés,Dolichonyx oryzivorus,Alberta,,1120
+,,,"F: 1B, 1A",,,British Columbia,,
+,,,,,,Manitoba,,
+,,,,,,New Brunswick,,
+,,,,,,Newfoundland and Labrador,,
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Prince Edward Island,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+4950,BHCO,Brown-headed Cowbird,"M: 1A, 1D, 2, 1B",Vacher à tête brune,Molothrus ater,,,1138
+,,,"F: 1B, 1A, 1D",,,,,
+4960,BROC,Bronzed Cowbird,"M: 2, 1D",Vacher bronzé,Molothrus aeneus,,,1137
+,,,"F: 1A, 1D",,,,,
+4961,SHCO,Shiny Cowbird,"2, 1D, 1A",Vacher luisant,Molothrus bonariensis,,,1136
+4970,YHBL,Yellow-headed Blackbird,"M: 2, 3, 1D",Carouge à tête jaune,Xanthocephalus xanthocephalus,,,1129
+,,,"F: 1A, 1D, 2",,,,,
+4980,RWBL,Red-winged Blackbird,"M: 2, 1D",Carouge à épaulettes,Agelaius phoeniceus,,,1121
+,,,"F: 1A, 1D",,,,,
+5000,TRBL,Tricolored Blackbird,"2, 2A, 1D",Carouge de Californie,Agelaius tricolor,,,1122
+5001,TSBL,Tawny-shouldered Blackbird,"1B, 1A",Petit Carouge,Agelaius humeralis,,,1123
+5002,YSBL,Yellow-shouldered Blackbird,2,Carouge de Porto Rico,Agelaius xanthomus,Y,,1124
+5010,EAME,Eastern Meadowlark,M: 3,Sturnelle des prés,Sturnella magna,New Brunswick,,1125
+,,,"F: 2, 3",,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Québec,,
+5011,WEME,Western Meadowlark,M: 3,Sturnelle de l'Ouest,Sturnella neglecta,,,1126
+,,,"F: 2, 3",,,,,
+5012,EWME,Eastern/Western Meadowlark,M: 3,Sturnelle des prés/de l'Ouest,,,,1127
+,,,"F: 2, 3",,,,,
+5013,CHME,Chihuahuan Meadowlark,M: 3,Sturnelle de Lilian,Sturnella lilianae,,"From Meadowlark Split, AOS 63rd Supplement (2022)",1128
+,,,"F: 2, 3",,,,,
+5030,AUOR,Audubon's Oriole,2,Oriole d'Audubon,Icterus graduacauda,,,1154
+5031,ALOR,Altamira Oriole,3,Oriole à gros bec,Icterus gularis,,,1153
+5032,SPOO,Spot-breasted Oriole,2,Oriole maculé,Icterus pectoralis,,,1152
+5040,SCOR,Scott's Oriole,1A,Oriole jaune-verdâtre,Icterus parisorum,,,1156
+5041,BVOR,Black-vented Oriole,2,Oriole cul-noir,Icterus wagleri,,,1143
+5042,BCOR,Black-cowled Oriole,"1A, 1D, 2",Oriole monacal,Icterus prosthemelas,,,1144
+5043,CUOR,Cuban Oriole,"1A, 1D, 2",Oriole de Cuba,Icterus melanopsis,,,1140
+5044,BAHO,Bahama Oriole,"1A, 1D, 2",Oriole des Bahamas,Icterus northropi,,,1139
+5045,PROR,Puerto Rican Oriole,"1A, 1D, 2",Oriole de Porto Rico,Icterus portoricensis,,,1142
+5046,HIOR,Hispaniolan Oriole,"1A, 1D, 2",Oriole d'Hispaniola,Icterus dominicensis,,,1141
+5050,HOOR,Hooded Oriole,"1A, 1B",Oriole masqué,Icterus cucullatus,,,1146
+5051,STRO,Streak-backed Oriole,1A,Oriole à dos rayé,Icterus pustulatus,,,1148
+5060,OROR,Orchard Oriole,1B,Oriole des vergers,Icterus spurius,,,1145
+5070,BAOR,Baltimore Oriole,"1A, 1B, 1D",Oriole de Baltimore,Icterus galbula,,,1155
+5078,BBOH,Baltimore X Bullock's Oriole Hybrid,1A,Hybride d'Oriole de Bullock et d'Oriole de Baltimore,,,,1150
+5080,BUOR,Bullock's Oriole,"1A, 1B, 1D",Oriole de Bullock,Icterus bullockii,,,1149
+5090,RUBL,Rusty Blackbird,"2, 1D",Quiscale rouilleux,Euphagus carolinus,,,1130
+5100,BRBL,Brewer's Blackbird,"2, 1D",Quiscale de Brewer,Euphagus cyanocephalus,,,1131
+5110,COGR,Common Grackle,"M: 3, 3B",Quiscale bronzé,Quiscalus quiscula,,,1132
+,,,"F: 3, 2A",,,,,
+5120,GTGR,Great-tailed Grackle,"M: 4, 3A",Quiscale à longue queue,Quiscalus mexicanus,,,1134
+,,,"F: 3, 3B",,,,,
+5130,BTGR,Boat-tailed Grackle,"M: 4, 3A",Quiscale des marais,Quiscalus major,,,1133
+,,,"F: 3, 3B",,,,,
+5131,GAGR,Greater Antillean Grackle,"3, 2",Quiscale noir,Quiscalus niger,,,1135
+5140,EVGR,Evening Grosbeak,"1A, 2, 1D",Gros-bec errant,Coccothraustes vespertinus,,,1209
+5141,BRAM,Brambling,"1B, 1, 1C",Pinson du Nord,Fringilla montifringilla,,,1158
+5142,HAWF,Hawfinch,"1A, 2, 1D",Gros-bec casse-noyaux,Coccothraustes coccothraustes,,,1210
+5143,COCH,Common Chaffinch,"1B, 1, 1C",Pinson des arbres,Fringilla coelebs,,,1157
+5150,PIGR,Pine Grosbeak,"1A, 1D",Durbec des sapins,Pinicola enucleator,,,1165
+5160,EUBU,Eurasian Bullfinch,"1B, 1A",Bouvreuil pivoine,Pyrrhula pyrrhula,,,1166
+5161,CORO,Common Rosefinch,"1B, 1, 1C",Roselin cramoisi,Carpodacus erythrinus,,,1190
+5170,PUFI,Purple Finch,"1, 1C, 1B",Roselin pourpré,Haemorhous purpureus,,,1192
+5180,CAFI,Cassin's Finch,"1B, 1, 1C",Roselin de Cassin,Haemorhous cassinii,,,1193
+5190,HOFI,House Finch,"1B, 1, 1C",Roselin familier,Haemorhous mexicanus,,,1191
+5210,RECR,Red Crossbill,"1B, 1A",Bec-croisé des sapins,Loxia curvirostra,Newfoundland and Labrador,,1194
+,,,,,,Québec,,
+5211,CACR,Cassia Crossbill,"1A, 1D",Bec-croisé de l'Idaho,Loxia sinesciuris,,,1195
+5220,WWCR,White-winged Crossbill,1B,Bec-croisé bifascié,Loxia leucoptera,,,1196
+5240,GCRF,Gray-crowned Rosy-Finch,"1B, 1A, 1",Roselin à tête grise,Leucosticte tephrocotis,,,1162
+5250,BLRF,Black Rosy-Finch,"1B, 1A, 1",Roselin noir,Leucosticte atrata,,,1163
+5260,BCRF,Brown-capped Rosy-Finch,"1B, 1A, 1",Roselin à tête brune,Leucosticte australis,,,1164
+5261,EUGO,European Goldfinch,0,Chardonneret élégant,Carduelis carduelis,,,1205
+5262,ORGR,Oriental Greenfinch,"0, 1C, 1",Verdier de Chine,Chloris sinica,,,1206
+5270,HORE,Hoary Redpoll,"0, 0A",Sizerin blanchâtre,Acanthis hornemanni,,,1198
+5276,REDP,Redpoll,0,Sizerin,,,"From Hoary/Common Redpoll lump, AOS 65th Supplement (2024)",1199
+5280,CORE,Common Redpoll,"0, 0A",Sizerin flammé,Acanthis flammea,,,1197
+5290,AMGO,American Goldfinch,"0, 0A, 1C, 1",Chardonneret jaune,Spinus tristis,,,1204
+5300,LEGO,Lesser Goldfinch,"0A, 0",Chardonneret mineur,Spinus psaltria,,,1202
+5310,LAGO,Lawrence's Goldfinch,"0, 0A, 1C, 1",Chardonneret gris,Spinus lawrencei,,,1203
+5321,RESI,Red Siskin,0,Tarin rouge,Spinus cucullatus,,,1201
+5330,PISI,Pine Siskin,"0, 0A",Tarin des pins,Spinus pinus,,,1200
+5331,COCA,Common Canary,"1, 1C",Serin des Canaries,Serinus canaria,,,1208
+5332,YFCA,Yellow-fronted Canary,"0, 1",Serin du Mozambique,Crithagra mozambica,,,1207
+5340,SNBU,Snow Bunting,"1A, 1B",Plectrophane des neiges,Plectrophenax nivalis,,,932
+5350,MKBU,McKay's Bunting,"1B, 1A",Plectrophane blanc,Plectrophenax hyperboreus,,,933
+5351,RUBU,Rustic Bunting,"1, 1C",Bruant rustique,Emberiza rustica,,,1098
+5352,LIBU,Little Bunting,"1C, 1",Bruant nain,Emberiza pusilla,,,1097
+5353,GRBU,Gray Bunting,1B,Bruant gris,Emberiza variabilis,,,1099
+5354,PALB,Pallas's Bunting,"1, 1C",Bruant de Pallas,Emberiza pallasi,,,1100
+5355,REBU,Reed Bunting,"1, 1C",Bruant des roseaux,Emberiza schoeniclus,,,1101
+5360,LALO,Lapland Longspur,"1, 1B",Plectrophane lapon,Calcarius lapponicus,,,928
+5370,SMLO,Smith's Longspur,"1, 1C",Plectrophane de Smith,Calcarius pictus,,,930
+5380,CCLO,Chestnut-collared Longspur,"1, 1C",Plectrophane à ventre noir,Calcarius ornatus,Alberta,,929
+,,,,,,Manitoba,,
+,,,,,,Saskatchewan,,
+5390,TBLO,Thick-billed Longspur,"1, 1C",Plectrophane à ventre gris,Rhynchophanes mccownii,Alberta,,931
+,,,,,,Saskatchewan,,
+5400,VESP,Vesper Sparrow,"1B, 1, 1C",Bruant vespéral,Pooecetes gramineus,British Columbia,,1051
+5410,IPSP,Ipswich Sparrow,"1B, 1",Bruant d’Ipswich,Passerculus sandwichensis princeps,,,1061
+5420,SAVS,Savannah Sparrow,"1, 1C, 0",Bruant des prés,Passerculus sandwichensis,,,1060
+5430,BSSP,Belding's Savannah Sparrow,"1, 1C",Bruant des prés (Belding),Passerculus sandwichensis beldingi,,,1062
+5440,LBSP,Large-billed Sparrow,"1, 1C",Bruant du Sonora,Passerculus sandwichensis rostratus,,,1063
+5450,BAIS,Baird's Sparrow,"1, 1C",Bruant de Baird,Centronyx bairdii,,,1066
+5460,GRSP,Grasshopper Sparrow,"1, 1C, 0",Bruant sauterelle,Ammodramus savannarum,,Includes all subspecies except A. s. floridanus. | Comprend toutes les sous-espèces autres que A. s. floridanus.,1064
+5464,FGSP,Florida Grasshopper Sparrow,"1, 1C, 0",Bruant sauterelle forme de la Floride,Ammodramus savannarum floridanus,Y,,1065
+5470,HESP,Henslow's Sparrow,"0, 1C, 1",Bruant de Henslow,Centronyx henslowii,Ontario,,1067
+,,,,,,Québec,,
+5480,LCSP,LeConte's Sparrow,"1, 1C, 0",Bruant de LeConte,Ammospiza leconteii,,,1068
+5490,SALS,Saltmarsh Sparrow,"1, 1B, 1C",Bruant à queue aiguë,Ammospiza caudacuta,,,1070
+5491,NESP,Nelson's Sparrow,"1, 1B, 1C",Bruant de Nelson,Ammospiza nelsoni,,,1069
+5499,USTP,Unidentified Sharp-tailed Sparrow,"1, 1B, 1C",Bruant à queue aiguë non-identifié,,,Unspecified Ammodramus caudacutus or A. nelsoni. Explain in Remarks why the unspecified code was chosen. | Ammodramus caudacutus ou A. nelsoni non spécifié. Expliquez dans les Remarques pourquoi le code non identifié a été choisi.,1071
+5500,SESP,Seaside Sparrow,1B,Bruant maritime,Ammospiza maritima,,,1072
+5510,DSSP,Dusky Seaside Sparrow,1B,Bruant à dos noirâtre,Ammodramus maritima nigrescens,,,1073
+5511,CSSS,Cape Sable Seaside Sparrow,1B,Bruant de Cape Sable,Ammodramus maritimus mirabilis,Y,,1074
+5520,LASP,Lark Sparrow,1B,Bruant à joues marron,Chondestes grammacus,,,1052
+5530,HASP,Harris's Sparrow,1A,Bruant à face noire,Zonotrichia querula,,,1081
+5540,UWCS,Unspecified White-crowned Sparrow,1B,Bruant à couronne blanche non-identifié,Zonotrichia leucophrys,,,1082
+5541,EWCS,Eastern White-crowned Sparrow,1B,Bruant à couronne blanche (race de l'est),Zonotrichia leucophrys leucophrys,,,1083
+5546,MWCS,Mountain White-crowned Sparrow,1B,Bruant à couronne blanche (race de montagne),Zonotrichia leucophrys oriantha,,,1084
+5547,PSWS,Puget Sound White-crowned Sparrow,1B,Bruant à couronne blanche (race de Puget Sound),Zonotrichia leucophrys pugetensis,,,1085
+5550,GWCS,Gambel's White-crowned Sparrow,1B,Bruant à couronne blanche (race de Gambel),Zonotrichia leucophrys gambelii,,,1086
+5560,NWCS,Nuttall's White-crowned Sparrow,1B,Bruant à couronne blanche (race de Nuttall),Zonotrichia leucophrys nuttalli,,,1087
+5570,GCSP,Golden-crowned Sparrow,"1B, 1A",Bruant à couronne dorée,Zonotrichia atricapilla,,,1088
+5580,WTSP,White-throated Sparrow,1B,Bruant à gorge blanche,Zonotrichia albicollis,,,1080
+5581,RUFS,Rufous-collared Sparrow,"1, 1B",Bruant chingolo,Zonotrichia capensis,,,1079
+5586,ZSHY,Zonotrichia Sparrow Hybrid,1B,Hybride de bruant zonotrichia,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",1090
+5590,ATSP,American Tree Sparrow,"1, 0, 1C",Bruant hudsonien,Spizelloides arborea,,,1044
+5600,CHSP,Chipping Sparrow,"0, 0A, 1C, 1",Bruant familier,Spizella passerina,,,1045
+5610,CCSP,Clay-colored Sparrow,"0, 0A, 1C, 1",Bruant des plaines,Spizella pallida,,,1046
+5620,BRSP,Brewer's Sparrow,"0, 1C, 0A, 1",Bruant de Brewer,Spizella breweri,,,1047
+5630,FISP,Field Sparrow,"0, 0A, 1C, 1",Bruant des champs,Spizella pusilla,,,1048
+5640,WOSP,Worthen's Sparrow,"0, 0A",Bruant de Worthen,Spizella wortheni,,,1049
+5650,BCSP,Black-chinned Sparrow,"0, 1C, 1",Bruant à menton noir,Spizella atrogularis,,,1050
+5660,WWJU,White-winged Junco,"1, 0, 1C",Junco ardoisé à ailes blanches,Junco hyemalis aikeni,,,1089
+5670,SCJU,Slate-colored Junco,"0, 1C, 1",Junco ardoisé,Junco hyemalis hyemalis,,,1091
+5671,ORJU,Oregon Junco,"0, 1C, 1",Junco ardoisé à dos roux,Junco hyemalis oreganus,,,1092
+5672,PSJU,Pink-sided Junco,"0, 1C, 1",Junco ardoisé à flancs roses,Junco hyemalis mearnsi,,,1093
+5677,UDEJ,Unspecified Dark-eyed Junco,"0, 1C, 1",Junco ardoisé,Junco hyemalis,,To be used for Dark-eyed Juncos whose subspecies cannot be determined. | À utiliser pour les Juncos ardoisés dont la sous-espèce ne peut être déterminée.,1094
+5690,GHJU,Gray-headed Junco,"1, 0, 1C",Junco ardoisé à tête grise,Junco hyemalis caniceps,,,1095
+5700,YEJU,Yellow-eyed Junco,"1, 1C, 0",Junco aux yeux jaunes,Junco phaeonotus,,,1096
+5730,BTSP,Black-throated Sparrow,"0, 1C, 1",Bruant à gorge noire,Amphispiza bilineata,,,1054
+5740,USSP,Unidentified Sage Sparrow,"1, 1C",Bruant des armoises,,,Unspecified Artemisiospiza belli or A. nevadensis (not A. b. clementeae). Explain in Remarks why the unspecified code was chosen. | Artemisiospiza belli ou A. nevadensis (pas A. b. clementeae) non spécifié. Expliquez dans les Remarques pourquoi le code non identifié a été choisi.,1056
+5741,SCBS,San Clemente Bell's Sparrow,1,,Artemisiospiza belli belli,Y,,1057
+5742,FSSP,Five-striped Sparrow,1B,Bruant pentaligne,Amphispizopsis quinquestriata,,,1053
+5743,SBSP,Sagebrush Sparrow,"1, 1C",Bruant des armoises,Artemisiospiza nevadensis,,AOU split from 5740 Sage Sparrow in 2014. | AOU l’a séparé de 5740 en 2014.,1055
+5744,BESP,Bell's Sparrow,"1, 1C",Bruant de Bell,Artemisiospiza belli,,AOU split from 5740 Sage Sparrow in 2014. | AOU l’a séparé de 5740 en 2014.,1058
+5750,BACS,Bachman's Sparrow,"1, 1C",Bruant des pinèdes,Peucaea aestivalis,,,1043
+5760,BOSP,Botteri's Sparrow,"1, 1C",Bruant de Botteri,Peucaea botterii,,,1041
+5780,CASP,Cassin's Sparrow,"1, 1C",Bruant de Cassin,Peucaea cassinii,,,1042
+5790,RWSP,Rufous-winged Sparrow,"0, 1C, 1",Bruant à épaulettes,Peucaea carpalis,,,1040
+5800,RCSP,Rufous-crowned Sparrow,"1, 1C, 1B",Tohi à calotte fauve,Aimophila ruficeps,,,1036
+5810,SOSP,Song Sparrow,"1B, 1, 1C",Bruant chanteur,Melospiza melodia,,,1076
+5830,LISP,Lincoln's Sparrow,"1, 0, 1C",Bruant de Lincoln,Melospiza lincolnii,,,1077
+5840,SWSP,Swamp Sparrow,"1, 1C, 0",Bruant des marais,Melospiza georgiana,,,1078
+5850,FOSP,Fox Sparrow,"1A, 1B",Bruant fauve,Passerella iliaca,,,1075
+5860,OLSP,Olive Sparrow,"1B, 1, 1C",Tohi olive,Arremonops rufivirgatus,,,1029
+5861,SAFI,Saffron Finch,"1B, 1",Sicale bouton-d'or,Sicalis flaveola,,,1028
+5870,EATO,Eastern Towhee,"M: 2, 1D, 1A",Tohi à flancs roux,Pipilo erythrophthalmus,,AOU split from 5876 in 1998. | AOU l’a séparé de 5876 en 1998.,1032
+,,,"F: 1A, 1D, 2",,,,,
+5876,URST,Unidentified Rufous-sided Towhee,"2, 1A, 1D",Tohi à flancs roux non identifié,,,"Includes Pipilo erythrophthalmus and P. maculatus prior to split in 1998. Explain in Remarks why the unidentified code was chosen. | Comprend Pipilo erythrophthalmus et P. maculatus, avant leur séparation en 1998. Expliquez dans les Remarques pourquoi le code non identifié a été choisi.",1033
+5880,SPTO,Spotted Towhee,"M: 1D, 2, 1A",Tohi tacheté,Pipilo maculatus,,AOU split from 5876 in 1998. | AOU l’a séparé de 5876 en 1998.,1031
+,,,"F: 1D, 1A, 2",,,,,
+5900,GTTO,Green-tailed Towhee,"1A, 1B, 1D",Tohi à queue verte,Pipilo chlorurus,,,1030
+5906,HYTO,Hybrid Towhee,"1A, 1B",Hybride de Tohi,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",1034
+5910,CANT,Canyon Towhee,"1A, 1D, 2",Tohi des canyons,Melozone fusca,,,1037
+5911,CALT,California Towhee,"2, 1A, 1D",Tohi de Californie,Melozone crissalis,,,1038
+5912,ICTO,Inyo California Towhee,"1D, 2, 1A",Tohi de Californie (eremophilus),Melozone crissalis eremophilus,Y,,1035
+5920,ABTO,Abert's Towhee,"1A, 2, 1D",Tohi d'Abert,Melozone aberti,,,1039
+5922,RCCA,Red-crested Cardinal,"1A, 1D, 2",Paroare huppé,Paroaria coronata,,,1008
+5923,YBCA,Yellow-billed Cardinal,"1A, 1D",Paroare à bec jaune,Paroaria capitata,,,1009
+5930,NOCA,Northern Cardinal,"1A, 2, 1D",Cardinal rouge,Cardinalis cardinalis,,,1107
+5940,PYRR,Pyrrhuloxia,"1A, 1D",Cardinal pyrrhuloxia,Cardinalis sinuatus,,,1108
+5950,RBGR,Rose-breasted Grosbeak,"1A, 1D, 2",Cardinal à poitrine rose,Pheucticus ludovicianus,,,1110
+5960,BHGR,Black-headed Grosbeak,"1A, 1D, 2",Cardinal à tête noire,Pheucticus melanocephalus,,,1111
+5961,YEGR,Yellow Grosbeak,"2, 1A, 1D",Cardinal jaune,Pheucticus chrysopeplus,,,1109
+5970,BLGR,Blue Grosbeak,"1B, 1A",Guiraca bleu,Passerina caerulea,,,1113
+5971,BLBU,Blue Bunting,"1, 1C",Évêque paré,Cyanocompsa parellina,,,1112
+5980,INBU,Indigo Bunting,"1, 1C, 0",Passerin indigo,Passerina cyanea,,,1116
+5986,ILBH,Indigo X Lazuli Bunting Hybrid,"1, 1C",Hybride de Passerin indigo et de Passerin azuré,,,Passerina cyanea X P. amoena. | Passerina cyanea X P. amoena.,1115
+5990,LAZB,Lazuli Bunting,"1, 1C, 0",Passerin azuré,Passerina amoena,,,1114
+6000,VABU,Varied Bunting,"1, 1C",Passerin varié,Passerina versicolor,,,1117
+6010,PABU,Painted Bunting,"1, 1C",Passerin nonpareil,Passerina ciris,,,1118
+6020,UWSE,Unidentified White-collared Seedeater,"0, 0A",Sporophile à col blanc,,,,1016
+6021,PUEB,Puerto Rican Bullfinch,"1A, 1B",Pèrenoir de Porto Rico,Melopyrrha portoricensis,,,1024
+6022,LESB,Lesser Antillean Bullfinch,"1, 1B",Pèrenoir rougegorge,Loxigilla noctis,,,1026
+6023,MOSE,Morelet's Seedeater,"0, 0A",Sporophile de Morelet,Sporophila morelleti,,"From split of White-collared Seedeater, AOS 59th Supplement (2019)",1017
+6024,CRSE,Cinnamon-rumped Seedeater,"0, 0A",Sporophile à col blanc,Sporophila torqueola,,"From split of White-collared Seedeater, AOS 59th Supplement (2019)",1018
+6030,BFGR,Black-faced Grassquit,"0, 0A, 1C, 1",Cici verdinère,Melanospiza bicolor,,,1022
+6031,CUGR,Cuban Grassquit,"0A, 0",Petit-chanteur de Cuba,Phonipara canora,,,1020
+6032,YFGR,Yellow-faced Grassquit,"0, 0A, 1C",Tiaris grand-chanteur,Tiaris olivaceus,,,1021
+6040,DICK,Dickcissel,1B,Dickcissel d'Amérique,Spiza americana,,,1119
+6050,LARB,Lark Bunting,1A,Bruant noir et blanc,Calamospiza melanocorys,Alberta,,1059
+,,,,,,Manitoba,,
+,,,,,,Saskatchewan,,
+6061,UAEU,Unidentified Antillean Euphonia,"0, 1C, 1",Organiste non identifié,,,,1160
+6062,PREU,Puerto Rican Euphonia,"0, 1C, 1",Organiste de Porto Rico,Euphonia sclateri,,,1161
+6070,WETA,Western Tanager,1B,Piranga à tête rouge,Piranga ludoviciana,,,1105
+6071,FCTA,Flame-colored Tanager,"1A, 1B",Piranga à dos rayé,Piranga bidentata,,,1106
+6080,SCTA,Scarlet Tanager,1B,Piranga écarlate,Piranga olivacea,,,1104
+6090,HETA,Hepatic Tanager,1A,Piranga orangé,Piranga flava,,,1102
+6100,SUTA,Summer Tanager,"1A, 1B",Piranga vermillon,Piranga rubra,,,1103
+6101,WESP,Western Spindalis,"1B, 1A",Zéna à tête rayée,Spindalis zena,,,1011
+6102,PRTA,Puerto Rican Tanager,"1A, 1B",Pleureur de Porto Rico,Nesospingus speculiferus,,,1010
+6103,HISP,Hispaniolan Spindalis,"1B, 1A",Zéna d'Hispaniola,Spindalis dominicensis,,,1012
+6104,PRSP,Puerto Rican Spindalis,"1B, 1A",Zéna de Porto Rico,Spindalis portoricensis,,,1013
+6105,JAMS,Jamaican Spindalis,"1B, 1A",Zéna de Jamaïque,Spindalis nigricephala,,,1014
+6110,PUMA,Purple Martin,"1D, 1A, 2",Hirondelle noire,Progne subis,,,774
+6112,GBMA,Gray-breasted Martin,1A,Hirondelle chalybée,Progne chalybea,,,776
+6113,CAMA,Caribbean Martin,1A,Hirondelle à ventre blanc,Progne dominicensis,,,775
+6120,CLSW,Cliff Swallow,"1, 1C",Hirondelle à front blanc,Petrochelidon pyrrhonota,,,782
+6121,CASW,Cave Swallow,"1, 1C",Hirondelle à front brun,Petrochelidon fulva,,,783
+6130,BARS,Barn Swallow,"1, 0",Hirondelle rustique,Hirundo rustica,Alberta,,784
+,,,,,,British Columbia,,
+,,,,,,Manitoba,,
+,,,,,,New Brunswick,,
+,,,,,,Newfoundland and Labrador,,
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Prince Edward Island,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+,,,,,,Yukon Territory,,
+,,,,,,Northwest Territories,,
+6140,TRES,Tree Swallow,"1, 0, 1C",Hirondelle bicolore,Tachycineta bicolor,,,777
+6150,VGSW,Violet-green Swallow,"1, 0, 1C",Hirondelle à face blanche,Tachycineta thalassina,,,778
+6151,BAHS,Bahama Swallow,"0, 1, 1C",Hirondelle des Bahamas,Tachycineta cyaneoviridis,,,779
+6160,BANS,Bank Swallow,"0, 1C, 1, 0A",Hirondelle de rivage,Riparia riparia,Alberta,,781
+,,,,,,British Columbia,,
+,,,,,,Manitoba,,
+,,,,,,New Brunswick,,
+,,,,,,Newfoundland and Labrador,,
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Prince Edward Island,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+,,,,,,Yukon Territory,,
+,,,,,,Northwest Territories,,
+6170,NRWS,Northern Rough-winged Swallow,"0, 1C, 1, 0A",Hirondelle à ailes hérissées,Stelgidopteryx serripennis,,,780
+6180,BOWA,Bohemian Waxwing,1A,Jaseur boréal,Bombycilla garrulus,,,922
+6190,CEDW,Cedar Waxwing,1B,Jaseur d'Amérique,Bombycilla cedrorum,,,923
+6200,PHAI,Phainopepla,1B,Phénopèple luisant,Phainopepla nitens,,,926
+6210,NSHR,Northern Shrike,"2, 1D",Pie-grièche boréale,Lanius borealis,,,717
+6211,BRSH,Brown Shrike,"1B, 1A",Pie-grièche brune,Lanius cristatus,,,714
+6220,LOSH,Loggerhead Shrike,"1D, 1A, 2",Pie-grièche migratrice,Lanius ludovicianus,Alberta,,715
+,,,,,,Manitoba,,
+,,,,,,Ontario,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+6221,KAOO,Kauai Oo,2,Moho de Kauai,Moho braccatus,Y,,924
+6223,BIOO,Bishop's Oo,3,Moho de Bishop,Moho bishopi,Y,,925
+6226,WAWE,Warbling White-eye,"0A, 0",Zostérops du Japon,Zosterops japonicus,,,838
+6227,SLSH,San Clemente Loggerhead Shrike,"1D, 1A, 2",Pie-grièche migratrice (mearnsi),Lanius ludovicianus mearnsi,Y,,716
+6230,BWVI,Black-whiskered Vireo,"1, 1C",Viréo à moustaches,Vireo altiloquus,,,738
+6240,REVI,Red-eyed Vireo,"1C, 1, 0",Viréo aux yeux rouges,Vireo olivaceus,,,736
+6250,YGVI,Yellow-green Vireo,"1, 1C, 0",Viréo jaune-verdâtre,Vireo flavoviridis,,,737
+6260,PHVI,Philadelphia Vireo,"0, 0A",Viréo de Philadelphie,Vireo philadelphicus,,,735
+6270,UNWV,Unidentified Warbling Vireo,"0, 1C, 1",Viréo mélodieux,,,,732
+6271,EAWV,Eastern Warbling-Vireo,"0, 1C, 1",Viréo mélodieux,Vireo gilvus,,,733
+6272,WEWV,Western Warbling-Vireo,"0, 1C, 1, 0A",Viréo de Swainson,Vireo swainsoni,,,734
+6280,YTVI,Yellow-throated Vireo,"1C, 1",Viréo à gorge jaune,Vireo flavifrons,,,726
+6290,BHVI,Blue-headed Vireo,"1C, 1, 0",Viréo à tête bleue,Vireo solitarius,,AOU split from 6299-SOVI in 1998. | AOU l’a séparé de 6299-SOVI en 1998.,729
+6291,PLVI,Plumbeous Vireo,"1C, 1, 0",Viréo plombé,Vireo plumbeus,,AOU split from 6299-SOVI in 1998. | AOU l’a séparé de 6299-SOVI en 1998.,727
+6292,CAVI,Cassin's Vireo,"1C, 1, 0",Viréo de Cassin,Vireo cassinii,,AOU split from 6299-SOVI in 1998. | AOU l’a séparé de 6299-SOVI en 1998.,728
+6299,SOVI,Solitary Vireo,"1C, 1, 0",Viréo à tête bleue (espèce non identifiée),,,"Includes Vireo solitarius, V. plumbeus, and V. cassinii, prior to split in 1998. Explain in Remarks why the unspecified code was chosen. | Comprend Vireo solitarius, V. plumbeus et V. cassinii, avant leur séparation en 1998. Expliquez dans les Remarques pourquoi le code non identifié a été choisi.",730
+6300,BCVI,Black-capped Vireo,"0, 1C, 0A, 1",Viréo à tête noire,Vireo atricapilla,,,724
+6310,WEVI,White-eyed Vireo,"0, 0A",Viréo aux yeux blancs,Vireo griseus,,,718
+6320,HUVI,Hutton's Vireo,0,Viréo de Hutton,Vireo huttoni,,,731
+6330,BEVI,Bell's Vireo,0,Viréo de Bell,Vireo bellii,,,722
+6331,PRVI,Puerto Rican Vireo,"0, 1, 1C",Viréo de Porto Rico,Vireo latimeri,,,721
+6334,LBVI,Least Bell's Vireo,"0, 0A",Viréo de Bell - forme minime,Vireo bellii pusillus,Y,,723
+6340,GRVI,Gray Vireo,"1, 1C",Viréo gris,Vireo vicinior,,,725
+6350,BANA,Bananaquit,"0, 0A, 1C, 1",Sucrier à ventre jaune,Coereba flaveola,,,1007
+6360,BAWW,Black-and-white Warbler,"0, 0A, 1C, 1",Paruline noir et blanc,Mniotilta varia,,,943
+6366,HYWA,Hybrid Warbler,"0, 0A, 1",Hybride de paruline,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",1006
+6370,PROW,Prothonotary Warbler,0,Paruline orangée,Protonotaria citrea,Ontario,,944
+6380,SWWA,Swainson's Warbler,"1, 1C, 0",Paruline de Swainson,Limnothlypis swainsonii,,,945
+6381,CCWA,Crescent-chested Warbler,"0A, 0",Paruline à croissant,Oreothlypis superciliosa,,,946
+6390,WEWA,Worm-eating Warbler,"1C, 0, 1",Paruline vermivore,Helmitheros vermivorum,,,935
+6410,BWWA,Blue-winged Warbler,"0A, 0",Paruline à ailes bleues,Vermivora cyanoptera,,,939
+6412,BRWA,Brewster's Warbler,"0A, 0",Paruline de Brewster,,,,940
+6413,LAWA,Lawrence's Warbler,"0A, 0",Paruline de Lawrence,,,,941
+6416,GBWH,Golden-winged x Blue-winged Warbler Hybrid,"0A, 0",Hybride de Paruline à ailes dorées/à ailes bleues,,,Vermivora chrysoptera X V. cyanoptera. Use for hybrids that do not fit Lawrences or Brewsters. | Vermivora chrysoptera X V. cyanoptera. À utiliser pour les hybrides qui ne correspondent pas aux Parulines de Lawrence ou de Brewster.,942
+6420,GWWA,Golden-winged Warbler,"0A, 0",Paruline à ailes dorées,Vermivora chrysoptera,Manitoba,,938
+,,,,,,Ontario,,
+,,,,,,Québec,,
+6430,LUWA,Lucy's Warbler,"0A, 0",Paruline de Lucy,Leiothlypis luciae,,,950
+6440,VIWA,Virginia's Warbler,"0A, 0",Paruline de Virginia,Leiothlypis virginiae,,,952
+6450,NAWA,Nashville Warbler,"0A, 0",Paruline à joues grises,Leiothlypis ruficapilla,,,951
+6460,OCWA,Orange-crowned Warbler,"0, 0A",Paruline verdâtre,Leiothlypis celata,,,948
+6470,TEWA,Tennessee Warbler,"0A, 0",Paruline obscure,Leiothlypis peregrina,,,947
+6471,COLW,Colima Warbler,"0, 1, 1C",Paruline de Colima,Leiothlypis crissalis,,,949
+6480,NOPA,Northern Parula,"0A, 0",Paruline à collier,Setophaga americana,,,967
+6490,TRPA,Tropical Parula,0A,Paruline à joues noires,Setophaga pitiayumi,,,968
+6500,CMWA,Cape May Warbler,"0, 0A, 1C, 1",Paruline tigrée,Setophaga tigrina,,,965
+6510,OLWA,Olive Warbler,"0, 0A",Fauvine des pins,Peucedramus taeniatus,,,927
+6520,YEWA,Yellow Warbler,"0, 0A, 1C, 1",Paruline jaune,Setophaga petechia,,,972
+6540,BTBW,Black-throated Blue Warbler,"0, 0A",Paruline bleue,Setophaga caerulescens,,,975
+6550,MYWA,Myrtle Warbler,"0, 1C, 0A, 1",Paruline à croupion jaune,Setophaga coronata coronata,,,981
+6556,UYRW,Unspecified Yellow-rumped Warbler,"0, 1C, 0A, 1",Paruline à croupion jaune non identifiée,Setophaga coronata,,Undifferentiated Myrtle / Audubon's Warbler. Use only if uncertain. | Setophaga coronata coronate ou Setophaga auduboni auduboni. À n'utiliser qu'en cas d'incertitude.,982
+6560,AUWA,Audubon's Warbler,"0, 1C, 0A, 1",Paruline à croupion jaune de l'ouest,Setophaga coronata auduboni,,,983
+6570,MAWA,Magnolia Warbler,"0A, 0",Paruline à tête cendrée,Setophaga magnolia,,,969
+6580,CERW,Cerulean Warbler,"0A, 0",Paruline azurée,Setophaga cerulea,Ontario,,966
+,,,,,,Québec,,
+6581,EWWA,Elfin-woods Warbler,0,Paruline d'Angela,Setophaga angelae,Y,,960
+6590,CSWA,Chestnut-sided Warbler,"0A, 0",Paruline à flancs marron,Setophaga pensylvanica,,,973
+6600,BBWA,Bay-breasted Warbler,"0, 1C, 0A, 1",Paruline à poitrine baie,Setophaga castanea,,,970
+6610,BLPW,Blackpoll Warbler,"0, 1C, 0A, 1",Paruline rayée,Setophaga striata,,,974
+6620,BLBW,Blackburnian Warbler,"0, 0A",Paruline à gorge orangée,Setophaga fusca,,,971
+6630,YTWA,Yellow-throated Warbler,"0A, 0",Paruline à gorge jaune,Setophaga dominica,,,984
+6634,SUWA,Sutton's Warbler,0A,Paruline de Sutton,,,Setophaga americana x S. dominica hybrid,985
+6640,GRWA,Grace's Warbler,"0A, 0",Paruline de Grace,Setophaga graciae,,,990
+6641,ADWA,Adelaide's Warbler,"0A, 0",Paruline d'Adélaïde,Setophaga adelaidae,,,987
+6642,BARW,Barbuda Warbler,"0A, 0",Paruline de Barbuda,Setophaga subita,,,988
+6643,SLWA,St. Lucia Warbler,"0A, 0",Paruline de Sainte-Lucie,Setophaga delicata,,,989
+6650,BTYW,Black-throated Gray Warbler,"0A, 0",Paruline grise,Setophaga nigrescens,,,991
+6660,GCWA,Golden-cheeked Warbler,0A,Paruline à dos noir,Setophaga chrysoparia,Y,,995
+6670,BTNW,Black-throated Green Warbler,"0A, 0",Paruline à gorge noire,Setophaga virens,,,996
+6680,TOWA,Townsend's Warbler,"0A, 0",Paruline de Townsend,Setophaga townsendi,,,992
+6686,THWH,Townsend's X Hermit Warbler Hybrid,"0A, 0",Hybride de Paruline de Townsend/Paruline à tête jaune,,,,993
+6690,HEWA,Hermit Warbler,"0A, 0",Paruline à tête jaune,Setophaga occidentalis,,,994
+6700,KIWA,Kirtland's Warbler,"1C, 1",Paruline de Kirtland,Setophaga kirtlandii,,,964
+6710,PIWA,Pine Warbler,"0, 0A",Paruline des pins,Setophaga pinus,,,980
+6720,WPWA,Western Palm Warbler,"0, 0A",Paruline à couronne rousse de l'ouest,Setophaga palmarum palmarum,,,976
+6721,UPWA,Unspecified Palm Warbler,"0, 0A",Paruline à couronne rousse non spécifié,Setophaga palmarum,,Undifferentiated Western / Yellow Palm Warbler,978
+6729,YPWA,Yellow Palm Warbler,"0, 0A",Paruline à couronne rousse,Setophaga palmarum hypochrysea,,,977
+6730,PRAW,Prairie Warbler,"0A, 0",Paruline des prés,Setophaga discolor,,,986
+6740,OVEN,Ovenbird,"1, 1C, 0",Paruline couronnée,Seiurus aurocapilla,,,934
+6750,NOWA,Northern Waterthrush,"1, 0, 1C",Paruline des ruisseaux,Parkesia noveboracensis,,,937
+6760,LOWA,Louisiana Waterthrush,"1C, 1",Paruline hochequeue,Parkesia motacilla,Ontario,,936
+,,,,,,Québec,,
+6770,KEWA,Kentucky Warbler,"0, 1C, 1",Paruline du Kentucky,Geothlypis formosa,,,957
+6780,CONW,Connecticut Warbler,"1, 0, 1C",Paruline à gorge grise,Oporornis agilis,,,953
+6790,MOWA,Mourning Warbler,"0, 0A, 1, 1C",Paruline triste,Geothlypis philadelphia,,,956
+6800,MGWA,MacGillivray's Warbler,"1C, 1, 0, 0A",Paruline des buissons,Geothlypis tolmiei,,,955
+6810,COYE,Common Yellowthroat,"0, 1C, 0A, 1",Paruline masquée,Geothlypis trichas,,,959
+6821,GCYE,Gray-crowned Yellowthroat,"1, 1C, 1B",Paruline à calotte grise,Geothlypis poliocephala,,,954
+6830,YBCH,Yellow-breasted Chat,"1B, 1A, 1D",Ictérie polyglotte,Icteria virens,British Columbia,Some may require size 2. | Certains peuvent nécessiter une taille 2.,1005
+,,,,,,Ontario,,
+6840,HOWA,Hooded Warbler,"0, 0A, 1C, 1",Paruline à capuchon,Setophaga citrina,,,962
+6850,WIWA,Wilson's Warbler,"0A, 0",Paruline à calotte noire,Cardellina pusilla,,,1001
+6860,CAWA,Canada Warbler,"0, 0A",Paruline du Canada,Cardellina canadensis,Alberta,,1000
+,,,,,,British Columbia,,
+,,,,,,Manitoba,,
+,,,,,,New Brunswick,,
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Prince Edward Island,,
+,,,,,,Québec,,
+,,,,,,Saskatchewan,,
+,,,,,,Yukon Territory,,
+,,,,,,Northwest Territories,,
+6870,AMRE,American Redstart,"0A, 0",Paruline flamboyante,Setophaga ruticilla,,,963
+6880,PARE,Painted Redstart,"0A, 0",Paruline à ailes blanches,Myioborus pictus,,,1003
+6881,FTWA,Fan-tailed Warbler,1,Paruline des rochers,Euthlypis lachrymosa,,,997
+6882,HOSP,House Sparrow,"1B, 1",Moineau domestique,Passer domesticus,,,1211
+6883,ETSP,Eurasian Tree Sparrow,"1, 1B, 1C",Moineau friquet,Passer montanus,,,1212
+6890,SLAR,Slate-throated Redstart,"0A, 0",Paruline ardoisée,Myioborus miniatus,,,1004
+6900,RFWA,Red-faced Warbler,"0A, 0",Paruline à face rouge,Cardellina rubrifrons,,,1002
+6920,GOLW,Golden-crowned Warbler,"0A, 0",Paruline à couronne dorée,Basileuterus culicivorus,,,999
+6921,RCWA,Rufous-capped Warbler,"1, 0",Paruline à calotte rousse,Basileuterus rufifrons,,,998
+6940,WHWA,White Wagtail,"1, 1C",Bergeronnette grise,Motacilla alba,,,915
+6951,BWAG,Black-backed Wagtail,"1, 1C",Bergeronnette lugubre,Motacilla alba lugens,,,916
+6960,EYWA,Eastern Yellow Wagtail,"1, 1C",Bergeronnette de Béringie,Motacilla tschutschensis,,,913
+6961,GRAW,Gray Wagtail,"1, 1C",Bergeronnette des ruisseaux,Motacilla cinerea,,,914
+6970,AMPI,American Pipit,"1, 1C",Pipit d'Amérique,Anthus rubescens,,,920
+6981,PEPI,Pechora Pipit,"1, 1C",Pipit de la Petchora,Anthus gustavi,,,918
+6983,OBPI,Olive-backed Pipit,"1, 1C",Pipit à dos olive,Anthus hodgsoni,,,917
+6990,RTPI,Red-throated Pipit,"1, 1C",Pipit à gorge rousse,Anthus cervinus,,,919
+7000,SPPI,Sprague's Pipit,"1, 1C",Pipit de Sprague,Anthus spragueii,Alberta,,921
+,,,,,,Manitoba,,
+,,,,,,Saskatchewan,,
+7010,AMDI,American Dipper,"2, 1D, 1A",Cincle d'Amérique,Cinclus mexicanus,,,827
+7020,SATH,Sage Thrasher,"1B, 1A, 1D",Moqueur des armoises,Oreoscoptes montanus,Alberta,,898
+,,,,,,British Columbia,,
+,,,,,,Saskatchewan,,
+7030,NOMO,Northern Mockingbird,"2, 1D, 1A",Moqueur polyglotte,Mimus polyglottos,,,901
+7031,BAMO,Bahama Mockingbird,"2, 1D, 1A",Moqueur des Bahamas,Mimus gundlachii,,,899
+7032,TRMO,Tropical Mockingbird,"1A, 1D, 2",Moqueur des savanes,Mimus gilvus,,,900
+7040,GRCA,Gray Catbird,1A,Moqueur chat,Dumetella carolinensis,,,888
+7050,BRTH,Brown Thrasher,"2, 3",Moqueur roux,Toxostoma rufum,,,892
+7060,LBTH,Long-billed Thrasher,"2, 3",Moqueur à long bec,Toxostoma longirostre,,,893
+7070,CBTH,Curve-billed Thrasher,"3, 2, 2A",Moqueur à bec courbe,Toxostoma curvirostre,,,891
+7080,BETH,Bendire's Thrasher,2,Moqueur de Bendire,Toxostoma bendirei,,,894
+7100,CATH,California Thrasher,3,Moqueur de Californie,Toxostoma redivivum,,,895
+7110,LCTH,LeConte's Thrasher,2,Moqueur de LeConte,Toxostoma lecontei,,,896
+7111,PETH,Pearly-eyed Thrasher,"3, 3B, 2",Moqueur corossol,Margarops fuscatus,,,889
+7120,CRTH,Crissal Thrasher,2,Moqueur cul-roux,Toxostoma crissale,,,897
+7121,BLMO,Blue Mockingbird,2,Moqueur bleu,Melanotis caerulescens,,,902
+7130,CACW,Cactus Wren,"1B, 1A",Troglodyte des cactus,Campylorhynchus brunneicapillus,,,820
+7140,SIWR,Sinaloa Wren,"1B, 1",Troglodyte du Sinaloa,Thryophilus sinaloa,,,821
+7150,ROWR,Rock Wren,"1, 1C, 0",Troglodyte des rochers,Salpinctes obsoletus,,,808
+7170,CANW,Canyon Wren,"1, 1C",Troglodyte des canyons,Catherpes mexicanus,,,809
+7180,CARW,Carolina Wren,"1B, 1",Troglodyte de Caroline,Thryothorus ludovicianus,,,818
+7190,BEWR,Bewick's Wren,"1, 0, 1C",Troglodyte de Bewick,Thryomanes bewickii,,,819
+7210,UHWR,Unidentified House Wren,"0, 0A, 1C, 1",Troglodyte familier,,,,810
+7211,NHWR,Northern House Wren,"0, 0A, 1C, 1",Troglodyte familier,Troglodytes aedon,,,811
+7220,WIWR,Winter Wren,"0A, 0",Troglodyte des forêts,Troglodytes hiemalis,,,814
+7221,PAWR,Pacific Wren,"0A, 0",Troglodyte de Baird,Troglodytes pacificus,,,813
+7222,PWWR,Pacific/Winter Wren,"0A, 0",Troglodyte de Baird/des forêts,,,Troglodytes pacificus and T. hiemalis prior to split in 2010,815
+7240,SEWR,Sedge Wren,"0A, 0",Troglodyte à bec court,Cistothorus stellaris,,,816
+7250,MAWR,Marsh Wren,"1C, 1, 0",Troglodyte des marais,Cistothorus palustris,,,817
+7260,BRCR,Brown Creeper,"0A, 0",Grimpereau brun,Certhia americana,,,807
+7261,RWBU,Red-whiskered Bulbul,"1B, 1A",Bulbul orphée,Pycnonotus jocosus,,,829
+7262,RVBU,Red-vented Bulbul,"1A, 1D, 2",Bulbul à ventre rouge,Pycnonotus cafer,,,828
+7270,WBNU,White-breasted Nuthatch,"1B, 1, 1C",Sittelle à poitrine blanche,Sitta carolinensis,,,804
+7280,RBNU,Red-breasted Nuthatch,"0, 1C, 1",Sittelle à poitrine rousse,Sitta canadensis,,,803
+7290,BHNU,Brown-headed Nuthatch,"0, 1C",Sittelle à tête brune,Sitta pusilla,,,806
+7300,PYNU,Pygmy Nuthatch,"0, 1C",Sittelle pygmée,Sitta pygmaea,,,805
+7310,TUTI,Tufted Titmouse,1B,Mésange bicolore,Baeolophus bicolor,,,798
+7320,BCTI,Black-crested Titmouse,1B,Mésange à plumet noir,Baeolophus atricristatus,,,800
+7330,OATI,Oak Titmouse,"1, 1C",Mésange unicolore,Baeolophus inornatus,,AOU split from 7339-PLTI in 1998. | AOU l’a séparé de 7339-PLTI en 1998.,796
+7331,JUTI,Juniper Titmouse,"1, 1C",Mésange des genévriers,Baeolophus ridgwayi,,AOU split from 7339-PLTI in 1998. | AOU l’a séparé de 7339-PLTI en 1998.,797
+7339,PLTI,Plain Titmouse,1,Mésange unicolore,,,Unspecified Baeolophus inornatus or B. ridgwayi. Explain in Remarks why the unspecified code was chosen. | Baeolophus inornatus ou B. ridgwayi non spécifié. Expliquez dans les Remarques pourquoi le code non identifié a été choisi.,799
+7340,BRTI,Bridled Titmouse,"1, 1C",Mésange arlequin,Baeolophus wollweberi,,,795
+7341,VATI,Varied Tit,"1B, 1, 1C",Mésange variée,Sittiparus varius,,,794
+7350,BCCH,Black-capped Chickadee,"0, 0A, 1C, 1",Mésange à tête noire,Poecile atricapillus,,,786
+7356,HYCH,Hybrid Chickadee,"0, 1C, 1",Mésange hybride,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",792
+7357,UNCH,Unidentified Chickadee,"0, 0A, 1C, 1",Mésange non identifié,,,,793
+7360,CACH,Carolina Chickadee,"0, 0A, 1C",Mésange de Caroline,Poecile carolinensis,,,785
+7370,MECH,Mexican Chickadee,"0, 0A",Mésange grise,Poecile sclateri,,,788
+7380,MOCH,Mountain Chickadee,"0, 0A",Mésange de Gambel,Poecile gambeli,,,787
+7390,GHCH,Gray-headed Chickadee,"1C, 0, 1",Mésange lapone,Poecile cinctus,,,791
+7400,BOCH,Boreal Chickadee,"0, 0A, 1C, 1",Mésange à tête brune,Poecile hudsonicus,,,790
+7410,CBCH,Chestnut-backed Chickadee,"0, 0A",Mésange à dos marron,Poecile rufescens,,,789
+7420,WREN,Wrentit,"1, 1C, 1B",Cama brune,Chamaea fasciata,,,837
+7421,RBLE,Red-billed Leiothrix,1B,Léiothrix jaune,Leiothrix lutea,,,841
+7422,HWAM,Hwamei,"2, 3",Garrulaxe hoamy,Garrulax canorus,,,840
+7423,GNLA,Greater Necklaced Laughingthrush,2,Garrulaxe à plastron,Pterorhinus pectoralis,,,839
+7424,OBNT,Orange-billed Nightingale-Thrush,1B,Grive à bec orange,Catharus aurantiirostris,,,867
+7430,BUSH,Bushtit,"0A, 0",Orite buissonnière,Psaltriparus minimus,,,802
+7460,VERD,Verdin,"0A, 0",Auripare verdin,Auriparus flaviceps,,,801
+7461,JABW,Japanese Bush Warbler,"M: 1, 1C",Bouscarle chanteuse,Horornis diphone,,,832
+,,,"F: 0, 1C, 0A",,,,,
+7462,MILL,Millerbird,0A,Rousserolle obscure,Acrocephalus familiaris,Y,,842
+7470,ARWA,Arctic Warbler,"0A, 0",Pouillot boréal,Phylloscopus borealis,,,835
+7471,MIGW,Middendorff's Grasshopper Warbler,0A,Locustelle de Middendorff,Helopsaltes ochotensis,,,844
+7473,WOWA,Wood Warbler,0A,Pouillot siffleur,Phylloscopus sibilatrix,,,833
+7474,DUWA,Dusky Warbler,0A,Pouillot brun,Phylloscopus fuscatus,,,834
+7475,LANW,Lanceolated Warbler,0A,Locustelle lancéolée,Locustella lanceolata,,,848
+7476,AKLW,Arctic/Kamchatka Leaf Warbler,"0A, 0",Pouillot boréal/du Kamtchatka,,,Phylloscopus borealis and P. examinandus prior to split in 2014,836
+7480,GCKI,Golden-crowned Kinglet,0A,Roitelet à couronne dorée,Regulus satrapa,,,830
+7490,RCKI,Ruby-crowned Kinglet,0A,Roitelet à couronne rubis,Corthylio calendula,,,831
+7491,SIAC,Siberian Accentor,0A,Accenteur montanelle,Prunella montanella,,,912
+7510,BGGN,Blue-gray Gnatcatcher,0A,Gobemoucheron gris-bleu,Polioptila caerulea,,,822
+7520,BTGN,Black-tailed Gnatcatcher,0A,Gobemoucheron à queue noire,Polioptila melanura,,,825
+7530,CAGN,California Gnatcatcher,0A,Gobemoucheron de Californie,Polioptila californica,Y,,823
+7531,BCGN,Black-capped Gnatcatcher,0A,Gobemoucheron à coiffe noire,Polioptila nigriceps,,,826
+7532,BACG,Baja Gnatcatcher,0A,Gobemoucheron de Californie,Polioptila californica,,,824
+7540,TOSO,Townsend's Solitaire,1B,Solitaire de Townsend,Myadestes townsendi,,,861
+7541,OMAO,Omao,"1A, 1D",Solitaire d'Hawaï,Myadestes obscurus,,,865
+7542,PUAI,Puaiohi,1A,Solitaire puaïohi,Myadestes palmeri,Y,,866
+7543,KAMA,Kamao,1A,Solitaire kamao,Myadestes myadestinus,Y,,863
+7545,OLOM,Olomao,1A,Solitaire de Lanai,Myadestes lanaiensis,Y,,864
+7550,WOTH,Wood Thrush,1A,Grive des bois,Hylocichla mustelina,New Brunswick,,874
+,,,,,,Nova Scotia,,
+,,,,,,Ontario,,
+,,,,,,Québec,,
+7560,VEER,Veery,1B,Grive fauve,Catharus fuscescens,,,868
+7570,GCTH,Gray-cheeked Thrush,1B,Grive à joues grises,Catharus minimus,,,869
+7571,BITH,Bicknell's Thrush,1B,Grive de Bicknell,Catharus bicknelli,New Brunswick,,870
+,,,,,,Nova Scotia,,
+,,,,,,Québec,,
+7579,GCBT,Unidentified Gray-cheeked/Bicknell's Thrush,1B,Grive à joues grises/Grive de Bicknell non identifié,,,,871
+7580,SWTH,Swainson's Thrush,1B,Grive à dos olive,Catharus ustulatus,,,872
+7590,HETH,Hermit Thrush,"1B, 1",Grive solitaire,Catharus guttatus,,,873
+7600,REDW,Redwing,"2, 1A, 1D",Grive mauvis,Turdus iliacus,,,879
+7610,AMRO,American Robin,2,Merle d'Amérique,Turdus migratorius,,,883
+7612,FIEL,Fieldfare,2,Grive litorne,Turdus pilaris,,,878
+7613,EYTH,Eyebrowed Thrush,2,Merle obscur,Turdus obscurus,,,876
+7614,DUTH,Dusky Thrush,2,Grive à ailes rousses,Turdus eunomus,,,877
+7621,CCTH,Clay-colored Thrush,2,Merle fauve,Turdus grayi,,,880
+7622,RBRO,Rufous-backed Robin,2,Merle à dos roux,Turdus rufopalliatus,,,882
+7623,RLTH,Red-legged Thrush,2,Merle vantard,Turdus plumbeus,,,885
+7624,SOTH,Song Thrush,2,Grive musicienne,Turdus philomelos,,,875
+7630,VATH,Varied Thrush,2,Grive à collier,Ixoreus naevius,,,886
+7631,AZTH,Aztec Thrush,2,Grive aztèque,Ridgwayia pinicola,,,887
+7640,BLUE,Bluethroat,"1, 1C",Gorgebleue à miroir,Luscinia svecica,,,853
+7641,SIRU,Siberian Rubythroat,"1B, 1",Rossignol calliope,Calliope calliope,,,852
+7642,RFBL,Red-flanked Bluetail,0,Rossignol à flancs roux,Tarsiger cyanurus,,,854
+7650,NOWH,Northern Wheatear,1B,Traquet motteux,Oenanthe oenanthe,,,856
+7660,EABL,Eastern Bluebird,"1B, 1, 1A",Merlebleu de l'Est,Sialia sialis,,,857
+7670,WEBL,Western Bluebird,1B,Merlebleu de l'Ouest,Sialia mexicana,,,858
+7676,HYBL,Hybrid Western/Mountain Bluebird,"1B, 1A",Hybride de Merlebleu de l'Ouest et de Merlebleu azuré,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",860
+7680,MOBL,Mountain Bluebird,"1B, 1A",Merlebleu azuré,Sialia currucoides,,,859
+7690,WRSH,White-rumped Shama,"1B, 1A, 1D",Shama à croupion blanc,Copsychus malabaricus,,,851
+7700,HAEL,Hawaii Elepaio,"1, 0, 1C",Monarque d'Hawaï,Chasiempis sandwichensis,,,770
+7701,OAEL,Oahu Elepaio,1,Monarque d'Oahu,Chasiempis ibidis,Y,,769
+7702,KAEL,Kauai Elepaio,"1, 0",Monarque de Kauai,Chasiempis sclateri,,,768
+7710,TAFL,Taiga Flycatcher,0,Gobemouche de la taïga,Ficedula albicilla,,,855
+7720,DSFL,Dark-sided Flycatcher,0,Gobemouche de Sibérie,Muscicapa sibirica,,,850
+7730,GSFL,Gray-streaked Flycatcher,"0, 1C, 1",Gobemouche à taches grises,Muscicapa griseisticta,,,849
+7740,LAFI,Laysan Finch,"1A, 1B",Psittirostre de Laysan,Telespiza cantans,Y,,1167
+7750,NIFI,Nihoa Finch,"1B, 1",Psittirostre de Nihoa,Telespiza ultima,Y,,1168
+7760,OU,Ou,2,Psittirostre psittacin,Psittirostra psittacea,Y,,1169
+7770,PALI,Palila,"1A, 1B",Psittirostre palila,Loxioides bailleui,Y,,1170
+7810,MAPA,Maui Parrotbill,"1B, 1A",Pseudonestor de Maui,Pseudonestor xanthophrys,Y,,1171
+7820,HAAM,Hawaii Amakihi,"1, 1B",Amakihi familier,Chlorodrepanis virens,,,1172
+7821,OAAM,Oahu Amakihi,"1, 1C, 1B",Amakihi d'Oahu,Chlorodrepanis flava,,,1173
+7830,KAAM,Kauai Amakihi,"1, 1C, 1B",Amakihi de Stejneger,Chlorodrepanis stejnegeri,,,1174
+7840,ANIA,Anianiau,"0, 1C, 1",Anianiau de Kauai,Magumma parva,,,1178
+7870,OAAK,Oahu Akialoa,"1, 0",Akialoa d'Oahu,Akialoa ellisiana,Y,,1175
+7880,NUKU,Nukupuu,"1C, 1",Nukupuu d'Oahu,Hemignathus lucidus,Y,,1176
+7890,AKIP,Akiapolaau,"1A, 1B",Akiapolaau d'Hawaï,Hemignathus wilsoni,Y,,1177
+7900,AKIK,Akikiki,"1, 1C, 0",Akikiki de Kauai,Oreomystis bairdi,Y,,1179
+7910,HCRE,Hawaii Creeper,"1, 1C, 0",Loxopse mana,Loxops mana,Y,,1183
+7920,MAAL,Maui Alauahio,"1C, 1",Alauahio de Maui,Paroreomyza montana,,,1182
+7930,KAKA,Kakawahie,"0, 1C, 1",Alauahio de Molokai,Paroreomyza flammea,Y,,1181
+7940,OAAL,Oahu Alauahio,"1, 1C",Alauahio d'Oahu,Paroreomyza maculata,Y,,1180
+7950,HAAK,Hawaii Akepa,"0, 1",Loxopse d'Hawaï,Loxops coccineus,Y,,1185
+7960,AKEK,Akekee,"1, 1C",Loxopse de Kauai,Loxops caeruleirostris,Y,,1184
+7980,IIWI,Iiwi,1B,Iiwi rouge,Drepanis coccinea,,,1186
+8010,AKOH,Akohekohe,1A,Palmérie huppée,Palmeria dolei,Y,,1187
+8020,APAP,Apapane,"1, 1C, 1B",Picchion cramoisi,Himatione sanguinea,,,1188
+8040,POUL,Poo-uli,1B,Po-o-uli masqué,Melamprosops phaeosoma,Y,,1189
+8041,NRBI,Northern Red Bishop,0A,Euplecte franciscain,Euplectes franciscanus,,,1214
+8042,YCBI,Yellow-crowned Bishop,0A,Euplecte vorabé,Euplectes afer,,,1213
+8050,RCCO,Red-cheeked Cordonbleu,"1C, 1",Cordonbleu à joues rouges,Uraeginthus bengalus,,,1215
+8060,LAVW,Lavender Waxbill,0,Astrild queue-de-vinaigre,Glaucestrilda caerulescens,,,1216
+8070,ORAW,Orange-cheeked Waxbill,"0A, 0",Astrild à joues orange,Estrilda melpoda,,,1217
+8080,BRWX,Black-rumped Waxbill,"0, 1C, 1",Astrild cendré,Estrilda troglodytes,,,1218
+8081,COMW,Common Waxbill,"0A, 0",Astrild ondulé,Estrilda astrild,,,1219
+8090,REAV,Red Avadavat,"0A, 0",Bengali rouge,Amandava amandava,,,1220
+8100,AFSI,African Silverbill,"0, 0A, 1C",Capucin bec-d'argent,Euodice cantans,,,1222
+8101,BRMA,Bronze Mannikin,0A,Capucin nonnette,Spermestes cucullata,,,1221
+8110,SBMU,Scaly-breasted Munia,"0, 0A",Capucin damier,Lonchura punctulata,,,1225
+8120,TRMU,Tricolored Munia,"0, 1C, 1",Capucin à dos marron,Lonchura malacca,,,1226
+8130,JAVS,Java Sparrow,"1B, 1A",Padda de Java,Padda oryzivora,,,1223
+8131,PTWH,Pin-tailed Whydah,"1, 0, 1B",Veuve dominicaine,Vidua macroura,,,1227
+8140,CHMU,Chestnut Munia,"0, 0A",Capucin à tête noire,Lonchura atricapilla,,,1224
+8501,KIPE,King Penguin,9,Manchot royal,Aptenodytes patagonicus,,,104
+8502,EMPE,Emperor Penguin,9,Manchot empereur,Aptenodytes forsteri,,,105
+8503,GEPE,Gentoo Penguin,9,Manchot papou,Pygoscelis papua,,,106
+8504,ADPE,Adelie Penguin,9,Manchot d'Adélie,Pygoscelis adeliae,,,107
+8505,CHPE,Chinstrap Penguin,9,Manchot à jugulaire,Pygoscelis antarcticus,,,108
+8506,VIPE,Victoria Penguin,9,Gorfou du Fiordland,Eudyptes pachyrhynchus,,,109
+8508,ROCP,Rockhopper Penguin,9,Gorfou sauteur,Eudyptes chrysocome,,,110
+8509,ROYP,Royal Penguin,9,Gorfou de Schlegel,Eudyptes schlegeli,,,111
+8510,MACP,Macaroni Penguin,9,Gorfou doré,Eudyptes chrysolophus,,,112
+8512,FAPE,Fairy Penguin,9,Manchot pygmée,Eudyptula minor,,,113
+8514,AFPE,African Penguin,9,Manchot du Cap,Spheniscus demersus,,,114
+8515,HUPE,Humboldt Penguin,9,Manchot de Humboldt,Spheniscus humboldti,,,116
+8516,MAGP,Magellanic Penguin,9,Manchot de Magellan,Spheniscus magellanicus,,,115
+8517,GALP,Galapagos Penguin,9,Manchot des Galapagos,Spheniscus mendiculus,,,117
+8519,SRAL,Southern Royal Albatross,8,Albatros royal,Diomedea epomophora,,,132
+8521,BUAL,Buller's Albatross,8,Albatros de Buller,Thalassarche bulleri,,,123
+8522,GHAL,Gray-headed Albatross,8,Albatros à tête grise,Thalassarche chrysostoma,,,122
+8523,SOAL,Sooty Albatross,8,,Phoebetria fusca,,,133
+8524,LMSA,Light-mantled Albatross,8,Albatros fuligineux,Phoebetria palpebrata,,,121
+8525,SGPE,Southern Giant-Petrel,"8, 7D",Pétrel géant,Macronectes giganteus,,,125
+8526,SOFU,Southern Fulmar,5,Fulmar argenté,Fulmarus glacialoides,,,135
+8527,BLPE,Blue Petrel,3,Prion bleu,Halobaena caerulea,,,139
+8528,BBPR,Broad-billed Prion,3,Prion de Forster,Pachyptila vittata,,,140
+8529,DOPR,Dove Prion,3,Prion de la désolation,Pachyptila desolata,,,141
+8530,TBPR,Thin-billed Prion,3,Prion de Belcher,Pachyptila belcheri,,,142
+8531,FAPR,Fairy Prion,3,Prion colombe,Pachyptila turtur,,,143
+8532,ANPE,Antarctic Petrel,5,Pétrel Antarctique,Thalassoica antarctica,,,136
+8533,WCPE,White-chinned Petrel,"7A, 6, 5A, 5",Puffin à menton blanc,Procellaria aequinoctialis,,,158
+8536,KEPE,Kerguelen Petrel,4,Pétrel de Kerguelen,Aphrodroma brevirostris,,,144
+8537,SNPE,Snow Petrel,4,Pétrel des neiges,Pagodroma nivea,,,138
+8538,GBSP,Gray-backed Storm-Petrel,"1B, 1A",Océanite néréide,Garrodia nereis,,,179
+8541,BECO,Blue-eyed Cormorant,"8, 7D",Cormoran impérial,Leucocarbo atriceps,,,212
+8543,SNSH,Snowy Sheathbill,"7A, 6",Chionis blanc,Chionis albus,,,319
+8544,LESH,Lesser Sheathbill,7A,Petit Chionis,Chionis minor,,,320
+8546,KEGU,Kelp Gull,"7A, 7, 7B",Goéland dominicain,Larus dominicanus,,,436
+8548,ANTE,Antarctic Tern,"3, 3B",Sterne couronnée,Sterna vittata,,,461
+8549,KETE,Kerguelen Tern,3,Sterne de Kerguelen,Sterna virgata,,,462
+8552,HYSK,Hybrid Skua,"7B, 7A",Hybride de Labbe,,,"Report suspected parentage as a remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",379
+8553,NGPE,Northern Giant-Petrel,8,Pétrel de Hall,Macronectes halli,,,126
+8554,BRSK,Brown Skua,"7B, 7A",Grand labbe,Stercorarius antarcticus,,,378
+8560,TIMO,Tinian Monarch,"0, 1C",Monarque de Tinian,Monarcha takatsukasae,,,742
+8570,MARC,Mariana Crow,"4, 4A",Corneille de Guam,Corvus kubaryi,Y,,758
+8580,GUSW,Guam Swiftlet,"0A, X",Salangane de Guam,Aerodramus bartschi,Y,,549
+8590,NIRW,Nightingale Reed Warbler,"1A, 1D",Rousserolle rossignol,Acrocephalus luscinius,Y,,843
+8600,MIME,Micronesian Megapode,6,Mégapode de La Pérouse,Megapodius laperouse,Y,,89
+8610,WRSW,White-rumped Swiftlet,"0, 1, 1C",Salangane à croupion blanc,Aerodramus spodiopygius,,,548
+8620,PCFD,Purple-capped Fruit Dove,"3A, 4",Tourterelle à collier,Ptilinopus porphyraceus,,,489
+8630,COLK,Collared Kingfisher,"2, 3, 3B",Martin-chasseur à collier blanc,Todiramphus chloris,,,588
+8640,SAST,Samoan Starling,"M: 3B, 3A, 4",Stourne de Samoa,Aplonis atrifusca,,,905
+,,,"F: 3, 3B, 3A",,,,,
+8650,POST,Polynesian Starling,"M: 2, 3",Stourne de Polynésie,Aplonis tabuensis,,,904
+,,,"F: 1A, 1D, 2",,,,,
+8660,CAHO,Cardinal Honeyeater,"1, 1C, 0",Myzomèle cardinal,Myzomela cardinalis,,,711
+8670,EWHO,Eastern Wattled Honeyeater,"1A, 1D, 2",Méliphage foulehaio,Foulehaio carunculatus,,,712
+8680,MIMY,Micronesian Myzomela,"1, 1B",Myzomèle de Micronésie,Myzomela rubratra,,,713
+8690,MIRF,Micronesian Rufous Fantail,"0A, 0",Rhipidure roux,Rhipidura versicolor,,,740
+8691,FISH,Fiji Shrikebill,"1A, 1B",Monarque des Fidji,Clytorhynchus vitiensis,,,741
+8700,BRWE,Bridled White-eye,"0A, 0",Zostérops bridé,Zosterops conspicillatus,,,847
+8710,GOWE,Golden White-eye,"1B, 1",Zostérops doré,Cleptornis marchei,,,845
+8720,MIST,Micronesian Starling,"3, 2",Stourne de Micronésie,Aplonis opaca,,,903
+8740,BLDR,Black Drongo,2,Drongo royal,Dicrurus macrocercus,,,739
+8750,LTCU,Long-tailed Cuckoo,"3, 3B, 3A",Coucou de Nouvelle-Zélande,Eudynamys taitensis,,,505
+8760,MCFD,Many-colored Fruit Dove,"3A, 3B",Ptilope de La Pérouse,Ptilinopus perousii,,,488
+8770,PAPI,Pacific Pigeon,6,Carpophage Pacifique,Ducula pacifica,,,491
+8780,SHGD,Shy Ground Dove,"3A, 4",Gallicolombe de stair,Alopecoenas stairi,Y,,487
+8790,POKI,Pohnpei Kingfisher,3,Martin-chasseur de Ponapé,Todiramphus reichenbachii,Y,,589
+8791,GUKI,Guam Kingfisher,"2, 1D",,Todiramphus cinnamominus,Y,,590
+8800,MASW,Mariana Swiftlet,0,Salangane de Guam,Aerodramus bartschi,Y,,550
+8810,ROWE,Rota White-eye,0,Zostérops de Rota,Zosterops rotensis,Y,,846
+9067,PRMA,Puerto Rican Mango,X,Mango de Porto Rico,Anthracothorax aurulentus,,,554
+9071,STTL,Streamertail,X,Colibri à tête noire,,,Includes both Trochilus polytmus (Red-billed) and Trochilus scitulus (Black-billed Streamertail),582
+9081,JATO,Jamaican Tody,0,Todier de Jamaïque,Todus todus,,,586
+9094,SAFL,Sad Flycatcher,"1C, 1",Tyran triste,Myiarchus barbirostris,,,688
+9099,YBEL,Yellow-bellied Elaenia,"1, 1B",Élénie à ventre jaune,Elaenia flavogaster,,,658
+9101,GAEL,Greater Antillean Elaenia,"0A, 0",Élénie sara,Elaenia fallax,,,659
+9102,JAEL,Jamaican Elaenia,"0A, 0",Élénie de Jamaïque,Myiopagis cotta,,,654
+9107,JACR,Jamaican Crow,6,Corneille de Jamaïque,Corvus jamaicensis,,,762
+9109,SHWR,Southern House Wren,0,Troglodyte austral,Troglodytes musculus,,,812
+9116,BRTR,Brown Trembler,"2, 1D",Trembleur brun,Cinclocerthia ruficauda,,,890
+9120,WETH,White-eyed Thrush,2,Merle aux yeux blancs,Turdus jamaicensis,,,881
+9122,WCTH,White-chinned Thrush,2,Merle à miroir,Turdus aurantius,,,884
+9127,RTSO,Rufous-throated Solitaire,"1, 1B, 1C",Solitaire siffleur,Myadestes genibarbis,,,862
+9130,TBVI,Thick-billed Vireo,"1C, 1",Viréo à bec fort,Vireo crassirostris,,,719
+9132,JAVI,Jamaican Vireo,0,Viréo de Jamaïque,Vireo modestus,,,720
+9138,OLIW,Olive-capped Warbler,0A,Paruline à calotte verte,Setophaga pityophila,,,979
+9141,ARRW,Arrowhead Warbler,0A,Paruline de Jamaïque,Setophaga pharetra,,,961
+9145,BAYE,Bahama Yellowthroat,"1, 1C",Paruline des Bahamas,Geothlypis rostrata,,,958
+9151,ORAN,Orangequit,"1C, 1",Pique-orange de Jamaïque,Euneornis campestris,,,1027
+9153,JAEU,Jamaican Euphonia,"0, 0A",Organiste de Jamaïque,Euphonia jamaica,,,1159
+9166,VETR,Venezuelan Troupial,3,Oriole troupiale,Icterus icterus,,,1147
+9169,JAOR,Jamaican Oriole,"2, 1D",Oriole de Jamaïque,Icterus leucopteryx,,,1151
+9176,YSGR,Yellow-shouldered Grassquit,"0, 1",Pèrenoir mantelé,Loxipasser anoxanthus,,,1023
+9178,GABU,Greater Antillean Bullfinch,"1B, 1",Pèrenoir petit-coq,Melopyrrha violacea,,,1025
+9182,YBSE,Yellow-bellied Seedeater,0,Sporophile à ventre jaune,Sporophila nigricollis,,,1019
+9184,BBGR,Blue-black Grassquit,"0, 0A",Jacarini noir,Volatinia jacarina,,,1015
+9986,HYNO,Hybrid Nonpasserine,"1A, 3A, 4, 4A, 5, 6, 7, 7A, 7B",Hybride de non-passerin,,,"Report suspected parentage as a Remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",624
+9996,HYPA,Hybrid Passerine,"0, 0A, 1, 1A, 1B, 1D, 3A, 3B",Hybride de passerin,,,"Report suspected parentage as a Remark (e.g. Species1 x Species2). | Signalez les liens de parenté suspects dans le champs remarque (p. ex., Espèce1 x Espèce2).",625

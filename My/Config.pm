@@ -63,14 +63,9 @@ class My::Config 2.0 {
   method _initializeConfig() {
     # Define the configuration and the variables we will store there.
     my $config = AppConfig->new({ CASE => 1, ERROR => \&_handleConfigError, PEDANTIC => 1 });
-    $config->define('abaChecklistUrl', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
-    $config->define('abaChecklistDownloadEnabled', { ARGCOUNT => AppConfig::ARGCOUNT_NONE, DEFAULT => '<undef>' });
     $config->define('csvHeaderRow', { ARGCOUNT => AppConfig::ARGCOUNT_LIST } );
-    $config->define('downloadedRawTestFilename', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
-    $config->define('latestChecklistFilename', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
     $config->define('localChecklistDir', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
-    $config->define('localChecklistSubdirParsed', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
-    $config->define('localChecklistSubdirRaw', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
+    $config->define('localChecklistFilename', { ARGCOUNT => AppConfig::ARGCOUNT_ONE });
 
     # Read the configuration values from our configuration file.
     $config->file($configFileFullPath);
