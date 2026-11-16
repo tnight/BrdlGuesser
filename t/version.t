@@ -47,7 +47,7 @@ is($result->error, undef, 'threw no exceptions');
 is($result->exit_code, 0, 'numeric exit code is zero');
 is($result->stderr, '', 'nothing sent to stderr');
 
-# We find an expected species code in the output.
+# We find the expected version number in the output.
 my $versionNumber = $brdlGuesser->VERSION;
 like($result->stdout, qr/$versionNumber/, 'printed the version number that we expected');
 

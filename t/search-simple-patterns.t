@@ -38,7 +38,9 @@ my $brdlGuesser = BrdlGuesser->new(
 # Declare some local variables that we will reuse.
 my $result;
 
+#
 # Do a search looking for a simple, exact match.
+#
 $result = test_app($brdlGuesser => [qw(search -p rwbl)]);
 
 # Assert that the right things happened.
@@ -47,12 +49,10 @@ is($result->exit_code, 0, 'numeric exit code is zero');
 is($result->stderr, '', 'nothing sent to stderr');
 like($result->stdout, qr/RWBL/, 'printed the search result that we expected');
 
+#
 # Do another search looking for a simple wildcard match.
+#
 $result = test_app($brdlGuesser => [qw(search -p rwb_)]);
-
-#
-# Assert that the right things happened.
-#
 
 # No signs of an error condition.
 is($result->error, undef, 'threw no exceptions');
