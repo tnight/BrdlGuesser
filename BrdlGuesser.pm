@@ -3,6 +3,7 @@ package BrdlGuesser;
 use strict;
 use warnings;
 use App::Cmd::Setup -app;
+use FindBin;
 
 # Expose our application version for use by the "version" command.
 use constant VERSION => 1.06;
@@ -18,11 +19,25 @@ sub new {
   # Call the parent App::Cmd constructor.
   my $self = $class->SUPER::new($args);
 
-  # Store the value as part of the app instance.
-  $self->runningScriptDirName($runningScriptDirName);
+  # Store the argument value as part of the app instance.
+  $self->runningScriptDirName($runningScriptDirName || $FindBin::Bin);
+
+  # Initialize our configuration.
+  $self->config(My::Config->new(runningScriptDirName => $self->runningScriptDirName()));
 
   # Return our newly-created app instance.
   return $self;
+}
+
+# Accessor for getting and setting our configuration.
+sub config {
+  my ($self, $newValue) = @_;
+
+  if (@_ > 1) {
+    $self->{'config'} = $newValue;
+  }
+
+  return $self->{'config'};
 }
 
 # Accessor for getting and setting our running script directory name.

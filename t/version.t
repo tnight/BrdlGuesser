@@ -14,7 +14,6 @@ BEGIN {
     '..'
   );
 }
-
 use lib $runningScriptDirName;
 chdir $runningScriptDirName or die "Cannot chdir to project root [$runningScriptDirName]: $!";
 
