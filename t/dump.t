@@ -4,18 +4,9 @@
 use strict;
 use warnings;
 
-# Make sure we can find our local module(s).
-use File::Basename;
-use File::Spec;
-my $runningScriptDirName;
-BEGIN {
-  $runningScriptDirName = File::Spec->catfile(
-    dirname(__FILE__),
-    '..'
-  );
-}
-use lib $runningScriptDirName;
-chdir $runningScriptDirName or die "Cannot chdir to project root [$runningScriptDirName]: $!";
+# Pull in our local helper.
+use lib 't/lib';
+use TestHelper;
 
 # Get ready for testing in general.
 use Test::More tests => 5;  # The number of tests we will run in this file.
@@ -27,12 +18,7 @@ use App::Cmd::Tester;
 use BrdlGuesser;
 
 # Instantiate our application instance.
-my $brdlGuesser = BrdlGuesser->new(
-                                   {
-                                    'runningScriptDirName' => $runningScriptDirName,
-                                    'show_version_cmd' => 1
-                                   }
-                                  );
+my $brdlGuesser = TestHelper->setup();
 
 # Run the application.
 my $result = test_app($brdlGuesser => [qw(dump)]);
