@@ -88,14 +88,14 @@ sub _initialize($$$) {
   # Choose from among the available species files.
   #
   # NOTE: The data file must have Unix-style line endings, not DOS or Mac.
-  my $speciesFilename = $self->{'app'}->config()->get('localChecklistFilename'); # BRDL master full data file.
+  my $speciesFilename = $self->app()->config()->get('localChecklistFilename'); # BRDL master full data file.
   # my $speciesFilename = 'short.csv';  # Small data file for testing.
   # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
 
   # Get the path to the input file including the path of the running script.
   $self->{'speciesPath'} = File::Spec->catfile(
-                                               $self->{'app'}->runningScriptDirName(),
-                                               $self->{'app'}->config()->get('localChecklistDir'),
+                                               $self->app()->runningScriptDirName(),
+                                               $self->app()->config()->get('localChecklistDir'),
                                                $speciesFilename
                                               );
 
