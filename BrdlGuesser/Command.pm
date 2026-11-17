@@ -28,10 +28,10 @@ use constant PUZZLE_WIDTH => 4;
 #
 
 sub new($$) {
-  my ($class, $arg) = @_;
+  my ($class, $args) = @_;
 
   # First, call the constructor of our superclass.
-  my $self = $class->SUPER::new($arg);
+  my $self = $class->SUPER::new($args);
 
   # Then, initialize the additional items we need for this subclass.
   $self->{'config'} = undef;
@@ -89,7 +89,9 @@ sub _initialize($$$) {
   my ($self, $opt, $args) = @_;
 
   # Initialize our configuration so we can do our work.
-  $self->{'config'} = My::Config->new(runningScriptDirName => $FindBin::Bin);
+  my $runningScriptDirName = $self->{'app'}->runningScriptDirName() || $FindBin::Bin;
+
+  $self->{'config'} = My::Config->new(runningScriptDirName => $runningScriptDirName);
 
   # Choose from among the available species files.
   #
@@ -100,7 +102,7 @@ sub _initialize($$$) {
 
   # Get the path to the input file including the path of the running script.
   $self->{'speciesPath'} = File::Spec->catfile(
-                                               $FindBin::Bin,
+                                               $runningScriptDirName,
                                                $self->{'config'}->get('localChecklistDir'),
                                                $speciesFilename
                                               );
