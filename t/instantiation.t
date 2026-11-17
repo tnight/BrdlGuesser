@@ -7,10 +7,15 @@ use warnings;
 # Make sure we can find our local module(s).
 use File::Basename;
 use File::Spec;
-use lib File::Spec->catfile(
-                            dirname(__FILE__),
-                            '..'
-                           );
+my $runningScriptDirName;
+BEGIN {
+  $runningScriptDirName = File::Spec->catfile(
+    dirname(__FILE__),
+    '..'
+  );
+}
+use lib $runningScriptDirName;
+chdir $runningScriptDirName or die "Cannot chdir to project root [$runningScriptDirName]: $!";
 
 # Get ready for testing in general.
 use Test::More tests => 6;
@@ -22,7 +27,12 @@ use App::Cmd::Tester;
 use BrdlGuesser;
 
 # Instantiate our application instance.
-my $brdlGuesser = BrdlGuesser->new({ 'show_version_cmd' => 1 });
+my $brdlGuesser = BrdlGuesser->new(
+                                   {
+                                    'runningScriptDirName' => $runningScriptDirName,
+                                    'show_version_cmd' => 1
+                                   }
+                                  );
 
 # Assert that we successfully instantiated the app.
 ok(defined($brdlGuesser));

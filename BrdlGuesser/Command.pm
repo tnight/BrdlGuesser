@@ -14,8 +14,6 @@ use warnings;
 
 # Gain access to all the other modules we'll need.
 use App::Cmd::Setup -command;
-use File::Basename;
-use FindBin;
 use Log::Any qw($log);
 use My::Config;
 use Text::CSV;
@@ -34,7 +32,6 @@ sub new($$) {
   my $self = $class->SUPER::new($args);
 
   # Then, initialize the additional items we need for this subclass.
-  $self->{'config'} = undef;
   $self->{'csv'} = undef;
   $self->{'encoding'} = ":encoding(UTF-8)";
   $self->{'exclusionRegex'} = undef;
@@ -88,22 +85,17 @@ sub _cleanUp($) {
 sub _initialize($$$) {
   my ($self, $opt, $args) = @_;
 
-  # Initialize our configuration so we can do our work.
-  my $runningScriptDirName = $self->{'app'}->runningScriptDirName() || $FindBin::Bin;
-
-  $self->{'config'} = My::Config->new(runningScriptDirName => $runningScriptDirName);
-
   # Choose from among the available species files.
   #
   # NOTE: The data file must have Unix-style line endings, not DOS or Mac.
-  my $speciesFilename = $self->{'config'}->get('localChecklistFilename'); # BRDL master full data file.
+  my $speciesFilename = $self->{'app'}->config()->get('localChecklistFilename'); # BRDL master full data file.
   # my $speciesFilename = 'short.csv';  # Small data file for testing.
   # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
 
   # Get the path to the input file including the path of the running script.
   $self->{'speciesPath'} = File::Spec->catfile(
-                                               $runningScriptDirName,
-                                               $self->{'config'}->get('localChecklistDir'),
+                                               $self->{'app'}->runningScriptDirName(),
+                                               $self->{'app'}->config()->get('localChecklistDir'),
                                                $speciesFilename
                                               );
 
