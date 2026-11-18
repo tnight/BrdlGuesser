@@ -14,6 +14,7 @@ use warnings;
 
 # Gain access to all the other modules we'll need.
 use App::Cmd::Setup -command;
+use FindBin;
 use Log::Any qw($log);
 use My::Config;
 use Text::CSV;
@@ -93,11 +94,13 @@ sub _initialize($$$) {
   # my $speciesFilename = 'less-short.csv';  # Larger data file for testing.
 
   # Get the path to the input file including the path of the running script.
-  $self->{'speciesPath'} = File::Spec->catfile(
-                                               $self->app()->runningScriptDirName(),
-                                               $self->app()->config()->get('localChecklistDir'),
-                                               $speciesFilename
-                                              );
+  $self->{'speciesPath'} =
+    File::Spec->catfile(
+                        $FindBin::Bin,
+                        '..',
+                        $self->app()->config()->get('localChecklistDir'),
+                        $speciesFilename
+                       );
 
   # Open the species input file so we can do our processing.
   open(

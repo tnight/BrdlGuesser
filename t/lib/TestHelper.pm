@@ -1,35 +1,19 @@
 package TestHelper;
 
+# Do our best to find errors as early as possible.
 use strict;
 use warnings;
 
-my $runningScriptDirName;
+# Make sure we can find our local module(s).
+use FindBin;
+use lib "$FindBin::Bin/../lib";
 
-BEGIN {
-  use File::Basename;
-  use File::Spec;
-  $runningScriptDirName = File::Spec->catfile(
-    dirname(__FILE__),
-    '..',
-    '..'
-  );
-}
+# Gain access to our application module.
+use BrdlGuesser;
 
 sub setup() {
-  # Make sure we can find our local module(s).
-  use lib $runningScriptDirName;
-  chdir $runningScriptDirName or die "Cannot chdir to project root [$runningScriptDirName]: $!";
-
-  # Gain access to our application module.
-  use BrdlGuesser;
-
   # Instantiate our application instance.
-  my $brdlGuesser = BrdlGuesser->new(
-    {
-      'runningScriptDirName' => $runningScriptDirName,
-      'show_version_cmd' => 1
-    }
-  );
+  my $brdlGuesser = BrdlGuesser->new({'show_version_cmd' => 1});
 
   # Return the object under test.
   return $brdlGuesser;

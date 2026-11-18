@@ -5,8 +5,8 @@ use strict;
 use warnings;
 
 # Make sure we can find our local module(s).
-use File::Basename;
-use lib dirname(__FILE__);
+use FindBin;
+use lib "$FindBin::Bin/../lib";
 
 # Gain access to our application module.
 use BrdlGuesser;
