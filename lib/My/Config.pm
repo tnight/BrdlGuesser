@@ -10,6 +10,7 @@ use AppConfig;
 use Data::Dumper;
 use File::Basename;
 use File::Spec;
+use FindBin;
 
 # These must come last to prevent spurious warning messages.
 use feature qw(class);
@@ -29,14 +30,13 @@ class My::Config 2.0 {
 
   field $appConfig;
   field $configFileFullPath;
-  field $runningScriptDirName :param;
 
   #
   # Phasers
   #
 
   ADJUST {
-    $configFileFullPath = $self->_calcConfigFileFullPath($runningScriptDirName);
+    $configFileFullPath = $self->_calcConfigFileFullPath();
     $appConfig = $self->_initializeConfig();
   }
 
@@ -52,12 +52,14 @@ class My::Config 2.0 {
   # Private instance methods
   #
 
-  method _calcConfigFileFullPath($runningScriptDirName) {
-    $configFileFullPath = File::Spec->catfile(
-                                              $runningScriptDirName,
-                                              CONFIG_DIRECTORY,
-                                              CONFIG_FILENAME
-                                             );
+  method _calcConfigFileFullPath() {
+    $configFileFullPath =
+      File::Spec->catfile(
+                          $FindBin::Bin,
+                          '..',
+                          CONFIG_DIRECTORY,
+                          CONFIG_FILENAME
+                         );
   }
 
   method _initializeConfig() {

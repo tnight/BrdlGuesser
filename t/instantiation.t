@@ -19,7 +19,7 @@ my $brdlGuesser = TestHelper->setup();
 
 # Assert that we successfully instantiated the app.
 ok(defined($brdlGuesser));
-ok($brdlGuesser->isa('BrdlGuesser'));
+ok($brdlGuesser->isa('App::BrdlGuesser'));
 
 # Run the application.
 my $result = test_app($brdlGuesser => []);

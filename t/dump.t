@@ -15,7 +15,7 @@ use Test::More tests => 5;  # The number of tests we will run in this file.
 use App::Cmd::Tester;
 
 # Gain access to our application module.
-use BrdlGuesser;
+use App::BrdlGuesser;
 
 # Instantiate our application instance.
 my $brdlGuesser = TestHelper->setup();

@@ -5,18 +5,18 @@ use strict;
 use warnings;
 
 # Make sure we can find our local module(s).
-use File::Basename;
-use lib dirname(__FILE__);
+use FindBin;
+use lib "$FindBin::Bin/../lib";
 
 # Gain access to our application module.
-use BrdlGuesser;
+use App::BrdlGuesser;
 
 # Gain access to our logging module. The default level is WARN.
 use Log::Any::App '$log';
 
 # Set the option that causes the version command to be shown as part of
 # the help message.
-my $brdlGuesser = BrdlGuesser->new({ 'show_version_cmd' => 1 });
+my $brdlGuesser = App::BrdlGuesser->new({ 'show_version_cmd' => 1 });
 
 # Run the application and return the result to our caller.
 exit($brdlGuesser->run());
