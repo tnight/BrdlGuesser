@@ -3,9 +3,6 @@ package BrdlGuesser;
 use strict;
 use warnings;
 use App::Cmd::Setup -app;
-use File::Basename;
-use File::Spec;
-use FindBin;
 
 # Expose our application version for use by the "version" command.
 use constant VERSION => 1.06;
