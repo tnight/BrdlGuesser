@@ -6,7 +6,7 @@
 # More information about Corinna can be found here:
 # https://dev.to/ovid/bringing-modern-oo-to-perl-51ak
 
-package BrdlGuesser::Command;
+package App::BrdlGuesser::Command;
 
 # Do our best to find errors as early as possible.
 use strict;

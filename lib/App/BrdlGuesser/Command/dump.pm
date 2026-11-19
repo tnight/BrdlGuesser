@@ -1,9 +1,9 @@
-package BrdlGuesser::Command::dump;
+package App::BrdlGuesser::Command::dump;
 
 # Gain access to all the pragmas and modules we'll need.
 use strict;
 use warnings;
-use BrdlGuesser -command;
+use App::BrdlGuesser -command;
 
 # Define our usage message as a constant.
 use constant USAGE_DESCRIPTION => <<END;

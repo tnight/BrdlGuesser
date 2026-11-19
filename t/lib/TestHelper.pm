@@ -9,11 +9,11 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 
 # Gain access to our application module.
-use BrdlGuesser;
+use App::BrdlGuesser;
 
 sub setup() {
   # Instantiate our application instance.
-  my $brdlGuesser = BrdlGuesser->new({'show_version_cmd' => 1});
+  my $brdlGuesser = App::BrdlGuesser->new({'show_version_cmd' => 1});
 
   # Return the object under test.
   return $brdlGuesser;

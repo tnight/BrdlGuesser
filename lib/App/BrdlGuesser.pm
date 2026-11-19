@@ -1,4 +1,4 @@
-package BrdlGuesser;
+package App::BrdlGuesser;
 
 use strict;
 use warnings;
