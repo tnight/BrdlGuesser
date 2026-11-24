@@ -1,9 +1,9 @@
-package BrdlGuesser::Command::search;
+package App::BrdlGuesser::Command::search;
 
 # Gain access to all the pragmas and modules we'll need.
 use strict;
 use warnings;
-use BrdlGuesser -command;
+use App::BrdlGuesser -command;
 use Try::Tiny;
 
 # Define our usage message as a constant.
@@ -83,7 +83,7 @@ sub validate_args($$$) {
   $self->usage_error("Search pattern [$pattern] does not have exactly four characters")
     if (
         defined($opt->pattern) &&
-        length($opt->pattern) != BrdlGuesser::Command::PUZZLE_WIDTH
+        length($opt->pattern) != App::BrdlGuesser::Command::PUZZLE_WIDTH
        );
 
   # Validate that the search pattern contains no invalid characters.
@@ -339,14 +339,14 @@ sub _convertInclusionListOptionToHash($$) {
       if (! $slots);
 
     # Validate that the slots are numeric and in the correct numeric range.
-    my $slotsRegexString = '[^1-' . BrdlGuesser::Command::PUZZLE_WIDTH . ']';
+    my $slotsRegexString = '[^1-' . App::BrdlGuesser::Command::PUZZLE_WIDTH . ']';
     my $slotsRegex = qr/$slotsRegexString/;
     die(
         {
          errorCode    => 'InvalidSlots001',
          errorContext => { element => $string },
          errorMessage => 'One or more invalid slots were found for letter. Only numbers from 1-'
-         . BrdlGuesser::Command::PUZZLE_WIDTH
+         . App::BrdlGuesser::Command::PUZZLE_WIDTH
          . ' are allowed in '
         }
        )
@@ -366,7 +366,7 @@ sub _convertInclusionListOptionToHash($$) {
 
     if (! defined($maxCount)) {
       # No maximum count was specified, so set the maximum count to the default value.
-      $maxCount = BrdlGuesser::Command::PUZZLE_WIDTH;
+      $maxCount = App::BrdlGuesser::Command::PUZZLE_WIDTH;
     }
     
     # Validate that maximum count is within the range 1 through the
@@ -376,11 +376,11 @@ sub _convertInclusionListOptionToHash($$) {
          errorCode    => 'InvalidCount001',
          errorContext => { element => $string },
          errorMessage => 'Invalid maximum count found for letter. Only values in the range 1-'
-         . BrdlGuesser::Command::PUZZLE_WIDTH
+         . App::BrdlGuesser::Command::PUZZLE_WIDTH
          . ' are allowed in '
         }
        )
-      if ($maxCount != int($maxCount) || $maxCount < 1 || $maxCount > BrdlGuesser::Command::PUZZLE_WIDTH);
+      if ($maxCount != int($maxCount) || $maxCount < 1 || $maxCount > App::BrdlGuesser::Command::PUZZLE_WIDTH);
 
     if (! defined($minCount)) {
       # No minimum count was specified, so set the minimum count to the default value.
